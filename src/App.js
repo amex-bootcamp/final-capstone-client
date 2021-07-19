@@ -1,9 +1,11 @@
-
 function App() {
   return (
-    <div className="">
-      
-    </div>
+    <>
+      <header>
+        <h1>Dronology</h1>
+        <nav></nav>
+      </header>
+    </>
   );
 }
 
