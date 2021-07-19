@@ -10,29 +10,44 @@
 
 - `npm run fakeapi`
 
+Test the fakeapi at `http://localhost:3004/api/addresses`
+
 ### 3. Start the application in local browser
 
 - `npm start`
+
+Incase your application doesn't open in browser, you can find the application at `http://localhost:3000`
 
 ## STYLE GUIDE
 
 ### Logo
 
-![logo image](/public/images/logo.png)
+![logo image](./public/images/logo.png)
 
 This logo as well as a smaller version is available in the public folder
 
 ### Color Palette
 
+Please use colors only from the colors designated below:
+
 https://coolors.co/e63946-f1faee-a8dadc-457b9d-1d3557
 
-Click on the link above to see our color palette, if the link is not available here are the color codes \
+Click on the link above to see our color palette, if the link is not available here are the color codes
 
-![#e63946](https://via.placeholder.com/100/e63946/000000?text=+) `#e63946`
-![#f1faee](https://via.placeholder.com/100/f1faee/000000?text=+) `#f1faee`
-![#a8dadc](https://via.placeholder.com/100/a8dadc/000000?text=+) `#a8dadc`
-![#457b9d](https://via.placeholder.com/100/457b9d/000000?text=+) `#457b9d`
-![#1d3557](https://via.placeholder.com/100/1d3557/000000?text=+) `#1d3557`
+![#e63946](https://via.placeholder.com/100/e63946/000000?text=+)
+`#e63946`
+
+![#f1faee](https://via.placeholder.com/100/f1faee/000000?text=+)
+`#f1faee`
+
+![#a8dadc](https://via.placeholder.com/100/a8dadc/000000?text=+)
+`#a8dadc`
+
+![#457b9d](https://via.placeholder.com/100/457b9d/000000?text=+)
+`#457b9d`
+
+![#1d3557](https://via.placeholder.com/100/1d3557/000000?text=+)
+`#1d3557`
 
 ### Font
 
@@ -48,6 +63,6 @@ Include this css rule to specify font-family:
 
 ### Icons
 
-[insert icons here as we find]
+Only use icons from the link below:
 
-[References](https://icons.getbootstrap.com/)
+[Bootstrap Icons](https://icons.getbootstrap.com/)
