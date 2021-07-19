@@ -1,0 +1,44 @@
+{
+  "addresses": [
+    {
+      "id": 1,
+      "address_line_1": "06 Memorial Junction",
+      "address_line_2": "628",
+      "city": "Bedadung Kulon",
+      "state": "CA",
+      "zip": 18803
+    },
+    {
+      "id": 2,
+      "address_line_1": "471 Basil Avenue",
+      "address_line_2": "69084",
+      "city": "Shijie",
+      "state": "OH",
+      "zip": 75070
+    },
+    {
+      "id": 3,
+      "address_line_1": "3722 Toban Parkway",
+      "address_line_2": "422",
+      "city": "Plymouth",
+      "state": "NY",
+      "zip": 58317
+    },
+    {
+      "id": 4,
+      "address_line_1": "6391 Linden Junction",
+      "address_line_2": "3711",
+      "city": "Głogówek",
+      "state": "NJ",
+      "zip": 10349
+    },
+    {
+      "id": 5,
+      "address_line_1": "36 Cottonwood Parkway",
+      "address_line_2": "71",
+      "city": "Weitang",
+      "state": "WA",
+      "zip": 42744
+    }
+  ]
+}
