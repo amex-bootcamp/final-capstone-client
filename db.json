@@ -6,7 +6,7 @@
       "address_line_2": "628",
       "city": "Bedadung Kulon",
       "state": "CA",
-      "zip": 18803
+      "zip": "18803"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "address_line_2": "69084",
       "city": "Shijie",
       "state": "OH",
-      "zip": 75070
+      "zip": "75070"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "address_line_2": "422",
       "city": "Plymouth",
       "state": "NY",
-      "zip": 58317
+      "zip": "58317"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "address_line_2": "3711",
       "city": "Głogówek",
       "state": "NJ",
-      "zip": 10349
+      "zip": "10349"
     },
     {
       "id": 5,
@@ -38,7 +38,55 @@
       "address_line_2": "71",
       "city": "Weitang",
       "state": "WA",
-      "zip": 42744
+      "zip": "42744"
+    },
+    {
+      "id": 6,
+      "address_line_1": "997 Stang Junction",
+      "address_line_2": "466",
+      "city": "New Bedford",
+      "state": "MA",
+      "zip": "02745"
+    },
+    {
+      "id": 7,
+      "address_line_1": "067 Westridge Alley",
+      "address_line_2": "7",
+      "city": "Phoenix",
+      "state": "AZ",
+      "zip": "85067"
+    },
+    {
+      "id": 8,
+      "address_line_1": "3279 Vahlen Hill",
+      "address_line_2": "03",
+      "city": "Lees Summit",
+      "state": "MO",
+      "zip": "64082"
+    },
+    {
+      "id": 9,
+      "address_line_1": "971 Vidon Park",
+      "address_line_2": "185",
+      "city": "Everett",
+      "state": "WA",
+      "zip": "98206"
+    },
+    {
+      "id": 10,
+      "address_line_1": "654 Bluestem Way",
+      "address_line_2": "366",
+      "city": "Roanoke",
+      "state": "VA",
+      "zip": "24014"
+    },
+    {
+      "id": 11,
+      "address_line_1": "8 Butternut Crossing",
+      "address_line_2": "80798",
+      "city": "Houston",
+      "state": "TX",
+      "zip": "77035"
     }
   ]
 }

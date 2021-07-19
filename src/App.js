@@ -1,5 +1,6 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
+import AddressesList from "./components/addresses/AddressesList";
 
 function App() {
   return (
@@ -9,7 +10,11 @@ function App() {
       </header>
       <Navigation />
       <main>
-        <Switch></Switch>
+        <Switch>
+          <Route exact path="/addresses">
+            <AddressesList />
+          </Route>
+        </Switch>
       </main>
     </>
   );
