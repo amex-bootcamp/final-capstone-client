@@ -7,11 +7,11 @@ on: #on this command it will trigger the workflow
 
 env: #specifies the environment for the workflow
   NODE_VERSION: "14.x"
-  HEROKU_APP_NAME: ""
+  HEROKU_APP_NAME: "dronology"
 
 jobs:
-  build: #specifies what job we want to run
-    name: build #job name
+  build-and-deploy: #specifies what job we want to run
+    name: build-and-deploy #job name
     runs-on: ubuntu-latest #the OS we want it to run on
 
     steps:
@@ -33,3 +33,11 @@ jobs:
       - name: npm test
         run: |
           npm run test --if-present
+
+      - name: Add remote origin
+        run: |
+          git remote add heroku https://heroku:${{secrets.HEROKU_API_KEY}}@git.heroku.com/${{env.HEROKU_APP_NAME}}.git
+
+      - name: Deploy to Heroku
+        run: |
+          git push heroku HEAD:main -f
