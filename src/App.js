@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import AddressesList from "./components/addresses/AddressesList";
+import CustomerView from "./components/customers/CustomerView";
 
 function App() {
   return (
@@ -14,7 +15,11 @@ function App() {
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
+          <Route exact path="/CustomerView">
+            <CustomerView />
+          </Route>
         </Switch>
+        
       </main>
     </>
   );

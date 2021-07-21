@@ -21,6 +21,9 @@ class Navigation extends Component {
           <li>
             <Link to="/products">Products</Link>
           </li>
+          <li>
+            <Link to="/CustomerView"> Customer View</Link>
+          </li>
         </ul>
       </nav>
     );
