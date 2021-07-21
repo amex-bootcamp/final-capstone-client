@@ -7,8 +7,6 @@ const baseURL =
     ? "http://localhost:3004/api"
     : "https://amexcsrapi.azurewebsites.net/api";
 
-// const baseURL = "http://localhost:3004/api";
-
 const http = axios.create({
   baseURL,
   headers: {
