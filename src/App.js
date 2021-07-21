@@ -15,8 +15,6 @@ function App() {
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
-        </Switch>
-        <Switch>
           <Route exact path="/customers">
             <CustomersList />
           </Route>
