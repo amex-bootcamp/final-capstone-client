@@ -1,19 +1,11 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import customerDataService from "../../services/customer.data.service";
-=======
 import CustomerDataService from "../../services/customer.data.service";
->>>>>>> 0794894856ca2a6ba520d97ebcb0c351875ce248
 
 class CustomersList extends Component {
   state = {
     customers: [],
   };
 
-<<<<<<< HEAD
-  render() {
-    return <div></div>;
-=======
   componentDidMount() {
     CustomerDataService.list()
       .then(({ data: customers }) => this.setState({ customers }))
@@ -39,7 +31,6 @@ class CustomersList extends Component {
         <ol>{customerListItems}</ol>
       </section>
     );
->>>>>>> 0794894856ca2a6ba520d97ebcb0c351875ce248
   }
 }
 
