@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AddressCreate.css";
 
 class AddressCreate extends Component {
   render() {
@@ -6,26 +7,36 @@ class AddressCreate extends Component {
       <div>
         Create New Address
         <form>
-          <label>
-            <p>Address line 1</p>
-            <input address="address1" />
-          </label>
-          <label>
-            <p>Address line 2</p>
-            <input address="address2" />
-          </label>
-          <label>
-            <p>City</p>
-            <input city="city" />
-          </label>
-          <label>
-            <p>State</p>
-            <input city="state" />
-          </label>
-          <label>
-            <p>Zip</p>
-            <input zip="zip" />
-          </label>
+          <p>
+            Address line 1:{" "}
+            <label>
+              <input type="address_line_1" />
+            </label>{" "}
+          </p>
+          <p>
+            Address line 2:
+            <label>
+              <input type="address_line_2" />
+            </label>
+          </p>
+          <p>
+            City:
+            <label>
+              <input type="city" />
+            </label>
+          </p>
+          <p>
+            State:
+            <label>
+              <input type="state" />
+            </label>
+          </p>
+          <p>
+            Zip:
+            <label>
+              <input type="zip" />
+            </label>
+          </p>
         </form>
         <button>Submit</button>
       </div>
