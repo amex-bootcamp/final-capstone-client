@@ -4,6 +4,7 @@ import AddressesList from "./components/addresses/AddressesList";
 import CustomersList from "./components/customers/CustomersList";
 import ProductsList from "./components/products/ProductsList";
 
+
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
             <ProductsList />
           </Route>
         </Switch>
+        
       </main>
     </>
   );

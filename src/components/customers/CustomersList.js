@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import CustomerDataService from "../../services/customer.data.service";
-
 class CustomersList extends Component {
   state = {
     customers: [],
   };
-
   componentDidMount() {
     CustomerDataService.list()
       .then(({ data: customers }) => this.setState({ customers }))
       .catch(console.error);
   }
-
   render() {
     const { customers } = this.state;
     const customerListItems = customers.map((customer, index) => (
@@ -33,5 +30,4 @@ class CustomersList extends Component {
     );
   }
 }
-
 export default CustomersList;
