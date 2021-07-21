@@ -1,41 +1,44 @@
 import React, { Component } from "react";
 import { Card, Button, Container } from "react-bootstrap";
+import CustomerDataService from "../../services/customer.data.service";
 
 
 class CustomerView extends Component {
   state = {
-    firstName: JSON.parse(sessionStorage.getItem('firstName')),
-    middleName: JSON.parse(sessionStorage.getItem('middleName')),
-    lastName: JSON.parse(sessionStorage.getItem('lastName')),
-    address: JSON.parse(sessionStorage.getItem('address')),
-    phone: JSON.parse(sessionStorage.getItem('phone')),
-    email: JSON.parse(sessionStorage.getItem('email')),
-    notes: JSON.parse(sessionStorage.getItem('notes')),
-
-    
-    
+    customer: {},
+ 
   };
-  componentDidMount(){ 
-    let userToken = JSON.parse(sessionStorage.getItem('token'))
-    fetch(`${this.state.}`)
+  componentDidMount() { 
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
+
+    CustomerDataService.view(id)
+    .then(({ data: customer }) => this.setState({ customer }))
+    .catch(console.error);
 
   }
   render() {
-   
+   const { customer } = this.state;
+
     return (
+      
       <section>
-         <h2>CustomerView</h2>
+         <h2>Customer Details</h2>
     <div>
       <Card>
         <Card.Body>
           <Card.Text>
-      <p>First Name: </p>
-      <p>Middle Name:</p>
-      <p>Last Name:</p>
-      <p>Address:</p>
-      <p>Phone:</p>
-      <p>Email:</p>
-      <p>Notes:</p>
+      <p>First Name: {customer.first_name}</p>
+      <p>Middle Name:{customer.middle_name}</p>
+      <p>Last Name:{customer.last_name}</p>
+      <p>Address: {customer.address_id}</p>
+      <p>Phone: {customer.phone}</p>
+      <p>Email: {customer.email}</p>
+      <p>Notes: {customer.notes}</p>
+
       </Card.Text>
       </Card.Body>
       </Card>
