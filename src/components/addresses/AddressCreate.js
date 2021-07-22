@@ -13,7 +13,50 @@ class AddressCreate extends Component {
       zip: "",
     };
   }
-handleAddressChange = () => {}
+
+  handleAddressChange = (event) => {
+    this.setState({
+      address: event.target.value,
+    });
+  };
+
+  handleAddress2Change = (event) => {
+    this.setState({
+      address2: event.target.value,
+    });
+  };
+
+  handleCityChange = (event) => {
+    this.setState({
+      city: event.target.value,
+    });
+  };
+
+  handleStateChange = (event) => {
+    this.setState({
+      state: event.target.value,
+    });
+  };
+
+  handleZipChange = (event) => {
+    this.setState({
+      zip: event.target.value,
+    });
+  };
+
+  createAddress = (event) => {
+    event.preventDefault();
+    this.setState((currentState) => {
+      return {
+        address: "",
+        address2: "",
+        city: "",
+        state: "",
+        zip: "",
+      };
+    });
+  };
+
   render() {
     const formFont = {
       fontFamily: "Lato, sans-serif",
