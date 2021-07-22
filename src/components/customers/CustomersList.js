@@ -12,17 +12,6 @@ class CustomersList extends Component {
       .catch(console.error);
   }
 
-  deleteCustomer(id) {
-    CustomerDataService.delete(id).then((res) => {
-      console.log(res);
-      console.log(res.data);
-      const customers = this.state.customers.filter(
-        (customer) => customer.id !== id
-      );
-      this.setState({ customers });
-    });
-  }
-
   render() {
     const { customers } = this.state;
     const customerListItems = customers.map((customer, index) => (
@@ -34,9 +23,6 @@ class CustomersList extends Component {
         <p>Phone: {customer.phone}</p>
         <p>Email: {customer.email}</p>
         <p>Notes: {customer.notes}</p>
-        <button onClick={() => this.deleteCustomer(customer.id)}>Delete</button>
-        <br></br>
-        <br></br>
         <Link to={`customers/${customer.id}`}>View Details</Link>
       </li>
     ));

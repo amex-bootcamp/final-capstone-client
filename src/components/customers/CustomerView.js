@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Card, Button, Container } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 import CustomerDataService from "../../services/customer.data.service";
 
 class CustomerView extends Component {
   state = {
-    customer: {},
+    customer: [{ deleted: false }],
   };
   componentDidMount() {
     // const id = this.props.value.match.params.id
@@ -19,9 +20,23 @@ class CustomerView extends Component {
       .then(({ data: customer }) => this.setState({ customer }))
       .catch(console.error);
   }
+
+  deleteCustomer(id) {
+    CustomerDataService.delete(id).then((res) => {
+      console.log(res);
+      console.log(res.data);
+
+      // const customers = this.state.customer.filter(
+      //   (customer) => customer.id !== id
+      // );
+      this.setState({ deleted: true });
+    });
+  }
   render() {
     const { customer } = this.state;
-
+    if (this.state.deleted) {
+      return <Redirect to={{ pathname: "/customers" }} />;
+    }
     return (
       <section>
         <h2>Customer Details</h2>
@@ -29,6 +44,7 @@ class CustomerView extends Component {
           <Card>
             <Card.Body>
               <Card.Text>
+                <p>Customer ID: {customer.id}</p>
                 <p>First Name: {customer.first_name}</p>
                 <p>Middle Name:{customer.middle_name}</p>
                 <p>Last Name:{customer.last_name}</p>
@@ -40,7 +56,10 @@ class CustomerView extends Component {
             </Card.Body>
           </Card>
           <Button>Edit Customer</Button>
-          <Button>Delete Customer</Button>
+          {/* <Redirect to=/> */}
+          <Button onClick={() => this.deleteCustomer(customer.id)}>
+            Delete
+          </Button>
           <Card>
             <Card.Text>
               <h2>Order History</h2>
