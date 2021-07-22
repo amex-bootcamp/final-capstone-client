@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import CustomerDataService from "../../services/customer.data.service";
+import { Link } from "react-router-dom";
+
 class CustomersList extends Component {
   state = {
     customers: [],
@@ -32,9 +34,10 @@ class CustomersList extends Component {
         <p>Phone: {customer.phone}</p>
         <p>Email: {customer.email}</p>
         <p>Notes: {customer.notes}</p>
-        <button onClick={() => this.deleteCustomer(customer.id)}>
-          Delete
-        </button>
+        <button onClick={() => this.deleteCustomer(customer.id)}>Delete</button>
+        <br></br>
+        <br></br>
+        <Link to={`customers/${customer.id}`}>View Details</Link>
       </li>
     ));
     return (
