@@ -13,7 +13,7 @@ class AddressCreate extends Component {
       zip: "",
     };
   }
-
+handleAddressChange = () => {}
   render() {
     const formFont = {
       fontFamily: "Lato, sans-serif",
