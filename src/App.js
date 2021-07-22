@@ -3,6 +3,7 @@ import Navigation from "./components/Navigation/Navigation";
 import AddressesList from "./components/addresses/AddressesList";
 import CustomersList from "./components/customers/CustomersList";
 import ProductsList from "./components/products/ProductsList";
+import CustomerView from "./components/customers/CustomerView";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/products">
             <ProductsList />
           </Route>
+          <Route exact path="/customers/:id" component={CustomerView} />
         </Switch>
         
       </main>
