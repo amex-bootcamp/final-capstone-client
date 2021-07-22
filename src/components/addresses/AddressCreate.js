@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./AddressCreate.css";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Button} from "react-bootstrap";
 
 class AddressCreate extends Component {
   constructor(props) {
@@ -15,27 +15,49 @@ class AddressCreate extends Component {
     return (
       <div style={formFont}>
         <Container>
+
           <Row>
-            <Col>
+
+            <Col className={"pl-5 pr-5 p"}>
+                <div className={"text-center"}>
+                <h2>
+                   Create New Address
+                </h2>
+                </div>
               <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
+                <Form.Group className="mb-3" controlId="formGridAddress1">
+                  <Form.Label>Address</Form.Label>
+                  <Form.Control placeholder="1234 Main St" />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
+                <Form.Group className="mb-3" controlId="formGridAddress2">
+                  <Form.Label>Address 2</Form.Label>
+                  <Form.Control placeholder="Apartment, studio, or floor" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
+
+
+                  <Row className="mb-3">
+                      <Form.Group as={Col} controlId="formGridCity">
+                          <Form.Label>City</Form.Label>
+                          <Form.Control placeholder="New York City" />
+                      </Form.Group>
+
+                      <Form.Group as={Col} controlId="formGridState">
+                          <Form.Label>State</Form.Label>
+                          <Form.Control placeholder="New York"/>
+                      </Form.Group>
+
+                      <Form.Group as={Col} controlId="formGridZip">
+                          <Form.Label>Zip</Form.Label>
+                          <Form.Control placeholder="12345"/>
+                      </Form.Group>
+                  </Row>
+
+                  <div className={"text-center"}>
+                <Button variant="primary" size="lg" type="submit">
                   Submit
                 </Button>
+                  </div>
               </Form>
             </Col>
           </Row>
