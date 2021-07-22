@@ -3,30 +3,59 @@ import CustomerDataService from "../../services/customer.data.service";
 
 class CustomerEdit extends Component {
   state = {
-    customers: [,
+    customer: {},
   }
+  // componentDidMount() { 
+  //   // const {
+  //   //   match: {
+  //   //     params: { id },
+  //   //   },
+  //   // } = this.props;
 
-  componentDidMount() {
-    CustomerDataService.list ()
-      .then(({data: customers}) => this.setState({customers}))
-      .catch(console.error);
-  }
+  //   CustomerDataService.view(id)
+  //   .then(({ data: customer }) => this.setState({ customer }))
+  //   .catch(console.error);
+  // }
+  // handleNameChange = (event) => {
+  //   this.setState({
+  //     name: event.target.value,
+  //   });
+  // };
 
   render() {
     return (
-      const {customers} = this.state;
-      const customerListItems = customers.map((customer, index) => (
-        <li key={`${customer.id}-${index}`}>
-          <p>First Name: {customers.first_name}</p>
-          <p>Middle Name: {customers.middle_name}</p>
-          <p>Last Name: {customers.last_name}</p>
-          <p>Phone: {customers.phone}</p>
-          <p>Email: {customers.email}</p>
-          <p>Notes: {customers.notes}</p>
-        </li>
-      ))
+      <section>
+         <h2>Edit Customer</h2>
+    <div>
+      <form>
+        <label>First Name:</label>
+        <input type="text" onChange={this.handleNameChange}></input>
+        <br></br>
+        <label>Middle Name:</label>
+        <input type="text"></input>
+        <br></br>
+        <label>Last Name:</label>
+        <input type="text"></input>
+        <br></br>
+        <label>Address:</label>
+        <input type="text"></input>
+        <br></br>
+        <label>Phone:</label>
+        <input type="text"></input>
+        <br></br>
+        <label>Email:</label>
+        <input type="text"></input>
+        <br></br>
+        <label>Notes:</label>
+        <input type="text"></input>
+        <br></br>        
+      </form>
+      <button type="submit">Save Changes</button>
+    </div> 
+      </section>
     );
   }
 }
 
 export default CustomerEdit;
+
