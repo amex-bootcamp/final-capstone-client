@@ -6,14 +6,11 @@
 
 - `npm install`
 
-### 2. Start backend (on a separate terminal)
+### 2. Start FAKEAPI
 
-- If using fakeapi (from the front end repo), make sure in that in the `utils/http-common.js` the baseURL is set as `http://localhost:3004/api` then run (on a separate terminal):
-  - `npm run fakeapi`
+- `npm run fakeapi`
 
 Test the fakeapi at `http://localhost:3004/api/addresses`
-
-- If using backend repo make sure that `utils/http-common.js` the baseURL is set as `http://localhost:8080/api` and follow instructions on the backend repo
 
 ### 3. Start the application in local browser
 
