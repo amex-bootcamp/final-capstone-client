@@ -3,8 +3,8 @@ import Navigation from "./components/Navigation/Navigation";
 import AddressesList from "./components/addresses/AddressesList";
 import CustomersList from "./components/customers/CustomersList";
 import ProductsList from "./components/products/ProductsList";
+import CustomerView from "./components/customers/CustomerView";
 import CustomerEdit from "./components/customers/CustomerEdit";
-
 function App() {
   return (
     <>
@@ -20,16 +20,14 @@ function App() {
           <Route exact path="/customers">
             <CustomersList />
           </Route>
-          <Route exact path="/customer-edit">
-            <CustomerEdit />
-          </Route>
           <Route exact path="/products">
             <ProductsList />
           </Route>
+          <Route exact path="/customers/:id" component={CustomerView} />
+          <Route exact path="/customers/:id/edit" component={CustomerEdit} />
         </Switch>
       </main>
     </>
   );
 }
-
 export default App;

@@ -20,6 +20,10 @@ class CustomerView extends Component {
     .catch(console.error);
 
   }
+  handleEditClick() {
+    
+  }
+
   render() {
    const { customer } = this.state;
 
@@ -42,7 +46,7 @@ class CustomerView extends Component {
       </Card.Text>
       </Card.Body>
       </Card>
-      <Button>Edit Customer</Button>
+      <Button onClick={this.handleEditClick}>Edit Customer</Button>
       <Button>Delete Customer</Button>
       <Card>
         <Card.Text>
