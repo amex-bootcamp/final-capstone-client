@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import AddressesList from "./components/addresses/AddressesList";
+import CustomerCreate from "./components/customers/CustomerCreate";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
         <Switch>
           <Route exact path="/addresses">
             <AddressesList />
+          </Route>
+          <Route exact path="/customers/new">
+            <CustomerCreate />
           </Route>
         </Switch>
       </main>
