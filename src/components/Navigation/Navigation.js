@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown, Image } from "react-bootstrap";
 
 class Navigation extends Component {
   render() {
@@ -26,7 +26,24 @@ class Navigation extends Component {
       // </nav>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="/">Dronology</Navbar.Brand>
+          {/* <Navbar.Brand href="/">
+            {" "}
+            <Image
+              src={process.env.PUBLIC_URL + "/images/logo.png"}
+              alt="logo"
+            />
+          </Navbar.Brand> */}
+          <Container>
+            <Navbar.Brand href="/">
+              <img
+                src={process.env.PUBLIC_URL + "/images/logo.png"}
+                width="500"
+                height="100"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+              />
+            </Navbar.Brand>
+          </Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
