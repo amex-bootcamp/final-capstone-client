@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import "./AddressCreate.css";
-import {Container, Row, Col, Form, Button} from 'react-bootstrap'
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 class AddressCreate extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
 
   render() {
+    const formFont = {
+      fontFamily: "Lato, sans-serif",
+    };
     return (
-      <div>
+      <div style={formFont}>
         <Container>
           <Row>
             <Col>
@@ -75,7 +76,6 @@ class AddressCreate extends Component {
         {/*</form>*/}
         {/*<button>Submit</button>*/}
         {/*TATYANA FORM: USE FOR LATER*/}
-
       </div>
     );
   }
