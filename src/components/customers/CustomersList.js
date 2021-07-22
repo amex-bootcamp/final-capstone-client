@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import CustomerDataService from "../../services/customer.data.service";
-
 class CustomersList extends Component {
   state = {
     customers: [],
   };
-
   componentDidMount() {
     CustomerDataService.list()
       .then(({ data: customers }) => this.setState({ customers }))
@@ -47,5 +45,4 @@ class CustomersList extends Component {
     );
   }
 }
-
 export default CustomersList;
