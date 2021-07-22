@@ -2,7 +2,10 @@ import http from "../utils/http-common";
 
 class CustomerDataService {
   list() {
-    return http.get("/customers");
+    return http.get(`/customers`);
+  }
+  listByCount(count) {
+    return http.get(`/customers?count=${count}`);
   }
   // view a specific customerby id
   view(id) {
