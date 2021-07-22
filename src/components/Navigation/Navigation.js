@@ -16,6 +16,9 @@ class Navigation extends Component {
             <Link to="/customers">Customers</Link>
           </li>
           <li>
+            <Link to="/customers/new">Create Customer</Link>
+          </li>
+          <li>
             <Link to="/orders">Orders</Link>
           </li>
           <li>
