@@ -5,19 +5,13 @@ import CustomerDataService from "../../services/customer.data.service";
 function CustomersList() {
   const [customers, setCustomer] = useState([]);
   const [customerLoad, setCustomerLoad] = useState(10);
-  // const [arrayLength, setLength] = useState(1);
-
-  // useEffect(() => {
-  //   CustomerDataService.list()
-  //     .then(({ data: { count: arrayLength } }) => setLength(arrayLength))
-  //     .catch(console.error);
-  // }, []);
+  const [totalCustomerCount, setTotalCustomerCount] = useState(1);
 
   useEffect(() => {
     CustomerDataService.listByCount(customerLoad)
-      .then(({ data: { rows: customers } }) => {
-        console.log(customers);
+      .then(({ data: { rows: customers, count: totalCustomerCount } }) => {
         setCustomer(customers);
+        setTotalCustomerCount(totalCustomerCount);
       })
       .catch(console.error);
   }, []);
@@ -61,7 +55,7 @@ function CustomersList() {
       </form>
       <ol>{customerListItems}</ol>
       <Pagination
-        count={Math.ceil(customers.length / customerLoad)}
+        count={Math.ceil(totalCustomerCount / customerLoad)}
         variant="outlined"
         color="primary"
       />
