@@ -4,7 +4,7 @@ import AddressesList from "./components/addresses/AddressesList";
 import CustomersList from "./components/customers/CustomersList";
 import ProductsList from "./components/products/ProductsList";
 import CustomerView from "./components/customers/CustomerView";
-
+import AddressEdit from "./components/addresses/AddressEdit";
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
+          <Route exact path="/addresses/:id/edit" component={AddressEdit} />
           <Route exact path="/customers">
             <CustomersList />
           </Route>
@@ -26,7 +27,6 @@ function App() {
           </Route>
           <Route exact path="/customers/:id" component={CustomerView} />
         </Switch>
-        
       </main>
     </>
   );
