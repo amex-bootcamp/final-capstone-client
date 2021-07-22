@@ -34,6 +34,7 @@ function App() {
           <Route exact path="/products">
             <ProductsList />
           </Route>
+          <Route exact path="/customers/:id" component={CustomerView} />
         </Switch>
       </main>
     </>

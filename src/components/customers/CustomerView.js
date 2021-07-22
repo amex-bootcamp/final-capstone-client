@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+
 import { Card, Button, Container } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
+
 import CustomerDataService from "../../services/customer.data.service";
 
 class CustomerView extends Component {
