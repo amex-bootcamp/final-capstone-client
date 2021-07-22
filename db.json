@@ -91,16 +91,6 @@
   ],
   "customers": [
     {
-      "id": 9,
-      "first_name": "Oralia",
-      "middle_name": "Olivia",
-      "last_name": "Wormald",
-      "phone": "395-726-0867",
-      "email": "owormald8@salon.com",
-      "notes": "tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa",
-      "address_id": 9
-    },
-    {
       "id": 10,
       "first_name": "Illa",
       "middle_name": "Doria",

@@ -23,6 +23,7 @@ class CustomersList extends Component {
         <p>Phone: {customer.phone}</p>
         <p>Email: {customer.email}</p>
         <p>Notes: {customer.notes}</p>
+        <p>Address ID: {customer.address_id}</p>
         <Link to={`customers/${customer.id}`}>View Details</Link>
       </li>
     ));
