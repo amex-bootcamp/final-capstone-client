@@ -10,7 +10,7 @@ class CustomersList extends Component {
       .catch(console.error);
   }
 
-  deleteCustomer(id, e) {
+  deleteCustomer(id) {
     CustomerDataService.delete(id).then((res) => {
       console.log(res);
       console.log(res.data);
@@ -32,7 +32,7 @@ class CustomersList extends Component {
         <p>Phone: {customer.phone}</p>
         <p>Email: {customer.email}</p>
         <p>Notes: {customer.notes}</p>
-        <button onClick={(e) => this.deleteCustomer(customer.id, e)}>
+        <button onClick={() => this.deleteCustomer(customer.id)}>
           Delete
         </button>
       </li>
