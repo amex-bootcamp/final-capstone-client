@@ -1,11 +1,11 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import AddressesList from "./components/addresses/AddressesList";
+import CustomerCreate from "./components/customers/CustomerCreate";
 import CustomersList from "./components/customers/CustomersList";
 import ProductsList from "./components/products/ProductsList";
 import CustomerView from "./components/customers/CustomerView";
 import AddressCreate from "./components/addresses/AddressCreate";
-import CustomerCreate from "./components/customers/CustomerCreate";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard/Dashboard";

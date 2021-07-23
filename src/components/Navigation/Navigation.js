@@ -6,8 +6,6 @@ class Navigation extends Component {
   render() {
     return (
  
-
-      
       <Navbar bg="light" expand="lg">
         <Container>
           {/* <Navbar.Brand href="/">
