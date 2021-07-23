@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Pagination } from "@material-ui/lab";
 import CustomerDataService from "../../services/customer.data.service";
+import { Link } from "react-router-dom";
 
 function CustomersList() {
   const [customers, setCustomer] = useState([]);
@@ -86,5 +87,4 @@ function CustomersList() {
     </section>
   );
 }
-
 export default CustomersList;
