@@ -161,42 +161,6 @@ class AddressCreate extends Component {
             </Col>
           </Row>
         </Container>
-        {/*TATYANA FORM: USE FOR LATER*/}
-        {/*Create New Address*/}
-        {/*<form>*/}
-        {/*  <p>*/}
-        {/*    Address line 1:{" "}*/}
-        {/*    <label>*/}
-        {/*      <input type="address_line_1" />*/}
-        {/*    </label>{" "}*/}
-        {/*  </p>*/}
-        {/*  <p>*/}
-        {/*    Address line 2:*/}
-        {/*    <label>*/}
-        {/*      <input type="address_line_2" />*/}
-        {/*    </label>*/}
-        {/*  </p>*/}
-        {/*  <p>*/}
-        {/*    City:*/}
-        {/*    <label>*/}
-        {/*      <input type="city" />*/}
-        {/*    </label>*/}
-        {/*  </p>*/}
-        {/*  <p>*/}
-        {/*    State:*/}
-        {/*    <label>*/}
-        {/*      <input type="state" />*/}
-        {/*    </label>*/}
-        {/*  </p>*/}
-        {/*  <p>*/}
-        {/*    Zip:*/}
-        {/*    <label>*/}
-        {/*      <input type="zip" />*/}
-        {/*    </label>*/}
-        {/*  </p>*/}
-        {/*</form>*/}
-        {/*<button>Submit</button>*/}
-        {/*TATYANA FORM: USE FOR LATER*/}
       </div>
     );
   }
