@@ -40,6 +40,16 @@ class AddressesList extends Component {
         <Button type="radio" variant="primary" onClick={this.handleShow}>
           Delete
         </Button>
+       
+      </li>
+    ));
+
+    return (
+      <section>
+        <h2>Addresses</h2>
+        <ol>
+          {addressListItems}
+        </ol>
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
@@ -56,16 +66,6 @@ class AddressesList extends Component {
             </Button>
           </Modal.Footer>
         </Modal>
-      </li>
-    ));
-
-    return (
-      <section>
-        <h2>Addresses</h2>
-        <ol>
-          {addressListItems}
-
-        </ol>
       </section>
     );
   }
