@@ -1,48 +1,92 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import { Pagination } from "@material-ui/lab";
 import CustomerDataService from "../../services/customer.data.service";
-class CustomersList extends Component {
-  state = {
-    customers: [],
-  };
-  componentDidMount() {
-    CustomerDataService.list()
-      .then(({ data: customers }) => this.setState({ customers }))
+import { Link } from "react-router-dom";
+
+function CustomersList() {
+  const [customers, setCustomer] = useState([]);
+  const [customerLoad, setCustomerLoad] = useState(10);
+  const [totalCustomerCount, setTotalCustomerCount] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  // let countPerPage = customerLoad;
+
+  useEffect(() => {
+    CustomerDataService.listByCount(customerLoad, currentPage)
+      .then(({ data: { rows: customers, count: totalCustomerCount } }) => {
+        setCustomer(customers);
+        setTotalCustomerCount(totalCustomerCount);
+      })
       .catch(console.error);
-  }
+  }, []);
 
-  deleteCustomer(id) {
-    CustomerDataService.delete(id).then((res) => {
-      console.log(res);
-      console.log(res.data);
-      const customers = this.state.customers.filter(
-        (customer) => customer.id !== id
-      );
-      this.setState({ customers });
-    });
-  }
+  useEffect(() => {
+    CustomerDataService.listByCount(customerLoad, currentPage)
+      .then(({ data: { rows: customers } }) => {
+        setCustomer(customers);
+      })
+      .catch(console.error);
+  }, [currentPage]);
 
-  render() {
-    const { customers } = this.state;
-    const customerListItems = customers.map((customer, index) => (
-      <li key={`${customer.phone}-${index}`}>
-        <p>Customer ID: {customer.id}</p>
-        <p>First Name: {customer.first_name}</p>
-        <p>Middle Name: {customer.middle_name}</p>
-        <p>Last Name: {customer.last_name}</p>
-        <p>Phone: {customer.phone}</p>
-        <p>Email: {customer.email}</p>
-        <p>Notes: {customer.notes}</p>
-        <button onClick={() => this.deleteCustomer(customer.id)}>
-          Delete
-        </button>
-      </li>
-    ));
-    return (
-      <section>
-        <h2>Customers</h2>
-        <ol>{customerListItems}</ol>
-      </section>
-    );
-  }
+  // something in here needs to be changed in order to save the data dynamically
+  const customerListItems = customers.map((customer, index) => (
+    <li key={`${customer.phone}-${index}`}>
+      <p>Customer ID: {customer.id}</p>
+      <p>First Name: {customer.first_name}</p>
+      <p>Middle Name: {customer.middle_name.toUpperCase()}</p>
+      <p>Last Name: {customer.last_name}</p>
+      <p>Phone: {customer.phone}</p>
+      <p>Email: {customer.email}</p>
+      <p>Notes: {customer.notes}</p>
+      <p>Address ID: {customer.address_id}</p>
+      <Link to={`customers/${customer.id}`}>View Details</Link>
+    </li>
+  ));
+  const handleClick = (event) => {
+    setCustomerLoad(event.target.value);
+    CustomerDataService.listByCount(customerLoad, currentPage)
+      .then(({ data: { rows: customers } }) => {
+        setCustomer(customers);
+      })
+      .catch(console.error);
+  };
+  const handlePaginationClick = (event, value) => {
+    setCurrentPage(value);
+  };
+  return (
+    <section>
+      <h2>Customers</h2>
+      <form onClick={handleClick}>
+        <h3>
+          Display:{" "}
+          <select
+            type="number"
+            name="totalCustomer"
+            value={customerLoad}
+            onChange={(event) => setCustomerLoad(event.target.value)}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>{" "}
+          Customers on the Page
+        </h3>
+      </form>
+      <ol>{customerListItems}</ol>
+      <Pagination
+        page={currentPage}
+        count={Math.floor(totalCustomerCount / customerLoad)}
+        variant="outlined"
+        color="primary"
+        onChange={handlePaginationClick}
+      />
+    </section>
+  );
 }
 export default CustomersList;
