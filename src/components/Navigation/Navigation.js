@@ -30,12 +30,16 @@ class Navigation extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <NavDropdown title="Addresses" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/addresses/addressesView">
+                  View Address By Id
+                </NavDropdown.Item>
                 <NavDropdown.Item href="/addresses">
                   View All Addresses
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/addresses/new">
                   Create New Address
                 </NavDropdown.Item>
+
               </NavDropdown>
 
               <NavDropdown title="Customers" id="basic-nav-dropdown">
