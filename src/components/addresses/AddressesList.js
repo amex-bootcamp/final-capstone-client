@@ -19,6 +19,8 @@ class AddressesList extends Component {
   handleShow = () => this.setShow();
 
 
+
+
   componentDidMount() {
     AddressDataService.list()
       .then(({ data: addresses }) => this.setState({ addresses }))
@@ -35,15 +37,7 @@ class AddressesList extends Component {
         <p>City: {address.city}</p>
         <p>State {address.state}</p>
         <p>Zip: {address.zip}</p>
-      </li>
-    ));
-
-    return (
-      <section>
-        <h2>Addresses</h2>
-        <ol>
-          {addressListItems}
-          <Button variant="primary" onClick={this.handleShow}>
+        <Button type="radio" variant="primary" onClick={this.handleShow}>
           Delete
         </Button>
         <Modal show={this.state.show} onHide={this.handleClose}>
@@ -54,14 +48,23 @@ class AddressesList extends Component {
           </Modal.Header>
           <Modal.Body>Your address has been deleted</Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
+            <Button type="radio" variant="secondary" onClick={this.handleClose}>
               Cancel
             </Button>
-            <Button variant="primary" onClick={this.handleClose}>
+            <Button type="radio" variant="primary" onClick={this.handleClose}>
               Confirm
             </Button>
           </Modal.Footer>
         </Modal>
+      </li>
+    ));
+
+    return (
+      <section>
+        <h2>Addresses</h2>
+        <ol>
+          {addressListItems}
+
         </ol>
       </section>
     );
