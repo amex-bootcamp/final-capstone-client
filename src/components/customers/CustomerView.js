@@ -45,32 +45,6 @@ class CustomerView extends Component {
     }
     return (
       <section>
-<<<<<<< HEAD
-         <h2>Customer Details</h2>
-    <div>
-      <Card>
-        <Card.Body>
-          <Card.Text>
-      <p>First Name: {customer.first_name}</p>
-      <p>Middle Name:{customer.middle_name}</p>
-      <p>Last Name:{customer.last_name}</p>
-      <p>Address: {customer.address_id}</p>
-      <p>Phone: {customer.phone}</p>
-      <p>Email: {customer.email}</p>
-      <p>Notes: {customer.notes}</p>
-
-      </Card.Text>
-      </Card.Body>
-      </Card>
-      <Button onClick={this.handleEditClick}>Edit Customer</Button>
-      <Button>Delete Customer</Button>
-      <Card>
-        <Card.Text>
-          <h2>Order History</h2>
-        </Card.Text>
-      </Card>
-    </div> 
-=======
         <h2>Customer Details</h2>
         <div>
           <Card>
@@ -98,7 +72,6 @@ class CustomerView extends Component {
             </Card.Text>
           </Card>
         </div>
->>>>>>> 547fc2d1c7b2de41d65da5af607b139fe4a88f1e
       </section>
     );
   }
