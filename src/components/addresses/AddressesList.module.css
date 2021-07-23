@@ -1,27 +1,32 @@
 .card {
-    color: #f1faee; 
-    border: 4px solid #457b9d ;
-    background-color: #1d3557 ;
-    text-align: center ;
-    font-weight: bold ;
-    height:auto ;
-    width: auto ;
-    flex:auto ;
+    color: #f1faee;
+    border: 4px solid #457b9d;
+    background-color: #1d3557;
+    text-align: center;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    flex: auto;
     padding: 10px 0px;
     margin-bottom: auto;
 }
 
 .mainContainer {
-    display: grid; 
+    /* display: grid; 
     justify-content: center; 
     grid-template-columns: 1fr 1fr 1fr 1fr; 
     grid-gap: 50px 50px;
-    flex-flow: column wrap;    
+    grid-gap: 1rem;
+    flex-flow: column wrap;*/
+    display: grid;
+    grid-row-gap: 50px;
+    grid-column-gap: 50px ;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
 }
 
 ul {
     list-style-type: none;
-    }
+}
 
 .header {
     text-align: center;
@@ -29,8 +34,9 @@ ul {
     margin-top: 50px;
     font-size: 50pt;
     color: #1d3557;
+    font-family: 'Lato', sans-serif;
 }
 
-.Btn{
+.Btn {
     margin-bottom: auto;
 }
