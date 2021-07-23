@@ -5,11 +5,11 @@ body{
     display: flex;
     justify-content: space-around;
 }
-.btn{
+/* .btn{
     background-color:#a8dadc;
     padding: 10px 20px;
     border: none;
-}
+} */
 .deletebtn{
     background-color: #e63946;
     padding: 10px 20px;
@@ -24,6 +24,10 @@ body{
     padding-bottom: 50px;
 }
 .s{
-    font-weight: 600;
+    font-weight: bolder;
     padding-bottom: 20px;
+    margin-right: 5px;
+}
+.container{
+    padding-top: 80px;
 }
