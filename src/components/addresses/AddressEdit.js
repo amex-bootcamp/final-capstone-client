@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card, Button } from "react-bootstrap";
 import AddressDataService from "../../services/address.data.service";
+import Form from "react-bootstrap/Form";
 
 class AddressEdit extends Component {
   state = {
@@ -68,7 +69,75 @@ class AddressEdit extends Component {
       <section>
         <h2>Address Details</h2>
         <div>
-          <form>
+          {/* Bootstrap test */}
+          <Card>
+            <Card.Body>
+              <Form>
+                {/* Address 1 */}
+                <Form.Group className="mb-3" controlId="formAddress_1">
+                  <Form.Label>Address 1</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={this.state.address_line_1}
+                    onChange={this.handleAddressLine1}
+                    placeholder="Street Address or P.O. Box"
+                  />
+                  <Form.Text className="text-muted">
+                    Include full address
+                  </Form.Text>
+                </Form.Group>
+                {/* Address 2 */}
+                <Form.Group className="mb-3" controlId="formAddress_2">
+                  <Form.Label>Address 2</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={this.state.address_line_2}
+                    onChange={this.handleAddressLine2}
+                    placeholder="Apt, Suite, Unit, Building Floor, Etc."
+                  />
+                  {/* City */}
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formAddress_2">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={this.state.city}
+                    onChange={this.handleCity}
+                    placeholder="Deluth"
+                  />
+                </Form.Group>
+                {/* State */}
+                <Form.Group className="mb-3" controlId="formAddress_2">
+                  <Form.Label>State</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={this.state.state}
+                    onChange={this.handleState}
+                    placeholder="Minnesota"
+                  />
+                </Form.Group>
+                {/* Zip */}
+                <Form.Group className="mb-3" controlId="formAddress_2">
+                  <Form.Label>Zip</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={this.state.zip}
+                    onChange={this.handleZip}
+                    placeholder="111111"
+                  />
+                </Form.Group>
+                {/* Confirm Check Box */}
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                  <Form.Check type="checkbox" label="Confirm Edit" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form>
+            </Card.Body>
+          </Card>
+          {/* accepted */}
+          {/* <form>
             <Card>
               <Card.Body>
                 <Card.Text>
@@ -115,8 +184,8 @@ class AddressEdit extends Component {
               <Card.Text>
                 <h2>Order History</h2>
               </Card.Text> */}
-            {/* </Card> */}
-          </form>
+          {/* </Card> */}
+          {/* </form> */}
         </div>
       </section>
     );
