@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CustomerDataService from "../../services/customer.data.service";
 import AddressDataService from "../../services/address.data.service";
+import { Redirect } from "react-router-dom";
 
 class CustomerCreate extends Component {
   state = {
@@ -57,6 +58,10 @@ class CustomerCreate extends Component {
       <option value={address.id}>{address.address_line_1}</option>
     ));
 
+    let submitNew = this.state.submitted;
+    if (submitNew) {
+      return <Redirect to="/customers" />;
+    }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
