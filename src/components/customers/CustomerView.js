@@ -6,7 +6,7 @@ import { Redirect } from "react-router-dom";
 
 class CustomerView extends Component {
   state = {
-    customer: [{ deleted: false }],
+    customer: {data: [{}], deleted: false},
   };
   componentDidMount() {
     // const id = this.props.value.match.params.id
@@ -18,7 +18,7 @@ class CustomerView extends Component {
     } = this.props;
 
     CustomerDataService.view(id)
-      .then(({ data: customer }) => this.setState({ customer }))
+      .then(({ data: customer }) => this.setState({ customer: {id,...customer} }))
       .catch(console.error);
   }
   deleteCustomer(id) {
@@ -49,13 +49,13 @@ class CustomerView extends Component {
                   <Card className={CustomerViewCSS.card}>
                     <Card.Text>
                     <h2 className={CustomerViewCSS.h2}>Customer Details</h2>
-                      <span className={CustomerViewCSS.s}>First Name:</span> {customer.first_name} <br/>
-                      <span className={CustomerViewCSS.s}>Middle Name:</span> {customer.middle_name} <br/>
-                      <span className={CustomerViewCSS.s}>Last Name:</span> {customer.last_name} <br/>
-                      <span className={CustomerViewCSS.s}>Address:</span> {customer.address_id} <br/>
-                     <span className={CustomerViewCSS.s}>Phone: </span>{customer.phone} <br/>
-                     <span className={CustomerViewCSS.s}>Email: </span>{customer.email} <br/>
-                     <span className={CustomerViewCSS.s}> Notes: </span> {customer.notes}
+                      <span className={CustomerViewCSS.s}>First Name:</span> {customer.data[0].first_name} <br/>
+                      <span className={CustomerViewCSS.s}>Middle Name:</span> {customer.data[0].middle_name} <br/>
+                      <span className={CustomerViewCSS.s}>Last Name:</span> {customer.data[0].last_name} <br/>
+                      <span className={CustomerViewCSS.s}>Address:</span> {customer.data[0].address_id} <br/>
+                     <span className={CustomerViewCSS.s}>Phone: </span>{customer.data[0].phone} <br/>
+                     <span className={CustomerViewCSS.s}>Email: </span>{customer.data[0].email} <br/>
+                     <span className={CustomerViewCSS.s}> Notes: </span> {customer.data[0].notes}
                     </Card.Text>
                     <div flex className={CustomerViewCSS.btndiv}>
                       <button className={CustomerViewCSS.btn}>
