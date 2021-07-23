@@ -25,7 +25,6 @@ function App() {
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
-          <Route exact path="/addresses/new" component={AddressCreate} />
           <Route exact path="/customers">
             <CustomersList />
           </Route>
@@ -35,6 +34,11 @@ function App() {
             <ProductsList />
           </Route>
           <Route exact path="/customers/:id" component={CustomerView} />
+        </Switch>
+        <Switch>
+          <Route exact path="/addresses/new">
+            <AddressCreate />
+          </Route>
         </Switch>
       </main>
     </>
