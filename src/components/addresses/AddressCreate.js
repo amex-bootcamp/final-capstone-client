@@ -49,8 +49,8 @@ class AddressCreate extends Component {
     event.preventDefault();
     axios
       .post("http://localhost:8080/api/addresses", {
-        address: this.state.address,
-        address2: this.state.address2,
+        address_line_1: this.state.address,
+        address_line_2: this.state.address2,
         city: this.state.city,
         state: this.state.state,
         zip: this.state.zip,
@@ -86,6 +86,8 @@ class AddressCreate extends Component {
                   <Form.Control
                     placeholder="1234 Main St"
                     type="text"
+                    minLength="5"
+                    maxLength="46"
                     onChange={this.handleAddressChange}
                     name={this.state.address}
                     value={this.state.address}
@@ -97,6 +99,7 @@ class AddressCreate extends Component {
                   <Form.Control
                     placeholder="Apartment, studio, or floor"
                     type="text"
+                    maxLength="46"
                     onChange={this.handleAddress2Change}
                     name={this.state.address2}
                     value={this.state.address2}
@@ -109,6 +112,8 @@ class AddressCreate extends Component {
                     <Form.Control
                       placeholder="New York City"
                       type="text"
+                      minLength="2"
+                      maxLength="50"
                       onChange={this.handleCityChange}
                       name={this.state.city}
                       value={this.state.city}
@@ -120,6 +125,8 @@ class AddressCreate extends Component {
                     <Form.Control
                       placeholder="New York"
                       type="text"
+                      minLength="2"
+                      maxLength="50"
                       onChange={this.handleStateChange}
                       name={this.state.state}
                       value={this.state.state}
@@ -131,6 +138,8 @@ class AddressCreate extends Component {
                     <Form.Control
                       placeholder="12345"
                       type="text"
+                      minLength="3"
+                      maxLength="40"
                       onChange={this.handleZipChange}
                       name={this.state.zip}
                       value={this.state.zip}
