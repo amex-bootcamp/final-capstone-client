@@ -25,7 +25,6 @@ function App() {
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
-          <Route exact path="/addresses/new" component={AddressCreate} />
           <Route exact path="/customers">
             <CustomersList />
           </Route>
