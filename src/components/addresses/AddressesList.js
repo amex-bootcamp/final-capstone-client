@@ -58,7 +58,7 @@ class AddressesList extends Component {
           </Modal.Header>
           <Modal.Body>Your address has been deleted</Modal.Body>
           <Modal.Footer>
-            <Button type="radio" variant="secondary" onClick={this.handleClose}>
+            <Button type="radio" variant="danger" onClick={this.handleClose}>
               Cancel
             </Button>
             <Button type="radio" variant="primary" onClick={this.handleClose}>
