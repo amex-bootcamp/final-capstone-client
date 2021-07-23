@@ -72,53 +72,50 @@ class AddressEdit extends Component {
             <Card>
               <Card.Body>
                 <Card.Text>
-                  <p>Address Line 1: {this.state.address_line_1}</p>
+                  <p>Address Line 1:</p>
                   <input
                     type="text"
                     value={this.state.address_line_1}
                     onChange={this.handleAddressLine1}
                   ></input>
 
-                  <p>Address Line 2:{this.state.address_line_2}</p>
+                  <p>Address Line 2:</p>
                   <input
                     type="text"
                     value={this.state.address_line_2}
                     onChange={this.handleAddressLine2}
                   ></input>
 
-                  <p>City:{this.state.city}</p>
+                  <p>City:</p>
                   <input
                     type="text"
                     value={this.state.city}
                     onChange={this.handleCity}
                   ></input>
 
-                  <p>State:{this.state.state}</p>
+                  <p>State:</p>
                   <input
                     type="text"
                     value={this.state.state}
                     onChange={this.handleState}
                   ></input>
 
-                  <p>Zip:{this.state.zip}</p>
+                  <p>Zip:</p>
                   <input
                     type="text"
                     value={this.state.zip}
                     onChange={this.handleZip}
                   ></input>
-                  {/* <p>City:{address.city}</p>
-                  <p>State: {address.state}</p>
-                  <p>Zip: {address.zip}</p> */}
                 </Card.Text>
               </Card.Body>
             </Card>
-            <Button>Edit Address</Button>
-            <Button>Delete Address</Button>
-            <Card>
+            <Button>Submit</Button>
+            <Button>Clear</Button>
+            {/* <Card>
               <Card.Text>
                 <h2>Order History</h2>
-              </Card.Text>
-            </Card>
+              </Card.Text> */}
+            {/* </Card> */}
           </form>
         </div>
       </section>
