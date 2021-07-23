@@ -63,26 +63,6 @@ class AddressesList extends Component {
           </Modal.Footer>
         </Modal>
         </ol>
-
-        {/* <Button variant="primary" onClick={this.handleShow}>
-          Delete
-        </Button>
-        <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              Are you sure you want to delete your address?
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Your address has been deleted</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
-              Cancel
-            </Button>
-            <Button variant="primary" onClick={this.handleClose}>
-              Confirm
-            </Button>
-          </Modal.Footer>
-        </Modal> */}
       </section>
     );
   }
