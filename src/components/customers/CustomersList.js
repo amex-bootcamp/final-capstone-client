@@ -6,15 +6,25 @@ function CustomersList() {
   const [customers, setCustomer] = useState([]);
   const [customerLoad, setCustomerLoad] = useState(10);
   const [totalCustomerCount, setTotalCustomerCount] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  // let countPerPage = customerLoad;
 
   useEffect(() => {
-    CustomerDataService.listByCount(customerLoad)
+    CustomerDataService.listByCount(customerLoad, currentPage)
       .then(({ data: { rows: customers, count: totalCustomerCount } }) => {
         setCustomer(customers);
         setTotalCustomerCount(totalCustomerCount);
       })
       .catch(console.error);
   }, []);
+
+  useEffect(() => {
+    CustomerDataService.listByCount(customerLoad, currentPage)
+      .then(({ data: { rows: customers } }) => {
+        setCustomer(customers);
+      })
+      .catch(console.error);
+  }, [currentPage]);
 
   // something in here needs to be changed in order to save the data dynamically
   const customerListItems = customers.map((customer, index) => (
@@ -29,13 +39,15 @@ function CustomersList() {
     </li>
   ));
   const handleClick = (event) => {
-    event.preventDefault();
-    CustomerDataService.listByCount(customerLoad)
-      .then(({ data: { rows: customers, count: totalCustomerCount } }) => {
+    setCustomerLoad(event.target.value);
+    CustomerDataService.listByCount(customerLoad, currentPage)
+      .then(({ data: { rows: customers } }) => {
         setCustomer(customers);
-        setTotalCustomerCount(totalCustomerCount);
       })
       .catch(console.error);
+  };
+  const handlePaginationClick = (event, value) => {
+    setCurrentPage(value);
   };
   return (
     <section>
@@ -65,9 +77,11 @@ function CustomersList() {
       </form>
       <ol>{customerListItems}</ol>
       <Pagination
-        count={Math.ceil(totalCustomerCount / customerLoad)}
+        page={currentPage}
+        count={Math.floor(totalCustomerCount / customerLoad)}
         variant="outlined"
         color="primary"
+        onChange={handlePaginationClick}
       />
     </section>
   );
