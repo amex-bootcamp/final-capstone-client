@@ -88,5 +88,158 @@
       "state": "TX",
       "zip": "77035"
     }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "first_name": "Dunstan",
+      "middle_name": "See",
+      "last_name": "Gahan",
+      "phone": "897-448-6641",
+      "email": "sgahan0@cocolog-nifty.com",
+      "notes": "tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh",
+      "address_id": 1
+    },
+    {
+      "id": 2,
+      "first_name": "Jerrie",
+      "middle_name": "Leicester",
+      "last_name": "Perrington",
+      "phone": "463-693-3857",
+      "email": "lperrington1@is.gd",
+      "notes": "pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam",
+      "address_id": 2
+    },
+    {
+      "id": 3,
+      "first_name": "Pepito",
+      "middle_name": "Leigh",
+      "last_name": "Freeburn",
+      "phone": "696-427-3965",
+      "email": "lfreeburn2@adobe.com",
+      "notes": "massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia",
+      "address_id": 3
+    },
+    {
+      "id": 4,
+      "first_name": "Clo",
+      "middle_name": "Lira",
+      "last_name": "Cromleholme",
+      "phone": "363-655-2277",
+      "email": "lcromleholme3@biblegateway.com",
+      "notes": "sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue",
+      "address_id": 4
+    },
+    {
+      "id": 5,
+      "first_name": "Omar",
+      "middle_name": "Paulo",
+      "last_name": "Seifert",
+      "phone": "694-184-7186",
+      "email": "pseifert4@instagram.com",
+      "notes": "sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat",
+      "address_id": 5
+    },
+    {
+      "id": 6,
+      "first_name": "Roger",
+      "middle_name": "Issy",
+      "last_name": "Carney",
+      "phone": "882-532-8671",
+      "email": "icarney5@earthlink.net",
+      "notes": "justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros",
+      "address_id": 6
+    },
+    {
+      "id": 7,
+      "first_name": "Evelina",
+      "middle_name": "Ara",
+      "last_name": "Stebbins",
+      "phone": "432-984-9764",
+      "email": "astebbins6@ebay.co.uk",
+      "notes": "elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in",
+      "address_id": 7
+    },
+    {
+      "id": 8,
+      "first_name": "Donall",
+      "middle_name": "Ninnette",
+      "last_name": "Steedman",
+      "phone": "933-636-1122",
+      "email": "nsteedman7@oakley.com",
+      "notes": "elementum ligula vehicula consequat morbi a ipsum integer a nibh",
+      "address_id": 8
+    },
+    {
+      "id": 9,
+      "first_name": "Oralia",
+      "middle_name": "Olivia",
+      "last_name": "Wormald",
+      "phone": "395-726-0867",
+      "email": "owormald8@salon.com",
+      "notes": "tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa",
+      "address_id": 9
+    },
+    {
+      "id": 10,
+      "first_name": "Illa",
+      "middle_name": "Doria",
+      "last_name": "McGucken",
+      "phone": "102-477-3719",
+      "email": "dmcgucken9@dion.ne.jp",
+      "notes": "magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis",
+      "address_id": 10
+    },
+    {
+      "id": 11,
+      "first_name": "Germain",
+      "middle_name": "Pearline",
+      "last_name": "Billingsly",
+      "phone": "328-949-0686",
+      "email": "pbillingslya@taobao.com",
+      "notes": "erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque",
+      "address_id": 11
+    },
+    {
+      "id": 12,
+      "first_name": "Essie",
+      "middle_name": "Gawain",
+      "last_name": "Senechell",
+      "phone": "207-830-7745",
+      "email": "gsenechellb@mashable.com",
+      "notes": "felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar",
+      "address_id": 12
+    },
+    {
+      "id": 13,
+      "first_name": "Eugenius",
+      "middle_name": "Todd",
+      "last_name": "Prazer",
+      "phone": "552-685-5561",
+      "email": "tprazerc@google.de",
+      "notes": "sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse",
+      "address_id": 13
+    },
+    {
+      "id": 14,
+      "first_name": "Hildegarde",
+      "middle_name": "Danie",
+      "last_name": "Ipplett",
+      "phone": "941-207-3164",
+      "email": "dipplettd@shutterfly.com",
+      "notes": "tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus",
+      "address_id": 14
+    },
+    {
+      "id": 15,
+      "first_name": "Hatti",
+      "middle_name": "Hugo",
+      "last_name": "Bullivant",
+      "phone": "631-525-5413",
+      "email": "hbullivante@ucla.edu",
+      "notes": "gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget",
+      "address_id": 15
+    }
+   
   ]
 }
