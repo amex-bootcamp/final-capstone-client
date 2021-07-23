@@ -7,7 +7,7 @@ import CustomerDataService from "../../services/customer.data.service";
 
 class CustomerView extends Component {
   state = {
-    customer: [{ deleted: false }],
+    customer: { data: [{}], deleted: false },
   };
   componentDidMount() {
     // const id = this.props.value.match.params.id
@@ -18,8 +18,11 @@ class CustomerView extends Component {
       },
     } = this.props;
 
+    console.log("id", id);
     CustomerDataService.view(id)
-      .then(({ data: customer }) => this.setState({ customer }))
+      .then(({ data: customer }) =>
+        this.setState({ customer: { id, ...customer } })
+      )
       .catch(console.error);
   }
 
@@ -46,14 +49,15 @@ class CustomerView extends Component {
           <Card>
             <Card.Body>
               <Card.Text>
-                <p>Customer ID: {customer.id}</p>
-                <p>First Name: {customer.first_name}</p>
-                <p>Middle Name:{customer.middle_name}</p>
-                <p>Last Name:{customer.last_name}</p>
-                <p>Address: {customer.address_id}</p>
-                <p>Phone: {customer.phone}</p>
-                <p>Email: {customer.email}</p>
-                <p>Notes: {customer.notes}</p>
+                <span>First Name:</span> {customer.data[0].first_name} <br />
+                <span>Middle Name:</span> {customer.data[0].middle_name} <br />
+                <span>Last Name:</span> {customer.data[0].last_name} <br />
+                <span>Address:</span> {customer.data[0].address_id} <br />
+                <span>Phone: </span>
+                {customer.data[0].phone} <br />
+                <span>Email: </span>
+                {customer.data[0].email} <br />
+                <span> Notes: </span> {customer.data[0].notes}
               </Card.Text>
             </Card.Body>
           </Card>
