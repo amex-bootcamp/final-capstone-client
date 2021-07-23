@@ -3,6 +3,7 @@ import CustomerDataService from "../../services/customer.data.service";
 import { Link } from "react-router-dom";
 import CustomerListCSS from "./CustomersList.module.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import { auto } from "@popperjs/core";
 
 class CustomersList extends Component {
   state = {
@@ -25,11 +26,8 @@ class CustomersList extends Component {
       padding: "10px",
       borderRadius: "15px",
       transition: "box-shadow .3s",
-      // filter: "drop-shadow(-5px 10px 4px #457b9d)",
     };
-    //   const cardStyle: hover{
-    //     boxShadow: 0 0 11px rgba(33,33,33,.2)
-    // }
+
     const cardTitle = {
       fontSize: "1.5em",
       fontWeight: "bold",
@@ -42,11 +40,6 @@ class CustomersList extends Component {
       textAlign: "center",
       fontStyle: "italic",
     };
-    // const buttonStyle = {
-    //   color: "#f1faee",
-    //   backgroundColor: "#a8dadc",
-    //   width: "8rem",
-    // };
     const linkStyle = {
       textDecoration: "none",
       border: "#457b9d 2px solid",
@@ -91,18 +84,26 @@ class CustomersList extends Component {
               </p>
             </Card.Text>
           </Card.Body>
-          {/* <Button style={buttonStyle}> */}
           <Link to={`customers/${customer.id}`} style={linkStyle}>
             View Details
           </Link>
-          {/* </Button> */}
         </Card>
       </ul>
     ));
     return (
       <section>
         <h2>Customers</h2>
-        <ol>{customerListItems}</ol>
+        <Container fluid="lg">
+          <Row>
+            <Col>
+              <ol>
+                <div className={CustomerListCSS.mainContainer}>
+                  {customerListItems}
+                </div>
+              </ol>
+            </Col>
+          </Row>
+        </Container>
       </section>
     );
   }
