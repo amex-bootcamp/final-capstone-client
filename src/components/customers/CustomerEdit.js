@@ -3,6 +3,7 @@ import CustomerDataService from "../../services/customer.data.service";
 
 class CustomerEdit extends Component {
   state = {
+    id: "",
     first_name: "",
     middle_name: "",
     last_name: "",
@@ -21,6 +22,7 @@ class CustomerEdit extends Component {
     CustomerDataService.view(id)
       .then(({ data: customer }) =>
         this.setState({
+          id: id,
           first_name: customer.first_name,
           middle_name: customer.middle_name,
           last_name: customer.last_name,

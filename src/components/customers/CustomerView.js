@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Card, Button, Container } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import CustomerDataService from "../../services/customer.data.service";
 
 class CustomerView extends Component {
@@ -35,7 +35,6 @@ class CustomerView extends Component {
     });
   }
 
-  handle;
   render() {
     const { customer } = this.state;
     if (this.state.deleted) {
@@ -59,7 +58,9 @@ class CustomerView extends Component {
               </Card.Text>
             </Card.Body>
           </Card>
-          <Button>Edit Customer</Button>
+          <Link to={`/customers/${customer.id}/edit`}>
+            <Button>Edit Customer</Button>
+          </Link>
           {/* <Redirect to=/> */}
           <Button onClick={() => this.deleteCustomer(customer.id)}>
             Delete
