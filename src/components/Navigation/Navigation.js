@@ -6,8 +6,8 @@ class Navigation extends Component {
   render() {
     const navStyle = {
       backgroundColor: "#a8dadc",
-      fontWeight: "bold",
-           
+      fontWeight: "bolder",
+      fontSize: 18    
   }
     return (
  
@@ -25,7 +25,7 @@ class Navigation extends Component {
               <img
                 src={process.env.PUBLIC_URL + "/images/logo.png"}
                 // width="400"
-                height="100"
+                height="80"
                 className="d-inline-block align-top"
                 alt="React Bootstrap logo"
               />
