@@ -5,25 +5,7 @@ import { Navbar, Container, Nav, NavDropdown, Image } from "react-bootstrap";
 class Navigation extends Component {
   render() {
     return (
-      // <nav>
-      //   <ul>
-      //     <li>
-      //       <Link to="/">Dashboard</Link>
-      //     </li>
-      //     <li>
-      //       <Link to="/addresses">Addresses</Link>
-      //     </li>
-      //     <li>
-      //       <Link to="/customers">Customers</Link>
-      //     </li>
-      //     <li>
-      //       <Link to="/orders">Orders</Link>
-      //     </li>
-      //     <li>
-      //       <Link to="/products">Products</Link>
-      //     </li>
-      //   </ul>
-      // </nav>
+ 
       <Navbar bg="light" expand="lg">
         <Container>
           {/* <Navbar.Brand href="/">

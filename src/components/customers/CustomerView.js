@@ -1,17 +1,14 @@
 import React, { Component } from "react";
-
-import { Card, Button, Container } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Card, Container, CardGroup, Button } from "react-bootstrap";
 import CustomerDataService from "../../services/customer.data.service";
+import CustomerViewCSS from "./CustomerView.Module.css";
+import { Redirect, Link } from "react-router-dom";
 
 class CustomerView extends Component {
   state = {
-    customer: [{ deleted: false }],
+    customer: { data: [{}], deleted: false },
   };
   componentDidMount() {
-    // const id = this.props.value.match.params.id
-
     const {
       match: {
         params: { id },
@@ -19,18 +16,13 @@ class CustomerView extends Component {
     } = this.props;
 
     CustomerDataService.view(id)
-      .then(({ data: customer }) => this.setState({ customer }))
+      .then(({ data: customer }) =>
+        this.setState({ customer: { id, ...customer } })
+      )
       .catch(console.error);
   }
-
   deleteCustomer(id) {
     CustomerDataService.delete(id).then((res) => {
-      console.log(res);
-      console.log(res.data);
-
-      // const customers = this.state.customer.filter(
-      //   (customer) => customer.id !== id
-      // );
       this.setState({ deleted: true });
     });
   }
@@ -41,39 +33,46 @@ class CustomerView extends Component {
       return <Redirect to={{ pathname: "/customers" }} />;
     }
     return (
-      <section>
-        <h2>Customer Details</h2>
-        <div>
-          <Card>
-            <Card.Body>
-              <Card.Text>
-                <p>Customer ID: {customer.id}</p>
-                <p>First Name: {customer.first_name}</p>
-                <p>Middle Name:{customer.middle_name}</p>
-                <p>Last Name:{customer.last_name}</p>
-                <p>Address: {customer.address_id}</p>
-                <p>Phone: {customer.phone}</p>
-                <p>Email: {customer.email}</p>
-                <p>Notes: {customer.notes}</p>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-          <Link to={`/customers/${customer.id}/edit`}>
-            <Button>Edit Customer</Button>
-          </Link>
-          {/* <Redirect to=/> */}
-          <Button onClick={() => this.deleteCustomer(customer.id)}>
-            Delete
-          </Button>
-          <Card>
+      <Container className={CustomerViewCSS.container}>
+        <CardGroup>
+          <Card className={CustomerViewCSS.card}>
             <Card.Text>
-              <h2>Order History</h2>
+              <h2 className={CustomerViewCSS.h2}>Customer Details</h2>
+              <span className={CustomerViewCSS.s}>First Name:</span>{" "}
+              {customer.data[0].first_name} <br />
+              <span className={CustomerViewCSS.s}>Middle Name:</span>{" "}
+              {customer.data[0].middle_name} <br />
+              <span className={CustomerViewCSS.s}>Last Name:</span>{" "}
+              {customer.data[0].last_name} <br />
+              <span className={CustomerViewCSS.s}>Address:</span>{" "}
+              {customer.data[0].address_id} <br />
+              <span className={CustomerViewCSS.s}>Phone: </span>
+              {customer.data[0].phone} <br />
+              <span className={CustomerViewCSS.s}>Email: </span>
+              {customer.data[0].email} <br />
+              <span className={CustomerViewCSS.s}> Notes: </span>{" "}
+              {customer.data[0].notes}
+            </Card.Text>
+            <div flex className={CustomerViewCSS.btndiv}>
+              <button className={CustomerViewCSS.btn}>
+                <Link to={`/customers/${customer.id}/edit`}>Edit Customer</Link>
+              </button>
+              <button
+                onClick={() => this.deleteCustomer(customer.id)}
+                className={CustomerViewCSS.deletebtn}
+              >
+                Delete Customer
+              </button>
+            </div>
+          </Card>
+          <Card className={CustomerViewCSS.card}>
+            <Card.Text>
+              <h2 className={CustomerViewCSS.h2}>Order History</h2>
             </Card.Text>
           </Card>
-        </div>
-      </section>
+        </CardGroup>
+      </Container>
     );
   }
 }
-
 export default CustomerView;
