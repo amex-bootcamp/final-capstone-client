@@ -1,6 +1,7 @@
 import http from "../utils/http-common";
 
 class CustomerDataService {
+  // list customer data
   list() {
     return http.get("/customers");
   }
