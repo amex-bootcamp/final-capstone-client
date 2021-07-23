@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Pagination } from "@material-ui/lab";
 import CustomerDataService from "../../services/customer.data.service";
 
@@ -16,6 +16,7 @@ function CustomersList() {
       .catch(console.error);
   }, []);
 
+  // something in here needs to be changed in order to save the data dynamically
   const customerListItems = customers.map((customer, index) => (
     <li key={`${customer.phone}-${index}`}>
       <p>First Name: {customer.first_name}</p>
@@ -27,10 +28,19 @@ function CustomersList() {
       <button>Delete</button>
     </li>
   ));
+  const handleClick = (event) => {
+    event.preventDefault();
+    CustomerDataService.listByCount(customerLoad)
+      .then(({ data: { rows: customers, count: totalCustomerCount } }) => {
+        setCustomer(customers);
+        setTotalCustomerCount(totalCustomerCount);
+      })
+      .catch(console.error);
+  };
   return (
     <section>
       <h2>Customers</h2>
-      <form>
+      <form onClick={handleClick}>
         <h3>
           Display:{" "}
           <select
