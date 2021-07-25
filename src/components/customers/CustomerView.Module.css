@@ -13,6 +13,8 @@ body{
 }
 .card{
     padding: 45px 45px 45px 45px;
+    align-items: center;
+    
 }
 .h2{
     text-align: center;
@@ -24,17 +26,8 @@ body{
     margin-right: 5px;
 }
 .container{
-    padding-top: 80px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     border-radius: 30px 30px 30px;
-        /* display: grid; 
-    justify-content: center; 
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
-    grid-gap: 50px 50px;
-    grid-gap: 1rem;
-    flex-flow: column wrap;*/
-    display: grid;
-    grid-row-gap: 50px;
-    grid-column-gap: 50px ;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
 }
 

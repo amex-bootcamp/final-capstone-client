@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { Card, Container, CardGroup, Button } from "react-bootstrap";
+import { Card, Container, CardGroup, Button, Row, Col } from "react-bootstrap";
 import CustomerDataService from "../../services/customer.data.service";
 import CustomerViewCSS from "./CustomerView.Module.css";
 import { Redirect } from "react-router-dom";
@@ -37,12 +37,13 @@ class CustomerView extends Component {
     const editButton = {
       backgroundColor: "#a8dadc",
       color: "#1d3557",
-      
+      margin: "2px"
       
     }
     const deleteButton = {
       backgroundColor: "#e63946",
       color: "#f1faee",
+      margin: "2px"
       
     }
     const custCard = {
@@ -50,12 +51,15 @@ class CustomerView extends Component {
       color: "#f1faee",
       margin: "50px",
       borderRadius: "7px",
-      
+      height: "500px",
       
     }
-    let text = {
+    const text = {
       font: "bold",
       color: "#f1faee"
+    }
+    const cardGroup = {
+      justifyContent: "center"
     }
     const { customer } = this.state;
     if (this.state.deleted) {
@@ -67,9 +71,10 @@ class CustomerView extends Component {
         <div>
           
           <Container className={CustomerViewCSS.container}>
-            {/* <Row justify-content-center>
-                <Col> */}
-                <CardGroup>
+                <CardGroup style={cardGroup}>
+                <Row >
+                <Col>
+
                   <Card style={custCard} variant={custCard} className={CustomerViewCSS.card}>
                     <Card.Text>
                     <h2 style={text} className={CustomerViewCSS.h2}>Customer Details</h2>
@@ -91,15 +96,15 @@ class CustomerView extends Component {
                       </Button>
                       </div>
                   </Card>
-                {/* </Col>
-                <Col> */}
+                </Col>
+                <Col>
                   <Card style={custCard} variant={custCard} className={CustomerViewCSS.card}>
                     <Card.Text>
                       <h2 style={text} className={CustomerViewCSS.h2}>Order History</h2>
                     </Card.Text>
                   </Card>
-                {/* </Col>
-            </Row> */}
+                </Col>
+            </Row>
             </CardGroup>
           </Container>
         </div>
