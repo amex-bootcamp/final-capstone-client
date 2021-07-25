@@ -5,14 +5,9 @@ body{
     display: flex;
     justify-content: space-around;
 }
-.btn{
-    background-color:#a8dadc;
-    padding: 10px 20px;
-    border: none;
-}
 .deletebtn{
     background-color: #e63946;
-    padding: 10px 20px;
+    padding: 20px 20px;
     border: none;
    
 }
@@ -21,9 +16,25 @@ body{
 }
 .h2{
     text-align: center;
-    padding-bottom: 50px;
+    padding-bottom: 35px;
 }
 .s{
-    font-weight: 600;
+    font-weight: bolder;
     padding-bottom: 20px;
+    margin-right: 5px;
 }
+.container{
+    padding-top: 80px;
+    border-radius: 30px 30px 30px;
+        /* display: grid; 
+    justify-content: center; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-gap: 50px 50px;
+    grid-gap: 1rem;
+    flex-flow: column wrap;*/
+    display: grid;
+    grid-row-gap: 50px;
+    grid-column-gap: 50px ;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
+}
+

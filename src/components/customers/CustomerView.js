@@ -34,6 +34,29 @@ class CustomerView extends Component {
     });
   }
   render() {
+    const editButton = {
+      backgroundColor: "#a8dadc",
+      color: "#1d3557",
+      
+      
+    }
+    const deleteButton = {
+      backgroundColor: "#e63946",
+      color: "#f1faee",
+      
+    }
+    const custCard = {
+      backgroundColor: "#1d3557",
+      color: "#f1faee",
+      margin: "50px",
+      borderRadius: "7px",
+      
+      
+    }
+    let text = {
+      font: "bold",
+      color: "#f1faee"
+    }
     const { customer } = this.state;
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/customers" }} />;
@@ -47,10 +70,10 @@ class CustomerView extends Component {
             {/* <Row justify-content-center>
                 <Col> */}
                 <CardGroup>
-                  <Card className={CustomerViewCSS.card}>
+                  <Card style={custCard} variant={custCard} className={CustomerViewCSS.card}>
                     <Card.Text>
-                    <h2 className={CustomerViewCSS.h2}>Customer Details</h2>
-                      <span className={CustomerViewCSS.s}>First Name:</span> {customer.data[0].first_name} <br/>
+                    <h2 style={text} className={CustomerViewCSS.h2}>Customer Details</h2>
+                      <span style={text} className={CustomerViewCSS.s}>First Name:</span>     {customer.data[0].first_name} <br/>
                       <span className={CustomerViewCSS.s}>Middle Name:</span> {customer.data[0].middle_name} <br/>
                       <span className={CustomerViewCSS.s}>Last Name:</span> {customer.data[0].last_name} <br/>
                       <span className={CustomerViewCSS.s}>Address:</span> {customer.data[0].address_id} <br/>
@@ -58,20 +81,21 @@ class CustomerView extends Component {
                      <span className={CustomerViewCSS.s}>Email: </span>{customer.data[0].email} <br/>
                      <span className={CustomerViewCSS.s}> Notes: </span> {customer.data[0].notes}
                     </Card.Text>
-                    <div flex className={CustomerViewCSS.btndiv}>
-                      <button className={CustomerViewCSS.btn}>
+                    <br/> <br/> 
+                    <div flex className={CustomerViewCSS.btndiv}> 
+                      <Button style={editButton} variant={editButton} className={CustomerViewCSS.btn}>
                         Edit Customer
-                      </button>
-                      <button onClick={() => this.deleteCustomer(customer.id)} className={CustomerViewCSS.deletebtn}>
+                      </Button>
+                      <Button style={deleteButton} variant={deleteButton} onClick={() => this.deleteCustomer(customer.id)} className={CustomerViewCSS.deletebtn}>
                         Delete Customer
-                      </button>
+                      </Button>
                       </div>
                   </Card>
                 {/* </Col>
                 <Col> */}
-                  <Card className={CustomerViewCSS.card}>
+                  <Card style={custCard} variant={custCard} className={CustomerViewCSS.card}>
                     <Card.Text>
-                      <h2 className={CustomerViewCSS.h2}>Order History</h2>
+                      <h2 style={text} className={CustomerViewCSS.h2}>Order History</h2>
                     </Card.Text>
                   </Card>
                 {/* </Col>
