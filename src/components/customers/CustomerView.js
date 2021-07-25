@@ -37,13 +37,17 @@ class CustomerView extends Component {
     const editButton = {
       backgroundColor: "#a8dadc",
       color: "#1d3557",
-      margin: "2px"
+      margin: "2px",
+      padding: "10px 20px",
+      border: "none"
       
     }
     const deleteButton = {
       backgroundColor: "#e63946",
       color: "#f1faee",
-      margin: "2px"
+      margin: "2px",
+      padding: "10px 20px",
+      border: "none"
       
     }
     const custCard = {
@@ -52,6 +56,8 @@ class CustomerView extends Component {
       margin: "50px",
       borderRadius: "7px",
       height: "500px",
+      padding: "45px 45px 45px 45px",
+      alignItems: "center"
       
     }
     const text = {
@@ -74,8 +80,7 @@ class CustomerView extends Component {
                 <CardGroup style={cardGroup}>
                 <Row >
                 <Col>
-
-                  <Card style={custCard} variant={custCard} className={CustomerViewCSS.card}>
+                  <Card style={custCard} variant={custCard}>
                     <Card.Text>
                     <h2 style={text} className={CustomerViewCSS.h2}>Customer Details</h2>
                       <span style={text} className={CustomerViewCSS.s}>First Name:</span>     {customer.data[0].first_name} <br/>
@@ -98,7 +103,7 @@ class CustomerView extends Component {
                   </Card>
                 </Col>
                 <Col>
-                  <Card style={custCard} variant={custCard} className={CustomerViewCSS.card}>
+                  <Card style={custCard} variant={custCard}>
                     <Card.Text>
                       <h2 style={text} className={CustomerViewCSS.h2}>Order History</h2>
                     </Card.Text>
