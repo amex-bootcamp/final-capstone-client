@@ -68,7 +68,7 @@ class AddressCreate extends Component {
         });
 
         //change to all address page
-        // this.props.history.push("/addresses");
+        this.props.history.push("/addresses");
       });
   };
 
