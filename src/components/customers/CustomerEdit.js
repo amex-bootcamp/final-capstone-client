@@ -1,14 +1,14 @@
 import React, { Component } from "react";
+import CustomerEditCSS from "../customers/CustomerEdit.module.css";
 import { Card, Container, CardGroup, Button } from "react-bootstrap";
 import CustomerDataService from "../../services/customer.data.service";
-import CustomerEditCSS from "../customers/CustomerEdit.module.css";
 
 class CustomerEdit extends Component {
   state = {
+    id: "",
     first_name: "",
     middle_name: "",
     last_name: "",
-    address:"",
     phone: "",
     email: "",
     notes: "",
@@ -19,13 +19,14 @@ class CustomerEdit extends Component {
         params: { id },
       },
     } = this.props;
+
     CustomerDataService.view(id)
       .then(({ data: customer }) =>
         this.setState({
+          id: id,
           first_name: customer.first_name,
           middle_name: customer.middle_name,
           last_name: customer.last_name,
-          address: customer.address,
           phone: customer.phone,
           email: customer.email,
           notes: customer.notes,
@@ -64,7 +65,30 @@ class CustomerEdit extends Component {
     });
   };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
 
+    const params = {
+      first_name: this.state.first_name,
+      middle_name: this.state.middle_name,
+      last_name: this.state.last_name,
+      phone: this.state.phone,
+      email: this.state.email,
+      notes: this.state.notes,
+    };
+    CustomerDataService.put(id, params)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   render() {
     return (
@@ -85,7 +109,6 @@ class CustomerEdit extends Component {
                           onChange={this.handleFirstNameChange}
                         ></input>
                       </p>
-
                       <p>
                         <label>Middle Name:</label>
                         <input
@@ -94,7 +117,6 @@ class CustomerEdit extends Component {
                           onChange={this.handleMiddleNameChange}
                         ></input>
                       </p>
-
                       <p>
                         <label>Last Name:</label>
                         <input
@@ -103,12 +125,10 @@ class CustomerEdit extends Component {
                           onChange={this.handleLastNameChange}
                         ></input>
                       </p>
-
                       <p>
                         <label>Address:</label>
                         <input type="text" value={this.state.address}></input>
                       </p>
-
                       <p>
                         <label>Phone:</label>
                         <input
@@ -117,7 +137,6 @@ class CustomerEdit extends Component {
                           onChange={this.handlePhoneChange}
                         ></input>
                       </p>
-
                       <p>
                         <label>Email:</label>
                         <input
@@ -126,7 +145,6 @@ class CustomerEdit extends Component {
                           onChange={this.handleEmailChange}
                         ></input>
                       </p>
-
                       <p>
                         <label>Notes:</label>
                         <input
@@ -137,9 +155,13 @@ class CustomerEdit extends Component {
                       </p>
                     </form>
                     <p className={CustomerEditCSS.savebtncenter}>
-                     <Button className={CustomerEditCSS.savebtn} type="submit">
-                      Save Changes
-                    </Button> 
+                      <Button
+                        className={CustomerEditCSS.savebtn}
+                        onClick={this.handleSubmit}
+                        type="submit"
+                      >
+                        Save Changes
+                      </Button>
                     </p>
                   </Card.Text>
                 </Card.Body>

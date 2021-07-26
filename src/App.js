@@ -14,10 +14,9 @@ import Dashboard from "./components/Dashboard/Dashboard";
 function App() {
   return (
     <>
-      {/* <header>
-        <h1>Dronology</h1>
-      </header> */}
-      <Navigation />
+      <header>
+        <Navigation />
+      </header>
       <main>
         <Switch>
           <Route exact path="/">
@@ -30,7 +29,7 @@ function App() {
           <Route exact path="/customers">
             <CustomersList />
           </Route>
-          <Route exact path="/customers/new" component={CustomerCreate} />{" "}
+          <Route exact path="/customers/new" component={CustomerCreate} />
           <Route exact path="/customers/:id" component={CustomerView} />
           <Route exact path="/products">
             <ProductsList />

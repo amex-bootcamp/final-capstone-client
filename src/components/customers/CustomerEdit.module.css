@@ -1,37 +1,38 @@
 body {
-  font-family: "Lato", sans-serif;
-}
-.btndiv {
-  display: flex;
-  justify-content: space-around;
-}
-/* .btn{
-    background-color:#a8dadc;
-    padding: 10px 20px;
-    border: none;
-} */
-.savebtn {
-  background-color: #e63946 !important;
-  border: none !important;
-}
-.card {
-  padding: 45px 45px 45px 45px;
-}
-.h2 {
-  text-align: center;
-  padding-bottom: 35px;
-}
-.h2order {
-  text-align: center;
-  margin-top: -25px;
-}
-/* .formcenter {
-  text-align: center;
-} */
-.savebtncenter {
-  text-align: center;
-}
-.container {
-  padding-top: 80px;
-  border-radius: 30px 30px 30px;
-}
+    font-family: "Lato", sans-serif;
+  }
+  .btndiv {
+    display: flex;
+    justify-content: space-around;
+  }
+  /* .btn{
+      background-color:#a8dadc;
+      padding: 10px 20px;
+      border: none;
+  } */
+  .savebtn {
+    background-color: #e63946 !important;
+    border: none !important;
+  }
+  .card {
+    padding: 45px 45px 45px 45px;
+  }
+  .h2 {
+    text-align: center;
+    padding-bottom: 35px;
+  }
+  .h2order {
+    text-align: center;
+    margin-top: -25px;
+  }
+  /* .formcenter {
+    text-align: center;
+  } */
+  .savebtncenter {
+    text-align: center;
+  }
+  .container {
+    padding-top: 80px;
+    border-radius: 30px 30px 30px;
+  }
+  
