@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AddressCreateCSS from "./AddressCreate.module.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { withRouter } from "react-router";
 // import { View } from "react-native";
 
 class AddressCreate extends Component {
@@ -65,6 +66,9 @@ class AddressCreate extends Component {
           state: "",
           zip: "",
         });
+
+        //change to all address page
+        this.props.history.push("/addresses");
       });
   };
 
@@ -77,7 +81,6 @@ class AddressCreate extends Component {
       marginTop: "150px",
       filter: "drop-shadow(0 0 0.75rem #1d3557)",
       opacity: "70%",
-      
     };
     const button = {
       backgroundColor: "#1d3557",
@@ -197,4 +200,4 @@ class AddressCreate extends Component {
     );
   }
 }
-export default AddressCreate;
+export default withRouter(AddressCreate);
