@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import CustomerEditCSS from "../customers/CustomerEdit.module.css";
 import { Card, Container, CardGroup, Button } from "react-bootstrap";
+import { Redirect } from "react-router-dom";
 import CustomerDataService from "../../services/customer.data.service";
 
 class CustomerEdit extends Component {
   state = {
+    edited: false,
     id: "",
     first_name: "",
     middle_name: "",
@@ -21,17 +23,17 @@ class CustomerEdit extends Component {
     } = this.props;
 
     CustomerDataService.view(id)
-      .then(({ data: customer }) =>
+      .then(({ data: customer }) => {
         this.setState({
           id: id,
-          first_name: customer.first_name,
-          middle_name: customer.middle_name,
-          last_name: customer.last_name,
-          phone: customer.phone,
-          email: customer.email,
-          notes: customer.notes,
-        })
-      )
+          first_name: customer.data[0].first_name,
+          middle_name: customer.data[0].middle_name,
+          last_name: customer.data[0].last_name,
+          phone: customer.data[0].phone,
+          email: customer.data[0].email,
+          notes: customer.data[0].notes,
+        });
+      })
       .catch(console.error);
   }
   handleFirstNameChange = (event) => {
@@ -83,7 +85,9 @@ class CustomerEdit extends Component {
     };
     CustomerDataService.put(id, params)
       .then((res) => {
-        console.log(res.data);
+        this.setState({
+          edited: true,
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -91,6 +95,9 @@ class CustomerEdit extends Component {
   };
 
   render() {
+    if (this.state.edited) {
+      return <Redirect to={{ pathname: `/customers/${this.state.id}` }} />;
+    }
     return (
       <section>
         <div>
@@ -100,12 +107,17 @@ class CustomerEdit extends Component {
                 <Card.Body>
                   <Card.Text>
                     <h2 className={CustomerEditCSS.h2}>Edit Customer</h2>
-                    <form className={CustomerEditCSS.formcenter}>
+                    <form
+                      className={CustomerEditCSS.formcenter}
+                      onSubmit={this.handleSubmit}
+                    >
                       <p>
                         <label>First Name:</label>
                         <input
                           type="text"
                           value={this.state.first_name}
+                          name="first_name"
+                          id="first_name"
                           onChange={this.handleFirstNameChange}
                         ></input>
                       </p>
@@ -124,10 +136,6 @@ class CustomerEdit extends Component {
                           value={this.state.last_name}
                           onChange={this.handleLastNameChange}
                         ></input>
-                      </p>
-                      <p>
-                        <label>Address:</label>
-                        <input type="text" value={this.state.address}></input>
                       </p>
                       <p>
                         <label>Phone:</label>
@@ -153,16 +161,16 @@ class CustomerEdit extends Component {
                           onChange={this.handleNotesChange}
                         ></input>
                       </p>
+                      <p className={CustomerEditCSS.savebtncenter}>
+                        <Button
+                          className={CustomerEditCSS.savebtn}
+                          type="submit"
+                          value="submit"
+                        >
+                          Save Changes
+                        </Button>
+                      </p>
                     </form>
-                    <p className={CustomerEditCSS.savebtncenter}>
-                      <Button
-                        className={CustomerEditCSS.savebtn}
-                        onClick={this.handleSubmit}
-                        type="submit"
-                      >
-                        Save Changes
-                      </Button>
-                    </p>
                   </Card.Text>
                 </Card.Body>
               </Card>
