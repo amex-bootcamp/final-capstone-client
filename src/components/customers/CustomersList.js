@@ -18,10 +18,10 @@ class CustomersList extends Component {
   render() {
     const cardStyle = {
       fontFamily: "Lato, sans-serif",
-      backgroundColor: "#f1faee",
-      color: "#1d3557",
+      backgroundColor: "#1d3557",
+      color: "#f1faee",
       width: "25rem",
-      border: "5px solid #1d3557",
+      border: "5px solid #457b9d",
       margin: "25px",
       padding: "10px",
       borderRadius: "15px",
@@ -35,7 +35,7 @@ class CustomersList extends Component {
     };
 
     const cardSubtitle = {
-      color: "#457b9d",
+      color: "#a8dadc",
       fontSize: "1.25em",
       textAlign: "center",
       fontStyle: "italic",
