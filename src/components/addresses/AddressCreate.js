@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AddressCreateCSS from "./AddressCreate.module.css";
+// import AddressCreateCSS from "./AddressCreate.module.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { withRouter } from "react-router";
@@ -87,17 +87,17 @@ class AddressCreate extends Component {
       borderColor: "#f1faee",
       color: "#f1faee",
     };
-    const backgroundImage = {
-      backgroundPosition: "center",
-      backgroundRepeat: "repeat",
-      backgroundSize: "cover",
-      backgroundImage: "url(/images/shallowFocusDrone.jpg)",
-      width: "100vw",
-      height: "100vh",
-    };
+    // const backgroundImage = {
+    //   backgroundPosition: "center",
+    //   backgroundRepeat: "repeat",
+    //   backgroundSize: "cover",
+    //   backgroundImage: "url(/images/shallowFocusDrone.jpg)",
+    //   width: "100vw",
+    //   height: "100vh",
+    // };
     return (
-      <div style={backgroundImage}>
-        <Container className="d-flex justify-content-start">
+      <div>
+        <Container className="d-flex justify-content-center">
           <Row>
             <Col style={formStyle}>
               <div className={"text-center"}>
