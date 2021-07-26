@@ -6,7 +6,18 @@ import AddressesListCSS from "./AddressesList.module.css";
 class AddressesList extends Component {
   state = {
     addresses: [],
+    show: false,
   };
+  setShow = () => {
+    this.setState((currentState)=>{
+      return {
+        show: !currentState.show
+      }
+    }) 
+  }
+  handleClose = () => this.setShow();
+  handleShow = () => this.setShow();
+
 
   componentDidMount() {
     AddressDataService.list()
