@@ -96,22 +96,7 @@ export default class AddressesList extends Component {
           </>
         </Card>
       </ul>
-    // const { addresses } = this.state;
-    // const addressListItems = addresses.map((address, index) => (
-    //   <li key={`${address.zip}-${index}`}>
-    //     <p>Address ID: {address.id}</p>
-    //     <p>Address Line 1: {address.address_line_1}</p>
-    //     <p>Address Line 2: {address.address_line_2}</p>
-    //     <p>City: {address.city}</p>
-    //     <p>State {address.state}</p>
-    //     <p>Zip: {address.zip}</p>
-    //     <Button
-    //       type="radio"
-    //       variant="primary"
-    //       onClick={() => this.handleShow(address.id)}>
-    //       Delete
-    //     </Button>
-    //   </li>
+    
     ));
 
     return (
@@ -129,8 +114,7 @@ export default class AddressesList extends Component {
 
 
 
-        {/* <h2>Addresses</h2>
-        <ol>{addressListItems}</ol> */}
+
         <Modal
           show={this.state.show}
           onHide={this.handleClose}>
