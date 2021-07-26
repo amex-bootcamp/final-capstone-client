@@ -59,11 +59,11 @@ class AddressCreate extends Component {
       .then((data) => {
         console.log(data);
         this.setState({
-          address: this.state.address,
-          address2: this.state.address2,
-          city: this.state.city,
-          state: this.state.state,
-          zip: this.state.zip,
+          address: "",
+          address2: "",
+          city: "",
+          state: "",
+          zip: "",
         });
       });
   };
@@ -74,8 +74,8 @@ class AddressCreate extends Component {
       padding: "10px",
       fontFamily: "Lato, sans-serif",
       color: "#f1faee",
-      marginTop: "100px",
-      marginBottom: "5px",
+      marginTop: "200px",
+      // marginBottom: "5px",
       filter: "drop-shadow(0 0 0.75rem #1d3557)",
     };
     const button = {
