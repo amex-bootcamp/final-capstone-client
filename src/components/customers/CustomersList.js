@@ -66,6 +66,14 @@ function CustomersList() {
     borderRadius: "5px",
   };
 
+  const textStyle = {
+    textOverflow: "ellipsis",
+    maxWidth: "200px",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    display: "inline-block",
+  };
+
   // something in here needs to be changed in order to save the data dynamically
   const customerListItems = customers.map((customer, index) => (
     <ul key={`${customer.phone}-${index}`}>
@@ -83,13 +91,12 @@ function CustomersList() {
           <Card.Text>
             <b>Phone:</b> <br /> {customer.phone}
           </Card.Text>
-          <Card.Text>
+          <Card.Text style={textStyle}>
             <b>Email:</b> <br /> {customer.email}
           </Card.Text>
-          <Card.Text>
-            <p>
-              <b>Notes:</b> <br /> {customer.notes}
-            </p>
+          <br />
+          <Card.Text style={textStyle}>
+            <b>Notes:</b> <br /> {customer.notes}
           </Card.Text>
           <Card.Text>
             <p>
