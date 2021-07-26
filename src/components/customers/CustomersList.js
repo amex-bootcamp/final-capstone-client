@@ -17,7 +17,7 @@ function CustomersList() {
         setTotalCustomerCount(totalCustomerCount);
       })
       .catch(console.error);
-  }, []);
+  }, []); 
 
   useEffect(() => {
     CustomerDataService.listByCount(customerLoad, currentPage)
