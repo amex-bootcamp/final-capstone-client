@@ -4,6 +4,7 @@ import { Card, Button, Container, Row, Col, CardGroup } from "react-bootstrap";
 import AddressesListCSS from "./AddressesList.module.css";
 // import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 
 export default class AddressesList extends Component {
   state = {
@@ -20,7 +21,6 @@ export default class AddressesList extends Component {
   };
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
-
 
   handleShow = (id) => {
     this.setShow();
@@ -41,6 +41,7 @@ export default class AddressesList extends Component {
       .then(({ data: addresses }) => this.setState({ addresses }))
       .catch(console.error);
   }
+
   render() {
     const cardStyles = {
       color: "#f1faee",
@@ -50,7 +51,6 @@ export default class AddressesList extends Component {
       textAlign: "center",
       fontWeight: "bold",
       width: "20rem",
-     
     };
     const editBtn = {
       marginBottom: "auto",
@@ -90,13 +90,19 @@ export default class AddressesList extends Component {
           <p>Zip: {address.zip}</p>
           <>
             <div style={divBtn}>
-              <Button style={editBtn}>Edit</Button>{" "}
-              <Button style={deleteBtn} onClick={() => this.handleShow(address.id)}>Delete</Button>{" "}
+              <Button style={editBtn}>
+                <Link to={`/addresses/${address.id}/edit`}>Edit Address</Link>
+              </Button>{" "}
+              <Button
+                style={deleteBtn}
+                onClick={() => this.handleShow(address.id)}
+              >
+                Delete
+              </Button>{" "}
             </div>
           </>
         </Card>
       </ul>
-    
     ));
 
     return (
@@ -112,12 +118,7 @@ export default class AddressesList extends Component {
           </Row>
         </Container>
 
-
-
-
-        <Modal
-          show={this.state.show}
-          onHide={this.handleClose}>
+        <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
               Are you sure you want to delete your address?
@@ -125,16 +126,10 @@ export default class AddressesList extends Component {
           </Modal.Header>
           <Modal.Body>Your address has been deleted</Modal.Body>
           <Modal.Footer>
-            <Button
-              type="radio"
-              variant="danger"
-              onClick={this.handleClose}>
+            <Button type="radio" variant="danger" onClick={this.handleClose}>
               Cancel
             </Button>
-            <Button
-              type="radio"
-              variant="primary"
-              onClick={this.handleConfirm}>
+            <Button type="radio" variant="primary" onClick={this.handleConfirm}>
               Confirm
             </Button>
           </Modal.Footer>
