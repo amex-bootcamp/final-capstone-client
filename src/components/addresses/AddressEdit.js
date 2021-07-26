@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Modal } from "react";
 import { Card, Button, Container } from "react-bootstrap";
 import AddressDataService from "../../services/address.data.service";
 import Form from "react-bootstrap/Form";
@@ -67,12 +67,36 @@ class AddressEdit extends Component {
   render() {
     return (
       <section>
+        {/* <>
+          <Button variant="primary" onClick={handleShow}>
+            Launch demo modal
+          </Button>
+
+          <Modal show={false} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Woohoo, you're reading this text in a modal!
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleClose}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </> */}
         <div>
           {/* Bootstrap test */}
           <Container>
             <Card>
               <Card.Body>
-                <Card.Title>Address Details</Card.Title>
+                <Card.Title className="text-center font-weight-bold">
+                  Address Details
+                </Card.Title>
                 <Form>
                   {/* Address 1 */}
                   <Form.Group className="mb-3" controlId="formAddress_1">
