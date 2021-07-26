@@ -68,7 +68,7 @@ class AddressCreate extends Component {
         });
 
         //change to all address page
-        this.props.history.push("/addresses");
+        // this.props.history.push("/addresses");
       });
   };
 
@@ -131,6 +131,7 @@ class AddressCreate extends Component {
                     onChange={this.handleAddressChange}
                     name={this.state.address}
                     value={this.state.address}
+                    required
                   />
                 </Form.Group>
 
@@ -157,6 +158,7 @@ class AddressCreate extends Component {
                       onChange={this.handleCityChange}
                       name={this.state.city}
                       value={this.state.city}
+                      required
                     />
                   </Form.Group>
 
@@ -170,6 +172,7 @@ class AddressCreate extends Component {
                       onChange={this.handleStateChange}
                       name={this.state.state}
                       value={this.state.state}
+                      required
                     />
                   </Form.Group>
 
@@ -183,6 +186,7 @@ class AddressCreate extends Component {
                       onChange={this.handleZipChange}
                       name={this.state.zip}
                       value={this.state.zip}
+                      required
                     />
                   </Form.Group>
                 </Row>
