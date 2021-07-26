@@ -1,5 +1,7 @@
 // import React, { Component } from "react";
 // import AddressDataService from "../../services/address.data.service";
+// import CustomerViewCSS from "./CustomerView.Module.css";
+// import { Redirect } from "react-router-dom";
 
 // class AddressesView extends Component {
 //   state = {
@@ -18,12 +20,14 @@
 //     } = this.props;
 
 //     AddressDataService.view(id)
-//       .then(({ data: address }) => this.setState({ address }))
+//       .then(({ data: address }) => 
+//       this.setState({ address }))
 //       .catch(console.error);
 //   }
 
 //   deleteAddress(id) {
-//     AddressDataService.delete(id).then((res) => {
+//     AddressDataService.delete(id)
+//       .then((res) => {
 //       console.log(res);
 //       console.log(res.data);
 //       this.setState({ deleted: true });
