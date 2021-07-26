@@ -17,7 +17,7 @@ function CustomersList() {
         setTotalCustomerCount(totalCustomerCount);
       })
       .catch(console.error);
-  }, []);
+  }, []); 
 
   useEffect(() => {
     CustomerDataService.listByCount(customerLoad, currentPage)
@@ -81,7 +81,7 @@ function CustomersList() {
       <ol>{customerListItems}</ol>
       <Pagination
         page={currentPage}
-        count={Math.floor(totalCustomerCount / customerLoad)}
+        count={Math.ceil(totalCustomerCount / customerLoad)}
         variant="outlined"
         color="primary"
         onChange={handlePaginationClick}

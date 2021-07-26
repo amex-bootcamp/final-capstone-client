@@ -228,6 +228,3 @@ class AddressEdit extends Component {
 }
 
 export default AddressEdit;
-
-// to access this page
-// http://localhost:3000/addresses/1/edit
