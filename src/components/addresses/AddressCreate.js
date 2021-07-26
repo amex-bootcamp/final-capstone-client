@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./AddressCreate.modules.css";
+import AddressCreateCSS from "./AddressCreate.Module.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import axios from "axios";
 // import { View } from "react-native";
