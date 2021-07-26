@@ -83,13 +83,13 @@ class CustomerView extends Component {
                   <Card style={custCard} variant={custCard}>
                     <Card.Text>
                     <h2 style={text} className={CustomerViewCSS.h2}>Customer Details</h2>
-                      <span style={text} className={CustomerViewCSS.s}>First Name:</span>     {customer.data[0].first_name} <br/>
-                      <span className={CustomerViewCSS.s}>Middle Name:</span> {customer.data[0].middle_name} <br/>
-                      <span className={CustomerViewCSS.s}>Last Name:</span> {customer.data[0].last_name} <br/>
-                      <span className={CustomerViewCSS.s}>Address:</span> {customer.data[0].address_id} <br/>
-                     <span className={CustomerViewCSS.s}>Phone: </span>{customer.data[0].phone} <br/>
-                     <span className={CustomerViewCSS.s}>Email: </span>{customer.data[0].email} <br/>
-                     <span className={CustomerViewCSS.s}> Notes: </span> {customer.data[0].notes}
+                      <span style={text} className={CustomerViewCSS.span}>First Name:</span>     {customer.data[0].first_name} <br/>
+                      <span className={CustomerViewCSS.span}>Middle Name:</span> {customer.data[0].middle_name} <br/>
+                      <span className={CustomerViewCSS.span}>Last Name:</span> {customer.data[0].last_name} <br/>
+                      <span className={CustomerViewCSS.span}>Address:</span> {customer.data[0].address_id} <br/>
+                     <span className={CustomerViewCSS.span}>Phone: </span>{customer.data[0].phone} <br/>
+                     <span className={CustomerViewCSS.span}>Email: </span>{customer.data[0].email} <br/>
+                     <span className={CustomerViewCSS.span}> Notes: </span> {customer.data[0].notes}
                     </Card.Text>
                     <br/> <br/> 
                     <div flex className={CustomerViewCSS.btndiv}> 
