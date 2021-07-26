@@ -1,28 +1,41 @@
 import React, { Component } from "react";
-// import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button';
 import AddressDataService from "../../services/address.data.service";
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import { Card, Button, Container, Row, Col, CardGroup } from "react-bootstrap";
 import AddressesListCSS from "./AddressesList.module.css";
+// import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
-class AddressesList extends Component {
+export default class AddressesList extends Component {
   state = {
     addresses: [],
     show: false,
+    selectedAddress: "",
   };
   setShow = () => {
-    this.setState((currentState)=>{
+    this.setState((currentState) => {
       return {
-        show: !currentState.show
-      }
-    }) 
-  }
+        show: !currentState.show,
+      };
+    });
+  };
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
 
 
-
-
+  handleShow = (id) => {
+    this.setShow();
+    this.setState({ selectedAddress: id });
+  };
+  handleConfirm = () => {
+    this.handleClose();
+    AddressDataService.delete(this.state.selectedAddress)
+      .then(() =>
+        console.log(
+          `You have deleted address ID: ${this.state.selectedAddress}`
+        )
+      )
+      .catch(console.error);
+  };
   componentDidMount() {
     AddressDataService.list()
       .then(({ data: addresses }) => this.setState({ addresses }))
@@ -31,12 +44,13 @@ class AddressesList extends Component {
   render() {
     const cardStyles = {
       color: "#f1faee",
-      fontFamily: 'Lato sans-serif',
+      fontFamily: "Lato, sans-serif",
       border: "4px solid #457b9d",
       backgroundColor: "#1d3557",
       textAlign: "center",
       fontWeight: "bold",
       width: "20rem",
+     
     };
     const editBtn = {
       marginBottom: "auto",
@@ -53,11 +67,9 @@ class AddressesList extends Component {
       position: "relative",
       left: "10px",
     };
-
     const divBtn = {
       paddingBottom: "20px",
     };
-
     const titleStyles = {
       fontSize: "20pt",
       fontWeight: "bold",
@@ -67,45 +79,83 @@ class AddressesList extends Component {
     const { addresses } = this.state;
     const addressListItems = addresses.map((address, index) => (
       <ul key={`${address.zip}-${index}`}>
-        
-          <Card style={cardStyles}>
-            <Card.Title style={titleStyles}>
-              <p>Address ID: {address.id}</p>
-            </Card.Title>
-            <p>Address Line 1: {address.address_line_1}</p>
-            <p>Address Line 2: {address.address_line_2}</p>
-            <p>City: {address.city}</p>
-            <p>State: {address.state}</p>
-            <p>Zip: {address.zip}</p>
-            <>
-              <div style={divBtn}>
-                <Button style={editBtn}>Edit</Button>{" "}
-                <Button style={deleteBtn}>Delete</Button>{" "}
-              </div>
-            </>
-          </Card>
-        
+        <Card style={cardStyles}>
+          <Card.Title style={titleStyles}>
+            <p>Address ID: {address.id}</p>
+          </Card.Title>
+          <p>Address Line 1: {address.address_line_1}</p>
+          <p>Address Line 2: {address.address_line_2}</p>
+          <p>City: {address.city}</p>
+          <p>State: {address.state}</p>
+          <p>Zip: {address.zip}</p>
+          <>
+            <div style={divBtn}>
+              <Button style={editBtn}>Edit</Button>{" "}
+              <Button style={deleteBtn} onClick={() => this.handleShow(address.id)}>Delete</Button>{" "}
+            </div>
+          </>
+        </Card>
       </ul>
+    // const { addresses } = this.state;
+    // const addressListItems = addresses.map((address, index) => (
+    //   <li key={`${address.zip}-${index}`}>
+    //     <p>Address ID: {address.id}</p>
+    //     <p>Address Line 1: {address.address_line_1}</p>
+    //     <p>Address Line 2: {address.address_line_2}</p>
+    //     <p>City: {address.city}</p>
+    //     <p>State {address.state}</p>
+    //     <p>Zip: {address.zip}</p>
+    //     <Button
+    //       type="radio"
+    //       variant="primary"
+    //       onClick={() => this.handleShow(address.id)}>
+    //       Delete
+    //     </Button>
+    //   </li>
     ));
 
     return (
-        <section>
-          <h1 className={AddressesListCSS.header}>All Addresses</h1>
-          <Container fluid="lg" >
-            <Row>
-              <Col> 
-              <ul>
-                <div className={AddressesListCSS.mainContainer} >
-                  {addressListItems}
-                </div>
-              </ul>
-              </Col>
-            </Row>
-          </Container>
-        </section>
-      
+      <section>
+        <h1 className={AddressesListCSS.header}>All Addresses</h1>
+        <Container fluid>
+          <Row>
+            <Col>
+              <div className={AddressesListCSS.mainContainer}>
+                {addressListItems}
+              </div>
+            </Col>
+          </Row>
+        </Container>
+
+
+
+        {/* <h2>Addresses</h2>
+        <ol>{addressListItems}</ol> */}
+        <Modal
+          show={this.state.show}
+          onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Are you sure you want to delete your address?
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Your address has been deleted</Modal.Body>
+          <Modal.Footer>
+            <Button
+              type="radio"
+              variant="danger"
+              onClick={this.handleClose}>
+              Cancel
+            </Button>
+            <Button
+              type="radio"
+              variant="primary"
+              onClick={this.handleConfirm}>
+              Confirm
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </section>
     );
   }
 }
-
-export default AddressesList;

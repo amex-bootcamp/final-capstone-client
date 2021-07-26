@@ -1,4 +1,4 @@
-.card {
+/* .card {
     color: #f1faee;
     border: 4px solid #457b9d;
     background-color: #1d3557;
@@ -23,6 +23,7 @@
     grid-row-gap: 50px;
     grid-column-gap: 50px ;
     grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
+
 }
 
 ul {
@@ -41,15 +42,3 @@ ul {
 .Btn {
     margin-bottom: auto;
 }
-
-/* const cardStyle = {
-    fontFamily: "Lato, sans-serif",
-    backgroundColor: "#f1faee",
-    color: "#1d3557",
-    width: "25rem",
-    border: "5px solid #1d3557",
-    margin: "25px",
-    padding: "10px",
-    borderRadius: "15px",
-    transition: "box-shadow .3s",
-  }; */

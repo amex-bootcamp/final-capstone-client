@@ -30,10 +30,6 @@ class AddressEdit extends Component {
       )
       .catch(console.error);
   }
-  // to access different address IDs
-  // view(id) {
-  //   return http.get(`/addresses/${id}`);
-  // }
 
   handleAddressLine1 = (event) => {
     this.setState({
@@ -111,11 +107,6 @@ class AddressEdit extends Component {
             </Card>
             <Button>Submit</Button>
             <Button>Clear</Button>
-            {/* <Card>
-              <Card.Text>
-                <h2>Order History</h2>
-              </Card.Text> */}
-            {/* </Card> */}
           </form>
         </div>
       </section>
@@ -124,6 +115,3 @@ class AddressEdit extends Component {
 }
 
 export default AddressEdit;
-
-// to access this page
-// http://localhost:3000/addresses/1/edit
