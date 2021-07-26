@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-
-import { Card, Button, Container } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
-
+import { Card, Container, CardGroup, Button } from "react-bootstrap";
 import CustomerDataService from "../../services/customer.data.service";
+import CustomerViewCSS from "./CustomerView.Module.css";
+import { Redirect } from "react-router-dom";
 
 class CustomerView extends Component {
   state = {
@@ -25,7 +24,6 @@ class CustomerView extends Component {
       )
       .catch(console.error);
   }
-
   deleteCustomer(id) {
     CustomerDataService.delete(id).then((res) => {
       console.log(res);
@@ -43,38 +41,54 @@ class CustomerView extends Component {
       return <Redirect to={{ pathname: "/customers" }} />;
     }
     return (
-      <section>
-        <h2>Customer Details</h2>
-        <div>
-          <Card>
-            <Card.Body>
+      <div>
+        <Container className={CustomerViewCSS.container}>
+          {/* <Row justify-content-center>
+                <Col> */}
+          <CardGroup>
+            <Card className={CustomerViewCSS.card}>
               <Card.Text>
-                <span>First Name:</span> {customer.data[0].first_name} <br />
-                <span>Middle Name:</span> {customer.data[0].middle_name} <br />
-                <span>Last Name:</span> {customer.data[0].last_name} <br />
-                <span>Address:</span> {customer.data[0].address_id} <br />
-                <span>Phone: </span>
+                <h2 className={CustomerViewCSS.h2}>Customer Details</h2>
+                <span className={CustomerViewCSS.s}>Customer Id:</span>{" "}
+                {customer.data[0].id} <br />
+                <span className={CustomerViewCSS.s}>First Name:</span>{" "}
+                {customer.data[0].first_name} <br />
+                <span className={CustomerViewCSS.s}>Middle Name:</span>{" "}
+                {customer.data[0].middle_name} <br />
+                <span className={CustomerViewCSS.s}>Last Name:</span>{" "}
+                {customer.data[0].last_name} <br />
+                <span className={CustomerViewCSS.s}>Address:</span>{" "}
+                {customer.data[0].address_id} <br />
+                <span className={CustomerViewCSS.s}>Phone: </span>
                 {customer.data[0].phone} <br />
-                <span>Email: </span>
+                <span className={CustomerViewCSS.s}>Email: </span>
                 {customer.data[0].email} <br />
-                <span> Notes: </span> {customer.data[0].notes}
+                <span className={CustomerViewCSS.s}> Notes: </span>{" "}
+                {customer.data[0].notes}
               </Card.Text>
-            </Card.Body>
-          </Card>
-          <Button>Edit Customer</Button>
-          {/* <Redirect to=/> */}
-          <Button onClick={() => this.deleteCustomer(customer.id)}>
-            Delete
-          </Button>
-          <Card>
-            <Card.Text>
-              <h2>Order History</h2>
-            </Card.Text>
-          </Card>
-        </div>
-      </section>
+              <div flex className={CustomerViewCSS.btndiv}>
+                <button className={CustomerViewCSS.btn}>Edit Customer</button>
+                <button
+                  onClick={() => this.deleteCustomer(customer.id)}
+                  className={CustomerViewCSS.deletebtn}
+                >
+                  Delete Customer
+                </button>
+              </div>
+            </Card>
+            {/* </Col>
+                <Col> */}
+            <Card className={CustomerViewCSS.card}>
+              <Card.Text>
+                <h2 className={CustomerViewCSS.h2}>Order History</h2>
+              </Card.Text>
+            </Card>
+            {/* </Col>
+            </Row> */}
+          </CardGroup>
+        </Container>
+      </div>
     );
   }
 }
-
 export default CustomerView;
