@@ -8,6 +8,7 @@ import CustomerView from "./components/customers/CustomerView";
 import CustomerEdit from "./components/customers/CustomerEdit";
 import AddressEdit from "./components/addresses/AddressEdit";
 import AddressCreate from "./components/addresses/AddressCreate";
+import OrdersList from "./components/orders/OrdersList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import OrderView from "./components/orders/OrderView";
@@ -31,6 +32,9 @@ function App() {
             <CustomersList />
           </Route>
           <Route exact path="/customers/new" component={CustomerCreate} />
+          <Route exact path="/orders">
+            <OrdersList />
+          </Route>
           <Route exact path="/customers/:id" component={CustomerView} />
           <Route exact path="/products">
             <ProductsList />
