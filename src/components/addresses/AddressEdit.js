@@ -2,6 +2,7 @@ import React, { Component, Modal } from "react";
 import { Card, Button, Container } from "react-bootstrap";
 import AddressDataService from "../../services/address.data.service";
 import Form from "react-bootstrap/Form";
+import http from "../../utils/http-common";
 
 class AddressEdit extends Component {
   state = {
@@ -35,6 +36,11 @@ class AddressEdit extends Component {
   // view(id) {
   //   return http.get(`/addresses/${id}`);
   // }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("test", this.state, this.props);
+    http.put(`/addresses/${this.props.match.params.id}`, this.state);
+  };
 
   handleAddressLine1 = (event) => {
     this.setState({
@@ -97,7 +103,10 @@ class AddressEdit extends Component {
                 <Card.Title className="text-center font-weight-bold">
                   Address Details
                 </Card.Title>
-                <Form>
+                <Form
+                  // onLoad={this.handleAddressLine1}
+                  onSubmit={this.handleSubmit}
+                >
                   {/* Address 1 */}
                   <Form.Group className="mb-3" controlId="formAddress_1">
                     <Form.Label>Address 1</Form.Label>

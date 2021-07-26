@@ -15,5 +15,3 @@ const http = axios.create({
 });
 
 export default http;
-
-//8080
