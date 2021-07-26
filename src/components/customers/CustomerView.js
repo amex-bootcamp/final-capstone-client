@@ -6,7 +6,10 @@ import { Redirect, Link } from "react-router-dom";
 
 class CustomerView extends Component {
   state = {
-    customer: { data: [{}], deleted: false },
+    customer: {
+      data: [{}],
+      deleted: false
+    },
   };
   componentDidMount() {
     const {

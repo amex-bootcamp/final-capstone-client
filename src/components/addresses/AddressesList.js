@@ -10,6 +10,7 @@ export default class AddressesList extends Component {
     addresses: [],
     show: false,
     selectedAddress: "",
+    deleted: false,
   };
   setShow = () => {
     this.setState((currentState) => {
@@ -20,8 +21,6 @@ export default class AddressesList extends Component {
   };
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
-
-
   handleShow = (id) => {
     this.setShow();
     this.setState({ selectedAddress: id });
@@ -35,6 +34,7 @@ export default class AddressesList extends Component {
         )
       )
       .catch(console.error);
+    
   };
   componentDidMount() {
     AddressDataService.list()
@@ -50,7 +50,6 @@ export default class AddressesList extends Component {
       textAlign: "center",
       fontWeight: "bold",
       width: "20rem",
-     
     };
     const editBtn = {
       marginBottom: "auto",
@@ -75,8 +74,8 @@ export default class AddressesList extends Component {
       fontWeight: "bold",
       paddingTop: "15px",
     };
-
     const { addresses } = this.state;
+    
     const addressListItems = addresses.map((address, index) => (
       <ul key={`${address.zip}-${index}`}>
         <Card style={cardStyles}>
@@ -91,14 +90,16 @@ export default class AddressesList extends Component {
           <>
             <div style={divBtn}>
               <Button style={editBtn}>Edit</Button>{" "}
-              <Button style={deleteBtn} onClick={() => this.handleShow(address.id)}>Delete</Button>{" "}
+              <Button
+                style={deleteBtn}
+                onClick={() => this.handleShow(address.id)}>
+                Delete
+              </Button>{" "}
             </div>
           </>
         </Card>
       </ul>
-    
     ));
-
     return (
       <section>
         <h1 className={AddressesListCSS.header}>All Addresses</h1>
@@ -111,13 +112,7 @@ export default class AddressesList extends Component {
             </Col>
           </Row>
         </Container>
-
-
-
-
-        <Modal
-          show={this.state.show}
-          onHide={this.handleClose}>
+        <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
               Are you sure you want to delete your address?
@@ -125,16 +120,10 @@ export default class AddressesList extends Component {
           </Modal.Header>
           <Modal.Body>Your address has been deleted</Modal.Body>
           <Modal.Footer>
-            <Button
-              type="radio"
-              variant="danger"
-              onClick={this.handleClose}>
+            <Button type="radio" variant="danger" onClick={this.handleClose}>
               Cancel
             </Button>
-            <Button
-              type="radio"
-              variant="primary"
-              onClick={this.handleConfirm}>
+            <Button type="radio" variant="primary" onClick={this.handleConfirm}>
               Confirm
             </Button>
           </Modal.Footer>
