@@ -1,0 +1,26 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.btndiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+.h2 {
+  text-align: center;
+  padding-bottom: 35px;
+}
+
+.span {
+  font-weight: bolder;
+  padding-bottom: 40px;
+  margin-right: 5px;
+}
+
+.container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-radius: 40px 40px 40px;
+  display: block;
+}
