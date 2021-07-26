@@ -16,19 +16,26 @@ class AddressesList extends Component {
       .catch(console.error);
   }
   render() {
-    const cardStyles = {color: "#f1faee", 
+    const cardStyles = {
+      color: "#f1faee",
+      fontFamily: "'Lato', sans-serif", 
       border: "4px solid #457b9d",
       backgroundColor: "#1d3557" ,
       textAlign: "center" ,
       fontWeight: "bold" ,
       width: '20rem' ,
+      padding: "10px 0px" ,
+    marginBottom: "auto",
+    transition: "box-shadow .3s",
+    
   }
+
     const { addresses } = this.state;
     const addressListItems = addresses.map((address, index) => (
       <ul key={`${address.zip}-${index}`}>
-        <Card style= {cardStyles}>
+        <Card style= {cardStyles} >
           <Card.Title>
-            <p>Address ID: {address.id}</p>
+            <p><b>Address ID:</b> {address.id}</p>
           </Card.Title>
           <p>Address Line 1: {address.address_line_1}</p>
           <p>Address Line 2: {address.address_line_2}</p>
@@ -52,11 +59,9 @@ class AddressesList extends Component {
         <h1 className={AddressesListCSS.header}>All Addresses</h1>
         <container fluid="md">
           <row>
-            <ul>
               <div className={AddressesListCSS.mainContainer}>
                 {addressListItems}
               </div>
-            </ul>
           </row>
         </container>
       </section>

@@ -1,4 +1,4 @@
-.card {
+/* .card {
     color: #f1faee; 
     border: 4px solid #457b9d ;
     background-color: #1d3557 ;
@@ -9,14 +9,18 @@
     flex:auto ;
     padding: 10px 0px;
     margin-bottom: auto;
-}
+} */
 
 .mainContainer {
-    display: grid; 
+    /* display: grid; 
     justify-content: center; 
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    /* grid-template-columns: 1fr 1fr 1fr 1fr;  */
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr 1fr ));
     grid-gap: 50px 50px;
-    flex-flow: column wrap;    
+    flex-flow: column wrap;     */ 
+    display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
+  grid-gap: 1rem;
 }
 
 ul {
@@ -29,8 +33,21 @@ ul {
     margin-top: 50px;
     font-size: 50pt;
     color: #1d3557;
+    font-family: 'Lato', sans-serif;
 }
-
+/* 
 .Btn{
     margin-bottom: auto;
 }
+
+const cardStyle = {
+    fontFamily: "Lato, sans-serif",
+    backgroundColor: "#f1faee",
+    color: "#1d3557",
+    width: "25rem",
+    border: "5px solid #1d3557",
+    margin: "25px",
+    padding: "10px",
+    borderRadius: "15px",
+    transition: "box-shadow .3s",
+  }; */
