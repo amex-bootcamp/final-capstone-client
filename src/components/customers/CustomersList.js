@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Pagination } from "@material-ui/lab";
 import CustomerDataService from "../../services/customer.data.service";
-import { Link } from "react-router-dom";
 import CustomerListCSS from "./CustomersList.module.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { auto } from "@popperjs/core";
@@ -98,9 +97,9 @@ function CustomersList() {
             </p>
           </Card.Text>
         </Card.Body>
-        <Link to={`customers/${customer.id}`} style={linkStyle}>
+        <Button href={`customers/${customer.id}`} style={linkStyle}>
           View Details
-        </Link>
+        </Button>
       </Card>
     </ul>
   ));
