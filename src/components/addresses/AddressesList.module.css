@@ -1,0 +1,25 @@
+.mainContainer {
+    padding-right: 30px;
+    display: grid;
+    grid-row-gap: 50px;
+    grid-column-gap: 50px ;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 75px;
+    margin-top: 50px;
+    font-size: 50pt;
+    color: #1d3557;
+    font-family: 'Lato', sans-serif;
+}
+
+.Btn {
+    margin-bottom: auto;
+}
