@@ -1,0 +1,15 @@
+.backbtn {
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 20px !important;
+    background-color: #e63946;
+}
+.backbtnlink {
+    color: white;
+}
+.heading {
+    text-align: center;
+}
+.para {
+    margin-left: 15px;
+}
