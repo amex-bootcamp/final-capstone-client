@@ -1,22 +1,32 @@
 import React, { Component } from "react";
 import AddressDataService from "../../services/address.data.service";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 export default class AddressesList extends Component {
   state = {
     addresses: [],
     show: false,
+    selectedAddress: "",
   };
   setShow = () => {
-    this.setState((currentState)=>{
+    this.setState((currentState) => {
       return {
-        show: !currentState.show
-      }
-    }) 
-  }
+        show: !currentState.show,
+      };
+    });
+  };
   handleClose = () => this.setShow();
-  handleShow = () => this.setShow();
+  handleShow = (id) => {
+    this.setShow();
+    this.setState({ selectedAddress: id });
+  };
+  handleConfirm = () => {
+    this.handleClose();
+    AddressDataService.delete(this.state.selectedAddress)
+      .then(() => console.log("Address deleted"))
+      .catch(console.error);
+  };
 
   componentDidMount() {
     AddressDataService.list()
@@ -33,7 +43,10 @@ export default class AddressesList extends Component {
         <p>City: {address.city}</p>
         <p>State {address.state}</p>
         <p>Zip: {address.zip}</p>
-        <Button type="radio" variant="primary" onClick={this.handleShow}>
+        <Button
+          type="radio"
+          variant="primary"
+          onClick={() => this.handleShow(address.id)}>
           Delete
         </Button>
       </li>
@@ -42,9 +55,7 @@ export default class AddressesList extends Component {
     return (
       <section>
         <h2>Addresses</h2>
-        <ol>
-          {addressListItems}
-        </ol>
+        <ol>{addressListItems}</ol>
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
@@ -56,7 +67,7 @@ export default class AddressesList extends Component {
             <Button type="radio" variant="danger" onClick={this.handleClose}>
               Cancel
             </Button>
-            <Button type="radio" variant="primary" onClick={this.handleClose}>
+            <Button type="radio" variant="primary" onClick={this.handleConfirm}>
               Confirm
             </Button>
           </Modal.Footer>
