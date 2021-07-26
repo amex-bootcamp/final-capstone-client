@@ -4,6 +4,7 @@ import CustomerDataService from "../../services/customer.data.service";
 import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
 
+
 class CustomerView extends Component {
   state = {
     customer: { data: [{}], deleted: false },
@@ -44,8 +45,8 @@ class CustomerView extends Component {
     };
     const backBtn = {
       backgroundColor: "#1d3557",
-      margin: "20px"
-    }
+      margin: "20px",
+    };
     const custCard = {
       backgroundColor: "#1d3557",
       color: "#f1faee",
@@ -69,7 +70,8 @@ class CustomerView extends Component {
     return (
       <div>
         <Container>
-        <Button style={backBtn}>Back to Customer List</Button>
+           <Link to={`/customers`}> <Button style={backBtn}>Back to Customer List</Button></Link>
+          
         </Container>
         <Container className={CustomerViewCSS.container}>
           <CardGroup style={cardGroup}>
