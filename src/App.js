@@ -5,8 +5,8 @@ import CustomerCreate from "./components/customers/CustomerCreate";
 import CustomersList from "./components/customers/CustomersList";
 import ProductsList from "./components/products/ProductsList";
 import CustomerView from "./components/customers/CustomerView";
+import AddressEdit from "./components/addresses/AddressEdit";
 import AddressCreate from "./components/addresses/AddressCreate";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 
@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
-          <Route exact path="/addresses/new" component={AddressCreate} />
+          <Route exact path="/addresses/:id/edit" component={AddressEdit} />
           <Route exact path="/customers">
             <CustomersList />
           </Route>
@@ -35,6 +35,11 @@ function App() {
             <ProductsList />
           </Route>
           <Route exact path="/customers/:id" component={CustomerView} />
+        </Switch>
+        <Switch>
+          <Route exact path="/addresses/new">
+            <AddressCreate />
+          </Route>
         </Switch>
       </main>
     </>

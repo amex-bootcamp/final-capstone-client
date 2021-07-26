@@ -3,7 +3,10 @@ import http from "../utils/http-common";
 class CustomerDataService {
   // list customer data
   list() {
-    return http.get("/customers");
+    return http.get(`/customers`);
+  }
+  listByCount(count, page) {
+    return http.get(`/customers?count=${count}&page=${page}&order=updatedAt`);
   }
   // view a specific customer by id
   view(id) {
