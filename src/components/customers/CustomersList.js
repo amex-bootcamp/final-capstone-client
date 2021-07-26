@@ -52,6 +52,7 @@ function CustomersList() {
   const handlePaginationClick = (event, value) => {
     setCurrentPage(value);
   };
+
   return (
     <section>
       <h2>Customers</h2>
@@ -81,7 +82,7 @@ function CustomersList() {
       <ol>{customerListItems}</ol>
       <Pagination
         page={currentPage}
-        count={Math.floor(totalCustomerCount / customerLoad)}
+        count={Math.ceil(totalCustomerCount / customerLoad)}
         variant="outlined"
         color="primary"
         onChange={handlePaginationClick}
