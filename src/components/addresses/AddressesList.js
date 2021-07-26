@@ -4,6 +4,7 @@ import { Card, Button, Container, Row, Col, CardGroup } from "react-bootstrap";
 import AddressesListCSS from "./AddressesList.module.css";
 // import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { Redirect } from "react-router-dom";
 
 export default class AddressesList extends Component {
   state = {
@@ -26,16 +27,15 @@ export default class AddressesList extends Component {
     this.setState({ selectedAddress: id });
   };
   handleConfirm = () => {
+    const { selectedAddress } = this.state;
     this.handleClose();
-    AddressDataService.delete(this.state.selectedAddress)
-      .then(() =>
-        console.log(
-          `You have deleted address ID: ${this.state.selectedAddress}`
-        )
-      )
+    AddressDataService.delete(selectedAddress)
+      .then(() => {
+        this.setState({ deleted: true });
+      })
       .catch(console.error);
-    
   };
+
   componentDidMount() {
     AddressDataService.list()
       .then(({ data: addresses }) => this.setState({ addresses }))
@@ -75,7 +75,12 @@ export default class AddressesList extends Component {
       paddingTop: "15px",
     };
     const { addresses } = this.state;
-    
+
+    if (this.state.deleted) {
+      // return <Redirect to={{ pathname: "/addresses" }} />;
+      window.location.reload();
+    }
+
     const addressListItems = addresses.map((address, index) => (
       <ul key={`${address.zip}-${index}`}>
         <Card style={cardStyles}>
