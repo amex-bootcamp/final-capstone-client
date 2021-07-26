@@ -42,6 +42,10 @@ class CustomerView extends Component {
       padding: "10px 20px",
       border: "none",
     };
+    const backBtn = {
+      backgroundColor: "#1d3557",
+      margin: "20px"
+    }
     const custCard = {
       backgroundColor: "#1d3557",
       color: "#f1faee",
@@ -64,6 +68,9 @@ class CustomerView extends Component {
     }
     return (
       <div>
+        <Container>
+        <Button style={backBtn}>Back to Customer List</Button>
+        </Container>
         <Container className={CustomerViewCSS.container}>
           <CardGroup style={cardGroup}>
             <Row>
