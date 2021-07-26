@@ -1,4 +1,4 @@
-.card {
+/* .card {
     color: #f1faee;
     border: 4px solid #457b9d;
     background-color: #1d3557;
@@ -9,7 +9,7 @@
     flex: auto;
     padding: 10px 0px;
     margin-bottom: auto;
-}
+} */
 
 .mainContainer {
     /* display: grid; 
@@ -22,6 +22,7 @@
     grid-row-gap: 50px;
     grid-column-gap: 50px ;
     grid-template-columns: repeat(auto-fill, minmax(300px, 4fr));
+
 }
 
 ul {
