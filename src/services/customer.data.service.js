@@ -6,9 +6,9 @@ class CustomerDataService {
     return http.get(`/customers`);
   }
   listByCount(count, page) {
-    return http.get(`/customers?count=${count}&page=${page}&order=true`);
+    return http.get(`/customers?count=${count}&page=${page}&order=updatedAt`);
   }
-  // view a specific customerby id
+  // view a specific customer by id
   view(id) {
     return http.get(`/customers/${id}`);
   }
