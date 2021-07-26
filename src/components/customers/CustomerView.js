@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Card, Container, CardGroup, Button, Row, Col } from "react-bootstrap";
 import CustomerDataService from "../../services/customer.data.service";
-import CustomerViewCSS from "./CustomerView.Module.css";
+import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
 
 class CustomerView extends Component {
