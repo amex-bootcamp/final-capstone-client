@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Card, Container, CardGroup, Button } from "react-bootstrap";
-import AddressView from "./AddressView.css";
+import AddressViewCSS from "./AddressView.module.css";
 import AddressDataService from "../../services/address.data.service";
 import { Redirect } from "react-router-dom";
 
-class AddressesView extends Component {
+class AddressView extends Component {
   state = {
     address: [
       {
@@ -80,4 +80,4 @@ class AddressesView extends Component {
   }
 }
 
-export default AddressesView; 
+export default AddressView; 
