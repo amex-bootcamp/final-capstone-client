@@ -27,7 +27,7 @@ function CustomersList() {
         setCustomer(customers);
       })
       .catch(console.error);
-  }, [currentPage]);
+  }, [currentPage, customerLoad]);
 
   const cardStyle = {
     fontFamily: "Lato, sans-serif",
