@@ -15,7 +15,6 @@ class CustomerDataService {
 
   // delete an customerby given id
   delete(id) {
-    console.log(id);
     return http.delete(`/customers/${id}`);
   }
 
