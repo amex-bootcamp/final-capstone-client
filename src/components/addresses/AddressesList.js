@@ -2,23 +2,40 @@ import React, { Component } from "react";
 import AddressDataService from "../../services/address.data.service";
 import { Card, Button, Container, Row, Col, CardGroup } from "react-bootstrap";
 import AddressesListCSS from "./AddressesList.module.css";
+// import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
-class AddressesList extends Component {
+export default class AddressesList extends Component {
   state = {
     addresses: [],
     show: false,
+    selectedAddress: "",
   };
   setShow = () => {
-    this.setState((currentState)=>{
+    this.setState((currentState) => {
       return {
-        show: !currentState.show
-      }
-    }) 
-  }
+        show: !currentState.show,
+      };
+    });
+  };
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
 
 
+  handleShow = (id) => {
+    this.setShow();
+    this.setState({ selectedAddress: id });
+  };
+  handleConfirm = () => {
+    this.handleClose();
+    AddressDataService.delete(this.state.selectedAddress)
+      .then(() =>
+        console.log(
+          `You have deleted address ID: ${this.state.selectedAddress}`
+        )
+      )
+      .catch(console.error);
+  };
   componentDidMount() {
     AddressDataService.list()
       .then(({ data: addresses }) => this.setState({ addresses }))
@@ -74,11 +91,27 @@ class AddressesList extends Component {
           <>
             <div style={divBtn}>
               <Button style={editBtn}>Edit</Button>{" "}
-              <Button style={deleteBtn}>Delete</Button>{" "}
+              <Button style={deleteBtn} onClick={() => this.handleShow(address.id)}>Delete</Button>{" "}
             </div>
           </>
         </Card>
       </ul>
+    // const { addresses } = this.state;
+    // const addressListItems = addresses.map((address, index) => (
+    //   <li key={`${address.zip}-${index}`}>
+    //     <p>Address ID: {address.id}</p>
+    //     <p>Address Line 1: {address.address_line_1}</p>
+    //     <p>Address Line 2: {address.address_line_2}</p>
+    //     <p>City: {address.city}</p>
+    //     <p>State {address.state}</p>
+    //     <p>Zip: {address.zip}</p>
+    //     <Button
+    //       type="radio"
+    //       variant="primary"
+    //       onClick={() => this.handleShow(address.id)}>
+    //       Delete
+    //     </Button>
+    //   </li>
     ));
 
     return (
@@ -93,9 +126,36 @@ class AddressesList extends Component {
             </Col>
           </Row>
         </Container>
+
+
+
+        {/* <h2>Addresses</h2>
+        <ol>{addressListItems}</ol> */}
+        <Modal
+          show={this.state.show}
+          onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Are you sure you want to delete your address?
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Your address has been deleted</Modal.Body>
+          <Modal.Footer>
+            <Button
+              type="radio"
+              variant="danger"
+              onClick={this.handleClose}>
+              Cancel
+            </Button>
+            <Button
+              type="radio"
+              variant="primary"
+              onClick={this.handleConfirm}>
+              Confirm
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </section>
     );
   }
 }
-
-export default AddressesList;
