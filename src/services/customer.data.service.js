@@ -5,7 +5,7 @@ class CustomerDataService {
   list() {
     return http.get("/customers");
   }
-  // view a specific customerby id
+  // view a specific customer by id
   view(id) {
     return http.get(`/customers/${id}`);
   }
