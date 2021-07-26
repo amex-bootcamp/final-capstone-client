@@ -24,10 +24,13 @@ export default class AddressesList extends Component {
   handleConfirm = () => {
     this.handleClose();
     AddressDataService.delete(this.state.selectedAddress)
-      .then(() => console.log("Address deleted"))
+      .then(() =>
+        console.log(
+          `You have deleted address ID: ${this.state.selectedAddress}`
+        )
+      )
       .catch(console.error);
   };
-
   componentDidMount() {
     AddressDataService.list()
       .then(({ data: addresses }) => this.setState({ addresses }))
@@ -56,7 +59,9 @@ export default class AddressesList extends Component {
       <section>
         <h2>Addresses</h2>
         <ol>{addressListItems}</ol>
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal
+          show={this.state.show}
+          onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
               Are you sure you want to delete your address?
@@ -64,10 +69,16 @@ export default class AddressesList extends Component {
           </Modal.Header>
           <Modal.Body>Your address has been deleted</Modal.Body>
           <Modal.Footer>
-            <Button type="radio" variant="danger" onClick={this.handleClose}>
+            <Button
+              type="radio"
+              variant="danger"
+              onClick={this.handleClose}>
               Cancel
             </Button>
-            <Button type="radio" variant="primary" onClick={this.handleConfirm}>
+            <Button
+              type="radio"
+              variant="primary"
+              onClick={this.handleConfirm}>
               Confirm
             </Button>
           </Modal.Footer>
