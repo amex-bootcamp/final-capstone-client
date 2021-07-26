@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Card, Container, CardGroup, Button } from "react-bootstrap";
 import CustomerDataService from "../../services/customer.data.service";
-import { Redirect } from "react-router-dom";
 import CustomerEditCSS from "../customers/CustomerEdit.module.css";
 
 class CustomerEdit extends Component {
@@ -9,6 +8,7 @@ class CustomerEdit extends Component {
     first_name: "",
     middle_name: "",
     last_name: "",
+    address:"",
     phone: "",
     email: "",
     notes: "",
@@ -25,6 +25,7 @@ class CustomerEdit extends Component {
           first_name: customer.first_name,
           middle_name: customer.middle_name,
           last_name: customer.last_name,
+          address: customer.address,
           phone: customer.phone,
           email: customer.email,
           notes: customer.notes,
@@ -63,9 +64,7 @@ class CustomerEdit extends Component {
     });
   };
 
-  // handleSubmitChanges() {
 
-  // };
 
   render() {
     return (
@@ -107,7 +106,7 @@ class CustomerEdit extends Component {
 
                       <p>
                         <label>Address:</label>
-                        <input type="text"></input>
+                        <input type="text" value={this.state.address}></input>
                       </p>
 
                       <p>
