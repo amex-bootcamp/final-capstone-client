@@ -74,8 +74,10 @@ class AddressCreate extends Component {
       padding: "10px",
       fontFamily: "Lato, sans-serif",
       color: "#f1faee",
-      marginTop: "200px",
+      marginTop: "150px",
       filter: "drop-shadow(0 0 0.75rem #1d3557)",
+      opacity: "70%",
+      
     };
     const button = {
       backgroundColor: "#1d3557",
@@ -92,9 +94,9 @@ class AddressCreate extends Component {
     };
     return (
       <div style={backgroundImage}>
-        <Container>
+        <Container className="d-flex justify-content-start">
           <Row>
-            <Col className={"pl-5 pr-5 p"} style={formStyle}>
+            <Col style={formStyle}>
               <div className={"text-center"}>
                 <h2>Create New Address</h2>
                 <svg
