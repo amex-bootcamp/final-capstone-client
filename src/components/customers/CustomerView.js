@@ -71,6 +71,10 @@ class CustomerView extends Component {
       padding: "10px 20px",
       border: "none",
     };
+    const backBtn = {
+      backgroundColor: "#1d3557",
+      margin: "20px",
+    };
     const custCard = {
       backgroundColor: "#1d3557",
       color: "#f1faee",
@@ -93,6 +97,12 @@ class CustomerView extends Component {
     }
     return (
       <div>
+        <Container>
+          <Link to={`/customers`}>
+            {" "}
+            <Button style={backBtn}>Back to Customer List</Button>
+          </Link>
+        </Container>
         <Container className={CustomerViewCSS.container}>
           <CardGroup style={cardGroup}>
             <Row>
@@ -133,8 +143,8 @@ class CustomerView extends Component {
                     <Button
                       style={deleteButton}
                       variant={deleteButton}
-                      onClick={() => this.deleteCustomer(customer.id)}
-                      // onClick={() => this.handleShow(customer.id)}
+                      // onClick={() => this.deleteCustomer(customer.id)}
+                      onClick={() => this.handleShow(customer.id)}
                       className={CustomerViewCSS.deletebtn}
                     >
                       Delete Customer
@@ -157,15 +167,19 @@ class CustomerView extends Component {
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
-              Are you sure you want to delete your address?
+              Are you sure you want to delete your customer?
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>Your address has been deleted</Modal.Body>
+
           <Modal.Footer>
             <Button type="radio" variant="danger" onClick={this.handleClose}>
               Cancel
             </Button>
-            <Button type="radio" variant="primary" onClick={this.handleConfirm}>
+            <Button
+              type="radio"
+              variant="primary"
+              onClick={() => this.handleConfirm(customer.data[0].id)}
+            >
               Confirm
             </Button>
           </Modal.Footer>
