@@ -3,7 +3,7 @@ import AddressDataService from "../../services/address.data.service";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-class AddressesList extends Component {
+export default class AddressesList extends Component {
   state = {
     addresses: [],
     show: false,
@@ -18,16 +18,12 @@ class AddressesList extends Component {
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
 
-
-
-
   componentDidMount() {
     AddressDataService.list()
       .then(({ data: addresses }) => this.setState({ addresses }))
       .catch(console.error);
   }
   render() {
-
     const { addresses } = this.state;
     const addressListItems = addresses.map((address, index) => (
       <li key={`${address.zip}-${index}`}>
@@ -40,7 +36,6 @@ class AddressesList extends Component {
         <Button type="radio" variant="primary" onClick={this.handleShow}>
           Delete
         </Button>
-       
       </li>
     ));
 
@@ -70,5 +65,3 @@ class AddressesList extends Component {
     );
   }
 }
-
-export default AddressesList;
