@@ -45,10 +45,8 @@ class CustomerView extends Component {
       },
     } = this.props;
 
-    console.log("id", id);
     CustomerDataService.view(id)
       .then(({ data: customer }) => {
-        console.log(customer);
         this.setState({ customer: { id, ...customer.data[0] } });
       })
       .then(() => {
