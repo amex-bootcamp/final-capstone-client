@@ -233,7 +233,159 @@
       "address_id": 15
     }
   ],
-  "orders":[
+  "products": [
+    {
+      "id": 1,
+      "name": "Fantastic Granite Towels",
+      "price": 812,
+      "sku": "15536",
+      "quantity": 81,
+      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Refined Steel Shirt",
+      "price": 876,
+      "sku": "34495",
+      "quantity": 140,
+      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Tasty Granite Cheese",
+      "price": 463,
+      "sku": "94411",
+      "quantity": 120,
+      "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 4,
+      "name": "Intelligent Frozen Bacon",
+      "price": 123,
+      "sku": "10712",
+      "quantity": 190,
+      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 5,
+      "name": "Tasty Granite Cheese",
+      "price": 509,
+      "sku": "10862",
+      "quantity": 119,
+      "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 6,
+      "name": "Ergonomic Metal Table",
+      "price": 706,
+      "sku": "91128",
+      "quantity": 2,
+      "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 7,
+      "name": "Unbranded Frozen Bacon",
+      "price": 697,
+      "sku": "27290",
+      "quantity": 190,
+      "description": "The Football Is Good For Training And Recreational Purposes",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 8,
+      "name": "Sleek Granite Pants",
+      "price": 541,
+      "sku": "74753",
+      "quantity": 190,
+      "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 9,
+      "name": "Sleek Plastic Computer",
+      "price": 544,
+      "sku": "35490",
+      "quantity": 11,
+      "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 10,
+      "name": "Practical Rubber Computer",
+      "price": 264,
+      "sku": "95499",
+      "quantity": 191,
+      "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 11,
+      "name": "Gorgeous Fresh Computer",
+      "price": 82,
+      "sku": "10662",
+      "quantity": 160,
+      "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 12,
+      "name": "Generic Cotton Soap",
+      "price": 8,
+      "sku": "67485",
+      "quantity": 74,
+      "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 13,
+      "name": "Tasty Plastic Table",
+      "price": 741,
+      "sku": "36707",
+      "quantity": 151,
+      "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 14,
+      "name": "Sleek Frozen Ball",
+      "price": 670,
+      "sku": "90861",
+      "quantity": 60,
+      "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    },
+    {
+      "id": 15,
+      "name": "Tasty Granite Fish",
+      "price": 242,
+      "sku": "82838",
+      "quantity": 14,
+      "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+      "createdAt": "2021-07-21T16:09:56.000Z",
+      "updatedAt": "2021-07-21T16:09:56.000Z"
+    }
+  ],
+  "orders": [
     {
       "id": 1,
       "customer_id": 11,
@@ -241,98 +393,112 @@
       "datetime_order_place": "12/7/2020",
       "total_order_price": 684.93,
       "order_notes": "Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor."
-    }, {
+    },
+    {
       "id": 2,
       "customer_id": 12,
       "order_status": "potenti in eleifend",
       "datetime_order_place": "5/25/2021",
       "total_order_price": 22.75,
       "order_notes": "Aliquam sit amet diam in magna bibendum imperdiet."
-    }, {
+    },
+    {
       "id": 3,
       "customer_id": 12,
       "order_status": "ultrices vel",
       "datetime_order_place": "10/4/2020",
       "total_order_price": 211.39,
       "order_notes": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci."
-    }, {
+    },
+    {
       "id": 4,
       "customer_id": 13,
       "order_status": "id mauris vulputate elementum",
       "datetime_order_place": "9/19/2020",
       "total_order_price": 732.41,
       "order_notes": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti."
-    }, {
+    },
+    {
       "id": 5,
       "customer_id": 3,
       "order_status": "faucibus orci",
       "datetime_order_place": "9/29/2020",
       "total_order_price": 554.97,
       "order_notes": "Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla."
-    }, {
+    },
+    {
       "id": 6,
       "customer_id": 8,
       "order_status": "accumsan tellus nisi eu orci",
       "datetime_order_place": "2/12/2021",
       "total_order_price": 101.01,
       "order_notes": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede."
-    }, {
+    },
+    {
       "id": 7,
       "customer_id": 10,
       "order_status": "quis odio consequat varius",
       "datetime_order_place": "9/23/2020",
       "total_order_price": 793.71,
       "order_notes": "Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor."
-    }, {
+    },
+    {
       "id": 8,
       "customer_id": 2,
       "order_status": "duis faucibus accumsan odio",
       "datetime_order_place": "7/23/2021",
       "total_order_price": 853.95,
       "order_notes": "Integer ac leo. Pellentesque ultrices mattis odio."
-    }, {
+    },
+    {
       "id": 9,
       "customer_id": 7,
       "order_status": "accumsan",
       "datetime_order_place": "7/12/2021",
       "total_order_price": 810.45,
       "order_notes": "Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque."
-    }, {
+    },
+    {
       "id": 10,
       "customer_id": 11,
       "order_status": "habitasse platea",
       "datetime_order_place": "4/15/2021",
       "total_order_price": 62.5,
       "order_notes": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl."
-    }, {
+    },
+    {
       "id": 11,
       "customer_id": 1,
       "order_status": "id luctus",
       "datetime_order_place": "1/7/2021",
       "total_order_price": 130.66,
       "order_notes": "In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat."
-    }, {
+    },
+    {
       "id": 12,
       "customer_id": 1,
       "order_status": "accumsan tellus nisi eu orci",
       "datetime_order_place": "8/16/2020",
       "total_order_price": 371.27,
       "order_notes": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis."
-    }, {
+    },
+    {
       "id": 13,
       "customer_id": 14,
       "order_status": "nisl",
       "datetime_order_place": "10/4/2020",
       "total_order_price": 578.84,
       "order_notes": "Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus."
-    }, {
+    },
+    {
       "id": 14,
       "customer_id": 13,
       "order_status": "vestibulum ante ipsum",
       "datetime_order_place": "1/30/2021",
       "total_order_price": 833.33,
       "order_notes": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque."
-    }, {
+    },
+    {
       "id": 15,
       "customer_id": 14,
       "order_status": "aliquet massa",
@@ -340,5 +506,5 @@
       "total_order_price": 685.67,
       "order_notes": "In hac habitasse platea dictumst."
     }
-  ] 
+  ]
 }
