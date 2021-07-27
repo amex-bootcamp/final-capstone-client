@@ -123,7 +123,10 @@ function OrderCreate() {
             name="productList"
             onChange={(event) => {
               setProductPrices(
-                Array.from(event.target.selectedOptions, (option) => option.value)
+                Array.from(
+                  event.target.selectedOptions,
+                  (option) => option.value
+                )
               );
               setProductId(
                 Array.from(event.target.selectedOptions, (option) => option.id)
@@ -134,8 +137,7 @@ function OrderCreate() {
           </Form.Select>
         </Form.Group>
         <Form.Group controlId="totalPrice">
-          <Form.Label>Total Price: </Form.Label>
-          <Form.Select>{totalPrice}</Form.Select>
+          <Form.Label>Total Price: {totalPrice}</Form.Label>
         </Form.Group>
         <button type="submit">Submit</button>
       </Form>
