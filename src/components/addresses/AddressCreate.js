@@ -82,13 +82,13 @@ class AddressCreate extends Component {
       // filter: "drop-shadow(0 0 0.85rem #457b9d)",
       border: "4px solid #457b9d",
       borderRadius: "25px",
-      fontWieght: "bold",
+      fontWeight: "bold",
     };
     const button = {
       backgroundColor: "#a8dadc",
       borderColor: "#457b9d",
       color: "#457b9d",
-      fontWieght: "bold",
+      fontWeight: "bold",
     };
     // const backgroundImage = {
     //   backgroundPosition: "center",
