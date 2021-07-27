@@ -7,9 +7,7 @@
 
 .mainContainer {
     display: block;
-    grid-row-gap: 25px;
-    grid-column-gap: 25px;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 4fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(350px, 4fr)); */
     align-items: center;
     justify-content: center;
     margin: auto;

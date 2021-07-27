@@ -27,7 +27,7 @@ class ProductView extends Component {
       margin: "50px",
       borderRadius: "7px",
       height: "300px",
-      padding: "45px 45px 45px 45px",
+      padding: "65px 65px 65px 65px",
       alignItems: "center",
       justifyContent: "center",
       width: "50rem",
@@ -46,11 +46,15 @@ class ProductView extends Component {
       color: "#1d3557",
       border: "none",
       margin: "15px",
+      marginBottom: "30px",
+  
     };
     const decrementBtn = {
       backgroundColor: "#e63946",
       color: "#f1faee",
       border: "none",
+      margin: "15px",
+      marginBottom: "30px"
     };
     const h2 = {
       textAlign: "center",
@@ -97,11 +101,12 @@ class ProductView extends Component {
                   </span>{" "}
                   {product.sku} <br />
                   <span>
-                    <b>Quanity: </b>
-                    <Button style={incrementBtn}>+</Button>
-                    <Button style={decrementBtn}>-</Button> &nbsp;
-                  </span>{" "}
-                  {product.quantity} <br />
+                    <b>Quanity: </b> </span>{" "}
+                  {product.quantity}
+                    <br /> 
+                    <Button style={decrementBtn}>-</Button>
+                    <Button style={incrementBtn}>+</Button> &nbsp;
+                   <br />
                 </Card.Text>
               </Card.Body>
             </Card>
