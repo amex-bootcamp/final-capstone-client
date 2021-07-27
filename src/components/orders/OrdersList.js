@@ -14,7 +14,7 @@ function OrdersList() {
   const orderListItems = orders.map((order, index) => (
     <li key={`${order}-${index}`}>
       <p>ID: {order.id}</p>
-      <p>Order Status: {order.order_status}</p>
+      <p>Order Status: {order.status_text}</p>
       <p>Date Order Placed: {order.datetime_order_placed}</p>
       <p>First Name: {order.Customer.first_name}</p>
       <p>Last Name: {order.Customer.last_name}</p>
