@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Container, CardGroup, Button } from "react-bootstrap";
+import { Card, Container, CardGroup, Button, Row, Col } from "react-bootstrap";
 import AddressViewCSS from "./AddressView.module.css";
 import AddressDataService from "../../services/address.data.service";
 import { Redirect } from "react-router-dom";
@@ -41,31 +41,43 @@ class AddressView extends Component {
     const { address } = this.state;
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/addresses" }} />;
-
-      const cardGroup = {
-        justifyContent: "center",
-      };
     }
+    const custCard = {
+      backgroundColor: "#1d3557",
+      color: "#f1faee",
+      margin: "50px",
+      borderRadius: "7px",
+      height: "250px",
+      padding: "45px 45px 45px 45px",
+      alignItems: "center",
+    };
+    const cardGroup = {
+      justifyContent: "center",
+    };
 
     return (
       <div>
-        <Container className={AddressView.container}>
-          <CardGroup>
-            <Card className={AddressView.card}>
-              <Card.Text>
-                <h2 className={AddressView.h2}>Address</h2>
-                <span className={AddressView.s}>Address Line 1:</span>{" "}
-                {address.address_line_1} <br />
-                <span className={AddressView.s}>Address Line 2:</span>{" "}
-                {address.address_line_2} <br />
-                <span className={AddressView.s}>City:</span> {address.city}{" "}
-                <br />
-                <span className={AddressView.s}>State:</span> {address.state}{" "}
-                <br />
-                <span className={AddressView.s}>Zip: </span>
-                {address.zip} <br />
-              </Card.Text>
-            </Card>
+        <Container className={AddressViewCSS.container}>
+          <CardGroup style={cardGroup}>
+            <Row>
+              <Col>
+                <Card style={custCard} variant={custCard}>
+                  <Card.Text>
+                    <h2>Address</h2>
+                    <span className={AddressView.s}>Address Line 1:</span>{" "}
+                    {address.address_line_1} <br />
+                    <span className={AddressView.s}>Address Line 2:</span>{" "}
+                    {address.address_line_2} <br />
+                    <span className={AddressView.s}>City:</span> {address.city}{" "}
+                    <br />
+                    <span className={AddressView.s}>State:</span>{" "}
+                    {address.state} <br />
+                    <span className={AddressView.s}>Zip: </span>
+                    {address.zip} <br />
+                  </Card.Text>
+                </Card>
+              </Col>
+            </Row>
           </CardGroup>
         </Container>
       </div>
