@@ -26,9 +26,8 @@ function App() {
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
-          <Route exact path="/addresses/:id">
-            <AddressView />
-          </Route>
+          <Route exact path="/addresses/:id" component={AddressView}/>
+          
           <Route exact path="/addresses/:id/edit" component={AddressEdit} />
           <Route exact path="/customers">
             <CustomersList />

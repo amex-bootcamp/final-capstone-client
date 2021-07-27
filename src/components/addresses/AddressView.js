@@ -9,6 +9,12 @@ class AddressView extends Component {
     address: [
       {
         deleted: false,
+        id: "",
+        address_line_1: "",
+        address_line_2: "",
+        city: "",
+        state: "",
+        zipo: "",
       },
     ],
   };
@@ -22,7 +28,7 @@ class AddressView extends Component {
 
     AddressDataService.view(id)
       .then(({ data: address }) => 
-      this.setState({ address }))
+      this.setState({ address:address[0] }))
       .catch(console.error);
   }
 
@@ -45,34 +51,18 @@ class AddressView extends Component {
         <div>
           
           <Container className={AddressView.container}>
-            {/* <Row justify-content-center>
-                <Col> */}
                 <CardGroup>
                   <Card className={AddressView.card}>
                     <Card.Text>
                     <h2 className={AddressView.h2}>Address</h2>
-                      <span className={AddressView.s}>Address Line 1:</span> {address.data[0].aadress_line_1} <br/>
-                      <span className={AddressView.s}>Address Line 2:</span> {address.data[0].aadress_line_2} <br/>
-                      <span className={AddressView.s}>City:</span> {address.data[0].city} <br/>
-                      <span className={AddressView.s}>State:</span> {address.data[0].state} <br/>
-                     <span className={AddressView.s}>Zip: </span>{address.data[0].zip} <br/>
-                    </Card.Text>
-                    <div flex className={AddressView.btndiv}>
-                      <button className={AddressView.btn}>
-                        Edit Customer
-                      </button>
-                      <button onClick={() => this.deleteAddress(address.id)} className={AddressView.deletebtn}>
-                        Delete Customer
-                      </button>
-                      </div>
-                  </Card>
-                  <Card className={AddressView.card}>
-                    <Card.Text>
-                      <h2 className={AddressView.h2}>Order History</h2>
+                   
+                      <span className={AddressView.s}>Address Line 1:</span> {address.address_line_1} <br/>
+                      <span className={AddressView.s}>Address Line 2:</span> {address.address_line_2} <br/>
+                      <span className={AddressView.s}>City:</span> {address.city} <br/>
+                      <span className={AddressView.s}>State:</span> {address.state} <br/>
+                     <span className={AddressView.s}>Zip: </span>{address.zip} <br/>
                     </Card.Text>
                   </Card>
-                {/* </Col>
-            </Row> */}
             </CardGroup>
           </Container>
         </div>
