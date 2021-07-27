@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import AddressDataService from "../../services/address.data.service";
 import { Card, Button, Container, Row, Col, CardGroup } from "react-bootstrap";
 import AddressesListCSS from "./AddressesList.module.css";
-// import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 
@@ -21,7 +20,6 @@ export default class AddressesList extends Component {
     });
   };
 
-  // handleViewDetails = () =>
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
   handleShow = (id) => {

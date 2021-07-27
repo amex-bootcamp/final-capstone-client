@@ -15,14 +15,9 @@ class AddressView extends Component {
         city: "",
         state: "",
         zip: "",
-        // searchInput: ""
       },
     ],
   };
-
-  // handleSearch(value) {
-  //   this.setState({ searchInput: value });
-  // }
 
   componentDidMount() {
     const {
