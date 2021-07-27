@@ -3,9 +3,8 @@ import AddressDataService from "../../services/address.data.service";
 import { Card, Button, Container, Row, Col, CardGroup } from "react-bootstrap";
 import AddressesListCSS from "./AddressesList.module.css";
 import Modal from "react-bootstrap/Modal";
-import { Link } from "react-router-dom";
 
-export default class AddressesList extends Component {
+class AddressesList extends Component {
   state = {
     addresses: [],
     show: false,
@@ -110,17 +109,6 @@ export default class AddressesList extends Component {
           <Button href={`addresses/${address.id}`} style={linkStyle}>
             View Details
           </Button>
-
-          <>
-            {/* <div style={divBtn}>
-              <Button style={editBtn}>Edit</Button>{" "}
-              <Button
-                style={deleteBtn}
-                onClick={() => this.handleShow(address.id)}>
-                Delete
-              </Button>{" "}
-            </div> */}
-          </>
         </Card>
       </ul>
     ));
@@ -157,3 +145,4 @@ export default class AddressesList extends Component {
     );
   }
 }
+export default AddressesList;

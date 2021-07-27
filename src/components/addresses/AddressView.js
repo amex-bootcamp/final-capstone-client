@@ -41,6 +41,7 @@ class AddressView extends Component {
     this.setState({ selectedAddress: id });
   };
   handleConfirm = () => {
+    const { selectedAddress } = this.state;
     this.handleClose();
     AddressDataService.delete(this.state.selectedAddress)
       .then(() => {
