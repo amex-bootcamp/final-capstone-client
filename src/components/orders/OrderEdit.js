@@ -14,6 +14,9 @@ class OrderEdit extends Component {
     phone: "",
     email: "",
     notes: "",
+    order_status:"",
+    total_order_price:"",
+    order_notes:"",
   };
 
   render() {
@@ -128,7 +131,7 @@ class OrderEdit extends Component {
                               Product 3
                             </Dropdown.Item>
                             <Dropdown.Item href="#/action-4">
-                              Poroduct 4
+                              Product 4
                             </Dropdown.Item>
                             <Dropdown.Item href="#/action-5">
                               Product 5
