@@ -9,6 +9,7 @@ import {
   Modal,
 } from "react-bootstrap";
 import CustomerDataService from "../../services/customer.data.service";
+import AddressDataService from "../../services/address.data.service";
 import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
 
@@ -16,6 +17,7 @@ class CustomerView extends Component {
   state = {
     customer: { data: [{}], deleted: false },
     show: false,
+    address: {},
   };
 
   setShow = () => {
@@ -43,11 +45,13 @@ class CustomerView extends Component {
       },
     } = this.props;
 
-    console.log("id", id);
     CustomerDataService.view(id)
-      .then(({ data: customer }) =>
-        this.setState({ customer: { id, ...customer } })
-      )
+      .then(({ data: customer }) => {
+        this.setState({ customer: { id, ...customer[0] } });
+      })
+      .then(() => {
+        this.getAddressInfo(this.state.customer.address_id);
+      })
       .catch(console.error);
   }
   deleteCustomer(id) {
@@ -55,6 +59,12 @@ class CustomerView extends Component {
       this.setState({ deleted: true });
     });
   }
+
+  getAddressInfo = (id) => {
+    AddressDataService.view(id).then(({ data }) => {
+      this.setState({ address: data.data[0] });
+    });
+  };
 
   render() {
     const editButton = {
@@ -91,7 +101,7 @@ class CustomerView extends Component {
     const cardGroup = {
       justifyContent: "center",
     };
-    const { customer } = this.state;
+    const { customer, address } = this.state;
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/customers" }} />;
     }
@@ -112,24 +122,33 @@ class CustomerView extends Component {
                     <h2 style={text} className={CustomerViewCSS.h2}>
                       Customer Details
                     </h2>
-                    <span style={text} className={CustomerViewCSS.s}>
-                      First Name:
-                    </span>{" "}
-                    {customer.data[0].first_name} <br />
-                    <span className={CustomerViewCSS.s}>Middle Name:</span>{" "}
-                    {customer.data[0].middle_name} <br />
-                    <span className={CustomerViewCSS.s}>Last Name:</span>{" "}
-                    {customer.data[0].last_name} <br />
-                    <span className={CustomerViewCSS.s}>Address:</span>{" "}
-                    {customer.data[0].address_id} <br />
-                    <span className={CustomerViewCSS.s}>Phone: </span>
-                    {customer.data[0].phone} <br />
-                    <span className={CustomerViewCSS.s}>Email: </span>
-                    {customer.data[0].email} <br />
-                    <span className={CustomerViewCSS.s}> Notes: </span>{" "}
-                    {customer.data[0].notes}
+                    <div style={text}>First Name: {customer.first_name}</div>
+                    <div className={CustomerViewCSS.s}>
+                      Middle Name: {customer.middle_name}
+                    </div>
+                    <div className={CustomerViewCSS.s}>
+                      Last Name: {customer.last_name}
+                    </div>
+                    <div className={CustomerViewCSS.s}>
+                      Phone: {customer.phone}
+                    </div>
+                    <div className={CustomerViewCSS.s}>
+                      Email: {customer.email}
+                    </div>
+                    <div className={CustomerViewCSS.s}>
+                      Notes: {customer.notes}
+                    </div>
+                    <hr></hr>
+                    <div className={CustomerViewCSS.s}>
+                      Address: {customer.address_id}
+                    </div>
+                    <div>Address Line 1: {address.address_line_1}</div>
+                    <div>Address Line 2: {address.address_line_2}</div>
+                    <div>City: {address.city}</div>
+                    <div>State: {address.state}</div>
+                    <div>Zip: {address.zip}</div>
                   </Card.Text>
-                  <br /> <br />
+
                   <div flex className={CustomerViewCSS.btndiv}>
                     <Button
                       style={editButton}
@@ -143,7 +162,6 @@ class CustomerView extends Component {
                     <Button
                       style={deleteButton}
                       variant={deleteButton}
-                      // onClick={() => this.deleteCustomer(customer.id)}
                       onClick={() => this.handleShow(customer.id)}
                       className={CustomerViewCSS.deletebtn}
                     >
