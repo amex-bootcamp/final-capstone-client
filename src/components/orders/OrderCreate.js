@@ -52,8 +52,8 @@ function OrderCreate() {
   return (
     <section>
       <h2>Create a New Order</h2>
-      <form>
-        <label>Order ID:</label>
+      <Form>
+        <Form.Group>Order ID:</Form.Group>
         <input
           id="orderId"
           name="orderId"
@@ -62,7 +62,7 @@ function OrderCreate() {
           readOnly
         ></input>
         <br />
-        <label>Customer ID: </label>
+        <Form.Group>Customer ID: </Form.Group>
         <select
           type="text"
           name="customerId"
@@ -72,7 +72,7 @@ function OrderCreate() {
           {customerIdOption}
         </select>
         <br />
-        <label>Order Status: </label>
+        <Form.Group>Order Status: </Form.Group>
         <select
           type="type"
           name="orderStatus"
@@ -89,7 +89,7 @@ function OrderCreate() {
           <option value="closed">Closed</option>
         </select>
         <br />
-        <label>Date/Time: </label>
+        <Form.Group>Date/Time: </Form.Group>
         <input
           id="date"
           name="date"
@@ -98,10 +98,10 @@ function OrderCreate() {
           readOnly
         ></input>
         <br />
-        <label>Order Notes: </label>
+        <Form.Group>Order Notes: </Form.Group>
         <textarea id="orderNotes" name="orderNotes" type="text"></textarea>
         <br />
-        <label for="productList">Products: </label>
+        <Form.Group for="productList">Products: </Form.Group>
         <select
           multiple
           id="productList"
@@ -112,7 +112,7 @@ function OrderCreate() {
         >
           {productOption}
         </select>
-      </form>
+      </Form>
       <p>{productPrice}</p>
     </section>
   );
