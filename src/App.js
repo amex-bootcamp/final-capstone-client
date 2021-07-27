@@ -1,4 +1,4 @@
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import AddressesList from "./components/addresses/AddressesList";
 import CustomerCreate from "./components/customers/CustomerCreate";
@@ -23,26 +23,26 @@ function App() {
           <Route exact path="/">
             <Dashboard />
           </Route>
+
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
           <Route exact path="/addresses/:id/edit" component={AddressEdit} />
-          <Route exact path="/customers">
-            <CustomersList />
-          </Route>
-          <Route exact path="/customers/new" component={CustomerCreate} />
-          <Route exact path="/customers/:id" component={CustomerView} />
-          <Route exact path="/products">
-            <ProductsList />
-          </Route>
-    <Route exact path="/products/:id" component={ProductView} />
-          <Route exact path="/customers/:id" component={CustomerView} />
-          <Route exact path="/customers/:id/edit" component={CustomerEdit} />
-        </Switch>
-        <Switch>
           <Route exact path="/addresses/new">
             <AddressCreate />
           </Route>
+
+          <Route exact path="/customers">
+            <CustomersList />
+          </Route>
+          <Route exact path="/customers/:id" component={CustomerView} />
+          <Route exact path="/customers/new" component={CustomerCreate} />
+          <Route exact path="/customers/:id/edit" component={CustomerEdit} />
+
+          <Route exact path="/products">
+            <ProductsList />
+          </Route>
+          <Route exact path="/products/:id" component={ProductView} />
         </Switch>
       </main>
     </>
