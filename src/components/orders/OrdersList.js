@@ -4,33 +4,15 @@ import { Redirect, Link } from "react-router-dom";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
-
   useEffect(() => {
     OrderDataService.list()
       .then(({ data: orders }) => setOrders(orders))
       .catch(console.error);
   }, []);
-<<<<<<< HEAD
-
-  const Status = {
-    Draft: 0,
-    Open: 1,
-    Finalized: 2,
-    Preparing_to_ship: 3,
-    Ready_for_shipping: 4,
-    Shipped: 5,
-    Delivered: 6,
-    Closed: 7,
-  };
-
-  Object.freeze(Status);
-=======
->>>>>>> 6681aae58565fc651ff59d2e08fc9122043ee929
-
   const orderListItems = orders.map((order, index) => (
     <li key={`${order}-${index}`}>
       <p>ID: {order.id}</p>
-      <p>Order Status: {order.order_status}</p>
+      <p>Order Status: {order.status_text}</p>
       <p>Date Order Placed: {order.datetime_order_placed}</p>
       <p>First Name: {order.Customer.first_name}</p>
       <p>Last Name: {order.Customer.last_name}</p>
@@ -38,12 +20,9 @@ function OrdersList() {
       <Link to={`orders/${order.id}`}>View Details</Link>
     </li>
   ));
-
   return (
     <div>
       <ol>{orderListItems}</ol>
     </div>
   );
 }
-
-export default OrdersList;
