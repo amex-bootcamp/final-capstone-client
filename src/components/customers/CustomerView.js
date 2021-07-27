@@ -9,6 +9,7 @@ import {
   Modal,
 } from "react-bootstrap";
 import CustomerDataService from "../../services/customer.data.service";
+import AddressDataService from "../../services/address.data.service";
 import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
 
@@ -49,10 +50,18 @@ class CustomerView extends Component {
         this.setState({ customer: { id, ...customer } })
       )
       .catch(console.error);
+    console.log(this.state.customer.data);
+    this.addressInfo(this.state.customer.data[0].address_id);
   }
   deleteCustomer(id) {
     CustomerDataService.delete(id).then((res) => {
       this.setState({ deleted: true });
+    });
+  }
+
+  addressInfo(id) {
+    AddressDataService.view(id).then(({ address }) => {
+      this.setState({ customer: { address: address } });
     });
   }
 
@@ -112,9 +121,7 @@ class CustomerView extends Component {
                     <h2 style={text} className={CustomerViewCSS.h2}>
                       Customer Details
                     </h2>
-                    <span style={text} className={CustomerViewCSS.s}>
-                      First Name:
-                    </span>{" "}
+                    <span style={text}>First Name:</span>{" "}
                     {customer.data[0].first_name} <br />
                     <span className={CustomerViewCSS.s}>Middle Name:</span>{" "}
                     {customer.data[0].middle_name} <br />
