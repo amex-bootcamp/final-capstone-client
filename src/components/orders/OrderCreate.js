@@ -13,6 +13,7 @@ function OrderCreate() {
   const [productPrices, setProductPrices] = useState([0]);
   const [datetime] = useState(new Date());
   const [productId, setProductId] = useState([]);
+  const [orderNotes, setOrderNotes] = useState("");
 
   useEffect(() => {
     OrderDataService.list()
@@ -51,10 +52,26 @@ function OrderCreate() {
 
   const totalPrice = productPrices.reduce((x, y) => Number(x) + Number(y));
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const params = {
+      customer_id: customerId,
+      order_status: orderStatus,
+      datetime_order_place: datetime,
+      total_order_price: totalPrice,
+      order_notes: orderNotes,
+    };
+    OrderDataService.post(params)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <section>
       <h2>Create a New Order</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Order ID:</label>
         <input
           id="orderId"
@@ -101,7 +118,14 @@ function OrderCreate() {
         ></input>
         <br />
         <label>Order Notes: </label>
-        <textarea id="orderNotes" name="orderNotes" type="text"></textarea>
+        <textarea
+          id="orderNotes"
+          name="orderNotes"
+          type="text"
+          onChange={(event) => {
+            setOrderNotes(event.target.value);
+          }}
+        ></textarea>
         <br />
         <label for="productList">Products: </label>
         <select
