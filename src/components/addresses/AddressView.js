@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Card, Container, CardGroup, Button, Row, Col } from "react-bootstrap";
 import AddressViewCSS from "./AddressView.module.css";
 import AddressDataService from "../../services/address.data.service";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class AddressView extends Component {
   state = {
@@ -54,9 +54,19 @@ class AddressView extends Component {
     const cardGroup = {
       justifyContent: "center",
     };
+    const backBtn = {
+      backgroundColor: "#1d3557",
+      margin: "20px",
+    };
 
     return (
       <div>
+        <Container>
+          <Link to={`/addresses`}>
+            {" "}
+            <Button style={backBtn}>Back to Address List</Button>
+          </Link>
+        </Container>
         <Container className={AddressViewCSS.container}>
           <CardGroup style={cardGroup}>
             <Row>

@@ -22,6 +22,7 @@ export default class AddressesList extends Component {
 
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
+  
   handleShow = (id) => {
     this.setShow();
     this.setState({ selectedAddress: id });
@@ -57,6 +58,10 @@ export default class AddressesList extends Component {
       width: "120px",
       position: "relative",
       right: "10px",
+      textAlign: "center",
+      margin: "auto",
+      fontWeight: "bold",
+      borderRadius: "5px",
     };
     const deleteBtn = {
       marginBottom: "auto",
@@ -72,6 +77,21 @@ export default class AddressesList extends Component {
       fontSize: "20pt",
       fontWeight: "bold",
       paddingTop: "15px",
+    };
+    const linkStyle = {
+      textDecoration: "none",
+      border: "#457b9d 2px solid",
+      width: "10rem",
+      padding: "5px",
+      backgroundColor: "#a8dadc",
+      color: "#1d3557",
+      textAlign: "center",
+      margin: "auto",
+      fontWeight: "bold",
+      justifyContent: "center",
+      borderRadius: "5px",
+      alignItems: "center",
+      display: "flex",
     };
 
     const { addresses, deleted } = this.state;
@@ -89,9 +109,12 @@ export default class AddressesList extends Component {
           <p>City: {address.city}</p>
           <p>State: {address.state}</p>
           <p>Zip: {address.zip}</p>
-          <Link to={`addresses/${address.id}`}>View Details</Link>
+          <Button href={`addresses/${address.id}`} style={linkStyle}>
+            View Details
+          </Button>
           <>
             <div style={divBtn}>
+              <Button style={editBtn}>Edit</Button>{" "}
               <Button
                 style={deleteBtn}
                 onClick={() => this.handleShow(address.id)}>
@@ -116,10 +139,7 @@ export default class AddressesList extends Component {
           </Row>
         </Container>
 
-        <Modal
-          show={this.state.show}
-          onHide={this.handleClose}
-          backdrop="static">
+        <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
               Are you sure you want to delete your address?

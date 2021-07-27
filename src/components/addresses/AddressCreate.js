@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import AddressCreateCSS from "./AddressCreate.module.css";
+// import AddressCreateCSS from "./AddressCreate.module.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { withRouter } from "react-router";
 // import { View } from "react-native";
 
 class AddressCreate extends Component {
@@ -65,36 +66,43 @@ class AddressCreate extends Component {
           state: "",
           zip: "",
         });
+
+        //change to all address page
+        this.props.history.push("/addresses");
       });
   };
 
   render() {
     const formStyle = {
-      backgroundColor: "#457b9d",
+      backgroundColor: "#1d3557",
       padding: "10px",
       fontFamily: "Lato, sans-serif",
       color: "#f1faee",
-      marginTop: "200px",
-      filter: "drop-shadow(0 0 0.75rem #1d3557)",
+      marginTop: "150px",
+      // filter: "drop-shadow(0 0 0.85rem #457b9d)",
+      border: "4px solid #457b9d",
+      borderRadius: "25px",
+      fontWeight: "bold",
     };
     const button = {
-      backgroundColor: "#1d3557",
-      borderColor: "#f1faee",
-      color: "#f1faee",
+      backgroundColor: "#a8dadc",
+      borderColor: "#457b9d",
+      color: "#457b9d",
+      fontWeight: "bold",
     };
-    const backgroundImage = {
-      backgroundPosition: "center",
-      backgroundRepeat: "repeat",
-      backgroundSize: "cover",
-      backgroundImage: "url(/images/shallowFocusDrone.jpg)",
-      width: "100vw",
-      height: "100vh",
-    };
+    // const backgroundImage = {
+    //   backgroundPosition: "center",
+    //   backgroundRepeat: "repeat",
+    //   backgroundSize: "cover",
+    //   backgroundImage: "url(/images/shallowFocusDrone.jpg)",
+    //   width: "100vw",
+    //   height: "100vh",
+    // };
     return (
-      <div style={backgroundImage}>
-        <Container>
+      <div>
+        <Container className="d-flex justify-content-center">
           <Row>
-            <Col className={"pl-5 pr-5 p"} style={formStyle}>
+            <Col style={formStyle}>
               <div className={"text-center"}>
                 <h2>Create New Address</h2>
                 <svg
@@ -126,6 +134,7 @@ class AddressCreate extends Component {
                     onChange={this.handleAddressChange}
                     name={this.state.address}
                     value={this.state.address}
+                    required
                   />
                 </Form.Group>
 
@@ -152,6 +161,7 @@ class AddressCreate extends Component {
                       onChange={this.handleCityChange}
                       name={this.state.city}
                       value={this.state.city}
+                      required
                     />
                   </Form.Group>
 
@@ -165,6 +175,7 @@ class AddressCreate extends Component {
                       onChange={this.handleStateChange}
                       name={this.state.state}
                       value={this.state.state}
+                      required
                     />
                   </Form.Group>
 
@@ -178,6 +189,7 @@ class AddressCreate extends Component {
                       onChange={this.handleZipChange}
                       name={this.state.zip}
                       value={this.state.zip}
+                      required
                     />
                   </Form.Group>
                 </Row>
@@ -195,4 +207,4 @@ class AddressCreate extends Component {
     );
   }
 }
-export default AddressCreate;
+export default withRouter(AddressCreate);

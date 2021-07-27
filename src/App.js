@@ -11,6 +11,7 @@ import AddressEdit from "./components/addresses/AddressEdit";
 import AddressCreate from "./components/addresses/AddressCreate";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard/Dashboard";
+import ProductView from "./components/products/ProductView";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/products">
             <ProductsList />
           </Route>
+    <Route exact path="/products/:id" component={ProductView} />
           <Route exact path="/customers/:id" component={CustomerView} />
           <Route exact path="/customers/:id/edit" component={CustomerEdit} />
         </Switch>
