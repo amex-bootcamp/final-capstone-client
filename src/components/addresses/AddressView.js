@@ -14,10 +14,15 @@ class AddressView extends Component {
         address_line_2: "",
         city: "",
         state: "",
-        zipo: "",
+        zip: "",
+        // searchInput: ""
       },
     ],
   };
+
+  // handleSearch(value) {
+  //   this.setState({ searchInput: value });
+  // }
 
   componentDidMount() {
     const {
@@ -27,47 +32,46 @@ class AddressView extends Component {
     } = this.props;
 
     AddressDataService.view(id)
-      .then(({ data: address }) => 
-      this.setState({ address:address[0] }))
+      .then(({ data: address }) => this.setState({ address: address.data[0] }))
       .catch(console.error);
   }
 
   deleteAddress(id) {
-    AddressDataService.delete(id)
-      .then((res) => {
-      console.log(res);
-      console.log(res.data);
+    AddressDataService.delete(id).then((res) => {
       this.setState({ deleted: true });
     });
   }
 
   render() {
-    const { address } = this.state;
+    const { address, searchInput } = this.state;
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/addresses" }} />;
     }
 
     return (
-        <div>
-          
-          <Container className={AddressView.container}>
-                <CardGroup>
-                  <Card className={AddressView.card}>
-                    <Card.Text>
-                    <h2 className={AddressView.h2}>Address</h2>
-                   
-                      <span className={AddressView.s}>Address Line 1:</span> {address.address_line_1} <br/>
-                      <span className={AddressView.s}>Address Line 2:</span> {address.address_line_2} <br/>
-                      <span className={AddressView.s}>City:</span> {address.city} <br/>
-                      <span className={AddressView.s}>State:</span> {address.state} <br/>
-                     <span className={AddressView.s}>Zip: </span>{address.zip} <br/>
-                    </Card.Text>
-                  </Card>
-            </CardGroup>
-          </Container>
-        </div>
+      <div>
+        <Container className={AddressView.container}>
+          <CardGroup>
+            <Card className={AddressView.card}>
+              <Card.Text>
+                <h2 className={AddressView.h2}>Address</h2>
+                <span className={AddressView.s}>Address Line 1:</span>{" "}
+                {address.address_line_1} <br />
+                <span className={AddressView.s}>Address Line 2:</span>{" "}
+                {address.address_line_2} <br />
+                <span className={AddressView.s}>City:</span> {address.city}{" "}
+                <br />
+                <span className={AddressView.s}>State:</span> {address.state}{" "}
+                <br />
+                <span className={AddressView.s}>Zip: </span>
+                {address.zip} <br />
+              </Card.Text>
+            </Card>
+          </CardGroup>
+        </Container>
+      </div>
     );
   }
 }
 
-export default AddressView; 
+export default AddressView;

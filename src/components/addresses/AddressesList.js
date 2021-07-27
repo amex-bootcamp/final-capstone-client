@@ -4,6 +4,7 @@ import { Card, Button, Container, Row, Col, CardGroup } from "react-bootstrap";
 import AddressesListCSS from "./AddressesList.module.css";
 // import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 
 export default class AddressesList extends Component {
   state = {
@@ -19,9 +20,10 @@ export default class AddressesList extends Component {
       };
     });
   };
+
+  // handleViewDetails = () =>
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
-
   handleShow = (id) => {
     this.setShow();
     this.setState({ selectedAddress: id });
@@ -89,9 +91,9 @@ export default class AddressesList extends Component {
           <p>City: {address.city}</p>
           <p>State: {address.state}</p>
           <p>Zip: {address.zip}</p>
+          <Link to={`addresses/${address.id}`}>View Details</Link>
           <>
             <div style={divBtn}>
-              <Button style={editBtn}>Edit</Button>{" "}
               <Button
                 style={deleteBtn}
                 onClick={() => this.handleShow(address.id)}>
@@ -116,13 +118,15 @@ export default class AddressesList extends Component {
           </Row>
         </Container>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal
+          show={this.state.show}
+          onHide={this.handleClose}
+          backdrop="static">
           <Modal.Header closeButton>
             <Modal.Title>
               Are you sure you want to delete your address?
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>Your address has been deleted</Modal.Body>
           <Modal.Footer>
             <Button type="radio" variant="danger" onClick={this.handleClose}>
               Cancel
