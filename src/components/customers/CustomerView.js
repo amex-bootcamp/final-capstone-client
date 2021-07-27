@@ -17,6 +17,7 @@ class CustomerView extends Component {
   state = {
     customer: { data: [{}], deleted: false },
     show: false,
+    address: {},
   };
 
   setShow = () => {
@@ -46,12 +47,14 @@ class CustomerView extends Component {
 
     console.log("id", id);
     CustomerDataService.view(id)
-      .then(({ data: customer }) =>
-        this.setState({ customer: { id, ...customer } })
-      )
+      .then(({ data: customer }) => {
+        console.log(customer);
+        this.setState({ customer: { id, ...customer.data[0] } });
+      })
+      .then(() => {
+        this.getAddressInfo(this.state.customer.address_id);
+      })
       .catch(console.error);
-    console.log(this.state.customer.data);
-    this.addressInfo(this.state.customer.data[0].address_id);
   }
   deleteCustomer(id) {
     CustomerDataService.delete(id).then((res) => {
@@ -59,11 +62,12 @@ class CustomerView extends Component {
     });
   }
 
-  addressInfo(id) {
-    AddressDataService.view(id).then(({ address }) => {
-      this.setState({ customer: { address: address } });
+  getAddressInfo = (id) => {
+    AddressDataService.view(id).then(({ data }) => {
+      console.log(data);
+      this.setState({ address: data.data[0] });
     });
-  }
+  };
 
   render() {
     const editButton = {
@@ -121,20 +125,20 @@ class CustomerView extends Component {
                     <h2 style={text} className={CustomerViewCSS.h2}>
                       Customer Details
                     </h2>
-                    <span style={text}>First Name:</span>{" "}
-                    {customer.data[0].first_name} <br />
+                    <span style={text}>First Name:</span> {customer.first_name}{" "}
+                    <br />
                     <span className={CustomerViewCSS.s}>Middle Name:</span>{" "}
-                    {customer.data[0].middle_name} <br />
+                    {customer.middle_name} <br />
                     <span className={CustomerViewCSS.s}>Last Name:</span>{" "}
-                    {customer.data[0].last_name} <br />
+                    {customer.last_name} <br />
                     <span className={CustomerViewCSS.s}>Address:</span>{" "}
-                    {customer.data[0].address_id} <br />
+                    {customer.address_id} <br />
                     <span className={CustomerViewCSS.s}>Phone: </span>
-                    {customer.data[0].phone} <br />
+                    {CustomerView.phone} <br />
                     <span className={CustomerViewCSS.s}>Email: </span>
-                    {customer.data[0].email} <br />
+                    {customer.email} <br />
                     <span className={CustomerViewCSS.s}> Notes: </span>{" "}
-                    {customer.data[0].notes}
+                    {customer.notes}
                   </Card.Text>
                   <br /> <br />
                   <div flex className={CustomerViewCSS.btndiv}>
