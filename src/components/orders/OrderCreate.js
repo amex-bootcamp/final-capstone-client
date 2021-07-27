@@ -53,67 +53,83 @@ function OrderCreate() {
     <section>
       <h2>Create a New Order</h2>
       <Form>
-        <Form.Group>Order ID:</Form.Group>
-        <input
-          id="orderId"
-          name="orderId"
-          type="text"
-          value={Math.max(...order.map((order) => order.id)) + 1}
-          readOnly
-        ></input>
-        <br />
-        <Form.Group>Customer ID: </Form.Group>
-        <select
-          type="text"
-          name="customerId"
-          value={customerId}
-          onChange={(event) => setCustomerId(event.target.value)}
-        >
-          {customerIdOption}
-        </select>
-        <br />
-        <Form.Group>Order Status: </Form.Group>
-        <select
-          type="type"
-          name="orderStatus"
-          value={orderStatus}
-          onChange={(event) => setOrderStatus(event.target.value)}
-        >
-          <option value="draft">Draft</option>
-          <option value="open">Open</option>
-          <option value="finalized">Finalized</option>
-          <option value="prep">Preparing to Ship</option>
-          <option value="ready">Ready for Shipping</option>
-          <option value="shipped">Shipped</option>
-          <option value="delivered">Delivered</option>
-          <option value="closed">Closed</option>
-        </select>
-        <br />
-        <Form.Group>Date/Time: </Form.Group>
-        <input
-          id="date"
-          name="date"
-          type="text"
-          value={datetime}
-          readOnly
-        ></input>
-        <br />
-        <Form.Group>Order Notes: </Form.Group>
-        <textarea id="orderNotes" name="orderNotes" type="text"></textarea>
-        <br />
-        <Form.Group for="productList">Products: </Form.Group>
-        <select
-          multiple
-          id="productList"
-          type="text"
-          name="productList"
-          // value={productId}
-          onChange={(event) => setProductPrice(event.target.value)}
-        >
-          {productOption}
-        </select>
+        <Form.Group controlId="orderId">
+          <Form.Label>Order ID:</Form.Label>
+          <Form.Control
+            id="orderId"
+            name="orderId"
+            type="text"
+            value={Math.max(...order.map((order) => order.id)) + 1}
+            readOnly
+          />
+        </Form.Group>
+        <Form.Group controlId="customerId">
+          <Form.Label>Customer ID:</Form.Label>
+          <Form.Select
+            type="text"
+            name="customerId"
+            value={customerId}
+            onChange={(event) => setCustomerId(event.target.value)}
+          >
+            {customerIdOption}
+          </Form.Select>
+        </Form.Group>
+        <Form.Group controlId="orderStatus">
+          <Form.Label>Order Status:</Form.Label>
+          <Form.Select
+            type="type"
+            name="orderStatus"
+            value={orderStatus}
+            onChange={(event) => setOrderStatus(event.target.value)}
+          >
+            <option value="draft">Draft</option>
+            <option value="open">Open</option>
+            <option value="finalized">Finalized</option>
+            <option value="prep">Preparing to Ship</option>
+            <option value="ready">Ready for Shipping</option>
+            <option value="shipped">Shipped</option>
+            <option value="delivered">Delivered</option>
+            <option value="closed">Closed</option>
+          </Form.Select>
+        </Form.Group>
+        <Form.Group controlId="datetime">
+          <Form.Label>Date/Time:</Form.Label>
+          <Form.Control
+            id="date"
+            name="date"
+            type="text"
+            value={datetime}
+            readOnly
+          ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId="orderNotes">
+          <Form.Label>Order Notes:</Form.Label>
+          <Form.Control
+            id="orderNotes"
+            name="orderNotes"
+            as="textarea"
+            placeholder="Leave a comment here"
+          />
+        </Form.Group>
+        <Form.Group controlId="productList">
+          <Form.Label>Products:</Form.Label>
+          <Form.Select
+            as="select"
+            multiple
+            id="productList"
+            type="text"
+            name="productList"
+            // value={productId}
+            onChange={(event) => setProductPrice(event.target.value)}
+          >
+            {productOption}
+          </Form.Select>
+        </Form.Group>
+        <Form.Group controlId="totalPrice">
+          <Form.Label>Total:</Form.Label>
+          {productPrice}
+        </Form.Group>
       </Form>
-      <p>{productPrice}</p>
     </section>
   );
 }
