@@ -1,14 +1,41 @@
 import React, { Component } from "react";
-import { Card, Container, CardGroup, Button, Row, Col } from "react-bootstrap";
+import {
+  Card,
+  Container,
+  CardGroup,
+  Button,
+  Row,
+  Col,
+  Modal,
+} from "react-bootstrap";
 import CustomerDataService from "../../services/customer.data.service";
 import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
 
-
 class CustomerView extends Component {
   state = {
     customer: { data: [{}], deleted: false },
+    show: false,
   };
+
+  setShow = () => {
+    this.setState((currentState) => {
+      return {
+        show: !currentState.show,
+      };
+    });
+  };
+  handleClose = () => this.setShow();
+  handleShow = () => this.setShow();
+
+  handleShow = (id) => {
+    this.setShow();
+  };
+  handleConfirm = (id) => {
+    this.deleteCustomer(id);
+    this.handleClose();
+  };
+
   componentDidMount() {
     const {
       match: {
@@ -16,6 +43,7 @@ class CustomerView extends Component {
       },
     } = this.props;
 
+    console.log("id", id);
     CustomerDataService.view(id)
       .then(({ data: customer }) =>
         this.setState({ customer: { id, ...customer } })
@@ -70,8 +98,10 @@ class CustomerView extends Component {
     return (
       <div>
         <Container>
-           <Link to={`/customers`}><Button style={backBtn}>Back to Customer List</Button></Link>
-          
+          <Link to={`/customers`}>
+            {" "}
+            <Button style={backBtn}>Back to Customer List</Button>
+          </Link>
         </Container>
         <Container className={CustomerViewCSS.container}>
           <CardGroup style={cardGroup}>
@@ -112,7 +142,8 @@ class CustomerView extends Component {
                     <Button
                       style={deleteButton}
                       variant={deleteButton}
-                      onClick={() => this.deleteCustomer(customer.id)}
+                      // onClick={() => this.deleteCustomer(customer.id)}
+                      onClick={() => this.handleShow(customer.id)}
                       className={CustomerViewCSS.deletebtn}
                     >
                       Delete Customer
@@ -132,6 +163,26 @@ class CustomerView extends Component {
             </Row>
           </CardGroup>
         </Container>
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Are you sure you want to delete your customer?
+            </Modal.Title>
+          </Modal.Header>
+
+          <Modal.Footer>
+            <Button type="radio" variant="danger" onClick={this.handleClose}>
+              Cancel
+            </Button>
+            <Button
+              type="radio"
+              variant="primary"
+              onClick={() => this.handleConfirm(customer.data[0].id)}
+            >
+              Confirm
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }
