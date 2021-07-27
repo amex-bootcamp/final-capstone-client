@@ -131,8 +131,8 @@ export default class AddressesList extends Component {
           <p>Zip: {address.zip}</p>
           <>
             <div style={divBtn}>
-              <Button style={editBtn}>
-                <Link to={`/addresses/${address.id}/edit`}>Edit Address</Link>
+              <Button style={editBtn} href={`/addresses/${address.id}/edit`}>
+                Edit Address
               </Button>{" "}
               <Button
                 style={deleteBtn}
