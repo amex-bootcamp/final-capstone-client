@@ -14,14 +14,14 @@ class OrderEdit extends Component {
     phone: "",
     email: "",
     notes: "",
-    order_status:"",
-    total_order_price:"",
-    order_notes:"",
+    order_status: "",
+    total_order_price: "",
+    order_notes: "",
   };
 
   render() {
     if (this.state.edited) {
-      return <Redirect to={{ pathname: `/customers/${this.state.id}` }} />;
+      return <Redirect to={{ pathname: `/orders/${this.state.id}` }} />;
     }
     return (
       <section>
@@ -117,7 +117,7 @@ class OrderEdit extends Component {
                             variant="success"
                             id="dropdown-basic"
                           >
-                           Products
+                            Products
                           </Dropdown.Toggle>
 
                           <Dropdown.Menu>
@@ -144,6 +144,10 @@ class OrderEdit extends Component {
                           value={this.state.notes}
                           onChange={this.handleNotesChange}
                         ></input>
+                      </p>
+                      <p>
+                        <label>Total Price:</label>
+                        <input></input>
                       </p>
                       <p className={CustomerEditCSS.savebtncenter}>
                         <Button
