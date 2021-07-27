@@ -47,7 +47,7 @@ class CustomerView extends Component {
 
     CustomerDataService.view(id)
       .then(({ data: customer }) => {
-        this.setState({ customer: { id, ...customer.data[0] } });
+        this.setState({ customer: { id, ...customer[0] } });
       })
       .then(() => {
         this.getAddressInfo(this.state.customer.address_id);
