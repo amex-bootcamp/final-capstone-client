@@ -1,22 +1,52 @@
 import React, { Component } from "react";
-import { Card, Container, CardGroup, Button, Row, Col } from "react-bootstrap";
+import {
+  Card,
+  Container,
+  CardGroup,
+  Button,
+  Row,
+  Col,
+  Modal,
+} from "react-bootstrap";
 import AddressViewCSS from "./AddressView.module.css";
 import AddressDataService from "../../services/address.data.service";
 import { Redirect, Link } from "react-router-dom";
 
 class AddressView extends Component {
   state = {
-    address: [
-      {
-        deleted: false,
-        id: "",
-        address_line_1: "",
-        address_line_2: "",
-        city: "",
-        state: "",
-        zip: "",
-      },
-    ],
+    selectedAddress: "",
+    address: {
+      id: "",
+      address_line_1: "",
+      address_line_2: "",
+      city: "",
+      state: "",
+      zip: "",
+      deleted: false,
+      show: false,
+    },
+  };
+  setShow = () => {
+    this.setState((currentState) => {
+      return {
+        show: !currentState.show,
+      };
+    });
+  };
+  handleClose = () => this.setShow();
+  handleShow = () => this.setShow();
+
+  handleShow = (id) => {
+    this.setShow();
+    this.setState({ selectedAddress: id });
+  };
+  handleConfirm = () => {
+    this.handleClose();
+    AddressDataService.delete(this.state.selectedAddress)
+      .then(() => {
+        this.setState({ deleted: true });
+      })
+      .catch(console.error);
   };
 
   componentDidMount() {
@@ -27,14 +57,8 @@ class AddressView extends Component {
     } = this.props;
 
     AddressDataService.view(id)
-      .then(({ data: address }) => this.setState({ address: address.data[0] }))
+      .then(({ data: address }) => this.setState({ address: address[0] }))
       .catch(console.error);
-  }
-
-  deleteAddress(id) {
-    AddressDataService.delete(id).then((res) => {
-      this.setState({ deleted: true });
-    });
   }
 
   render() {
@@ -42,14 +66,16 @@ class AddressView extends Component {
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/addresses" }} />;
     }
-    const custCard = {
+    const cardStyle = {
+      fontFamily: "Lato, sans-serif",
       backgroundColor: "#1d3557",
       color: "#f1faee",
-      margin: "50px",
-      borderRadius: "7px",
-      height: "250px",
-      padding: "45px 45px 45px 45px",
-      alignItems: "center",
+      width: "25rem",
+      border: "5px solid #457b9d",
+      margin: "25px",
+      padding: "10px",
+      borderRadius: "15px",
+      transition: "box-shadow .3s",
     };
     const cardGroup = {
       justifyContent: "center",
@@ -58,9 +84,23 @@ class AddressView extends Component {
       backgroundColor: "#1d3557",
       margin: "20px",
     };
+    const deleteButton = {
+      backgroundColor: "#e63946",
+      color: "#f1faee",
+      margin: "2px",
+      padding: "10px 20px",
+      border: "none",
+    };
+    const editButton = {
+      backgroundColor: "#a8dadc",
+      color: "#1d3557",
+      margin: "2px",
+      padding: "10px 20px",
+      border: "none",
+    };
 
     return (
-      <div>
+      <>
         <Container>
           <Link to={`/addresses`}>
             {" "}
@@ -71,9 +111,9 @@ class AddressView extends Component {
           <CardGroup style={cardGroup}>
             <Row>
               <Col>
-                <Card style={custCard} variant={custCard}>
+                <Card style={cardStyle}>
                   <Card.Text>
-                    <h2>Address</h2>
+                    <h2>Address # {address.id}</h2>
                     <span className={AddressView.s}>Address Line 1:</span>{" "}
                     {address.address_line_1} <br />
                     <span className={AddressView.s}>Address Line 2:</span>{" "}
@@ -85,12 +125,45 @@ class AddressView extends Component {
                     <span className={AddressView.s}>Zip: </span>
                     {address.zip} <br />
                   </Card.Text>
+                  <div flex className={AddressViewCSS.btndiv}>
+                    <Button
+                      style={editButton}
+                      variant={editButton}
+                      className={AddressViewCSS.btn}>
+                      <Link to={`/addresses/${address.id}/edit`}>
+                        Edit Address
+                      </Link>
+                    </Button>
+                    <Button
+                      style={deleteButton}
+                      variant={deleteButton}
+                      onClick={() => this.handleShow(address.id)}
+                      className={AddressViewCSS.deletebtn}>
+                      Delete Address
+                    </Button>
+                  </div>
                 </Card>
               </Col>
             </Row>
           </CardGroup>
         </Container>
-      </div>
+
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Are you sure you want to delete your customer?
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Footer>
+            <Button type="radio" variant="danger" onClick={this.handleClose}>
+              Cancel
+            </Button>
+            <Button type="radio" variant="primary" onClick={this.handleConfirm}>
+              Confirm
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
     );
   }
 }

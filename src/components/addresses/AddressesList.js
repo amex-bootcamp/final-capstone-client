@@ -22,7 +22,7 @@ export default class AddressesList extends Component {
 
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
-  
+
   handleShow = (id) => {
     this.setShow();
     this.setState({ selectedAddress: id });
@@ -42,7 +42,7 @@ export default class AddressesList extends Component {
       .catch(console.error);
   }
   render() {
-    const cardStyles = {
+    const cardStyle = {
       color: "#f1faee",
       fontFamily: "Lato, sans-serif",
       border: "4px solid #457b9d",
@@ -50,6 +50,7 @@ export default class AddressesList extends Component {
       textAlign: "center",
       fontWeight: "bold",
       width: "20rem",
+      height: "22rem",
     };
     const editBtn = {
       marginBottom: "auto",
@@ -88,10 +89,7 @@ export default class AddressesList extends Component {
       textAlign: "center",
       margin: "auto",
       fontWeight: "bold",
-      justifyContent: "center",
       borderRadius: "5px",
-      alignItems: "center",
-      display: "flex",
     };
 
     const { addresses, deleted } = this.state;
@@ -100,7 +98,7 @@ export default class AddressesList extends Component {
     }
     const addressListItems = addresses.map((address, index) => (
       <ul key={`${address.zip}-${index}`}>
-        <Card style={cardStyles}>
+        <Card style={cardStyle}>
           <Card.Title style={titleStyles}>
             <p>Address ID: {address.id}</p>
           </Card.Title>
@@ -112,15 +110,16 @@ export default class AddressesList extends Component {
           <Button href={`addresses/${address.id}`} style={linkStyle}>
             View Details
           </Button>
+
           <>
-            <div style={divBtn}>
+            {/* <div style={divBtn}>
               <Button style={editBtn}>Edit</Button>{" "}
               <Button
                 style={deleteBtn}
                 onClick={() => this.handleShow(address.id)}>
                 Delete
               </Button>{" "}
-            </div>
+            </div> */}
           </>
         </Card>
       </ul>
