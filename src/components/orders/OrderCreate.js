@@ -9,10 +9,10 @@ function OrderCreate() {
   const [order, setOrder] = useState([]);
   const [customer, setCustomer] = useState([]);
   const [customerId, setCustomerId] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
   const [products, setProducts] = useState([]);
-  const [productPrice, setProductPrice] = useState(0);
+  const [productPrices, setProductPrices] = useState([0]);
   const [datetime] = useState(new Date());
+  const [productId, setProductId] = useState([]);
 
   useEffect(() => {
     OrderDataService.list()
@@ -44,10 +44,12 @@ function OrderCreate() {
   ));
 
   const productOption = products.map((product, id) => (
-    <option value={product.price} key={`${product.id}-${id}`}>
+    <option value={product.price} id={product.id} key={`${product.id}-${id}`}>
       {" " + product.name + " $" + product.price}
     </option>
   ));
+
+  const totalPrice = productPrices.reduce((x, y) => Number(x) + Number(y));
 
   return (
     <section>
@@ -107,13 +109,20 @@ function OrderCreate() {
           id="productList"
           type="text"
           name="productList"
-          // value={productId}
-          onChange={(event) => setProductPrice(event.target.value)}
+          onChange={(event) => {
+            setProductPrices(
+              Array.from(event.target.selectedOptions, (option) => option.value)
+            );
+            setProductId(
+              Array.from(event.target.selectedOptions, (option) => option.id)
+            );
+          }}
         >
           {productOption}
         </select>
+        <p>Total Price: {totalPrice}</p>
+        <button type="submit">Submit</button>
       </form>
-      <p>{productPrice}</p>
     </section>
   );
 }
