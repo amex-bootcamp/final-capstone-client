@@ -30,7 +30,7 @@ class Navigation extends Component {
                 alt="React Bootstrap logo"
               />
             </Navbar.Brand>
-          </Container >
+        </Container >
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">

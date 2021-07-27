@@ -10,6 +10,7 @@ import AddressEdit from "./components/addresses/AddressEdit";
 import AddressCreate from "./components/addresses/AddressCreate";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard/Dashboard";
+import OrderEdit from "./components/orders/OrderEdit";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           <Route exact path="/">
             <Dashboard />
           </Route>
+
+          <Route exact path="/orders/:id/edit" component={OrderEdit} />
+
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
@@ -41,6 +45,9 @@ function App() {
           <Route exact path="/addresses/new">
             <AddressCreate />
           </Route>
+          {/* <Route exact path="/addresses">
+            <AddressesList />
+          </Route> */}
         </Switch>
       </main>
     </>
