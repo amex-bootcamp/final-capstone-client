@@ -62,7 +62,6 @@ class CustomerView extends Component {
 
   getAddressInfo = (id) => {
     AddressDataService.view(id).then(({ data }) => {
-      console.log(data);
       this.setState({ address: data.data[0] });
     });
   };
