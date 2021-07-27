@@ -9,7 +9,20 @@ function OrdersList() {
     OrderDataService.list()
       .then(({ data: orders }) => setOrders(orders))
       .catch(console.error);
-  });
+  }, []);
+
+  const Status = {
+    Draft: 0,
+    Open: 1,
+    Finalized: 2,
+    Preparing_to_ship: 3,
+    Ready_for_shipping: 4,
+    Shipped: 5,
+    Delivered: 6,
+    Closed: 7,
+  };
+
+  Object.freeze(Status);
 
   const orderListItems = orders.map((order, index) => (
     <li key={`${order}-${index}`}>
