@@ -116,8 +116,7 @@ class CustomerView extends Component {
                       First Name:
                     </span>{" "}
                     {customer.data[0].first_name} <br />
-                    <span className={CustomerViewCSS.s}>Middle Name:</span>{" "}
-                    {customer.data[0].middle_name} <br />
+                    <span className={CustomerViewCSS.s}>Middle Name:</span>{" "}{customer.data[0].middle_name} <br />
                     <span className={CustomerViewCSS.s}>Last Name:</span>{" "}
                     {customer.data[0].last_name} <br />
                     <span className={CustomerViewCSS.s}>Address:</span>{" "}
