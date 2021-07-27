@@ -27,22 +27,22 @@ function App() {
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
-          <Route exact path="/addresses/:id/edit" component={AddressEdit} />
-          <Route exact path="/addresses/new">
+          <Route path="/addresses/new">
             <AddressCreate />
           </Route>
+          <Route path="/addresses/:id/edit" component={AddressEdit} />
 
           <Route exact path="/customers">
             <CustomersList />
           </Route>
+          <Route path="/customers/new" component={CustomerCreate} />
           <Route exact path="/customers/:id" component={CustomerView} />
-          <Route exact path="/customers/new" component={CustomerCreate} />
-          <Route exact path="/customers/:id/edit" component={CustomerEdit} />
+          <Route path="/customers/:id/edit" component={CustomerEdit} />
 
           <Route exact path="/products">
             <ProductsList />
           </Route>
-          <Route exact path="/products/:id" component={ProductView} />
+          <Route path="/products/:id" component={ProductView} />
         </Switch>
       </main>
     </>
