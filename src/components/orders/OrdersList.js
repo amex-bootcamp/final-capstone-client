@@ -9,16 +9,16 @@ function OrdersList() {
     OrderDataService.list()
       .then(({ data: orders }) => setOrders(orders))
       .catch(console.error);
-  });
+  }, []);
 
   const orderListItems = orders.map((order, index) => (
     <li key={`${order}-${index}`}>
       <p>ID: {order.id}</p>
-      <p>Customer ID: {order.customer_id}</p>
       <p>Order Status: {order.order_status}</p>
       <p>Date Order Placed: {order.datetime_order_placed}</p>
-      <p>Total Price: {order.total_order_price}</p>
-      <p>Notes: {order.order_notes}</p>
+      <p>First Name: {order.Customer.first_name}</p>
+      <p>Last Name: {order.Customer.last_name}</p>
+      <p>Email: {order.Customer.email}</p>
       <Link to={`orders/${order.id}`}>View Details</Link>
     </li>
   ));
