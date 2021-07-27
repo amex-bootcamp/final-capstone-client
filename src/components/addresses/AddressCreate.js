@@ -74,18 +74,21 @@ class AddressCreate extends Component {
 
   render() {
     const formStyle = {
-      backgroundColor: "#457b9d",
+      backgroundColor: "#1d3557",
       padding: "10px",
       fontFamily: "Lato, sans-serif",
       color: "#f1faee",
       marginTop: "150px",
-      filter: "drop-shadow(0 0 0.75rem #1d3557)",
-      opacity: "70%",
+      // filter: "drop-shadow(0 0 0.85rem #457b9d)",
+      border: "4px solid #457b9d",
+      borderRadius: "25px",
+      fontWieght: "bold",
     };
     const button = {
-      backgroundColor: "#1d3557",
-      borderColor: "#f1faee",
-      color: "#f1faee",
+      backgroundColor: "#a8dadc",
+      borderColor: "#457b9d",
+      color: "#457b9d",
+      fontWieght: "bold",
     };
     // const backgroundImage = {
     //   backgroundPosition: "center",
