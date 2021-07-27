@@ -70,7 +70,7 @@ class CustomerView extends Component {
     return (
       <div>
         <Container>
-           <Link to={`/customers`}> <Button style={backBtn}>Back to Customer List</Button></Link>
+           <Link to={`/customers`}><Button style={backBtn}>Back to Customer List</Button></Link>
           
         </Container>
         <Container className={CustomerViewCSS.container}>
@@ -86,8 +86,7 @@ class CustomerView extends Component {
                       First Name:
                     </span>{" "}
                     {customer.data[0].first_name} <br />
-                    <span className={CustomerViewCSS.s}>Middle Name:</span>{" "}
-                    {customer.data[0].middle_name} <br />
+                    <span className={CustomerViewCSS.s}>Middle Name:</span>{" "}{customer.data[0].middle_name} <br />
                     <span className={CustomerViewCSS.s}>Last Name:</span>{" "}
                     {customer.data[0].last_name} <br />
                     <span className={CustomerViewCSS.s}>Address:</span>{" "}
