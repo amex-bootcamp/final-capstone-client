@@ -38,9 +38,13 @@ class AddressView extends Component {
   }
 
   render() {
-    const { address, searchInput } = this.state;
+    const { address } = this.state;
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/addresses" }} />;
+
+      const cardGroup = {
+        justifyContent: "center",
+      };
     }
 
     return (
