@@ -4,6 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
+  const [orderStatus, setOrderStatus] = useState("");
 
   useEffect(() => {
     OrderDataService.list()
@@ -25,6 +26,24 @@ function OrdersList() {
 
   return (
     <div>
+      <form>
+        <select
+          type="text"
+          name="orderStatus"
+          value={orderStatus}
+          onChange={(event) => setOrderStatus(event.target.value)}
+        >
+          <option value="">Filter by order status...</option>
+          <option value="Drafted">Drafted</option>
+          <option value="Open">Open</option>
+          <option value="Finalized">Finalized</option>
+          <option value="Preparing to ship">Preparing to ship</option>
+          <option value="Ready for shippingt">Ready for shipping</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Closed">Closed</option>
+        </select>
+      </form>
       <ol>{orderListItems}</ol>
     </div>
   );
