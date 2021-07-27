@@ -232,5 +232,113 @@
       "notes": "gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget",
       "address_id": 15
     }
-  ]
+  ],
+  "orders":[
+    {
+      "id": 1,
+      "customer_id": 11,
+      "order_status": "sed magna at",
+      "datetime_order_place": "12/7/2020",
+      "total_order_price": 684.93,
+      "order_notes": "Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor."
+    }, {
+      "id": 2,
+      "customer_id": 12,
+      "order_status": "potenti in eleifend",
+      "datetime_order_place": "5/25/2021",
+      "total_order_price": 22.75,
+      "order_notes": "Aliquam sit amet diam in magna bibendum imperdiet."
+    }, {
+      "id": 3,
+      "customer_id": 12,
+      "order_status": "ultrices vel",
+      "datetime_order_place": "10/4/2020",
+      "total_order_price": 211.39,
+      "order_notes": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci."
+    }, {
+      "id": 4,
+      "customer_id": 13,
+      "order_status": "id mauris vulputate elementum",
+      "datetime_order_place": "9/19/2020",
+      "total_order_price": 732.41,
+      "order_notes": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti."
+    }, {
+      "id": 5,
+      "customer_id": 3,
+      "order_status": "faucibus orci",
+      "datetime_order_place": "9/29/2020",
+      "total_order_price": 554.97,
+      "order_notes": "Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla."
+    }, {
+      "id": 6,
+      "customer_id": 8,
+      "order_status": "accumsan tellus nisi eu orci",
+      "datetime_order_place": "2/12/2021",
+      "total_order_price": 101.01,
+      "order_notes": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede."
+    }, {
+      "id": 7,
+      "customer_id": 10,
+      "order_status": "quis odio consequat varius",
+      "datetime_order_place": "9/23/2020",
+      "total_order_price": 793.71,
+      "order_notes": "Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor."
+    }, {
+      "id": 8,
+      "customer_id": 2,
+      "order_status": "duis faucibus accumsan odio",
+      "datetime_order_place": "7/23/2021",
+      "total_order_price": 853.95,
+      "order_notes": "Integer ac leo. Pellentesque ultrices mattis odio."
+    }, {
+      "id": 9,
+      "customer_id": 7,
+      "order_status": "accumsan",
+      "datetime_order_place": "7/12/2021",
+      "total_order_price": 810.45,
+      "order_notes": "Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque."
+    }, {
+      "id": 10,
+      "customer_id": 11,
+      "order_status": "habitasse platea",
+      "datetime_order_place": "4/15/2021",
+      "total_order_price": 62.5,
+      "order_notes": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl."
+    }, {
+      "id": 11,
+      "customer_id": 1,
+      "order_status": "id luctus",
+      "datetime_order_place": "1/7/2021",
+      "total_order_price": 130.66,
+      "order_notes": "In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat."
+    }, {
+      "id": 12,
+      "customer_id": 1,
+      "order_status": "accumsan tellus nisi eu orci",
+      "datetime_order_place": "8/16/2020",
+      "total_order_price": 371.27,
+      "order_notes": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis."
+    }, {
+      "id": 13,
+      "customer_id": 14,
+      "order_status": "nisl",
+      "datetime_order_place": "10/4/2020",
+      "total_order_price": 578.84,
+      "order_notes": "Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus."
+    }, {
+      "id": 14,
+      "customer_id": 13,
+      "order_status": "vestibulum ante ipsum",
+      "datetime_order_place": "1/30/2021",
+      "total_order_price": 833.33,
+      "order_notes": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque."
+    }, {
+      "id": 15,
+      "customer_id": 14,
+      "order_status": "aliquet massa",
+      "datetime_order_place": "10/14/2020",
+      "total_order_price": 685.67,
+      "order_notes": "In hac habitasse platea dictumst."
+    }
+  ] 
 }
