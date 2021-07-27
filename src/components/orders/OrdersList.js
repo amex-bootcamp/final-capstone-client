@@ -4,6 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
+  const [orderStatus, setOrderStatus] = useState("");
 
   useEffect(() => {
     OrderDataService.list()
@@ -14,7 +15,7 @@ function OrdersList() {
   const orderListItems = orders.map((order, index) => (
     <li key={`${order}-${index}`}>
       <p>ID: {order.id}</p>
-      <p>Order Status: {order.order_status}</p>
+      <p>Order Status: {order.status_text}</p>
       <p>Date Order Placed: {order.datetime_order_placed}</p>
       <p>First Name: {order.Customer.first_name}</p>
       <p>Last Name: {order.Customer.last_name}</p>
@@ -25,6 +26,24 @@ function OrdersList() {
 
   return (
     <div>
+      <form>
+        <select
+          type="text"
+          name="orderStatus"
+          value={orderStatus}
+          onChange={(event) => setOrderStatus(event.target.value)}
+        >
+          <option value="">Filter by order status...</option>
+          <option value="Drafted">Drafted</option>
+          <option value="Open">Open</option>
+          <option value="Finalized">Finalized</option>
+          <option value="Preparing to ship">Preparing to ship</option>
+          <option value="Ready for shippingt">Ready for shipping</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Closed">Closed</option>
+        </select>
+      </form>
       <ol>{orderListItems}</ol>
     </div>
   );
