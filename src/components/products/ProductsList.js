@@ -36,7 +36,8 @@ class ProductsList extends Component {
     const { products } = this.state;
     const productsListItems = products.map((products, index) => (
       // <div className="d-flex flex-nowrap">
-      <Card style={{ width: "18rem" }} key={`${products.sku}-${index}`} className="text-center">
+      <div style={{padding: "3%" }}>
+      <Card style={{ width: "18rem", height:"20rem", padding: "1%" }} key={`${products.id}-${index}`} className="text-center">
         <Card.Body>
           <Card.Title className="text-center">{products.name}</Card.Title>
         </Card.Body>
@@ -98,33 +99,16 @@ class ProductsList extends Component {
         </Row>
         </Container>
       </Card>
-      // </div>
+      </div>
     ));
     return (
       <div>
-        {/* <ul className="d-flex">{productsListItems}</ul> */}
+        <Container justify-content-center>
         <CardColumns className="d-flex flex-wrap">
           {productsListItems}
         </CardColumns>
-        {/* <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroupItem>{this.state.products.name}</ListGroupItem>
-            <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-            <ListGroupItem>Vestibulum at eros</ListGroupItem>
-          </ListGroup>
-          <Card.Body>
-            <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link>
-          </Card.Body>
-        </Card> */}
+        </Container>
+        
       </div>
     );
   }
