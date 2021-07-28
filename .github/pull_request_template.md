@@ -10,3 +10,4 @@
 - [] Remove extraneous whitespaces
 - [] Remove any extraneous files you created
 - [] Read the user story thoroughly to check if everything is implemented
+- [] test
