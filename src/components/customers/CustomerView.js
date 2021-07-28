@@ -70,14 +70,14 @@ class CustomerView extends Component {
     const editButton = {
       backgroundColor: "#a8dadc",
       color: "#1d3557",
-      margin: "2px",
+      margin: "5px",
       padding: "10px 20px",
       border: "none",
     };
     const deleteButton = {
       backgroundColor: "#e63946",
       color: "#f1faee",
-      margin: "2px",
+      margin: "5px",
       padding: "10px 20px",
       border: "none",
     };
@@ -92,8 +92,8 @@ class CustomerView extends Component {
       borderRadius: "7px",
       padding: "45px 45px 45px 45px",
       alignItems: "center",
-      width: "100%",
-      height: "100%"
+      width: "85%",
+      height: "85%"
     };
     const text = {
       font: "bold",
@@ -139,7 +139,7 @@ class CustomerView extends Component {
                     <div>State: {address.state}</div>
                     <div>Zip: {address.zip}</div>
                   </Card.Text>
-
+                  <br />
                   <div flex className={CustomerViewCSS.btndiv}>
                     <Link to={`/customers/${customer.id}/edit`}>
                       <Button
