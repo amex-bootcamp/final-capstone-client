@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import AddressDataService from "../../services/address.data.service";
 import { Card, Button, Container, Row, Col, CardGroup } from "react-bootstrap";
 import AddressesListCSS from "./AddressesList.module.css";
-// import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-export default class AddressesList extends Component {
+class AddressesList extends Component {
   state = {
     addresses: [],
     show: false,
     selectedAddress: "",
+    deleted: false,
   };
   setShow = () => {
     this.setState((currentState) => {
@@ -18,6 +18,7 @@ export default class AddressesList extends Component {
       };
     });
   };
+
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
 
@@ -26,13 +27,12 @@ export default class AddressesList extends Component {
     this.setState({ selectedAddress: id });
   };
   handleConfirm = () => {
+    const { selectedAddress } = this.state;
     this.handleClose();
-    AddressDataService.delete(this.state.selectedAddress)
-      .then(() =>
-        console.log(
-          `You have deleted address ID: ${this.state.selectedAddress}`
-        )
-      )
+    AddressDataService.delete(selectedAddress)
+      .then(() => {
+        this.setState({ deleted: true });
+      })
       .catch(console.error);
   };
   componentDidMount() {
@@ -41,7 +41,7 @@ export default class AddressesList extends Component {
       .catch(console.error);
   }
   render() {
-    const cardStyles = {
+    const cardStyle = {
       color: "#f1faee",
       fontFamily: "Lato, sans-serif",
       border: "4px solid #457b9d",
@@ -49,6 +49,7 @@ export default class AddressesList extends Component {
       textAlign: "center",
       fontWeight: "bold",
       width: "20rem",
+      height: "22rem",
     };
     const editBtn = {
       marginBottom: "auto",
@@ -57,6 +58,10 @@ export default class AddressesList extends Component {
       width: "120px",
       position: "relative",
       right: "10px",
+      textAlign: "center",
+      margin: "auto",
+      fontWeight: "bold",
+      borderRadius: "5px",
     };
     const deleteBtn = {
       marginBottom: "auto",
@@ -73,11 +78,26 @@ export default class AddressesList extends Component {
       fontWeight: "bold",
       paddingTop: "15px",
     };
+    const linkStyle = {
+      textDecoration: "none",
+      border: "#457b9d 2px solid",
+      width: "10rem",
+      padding: "5px",
+      backgroundColor: "#a8dadc",
+      color: "#1d3557",
+      textAlign: "center",
+      margin: "auto",
+      fontWeight: "bold",
+      borderRadius: "5px",
+    };
 
-    const { addresses } = this.state;
+    const { addresses, deleted } = this.state;
+    if (deleted) {
+      window.location.reload();
+    }
     const addressListItems = addresses.map((address, index) => (
       <ul key={`${address.zip}-${index}`}>
-        <Card style={cardStyles}>
+        <Card style={cardStyle}>
           <Card.Title style={titleStyles}>
             <p>Address ID: {address.id}</p>
           </Card.Title>
@@ -86,17 +106,9 @@ export default class AddressesList extends Component {
           <p>City: {address.city}</p>
           <p>State: {address.state}</p>
           <p>Zip: {address.zip}</p>
-          <>
-            <div style={divBtn}>
-              <Button style={editBtn}>Edit</Button>{" "}
-              <Button
-                style={deleteBtn}
-                onClick={() => this.handleShow(address.id)}
-              >
-                Delete
-              </Button>{" "}
-            </div>
-          </>
+          <Button href={`addresses/${address.id}`} style={linkStyle}>
+            View Details
+          </Button>
         </Card>
       </ul>
     ));
@@ -120,7 +132,6 @@ export default class AddressesList extends Component {
               Are you sure you want to delete your address?
             </Modal.Title>
           </Modal.Header>
-          <Modal.Body>Your address has been deleted</Modal.Body>
           <Modal.Footer>
             <Button type="radio" variant="danger" onClick={this.handleClose}>
               Cancel
@@ -134,3 +145,4 @@ export default class AddressesList extends Component {
     );
   }
 }
+export default AddressesList;
