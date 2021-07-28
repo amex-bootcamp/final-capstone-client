@@ -9,7 +9,6 @@ import CustomerView from "./components/customers/CustomerView";
 import CustomerEdit from "./components/customers/CustomerEdit";
 import AddressEdit from "./components/addresses/AddressEdit";
 import AddressCreate from "./components/addresses/AddressCreate";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import OrderEdit from "./components/orders/OrderEdit";
 import ProductView from "./components/products/ProductView"
