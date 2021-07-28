@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import OrderDataService from "../../services/order.data.service";
 import CustomerDataService from "../../services/customer.data.service";
 import ProductDataService from "../../services/product.data.service";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
+import OrderCreateCSS from "../orders/OrderCreateCSS.module.css";
 
 function OrderCreate() {
   const [orderStatus, setOrderStatus] = useState("");
@@ -78,11 +79,40 @@ function OrderCreate() {
     return <Redirect to="/orders" />;
   }
 
+  const container = {
+    maxWidth: "800px",
+    border: "#1d3557 solid 5px",
+    margin: "auto",
+    height: "800px",
+    padding: "50px 25px 0 25px",
+    background: "#f1faee",
+    fontSize: "1.2rem",
+    borderRadius: "10% 15% 25% 0%",
+  };
+
+  const groupHeaderStyle = {
+    fontWeight: "bold",
+    margin: "5px 0 10px 0",
+    color: "#457b9d",
+  };
+
+  const groupTextStyle = {
+    color: "#1d3557",
+    border: "#1d3557 1px solid",
+  };
+
+  const submitButton = {
+    background: "#457b9d",
+    color: "#f1faee",
+    border: "#1d3557 3px solid",
+    fontWeight: "bold",
+  };
+
   return (
     <section>
       <h2>Create a New Order</h2>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="orderId">
+      <Form style={container} onSubmit={handleSubmit}>
+        <Form.Group style={groupHeaderStyle} controlId="orderId">
           <Form.Label>Order ID:</Form.Label>
           <Form.Control
             id="orderId"
@@ -92,9 +122,10 @@ function OrderCreate() {
             readOnly
           />
         </Form.Group>
-        <Form.Group controlId="customerId">
+        <Form.Group style={groupHeaderStyle} controlId="customerId">
           <Form.Label>Customer ID:</Form.Label>
           <Form.Select
+            style={groupTextStyle}
             type="text"
             name="customerId"
             value={customerId}
@@ -105,9 +136,10 @@ function OrderCreate() {
             {customerIdOption}
           </Form.Select>
         </Form.Group>
-        <Form.Group controlId="orderStatus">
+        <Form.Group style={groupHeaderStyle} controlId="orderStatus">
           <Form.Label>Order Status:</Form.Label>
           <Form.Select
+            style={groupTextStyle}
             type="type"
             name="orderStatus"
             value={orderStatus}
@@ -125,9 +157,10 @@ function OrderCreate() {
             <option value="closed">Closed</option>
           </Form.Select>
         </Form.Group>
-        <Form.Group controlId="datetime">
+        <Form.Group style={groupHeaderStyle} controlId="datetime">
           <Form.Label>Date/Time:</Form.Label>
           <Form.Control
+            style={groupTextStyle}
             id="date"
             name="date"
             type="text"
@@ -135,9 +168,10 @@ function OrderCreate() {
             readOnly
           ></Form.Control>
         </Form.Group>
-        <Form.Group controlId="orderNotes">
+        <Form.Group style={groupHeaderStyle} controlId="orderNotes">
           <Form.Label>Order Notes:</Form.Label>
           <Form.Control
+            style={groupTextStyle}
             id="orderNotes"
             name="orderNotes"
             as="textarea"
@@ -147,9 +181,10 @@ function OrderCreate() {
             placeholder="Leave a comment here"
           />
         </Form.Group>
-        <Form.Group controlId="productList">
+        <Form.Group style={groupHeaderStyle} controlId="productList">
           <Form.Label>Products:</Form.Label>
           <Form.Select
+            style={groupTextStyle}
             as="select"
             multiple
             required
@@ -171,10 +206,17 @@ function OrderCreate() {
             {productOption}
           </Form.Select>
         </Form.Group>
-        <Form.Group controlId="totalPrice">
+        <Form.Group style={groupHeaderStyle} controlId="totalPrice">
           <Form.Label>Total Price: ${totalPrice}</Form.Label>
         </Form.Group>
-        <button type="submit">Submit</button>
+        <Button
+          style={submitButton}
+          className={OrderCreateCSS.submitButton}
+          size="lg"
+          type="submit"
+        >
+          Place Order
+        </Button>
       </Form>
     </section>
   );
