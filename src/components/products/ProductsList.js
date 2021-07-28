@@ -39,7 +39,13 @@ class ProductsList extends Component {
       // <div className="d-flex flex-nowrap">
       <div style={{ padding: "3%" }}>
         <Card
-          style={{ width: "18rem", height: "20rem", padding: "1%" }}
+          style={{
+            width: "18rem",
+            height: "20rem",
+            padding: "1%",
+            backgroundColor: "#1d3557",
+            color: "#f1faee",
+          }}
           key={`${products.sku}-${index}`}
           className="text-center"
         >
@@ -52,12 +58,19 @@ class ProductsList extends Component {
             <Card.Text className="text-center">
               {products.description}
             </Card.Text>
-            <Card.Text><em>$</em><strong>{products.price}</strong></Card.Text>
+            <Card.Text>
+              <em>$</em>
+              <strong>{products.price}</strong>
+            </Card.Text>
 
-            <Card.Text style={{paddingBottom:"5%"}}>
-              
-              <Button href={`products/${products.id}`}>View Product</Button>
-              
+            <Card.Text style={{ paddingBottom: "5%" }}>
+              <Button
+                href={`products/${products.id}`}
+                style={{ backgroundColor: "#a8dadc", color: "#1d3557" }}
+              >
+                View Product
+              </Button>
+
               {/* SKU: {products.sku} */}
             </Card.Text>
             {/* <ListGroupItem>Quantity: {products.quantity}</ListGroupItem> */}
@@ -72,11 +85,13 @@ class ProductsList extends Component {
 
             <Row>
               <Col>
-              <Form.Text className="text-muted">
-              <em>
-                  <small>SKU: {products.sku}</small>
+                {/* <Form.Text className="text-muted"> */}
+                <em>
+                  <small style={{ color: "#EEDFCE" }}>
+                    SKU: {products.sku}
+                  </small>
                 </em>
-                </Form.Text>
+                {/* </Form.Text> */}
                 {/* <Button style={btnbk}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
