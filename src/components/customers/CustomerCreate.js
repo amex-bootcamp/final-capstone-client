@@ -152,7 +152,7 @@ class CustomerCreate extends Component {
                   <Form.Label>Address</Form.Label>
                   <InputGroup className="mb-2">
                     <select
-                      class="form-control"
+                      className="form-control"
                       value={this.state.address_id}
                       name="address_id"
                       onChange={this.handleChange}
@@ -161,13 +161,13 @@ class CustomerCreate extends Component {
                       <option value="address_id">Select an address</option>
                       {addressOptions}
                     </select>
-                    <span class="input-group-text" id="basic-addon2">
+                    <span className="input-group-text" id="basic-addon2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-arrow-down"
+                        className="bi bi-arrow-down"
                         viewBox="0 0 16 16"
                       >
                         <path
