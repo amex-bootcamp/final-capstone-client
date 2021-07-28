@@ -102,7 +102,6 @@ class CustomerEdit extends Component {
       <section>
         <div>
           <Container className={CustomerEditCSS.container}>
-            <CardGroup>
               <Card>
                 <Card.Body>
                   <Card.Text>
@@ -174,12 +173,6 @@ class CustomerEdit extends Component {
                   </Card.Text>
                 </Card.Body>
               </Card>
-              <Card className={CustomerEditCSS.card}>
-                <Card.Text>
-                  <h2 className={CustomerEditCSS.h2order}>Order History</h2>
-                </Card.Text>
-              </Card>
-            </CardGroup>
           </Container>
         </div>
       </section>

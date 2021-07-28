@@ -115,19 +115,19 @@ class CustomerView extends Component {
                     <span style={text} className={CustomerViewCSS.s}>
                       First Name:
                     </span>{" "}
-                    {customer.data[0].first_name} <br />
+                    {customer.first_name} <br />
                     <span className={CustomerViewCSS.s}>Middle Name:</span>{" "}
-                    {customer.data[0].middle_name} <br />
+                    {customer.middle_name} <br />
                     <span className={CustomerViewCSS.s}>Last Name:</span>{" "}
-                    {customer.data[0].last_name} <br />
+                    {customer.last_name} <br />
                     <span className={CustomerViewCSS.s}>Address:</span>{" "}
-                    {customer.data[0].address_id} <br />
+                    {customer.address_id} <br />
                     <span className={CustomerViewCSS.s}>Phone: </span>
-                    {customer.data[0].phone} <br />
+                    {customer.phone} <br />
                     <span className={CustomerViewCSS.s}>Email: </span>
-                    {customer.data[0].email} <br />
+                    {customer.email} <br />
                     <span className={CustomerViewCSS.s}> Notes: </span>{" "}
-                    {customer.data[0].notes}
+                    {customer.notes}
                   </Card.Text>
                   <br /> <br />
                   <div flex className={CustomerViewCSS.btndiv}>
@@ -135,10 +135,8 @@ class CustomerView extends Component {
                       style={editButton}
                       variant={editButton}
                       className={CustomerViewCSS.btn}
-                    >
-                      <Link to={`/customers/${customer.id}/edit`}>
-                        Edit Customer
-                      </Link>
+                    href={`/customers/${customer.id}/edit`}>
+                      Edit Customer
                     </Button>
                     <Button
                       style={deleteButton}
