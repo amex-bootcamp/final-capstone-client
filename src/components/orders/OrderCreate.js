@@ -110,7 +110,6 @@ function OrderCreate() {
 
   return (
     <section>
-      
       <Form style={container} onSubmit={handleSubmit}>
         <h2>Create a New Order</h2>
         <Form.Group style={groupHeaderStyle} controlId="orderId">
@@ -183,12 +182,14 @@ function OrderCreate() {
           />
         </Form.Group>
         <Form.Group style={groupHeaderStyle} controlId="productList">
-          <Form.Label>Products:</Form.Label>
+          <Form.Label>
+            Products: (to select more options use ctrl + click)
+          </Form.Label>
           <Form.Select
             style={groupTextStyle}
             as="select"
             multiple
-            required
+            as="select"
             id="productList"
             type="text"
             name="productList"
