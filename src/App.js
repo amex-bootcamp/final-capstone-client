@@ -1,6 +1,7 @@
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import AddressesList from "./components/addresses/AddressesList";
+import AddressView from "./components/addresses/AddressView";
 import CustomerCreate from "./components/customers/CustomerCreate";
 import CustomersList from "./components/customers/CustomersList";
 import ProductsList from "./components/products/ProductsList";
@@ -11,6 +12,7 @@ import AddressCreate from "./components/addresses/AddressCreate";
 import OrdersList from "./components/orders/OrdersList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard/Dashboard";
+import ProductView from "./components/products/ProductView";
 
 function App() {
   return (
@@ -23,10 +25,16 @@ function App() {
           <Route exact path="/">
             <Dashboard />
           </Route>
+
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
-          <Route exact path="/addresses/:id/edit" component={AddressEdit} />
+          <Route path="/addresses/new">
+            <AddressCreate />
+          </Route>
+          <Route exact path="/addresses/:id" component={AddressView} />
+          <Route path="/addresses/:id/edit" component={AddressEdit} />
+
           <Route exact path="/customers">
             <CustomersList />
           </Route>
@@ -35,16 +43,12 @@ function App() {
             <OrdersList />
           </Route>
           <Route exact path="/customers/:id" component={CustomerView} />
+          <Route path="/customers/:id/edit" component={CustomerEdit} />
+
           <Route exact path="/products">
             <ProductsList />
           </Route>
-          <Route exact path="/customers/:id" component={CustomerView} />
-          <Route exact path="/customers/:id/edit" component={CustomerEdit} />
-        </Switch>
-        <Switch>
-          <Route exact path="/addresses/new">
-            <AddressCreate />
-          </Route>
+          <Route path="/products/:id" component={ProductView} />
         </Switch>
       </main>
     </>

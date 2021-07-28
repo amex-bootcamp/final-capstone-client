@@ -133,8 +133,7 @@ class AddressView extends Component {
                     <Button
                       style={deleteButton}
                       variant={deleteButton}
-                      onClick={() => this.handleShow(address.id)}
-                    >
+                      onClick={() => this.handleShow(address.id)}>
                       Delete Address
                     </Button>
                   </div>
