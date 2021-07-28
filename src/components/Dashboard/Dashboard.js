@@ -37,7 +37,7 @@ class Dashboard extends Component {
     const cardStyle = {
       width: "18rem",
       paddingTop: "5%",
-      paddingBottom: "5%",
+      // paddingBottom: "8%",
       marginTop: "40%",
       // filter: "drop-shadow(0 0 0.85rem #457b9d)",
     };
