@@ -10,11 +10,8 @@ import AddressEdit from "./components/addresses/AddressEdit";
 import AddressCreate from "./components/addresses/AddressCreate";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard/Dashboard";
-<<<<<<< HEAD
 import OrderEdit from "./components/orders/OrderEdit";
-=======
-import ProductView from "./components/products/ProductView";
->>>>>>> c82fa85924e5974da0a6e2caf11a178c24f7ed78
+import ProductView from "./components/products/ProductView"
 
 function App() {
   return (
