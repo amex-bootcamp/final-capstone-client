@@ -93,11 +93,13 @@ class CustomerView extends Component {
       height: "500px",
       padding: "45px 45px 45px 45px",
       alignItems: "center",
+      width: "500px",
     };
     const text = {
       font: "bold",
       color: "#f1faee",
     };
+
     const cardGroup = {
       justifyContent: "center",
     };
@@ -123,25 +125,13 @@ class CustomerView extends Component {
                       Customer Details
                     </h2>
                     <div style={text}>First Name: {customer.first_name}</div>
-                    <div className={CustomerViewCSS.s}>
-                      Middle Name: {customer.middle_name}
-                    </div>
-                    <div className={CustomerViewCSS.s}>
-                      Last Name: {customer.last_name}
-                    </div>
-                    <div className={CustomerViewCSS.s}>
-                      Phone: {customer.phone}
-                    </div>
-                    <div className={CustomerViewCSS.s}>
-                      Email: {customer.email}
-                    </div>
-                    <div className={CustomerViewCSS.s}>
-                      Notes: {customer.notes}
-                    </div>
+                    <div>Middle Name: {customer.middle_name}.</div>
+                    <div>Last Name: {customer.last_name}</div>
+                    <div>Phone: {customer.phone}</div>
+                    <div>Email: {customer.email}</div>
+                    <div>Notes: {customer.notes}</div>
                     <hr></hr>
-                    <div className={CustomerViewCSS.s}>
-                      Address: {customer.address_id}
-                    </div>
+                    <div>Address: {customer.address_id}</div>
                     <div>Address Line 1: {address.address_line_1}</div>
                     <div>Address Line 2: {address.address_line_2}</div>
                     <div>City: {address.city}</div>
@@ -150,15 +140,9 @@ class CustomerView extends Component {
                   </Card.Text>
 
                   <div flex className={CustomerViewCSS.btndiv}>
-                    <Button
-                      style={editButton}
-                      variant={editButton}
-                      className={CustomerViewCSS.btn}
-                    >
-                      <Link to={`/customers/${customer.id}/edit`}>
-                        Edit Customer
-                      </Link>
-                    </Button>
+                  <Link to={`/customers/${customer.id}/edit`}>
+                    <Button style={editButton} variant={editButton} className={CustomerViewCSS.btn}> Edit Customer </Button>
+                       </Link>
                     <Button
                       style={deleteButton}
                       variant={deleteButton}
