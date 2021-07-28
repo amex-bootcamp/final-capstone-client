@@ -15,7 +15,6 @@ class CustomerEdit extends Component {
     email: "",
     notes: "",
   };
-
   componentDidMount() {
     const {
       match: {
@@ -37,37 +36,31 @@ class CustomerEdit extends Component {
       })
       .catch(console.error);
   }
-
   handleFirstNameChange = (event) => {
     this.setState({
       first_name: event.target.value,
     });
   };
-
   handleMiddleNameChange = (event) => {
     this.setState({
       middle_name: event.target.value,
     });
   };
-
   handleLastNameChange = (event) => {
     this.setState({
       last_name: event.target.value,
     });
   };
-
   handlePhoneChange = (event) => {
     this.setState({
       phone: event.target.value,
     });
   };
-
   handleEmailChange = (event) => {
     this.setState({
       email: event.target.value,
     });
   };
-
   handleNotesChange = (event) => {
     this.setState({
       notes: event.target.value,
@@ -109,7 +102,6 @@ class CustomerEdit extends Component {
       <section>
         <div>
           <Container className={CustomerEditCSS.container}>
-            <CardGroup>
               <Card>
                 <Card.Body>
                   <Card.Text>
@@ -181,12 +173,6 @@ class CustomerEdit extends Component {
                   </Card.Text>
                 </Card.Body>
               </Card>
-              <Card className={CustomerEditCSS.card}>
-                <Card.Text>
-                  <h2 className={CustomerEditCSS.h2order}>Order History</h2>
-                </Card.Text>
-              </Card>
-            </CardGroup>
           </Container>
         </div>
       </section>
