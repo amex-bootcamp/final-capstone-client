@@ -35,7 +35,6 @@ class AddressView extends Component {
   };
   handleClose = () => this.setShow();
   handleShow = () => this.setShow();
-
   handleShow = (id) => {
     this.setShow();
     this.setState({ selectedAddress: id });
@@ -58,7 +57,7 @@ class AddressView extends Component {
     } = this.props;
 
     AddressDataService.view(id)
-      .then(({ data: address }) => this.setState({ address: address[0] }))
+      .then(({ data: address }) => this.setState({ address: address.data[0] }))
       .catch(console.error);
   }
 
@@ -104,33 +103,29 @@ class AddressView extends Component {
       <>
         <Container>
           <Link to={`/addresses`}>
-            {" "}
             <Button style={backBtn}>Back to Address List</Button>
           </Link>
         </Container>
-        <Container className={AddressViewCSS.container}>
+        <Container>
           <CardGroup style={cardGroup}>
             <Row>
               <Col>
                 <Card style={cardStyle}>
                   <Card.Text>
                     <h2>Address # {address.id}</h2>
-                    <span className={AddressView.s}>Address Line 1:</span>{" "}
+                    <span>Address Line 1:</span>
                     {address.address_line_1} <br />
-                    <span className={AddressView.s}>Address Line 2:</span>{" "}
+                    <span>Address Line 2:</span>
                     {address.address_line_2} <br />
-                    <span className={AddressView.s}>City:</span> {address.city}{" "}
+                    <span>City:</span> {address.city}
                     <br />
-                    <span className={AddressView.s}>State:</span>{" "}
+                    <span>State:</span>
                     {address.state} <br />
-                    <span className={AddressView.s}>Zip: </span>
+                    <span>Zip: </span>
                     {address.zip} <br />
                   </Card.Text>
-                  <div flex className={AddressViewCSS.btndiv}>
-                    <Button
-                      style={editButton}
-                      variant={editButton}
-                      className={AddressViewCSS.btn}>
+                  <div>
+                    <Button style={editButton} variant={editButton}>
                       <Link to={`/addresses/${address.id}/edit`}>
                         Edit Address
                       </Link>
@@ -138,8 +133,7 @@ class AddressView extends Component {
                     <Button
                       style={deleteButton}
                       variant={deleteButton}
-                      onClick={() => this.handleShow(address.id)}
-                      className={AddressViewCSS.deletebtn}>
+                      onClick={() => this.handleShow(address.id)}>
                       Delete Address
                     </Button>
                   </div>
