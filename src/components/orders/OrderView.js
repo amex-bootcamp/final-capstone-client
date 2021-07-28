@@ -5,14 +5,14 @@ import OrderViewCSS from "../orders/OrderView.module.css";
 import OrderDataService from "../../services/order.data.service";
 
 function OrderView() {
-  const [order, setOrder] = useState({});
+  const [order, setOrder] = useState({Customer: {}});
   const { id } = useParams();
   useEffect(() => {
     getOrderData();
   }, []);
   function getOrderData() {
     OrderDataService.view(id)
-      .then(({ data: order }) => setOrder(order[0]))
+      .then(({ data: order }) => setOrder(order))
       .catch(console.error);
   }
 
@@ -29,16 +29,22 @@ function OrderView() {
   // };
   return (
     <div>
-      <Button className={OrderViewCSS.backbtn}>
-        <Link className={OrderViewCSS.backbtnlink} to={`/`}>
+      <Button href={`/orders`} className={OrderViewCSS.backbtn}>
           Back to Orders Page
-        </Link>
       </Button>
-      <Container>
-        <Card>
+      <Container className={OrderViewCSS.containerstyle}>
+        <Card className={OrderViewCSS.cardstyle}>
           <h2 className={OrderViewCSS.heading}>Order Details Page</h2>
-          <p className={OrderViewCSS.para}>Customer ID: {order.id}</p>
+          <p className={OrderViewCSS.para}>Order ID: {order.id}</p>
           <p className={OrderViewCSS.para}>Customer ID: {order.customer_id}</p>
+          <p className={OrderViewCSS.para}>
+            Customer First Name: {order.Customer.first_name}
+          </p>
+          <p className={OrderViewCSS.para}>
+            Customer Last Name: {order.Customer.last_name}
+          </p>
+          <p className={OrderViewCSS.para}>Email: {order.Customer.email}</p>
+          <p className={OrderViewCSS.para}>Phone: {order.Customer.phone}</p>
           <p className={OrderViewCSS.para}>
             Order Status: {order.order_status}
           </p>
@@ -48,11 +54,13 @@ function OrderView() {
           <p className={OrderViewCSS.para}>
             Order Total: ${order.total_order_price}
           </p>
-          <p className={OrderViewCSS.para}>Order Notes: {order.order_notes}</p>
           <p className={OrderViewCSS.para}>Order Created: {order.createdAt}</p>
           <p className={OrderViewCSS.para}>Order Updated: {order.updatedAt}</p>
-          <p className={OrderViewCSS.para}>Email: {order.customer}</p>
-          {/* <p className={OrderViewCSS.para}>Phone: {order.customer.phone}</p> */}
+          <p className={OrderViewCSS.para}>Order Notes: {order.order_notes}</p>
+          <div flex className={OrderViewCSS.btndiv}>
+            <Button className={OrderViewCSS.editbtn}>Edit</Button>
+            <Button className={OrderViewCSS.deletebtn}>Delete</Button>
+          </div>
         </Card>
       </Container>
     </div>

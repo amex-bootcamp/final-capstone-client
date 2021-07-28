@@ -25,7 +25,6 @@ function App() {
           <Route exact path="/">
             <Dashboard />
           </Route>
-
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
