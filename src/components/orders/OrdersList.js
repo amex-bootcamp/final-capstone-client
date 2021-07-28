@@ -4,13 +4,19 @@ import { Redirect, Link } from "react-router-dom";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
-  const [orderStatus, setOrderStatus] = useState("");
+  const [orderStatusFilter, setOrderStatusFilter] = useState("");
 
   useEffect(() => {
     OrderDataService.list()
       .then(({ data: orders }) => setOrders(orders))
       .catch(console.error);
   }, []);
+
+  useEffect(() => {
+    OrderDataService.list()
+    .then(({ data: orders }) => setOrders(orders))
+    .catch(console.error);
+}, []);
 
   const orderListItems = orders.map((order, index) => (
     <li key={`${order}-${index}`}>
@@ -29,9 +35,9 @@ function OrdersList() {
       <form>
         <select
           type="text"
-          name="orderStatus"
-          value={orderStatus}
-          onChange={(event) => setOrderStatus(event.target.value)}
+          name="orderStatusFilter"
+          value={orderStatusFilter}
+          onChange={(event) => setOrderStatusFilter(event.target.value)}
         >
           <option value="">Filter by order status...</option>
           <option value="Drafted">Drafted</option>
