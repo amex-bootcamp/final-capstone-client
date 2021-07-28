@@ -5,7 +5,6 @@
   text-align: left;
   margin-left: 50px;
   margin-top: 10px;
-  /* margin-bottom: 20px; */
   background-color: #1d3557;
   border: none;
 }
@@ -41,7 +40,6 @@
   margin-bottom: 15px;
 }
 .editbtn {
-  /* margin-bottom: auto; */
   color: white;
   background-color: #457b9d;
   width: 120px;
@@ -55,7 +53,6 @@
   transform: scale(1.01);
 }
 .deletebtn {
-  /* margin-bottom: auto; */
   background-color: #e63946;
   width: 120px;
   position: relative;

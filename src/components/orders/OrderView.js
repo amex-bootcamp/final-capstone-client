@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Container, Button } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import OrderViewCSS from "../orders/OrderView.module.css";
 import OrderDataService from "../../services/order.data.service";
 
@@ -15,18 +15,6 @@ function OrderView() {
       .then(({ data: order }) => setOrder(order))
       .catch(console.error);
   }
-
-  // state = {
-  //   firstName: "John",
-  //   lastName: "Smith",
-  //   email: "hellow@gmail.com",
-  //   phone: "212-123-4567",
-  //   orderStatus: "Pending",
-  //   orderDateTime: "Thu May 07, 2021 01:25:14GMT",
-  //   orderTotal: 45.27,
-  //   products: "none",
-  //   orderNotes: "needs overnight shipping",
-  // };
   return (
     <div>
       <Button href={`/orders`} className={OrderViewCSS.backbtn}>
