@@ -21,12 +21,17 @@ class Dashboard extends Component {
       fontFamily: "Lato, sans-serif",
       color: "#f1faee",
       fontWeight: "bold",
+      display: "grid",
+      gridRowGap: "25px",
+      gridColumnGap: "25px",
+      gridTemplateColumns: "repeat(auto-fill,minmax(350px,4fr))",
     };
     const cardStyle = {
       width: "18rem",
       paddingTop: "5%",
       paddingBottom: "5%",
       marginTop: "40%",
+      filter: "drop-shadow(0 0 0.85rem #457b9d)",
     };
     return (
       <div style={backgroundImage}>
