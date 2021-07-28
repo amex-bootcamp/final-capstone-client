@@ -505,7 +505,18 @@
       "datetime_order_place": "10/14/2020",
       "total_order_price": 685.67,
       "order_notes": "In hac habitasse platea dictumst."
+    },
+    {
+      "id": 16,
+      "customer_id": "2",
+      "order_status": "draft",
+      "datetime_order_place": "2021-07-28T13:46:10.991Z",
+      "total_order_price": 935,
+      "order_notes": "jkdjfkasjiejfkajskldf",
+      "products": [
+        "1",
+        "4"
+      ]
     }
-    
   ]
 }

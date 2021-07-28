@@ -148,11 +148,12 @@ function OrderCreate() {
           />
         </Form.Group>
         <Form.Group controlId="productList">
-          <Form.Label>Products:</Form.Label>
+          <Form.Label>
+            Products: (to select more options use ctrl + click)
+          </Form.Label>
           <Form.Select
-            as="select"
             multiple
-            required
+            as="select"
             id="productList"
             type="text"
             name="productList"
