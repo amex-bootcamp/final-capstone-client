@@ -71,7 +71,7 @@ class ProductsList extends Component {
     return (
       <div>
         {/* <ul className="d-flex">{productsListItems}</ul> */}
-        <CardColumns className="d-flex flex-wrap">
+        <CardColumns className="d-flex flex-wrap ">
           {productsListItems}
         </CardColumns>
         {/* <Card style={{ width: "18rem" }}>
