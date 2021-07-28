@@ -31,7 +31,7 @@ class Dashboard extends Component {
       paddingTop: "5%",
       paddingBottom: "5%",
       marginTop: "40%",
-      filter: "drop-shadow(0 0 0.85rem #457b9d)",
+      // filter: "drop-shadow(0 0 0.85rem #457b9d)",
     };
     return (
       <div style={backgroundImage}>
