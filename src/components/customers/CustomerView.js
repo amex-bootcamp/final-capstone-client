@@ -92,18 +92,25 @@ class CustomerView extends Component {
       borderRadius: "7px",
       padding: "45px 45px 45px 45px",
       alignItems: "center",
-      width: "85%",
-      height: "85%"
+      width: "95%",
+      height: "85%",
+      "@media (max-width:991px)": {
+        textAlign: "center",
+      },
     };
     const text = {
       font: "bold",
       color: "#f1faee",
-
     };
 
     const cardGroup = {
       justifyContent: "center",
     };
+    // const mQueries = {
+    //   "@media (max-width:991px)":{
+    //     textAlign: "center"
+    //   }
+    // }
     const { customer, address } = this.state;
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/customers" }} />;
