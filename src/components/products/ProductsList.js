@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ProductDataService from "../../services/product.data.service";
+import { Redirect } from 'react-router-dom'
 import {
   Card,
   ListGroup,
@@ -16,6 +17,12 @@ class ProductsList extends Component {
   state = {
     products: [],
   };
+
+  viewIndividualProduct = (e) =>{
+    const path = `/products/${e.target.id}`
+    console.log(e.target.id)
+    // return (<Redirect to={path} />)
+  }
 
   componentDidMount() {
     ProductDataService.list()
@@ -37,7 +44,7 @@ class ProductsList extends Component {
     const productsListItems = products.map((products, index) => (
       // <div className="d-flex flex-nowrap">
       <div style={{padding: "3%" }}>
-      <Card style={{ width: "18rem", height:"20rem", padding: "1%" }} key={`${products.id}-${index}`} className="text-center">
+      <Card style={{ width: "18rem", height:"20rem", padding: "1%" }} key={`${products.sku}-${index}`} className="text-center">
         <Card.Body>
           <Card.Title className="text-center">{products.name}</Card.Title>
         </Card.Body>
@@ -58,7 +65,7 @@ class ProductsList extends Component {
           {/* <ListGroupItem>Quantity: {products.quantity}</ListGroupItem> */}
         </ListGroup>
         <Container className="text-center">
-          <Row><Col>Quantity </Col></Row>
+          {/* <Row><Col>Quantity </Col></Row> */}
 
           {/* <Row><Col>
          <Form.Control plaintext readOnly defaultValue={products.quantity}/>
@@ -67,7 +74,8 @@ class ProductsList extends Component {
 
           <Row>
             <Col>
-        <Button style={btnbk}>
+            <Button onClick={() => this.viewIndividualProduct}  href={`products/${products.id}`}>View Product</Button>
+        {/* <Button style={btnbk}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -79,10 +87,10 @@ class ProductsList extends Component {
             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
           </svg>
-        </Button>
+        </Button> */}
         {/* <Form.Control style={inputSize} plaintext readOnly defaultValue={products.quantity}/> */}
-        {products.quantity}
-        <Button style={btnbk}>
+        {/* {products.quantity} */}
+        {/* <Button style={btnbk}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -94,7 +102,7 @@ class ProductsList extends Component {
             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
             <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
           </svg>
-        </Button>
+        </Button> */}
         </Col>
         </Row>
         </Container>
