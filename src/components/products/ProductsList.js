@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import ProductDataService from "../../services/product.data.service";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 import {
   Card,
   ListGroup,
   ListGroupItem,
   CardColumns,
   Button,
-  Container, 
+  Container,
   Row,
   Col,
   Form,
@@ -17,12 +17,6 @@ class ProductsList extends Component {
   state = {
     products: [],
   };
-
-  viewIndividualProduct = (e) =>{
-    const path = `/products/${e.target.id}`
-    console.log(e.target.id)
-    // return (<Redirect to={path} />)
-  }
 
   componentDidMount() {
     ProductDataService.list()
@@ -38,44 +32,52 @@ class ProductsList extends Component {
 
     const inputSize = {
       width: "20px",
-      height: "20px"
-    }
+      height: "20px",
+    };
     const { products } = this.state;
     const productsListItems = products.map((products, index) => (
       // <div className="d-flex flex-nowrap">
-      <div style={{padding: "3%" }}>
-      <Card style={{ width: "18rem", height:"20rem", padding: "1%" }} key={`${products.sku}-${index}`} className="text-center">
-        <Card.Body>
-          <Card.Title className="text-center">{products.name}</Card.Title>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          {/* <ListGroupItem key={`${products.sku}-${index}`}></ListGroupItem> */}
-          {/* <ListGroupItem>Name: {products.name}</ListGroupItem> */}
-          <Card.Text className="text-center">Description: {products.description}</Card.Text>
-          <Card.Text>Price: ${products.price}</Card.Text>
-
-          <Card.Text>
-          <Form.Text className="text-muted">
-            <em>
-          <small>SKU: {products.sku}</small>
-          </em>
-          </Form.Text>
-            {/* SKU: {products.sku} */}
+      <div style={{ padding: "3%" }}>
+        <Card
+          style={{ width: "18rem", height: "20rem", padding: "1%" }}
+          key={`${products.sku}-${index}`}
+          className="text-center"
+        >
+          <Card.Body>
+            <Card.Title className="text-center">{products.name}</Card.Title>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            {/* <ListGroupItem key={`${products.sku}-${index}`}></ListGroupItem> */}
+            {/* <ListGroupItem>Name: {products.name}</ListGroupItem> */}
+            <Card.Text className="text-center">
+              {products.description}
             </Card.Text>
-          {/* <ListGroupItem>Quantity: {products.quantity}</ListGroupItem> */}
-        </ListGroup>
-        <Container className="text-center">
-          {/* <Row><Col>Quantity </Col></Row> */}
+            <Card.Text><em>$</em><strong>{products.price}</strong></Card.Text>
 
-          {/* <Row><Col>
+            <Card.Text style={{paddingBottom:"5%"}}>
+              
+              <Button href={`products/${products.id}`}>View Product</Button>
+              
+              {/* SKU: {products.sku} */}
+            </Card.Text>
+            {/* <ListGroupItem>Quantity: {products.quantity}</ListGroupItem> */}
+          </ListGroup>
+          <Container className="text-center">
+            {/* <Row><Col>Quantity </Col></Row> */}
+
+            {/* <Row><Col>
          <Form.Control plaintext readOnly defaultValue={products.quantity}/>
           {products.quantity}
           </Col></Row> */}
 
-          <Row>
-            <Col>
-            <Button onClick={() => this.viewIndividualProduct}  href={`products/${products.id}`}>View Product</Button>
-        {/* <Button style={btnbk}>
+            <Row>
+              <Col>
+              <Form.Text className="text-muted">
+              <em>
+                  <small>SKU: {products.sku}</small>
+                </em>
+                </Form.Text>
+                {/* <Button style={btnbk}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -88,9 +90,9 @@ class ProductsList extends Component {
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
           </svg>
         </Button> */}
-        {/* <Form.Control style={inputSize} plaintext readOnly defaultValue={products.quantity}/> */}
-        {/* {products.quantity} */}
-        {/* <Button style={btnbk}>
+                {/* <Form.Control style={inputSize} plaintext readOnly defaultValue={products.quantity}/> */}
+                {/* {products.quantity} */}
+                {/* <Button style={btnbk}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -103,20 +105,19 @@ class ProductsList extends Component {
             <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
           </svg>
         </Button> */}
-        </Col>
-        </Row>
-        </Container>
-      </Card>
+              </Col>
+            </Row>
+          </Container>
+        </Card>
       </div>
     ));
     return (
       <div>
         <Container justify-content-center>
-        <CardColumns className="d-flex flex-wrap">
-          {productsListItems}
-        </CardColumns>
+          <CardColumns className="d-flex flex-wrap">
+            {productsListItems}
+          </CardColumns>
         </Container>
-        
       </div>
     );
   }
