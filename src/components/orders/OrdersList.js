@@ -4,7 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
-  const [orderStatusFilter, setOrderStatusFilter] = useState("");
+  const [orderStatusFilter, setOrderStatusFilter] = useState("''");
 
   useEffect(() => {
     OrderDataService.list()
@@ -39,7 +39,6 @@ function OrdersList() {
 
   return (
     <div>
-      <p>{orderStatusFilter}</p>
       <form>
         <select
           type="text"
@@ -47,15 +46,15 @@ function OrdersList() {
           value={orderStatusFilter}
           onChange={(event) => setOrderStatusFilter(event.target.value)}
         >
-          <option value="">Filter by order status...</option>
-          <option value="Drafted">Drafted</option>
-          <option value="Open">Open</option>
-          <option value="Finalized">Finalized</option>
-          <option value="Preparing to ship">Preparing to ship</option>
-          <option value="Ready for shippingt">Ready for shipping</option>
-          <option value="Shipped">Shipped</option>
-          <option value="Delivered">Delivered</option>
-          <option value="Closed">Closed</option>
+          <option value="''">Filter by order status...</option>
+          <option value="0">Drafted</option>
+          <option value="1">Open</option>
+          <option value="2">Finalized</option>
+          <option value="3">Preparing to ship</option>
+          <option value="4">Ready for shipping</option>
+          <option value="5">Shipped</option>
+          <option value="6">Delivered</option>
+          <option value="7">Closed</option>
         </select>
       </form>
       <ol>{orderListItems}</ol>
