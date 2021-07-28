@@ -1,0 +1,10 @@
+.cardStyle:hover {
+  box-shadow: 0 0 11px #1d3557;
+}
+
+.mainContainer {
+  display: grid;
+  grid-row-gap: 50px;
+  grid-column-gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 4fr));
+}
