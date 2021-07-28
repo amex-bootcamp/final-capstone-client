@@ -5,7 +5,7 @@ import OrderViewCSS from "../orders/OrderView.module.css";
 import OrderDataService from "../../services/order.data.service";
 
 function OrderView() {
-  const [order, setOrder] = useState({Customer: {}});
+  const [order, setOrder] = useState({ Customer: {} });
   const { id } = useParams();
   useEffect(() => {
     getOrderData();
@@ -18,7 +18,7 @@ function OrderView() {
   return (
     <div>
       <Button href={`/orders`} className={OrderViewCSS.backbtn}>
-          Back to Orders Page
+        Back to Orders Page
       </Button>
       <Container className={OrderViewCSS.containerstyle}>
         <Card className={OrderViewCSS.cardstyle}>
