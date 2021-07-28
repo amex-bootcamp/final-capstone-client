@@ -13,7 +13,7 @@ class Dashboard extends Component {
   render() {
     const backgroundImage = {
       backgroundPosition: "center",
-      // backgroundRepeat: "repeat",
+      backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundImage: "url(/images/droneSetOutPic.jpg)",
       width: "100vw",
@@ -37,9 +37,7 @@ class Dashboard extends Component {
     const cardStyle = {
       width: "18rem",
       paddingTop: "5%",
-      // paddingBottom: "8%",
       marginTop: "40%",
-      // filter: "drop-shadow(0 0 0.85rem #457b9d)",
     };
 
     return (
