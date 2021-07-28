@@ -4,6 +4,11 @@ class OrderDataService {
   list() {
     return http.get("/orders");
   }
+
+  // view a specific order by id
+  view(id) {
+    return http.get(`/orders/${id}`);
+  }
 }
 
 export default new OrderDataService();
