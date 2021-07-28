@@ -68,35 +68,35 @@ class AddressEdit extends Component {
             <Card>
               <Card.Body>
                 <Card.Text>
-                  <p>Address Line 1:</p>
+                  <div>Address Line 1:</div>
                   <input
                     type="text"
                     value={this.state.address_line_1}
                     onChange={this.handleAddressLine1}
                   ></input>
 
-                  <p>Address Line 2:</p>
+                  <div>Address Line 2:</div>
                   <input
                     type="text"
                     value={this.state.address_line_2}
                     onChange={this.handleAddressLine2}
                   ></input>
 
-                  <p>City:</p>
+                  <div>City:</div>
                   <input
                     type="text"
                     value={this.state.city}
                     onChange={this.handleCity}
                   ></input>
 
-                  <p>State:</p>
+                  <div>State:</div>
                   <input
                     type="text"
                     value={this.state.state}
                     onChange={this.handleState}
                   ></input>
 
-                  <p>Zip:</p>
+                  <div>Zip:</div>
                   <input
                     type="text"
                     value={this.state.zip}
