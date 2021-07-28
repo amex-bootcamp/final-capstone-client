@@ -81,19 +81,19 @@ function OrderCreate() {
 
   const container = {
     maxWidth: "800px",
-    border: "#1d3557 solid 5px",
-    margin: "auto",
-    height: "800px",
-    padding: "50px 25px 0 25px",
-    background: "#f1faee",
+    border: "#457b9d solid 5px",
+    margin: "50px auto 50px",
+    height: "100%",
+    padding: "25px",
+    background: "#1d3557",
     fontSize: "1.2rem",
-    borderRadius: "10% 15% 25% 0%",
+    borderRadius: "5%",
   };
 
   const groupHeaderStyle = {
     fontWeight: "bold",
     margin: "5px 0 10px 0",
-    color: "#457b9d",
+    color: "#f1faee",
   };
 
   const groupTextStyle = {
@@ -104,14 +104,15 @@ function OrderCreate() {
   const submitButton = {
     background: "#457b9d",
     color: "#f1faee",
-    border: "#1d3557 3px solid",
+    border: "#457b9d 3px solid",
     fontWeight: "bold",
   };
 
   return (
     <section>
-      <h2>Create a New Order</h2>
+      
       <Form style={container} onSubmit={handleSubmit}>
+        <h2>Create a New Order</h2>
         <Form.Group style={groupHeaderStyle} controlId="orderId">
           <Form.Label>Order ID:</Form.Label>
           <Form.Control
