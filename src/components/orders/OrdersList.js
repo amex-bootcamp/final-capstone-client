@@ -13,7 +13,6 @@ function OrdersList() {
       .then(({ data: orders }) => setOrders(orders))
       .catch(console.error);
   }, []);
-<<<<<<< HEAD
 
   useEffect(() => {
     OrderDataService.listByStatus(orderStatusFilter)
@@ -53,8 +52,6 @@ function OrdersList() {
     fontWeight: "bold",
     borderRadius: "5px",
   };
-=======
->>>>>>> 4022f4204a1b91d1357fb74ed30fc3646ae761da
 
   const orderListItems = orders.map((order, index) => (
     <ul key={`${order}-${index}`}>
