@@ -1,6 +1,6 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import OrderDataService from "../../services/order.data.service";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
