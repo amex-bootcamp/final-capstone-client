@@ -12,6 +12,7 @@ import CustomerDataService from "../../services/customer.data.service";
 import AddressDataService from "../../services/address.data.service";
 import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
+import MediaQuery from 'react-responsive';
 
 class CustomerView extends Component {
   state = {
@@ -110,13 +111,17 @@ class CustomerView extends Component {
     }
     return (
       <div>
+        
+
         <Container>
+        
           <Link to={`/customers`}>
             {" "}
             <Button style={backBtn}>Back to Customer List</Button>
           </Link>
         </Container>
         <Container className={CustomerViewCSS.container}>
+       
           <CardGroup style={cardGroup}>
             <Row>
               <Col>
@@ -194,7 +199,9 @@ class CustomerView extends Component {
             </Button>
           </Modal.Footer>
         </Modal>
+        
       </div>
+      
     );
   }
 }
