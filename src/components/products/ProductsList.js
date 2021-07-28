@@ -45,17 +45,20 @@ class ProductsList extends Component {
             padding: "1%",
             backgroundColor: "#1d3557",
             color: "#f1faee",
+            filter: "drop-shadow(.30rem .30rem 0.30rem #457b9d)",
+            borderColor: "#E63946",
+            fontFamily: "Lato, sans-serif",
           }}
           key={`${products.sku}-${index}`}
           className="text-center"
         >
-          <Card.Body>
+          <Card.Body style={{ height: "50px" }}>
             <Card.Title className="text-center">{products.name}</Card.Title>
           </Card.Body>
-          <ListGroup className="list-group-flush">
+          <ListGroup className="list-group-flush" style={{ height: "100rem" }}>
             {/* <ListGroupItem key={`${products.sku}-${index}`}></ListGroupItem> */}
             {/* <ListGroupItem>Name: {products.name}</ListGroupItem> */}
-            <Card.Text className="text-center">
+            <Card.Text className="text-center" style={{ marginTop: "5%" }}>
               {products.description}
             </Card.Text>
             <Card.Text>
@@ -87,9 +90,9 @@ class ProductsList extends Component {
               <Col>
                 {/* <Form.Text className="text-muted"> */}
                 <em>
-                  <small style={{ color: "#EEDFCE" }}>
+                  <large style={{ color: "#a8dadc", fontWeight: "" }}>
                     SKU: {products.sku}
-                  </small>
+                  </large>
                 </em>
                 {/* </Form.Text> */}
                 {/* <Button style={btnbk}>
@@ -128,8 +131,8 @@ class ProductsList extends Component {
     ));
     return (
       <div>
-        <Container justify-content-center>
-          <CardColumns className="d-flex flex-wrap">
+        <Container className="d-flex">
+          <CardColumns className="d-flex flex-wrap justify-content-center">
             {productsListItems}
           </CardColumns>
         </Container>
