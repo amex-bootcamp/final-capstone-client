@@ -32,11 +32,6 @@ function OrdersList() {
     </li>
   ));
 
-  // const filterByStatus = (event) => {
-  //      if event.target.value === order.status_text
-  //     display EVERY order.status_text
-  // }
-
   return (
     <div>
       <form>
