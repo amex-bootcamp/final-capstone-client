@@ -62,7 +62,7 @@ class CustomerView extends Component {
 
   getAddressInfo = (id) => {
     AddressDataService.view(id).then(({ data }) => {
-      this.setState({ address: data.data[0] });
+      this.setState({ address: data[0] });
     });
   };
 
@@ -93,12 +93,11 @@ class CustomerView extends Component {
       padding: "45px 45px 45px 45px",
       alignItems: "center",
       width: "85%",
-      height: "85%"
+      height: "85%",
     };
     const text = {
       font: "bold",
       color: "#f1faee",
-
     };
 
     const cardGroup = {
