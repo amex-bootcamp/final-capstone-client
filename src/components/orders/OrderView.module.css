@@ -40,8 +40,8 @@
   margin-bottom: 15px;
 }
 .editbtn {
-  color: white;
-  background-color: #457b9d;
+  color: #1d3557;
+  background-color: #a8dadc;
   width: 120px;
   position: relative;
   right: -25px;
@@ -53,6 +53,7 @@
   transform: scale(1.01);
 }
 .deletebtn {
+  color:#f1faee;
   background-color: #e63946;
   width: 120px;
   position: relative;
