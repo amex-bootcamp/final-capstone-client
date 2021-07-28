@@ -24,10 +24,13 @@ class ProductsList extends Component {
       .catch(console.error);
   }
   render() {
-    const btnbk = {
-      backgroundColor: "inherit",
-      color: "black",
-      border: "none",
+    const title = {
+      fontFamily: "Lato, sans-serif",
+      color: "#1d3557",
+      textAlign: "center",
+      marginBottom: "75px",
+      marginTop: "50px",
+      fontSize: "50pt",
     };
 
     const inputSize = {
@@ -96,7 +99,7 @@ class ProductsList extends Component {
               <Col>
                 {/* <Form.Text className="text-muted"> */}
                 <em>
-                  <large style={{ color: "#a8dadc", fontWeight: "" }}>
+                  <large style={{ color: "#a8dadc" }}>
                     SKU: {products.sku}
                   </large>
                 </em>
@@ -137,6 +140,9 @@ class ProductsList extends Component {
     ));
     return (
       <div>
+        <div>
+          <h1 style={title}>All Products</h1>
+        </div>
         <Container className="d-flex">
           <CardColumns className="d-flex flex-wrap justify-content-center">
             {productsListItems}
