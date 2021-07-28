@@ -13,10 +13,12 @@ function OrdersList() {
   }, []);
 
   useEffect(() => {
-    OrderDataService.list()
-    .then(({ data: orders }) => setOrders(orders))
-    .catch(console.error);
-}, []);
+    OrderDataService.listByStatus(orderStatusFilter)
+      .then(({ data: orders }) => {
+        setOrders(orders);
+      })
+      .catch(console.error);
+  }, [orderStatusFilter]);
 
   const orderListItems = orders.map((order, index) => (
     <li key={`${order}-${index}`}>
@@ -30,14 +32,6 @@ function OrdersList() {
     </li>
   ));
 
-  const handleClick = (event) => {
-    setOrderStatus(event.target.value);
-    OrderDataService.listByStatus(orderStatus)
-      .then(({ data: { rows: orders } }) => {
-        setOrders(orders);
-      })
-      .catch(console.error);
-  };
   // const filterByStatus = (event) => {
   //      if event.target.value === order.status_text
   //     display EVERY order.status_text
@@ -45,6 +39,7 @@ function OrdersList() {
 
   return (
     <div>
+      <p>{orderStatusFilter}</p>
       <form>
         <select
           type="text"
