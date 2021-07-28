@@ -90,14 +90,15 @@ class CustomerView extends Component {
       color: "#f1faee",
       margin: "50px",
       borderRadius: "7px",
-      height: "500px",
       padding: "45px 45px 45px 45px",
       alignItems: "center",
-      width: "500px",
+      width: "100%",
+      height: "100%"
     };
     const text = {
       font: "bold",
       color: "#f1faee",
+
     };
 
     const cardGroup = {
@@ -140,9 +141,16 @@ class CustomerView extends Component {
                   </Card.Text>
 
                   <div flex className={CustomerViewCSS.btndiv}>
-                  <Link to={`/customers/${customer.id}/edit`}>
-                    <Button style={editButton} variant={editButton} className={CustomerViewCSS.btn}> Edit Customer </Button>
-                       </Link>
+                    <Link to={`/customers/${customer.id}/edit`}>
+                      <Button
+                        style={editButton}
+                        variant={editButton}
+                        className={CustomerViewCSS.btn}
+                      >
+                        {" "}
+                        Edit Customer{" "}
+                      </Button>
+                    </Link>
                     <Button
                       style={deleteButton}
                       variant={deleteButton}
