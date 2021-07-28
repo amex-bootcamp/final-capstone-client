@@ -1,6 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import AddressesList from "./components/addresses/AddressesList";
+import AddressView from "./components/addresses/AddressView";
 import CustomerCreate from "./components/customers/CustomerCreate";
 import CustomersList from "./components/customers/CustomersList";
 import ProductsList from "./components/products/ProductsList";
@@ -33,6 +34,7 @@ function App() {
           <Route path="/addresses/new">
             <AddressCreate />
           </Route>
+          <Route exact path="/addresses/:id" component={AddressView} />
           <Route path="/addresses/:id/edit" component={AddressEdit} />
 
           <Route exact path="/customers">
