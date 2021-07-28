@@ -58,7 +58,10 @@ class ProductsList extends Component {
           <ListGroup className="list-group-flush" style={{ height: "100rem" }}>
             {/* <ListGroupItem key={`${products.sku}-${index}`}></ListGroupItem> */}
             {/* <ListGroupItem>Name: {products.name}</ListGroupItem> */}
-            <Card.Text className="text-center" style={{ marginTop: "5%" }}>
+            <Card.Text
+              className="text-center"
+              style={{ marginTop: "5%", height: "5rem", marginBottom: "7%" }}
+            >
               {products.description}
             </Card.Text>
             <Card.Text>
@@ -69,7 +72,10 @@ class ProductsList extends Component {
             <Card.Text style={{ paddingBottom: "5%" }}>
               <Button
                 href={`products/${products.id}`}
-                style={{ backgroundColor: "#a8dadc", color: "#1d3557" }}
+                style={{
+                  backgroundColor: "#a8dadc",
+                  color: "#1d3557",
+                }}
               >
                 View Product
               </Button>
