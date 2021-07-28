@@ -11,11 +11,8 @@ import AddressCreate from "./components/addresses/AddressCreate";
 import OrdersList from "./components/orders/OrdersList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from "./components/Dashboard/Dashboard";
-<<<<<<< HEAD
 import OrderView from "./components/orders/OrderView";
-=======
 import ProductView from "./components/products/ProductView";
->>>>>>> fd8b9341dfb617e26bbd8b95cac892e10f451c72
 
 function App() {
   return (
