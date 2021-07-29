@@ -8,9 +8,13 @@ class CustomerDataService {
   listByCount(count, page) {
     return http.get(`/customers?count=${count}&page=${page}&order=updatedAt`);
   }
-  // view a specific customer by id
+  // view a specific customerby id
   view(id) {
     return http.get(`/customers/${id}`);
+  }
+
+  viewByEmail(email) {
+    return http.get(`/customers?email=${email}`);
   }
 
   // delete an customerby given id
