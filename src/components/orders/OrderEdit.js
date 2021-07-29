@@ -56,9 +56,9 @@ class OrderEdit extends Component {
   //   this.handleIncrement = this.handleIncrement.bind(this);
   // }
 
-  handleIncrement = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
+  // handleIncrement = () => {
+  //   this.setState({ count: this.state.count + 1 });
+  // };
 
   render() {
     if (this.state.edited) {
@@ -67,12 +67,15 @@ class OrderEdit extends Component {
     return (
       <section>
         <div>
-          <span className="button button-primary m-2">{this.formatCount()}</span>
-          <Button onClick={this.handleIncrement}>Increment</Button>
+          {/* <span className="button button-primary m-2">
+            {this.formatCount()}
+          </span>
+          <Button onClick={this.handleIncrement}>Increment</Button> */}
           <Container className={CustomerEditCSS.container}>
             <CardGroup>
               <Card>
                 <Card.Body>
+                  <Card.Title className="text-center">Edit Order</Card.Title>
                   <Card.Text>
                     {/* <h2 className={CustomerEditCSS.h2}>Edit Orders</h2> */}
                     <Form onSubmit={this.handleSubmit}>
@@ -85,10 +88,11 @@ class OrderEdit extends Component {
                             name="first_name"
                             id="first_name"
                             onChange={this.handleFirstNameChange}
-                            placeholder="Name"
+                            placeholder="John"
                           />
                         </Col>
                       </Row>
+                      <br></br>
                       <Row>
                         <Col>
                           <Form.Label>Middle Name</Form.Label>
@@ -97,10 +101,11 @@ class OrderEdit extends Component {
                             value={this.state.middle_name}
                             id="middle_name"
                             onChange={this.handleMiddleNameChange}
-                            placeholder="Middle Name"
+                            placeholder="C"
                           />
                         </Col>
                       </Row>
+                      <br></br>
                       <Row>
                         <Col>
                           <Form.Label>Last Name</Form.Label>
@@ -109,10 +114,11 @@ class OrderEdit extends Component {
                             value={this.handleLastNameChange}
                             id="last_name"
                             onChange={this.handleLastNameChange}
-                            placeholder="Last Name"
+                            placeholder="Doe"
                           />
                         </Col>
                       </Row>
+                      <br></br>
                       <Row>
                         <Col>
                           <Form.Label>Phone</Form.Label>
@@ -121,10 +127,11 @@ class OrderEdit extends Component {
                             value={this.state.phone}
                             id="phone"
                             onChange={this.handlePhoneChange}
-                            placeholder="Phone"
+                            placeholder="(555)555-5555"
                           />
                         </Col>
                       </Row>
+                      <br></br>
                       <Row>
                         <Col>
                           <Form.Label>Email</Form.Label>
@@ -133,10 +140,11 @@ class OrderEdit extends Component {
                             value={this.state.email}
                             id="email"
                             onChange={this.handleEmailChange}
-                            placeholder="Email"
+                            placeholder="johncdoe@email.com"
                           />
                         </Col>
                       </Row>
+                      <br></br>
                       <Form.Group as={Col} controlId="orderStatus">
                         <Form.Label>Order Status</Form.Label>
                         <Form.Select defaultValue="Choose...">
@@ -146,6 +154,36 @@ class OrderEdit extends Component {
                           <option>Shipped</option>
                           <option>Complete</option>
                         </Form.Select>
+                      </Form.Group>
+                      <br></br> <br></br>
+                      <Row>
+                        <Col>
+                          <Form.Label>Time: </Form.Label>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col>
+                          <Form.Label>Order Price:</Form.Label>
+                        </Col>
+                      </Row>
+                      <br></br> <br></br>
+                      <Form.Group as={Col} controlId="Products">
+                        <Form.Label>Products</Form.Label>
+                        <Form.Select defaultValue="Choose...">
+                          <option>Product 1</option>
+                          <option>Product 2</option>
+                          <option>Product 3</option>
+                          <option>Product 4</option>
+                          <option>Product 5</option>
+                        </Form.Select>
+                      </Form.Group>
+                      <br></br>
+                      <Form.Group
+                        className="mb-3"
+                        controlId="exampleForm.ControlTextarea1"
+                      >
+                        <Form.Label>Notes</Form.Label>
+                        <Form.Control as="textarea" rows={3} />
                       </Form.Group>
                       <br></br>
                       <Button
@@ -293,11 +331,6 @@ class OrderEdit extends Component {
         </div>
       </section>
     );
-  }
-
-  formatCount() {
-    const { count } = this.state;
-    return count === 0 ? "Zero" : count;
   }
 }
 
