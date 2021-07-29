@@ -149,25 +149,9 @@ class AddressesList extends Component {
           <p>City: {address.city}</p>
           <p>State: {address.state}</p>
           <p>Zip: {address.zip}</p>
-<<<<<<< HEAD
-          <>
-            <div style={divBtn}>
-              <Button style={editBtn} href={`/addresses/${address.id}/edit`}>
-                Edit Address
-              </Button>{" "}
-              <Button
-                style={deleteBtn}
-                onClick={() => this.handleShow(address.id)}
-              >
-                Delete
-              </Button>{" "}
-            </div>
-          </>
-=======
           <Button href={`addresses/${address.id}`} style={linkStyle}>
             View Details
           </Button>
->>>>>>> ec5afadf208c90df2dd6c4d2cb280b880fa1d235
         </Card>
       </ul>
     ));

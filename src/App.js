@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/">
             <Dashboard />
           </Route>
-
+          <Route exact path="/orders/:id/edit" component={OrderEdit} />
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
