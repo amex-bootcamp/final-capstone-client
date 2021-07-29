@@ -1,27 +1,34 @@
 import React, { useEffect, useState } from "react";
 import OrderDataService from "../../services/order.data.service";
-import { Link } from "react-router-dom";
 import OrdersListCSS from "./OrdersList.module.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
-  const [orderStatusFilter, setOrderStatusFilter] = useState("''");
+  const [orderStatusFilter, setOrderStatusFilter] = useState();
 
+  // This useEffect controls pulls in the daya for the orders. We built some conditinal logic to help control the funcitonality 
+  //of the select filter dropdown
   useEffect(() => {
-    OrderDataService.list()
-      .then(({ data: orders }) => setOrders(orders))
-      .catch(console.error);
-  }, []);
-
-  useEffect(() => {
-    OrderDataService.listByStatus(orderStatusFilter)
-      .then(({ data: orders }) => {
-        setOrders(orders);
-      })
-      .catch(console.error);
+    //check if default value selected 
+    if (orderStatusFilter === "-1") {
+      OrderDataService.list()
+        .then(({ data: orders }) => setOrders(orders))
+        .catch(console.error);
+    } else if (orderStatusFilter !== undefined) {
+      OrderDataService.listByStatus(orderStatusFilter).then(
+        ({ data: orders }) => {
+          setOrders(orders);
+        }
+      );
+    } else {
+      OrderDataService.list()
+        .then(({ data: orders }) => setOrders(orders))
+        .catch(console.error);
+    }
   }, [orderStatusFilter]);
 
+//Css
   const cardStyle = {
     fontFamily: "Lato, sans-serif",
     backgroundColor: "#1d3557",
@@ -53,6 +60,7 @@ function OrdersList() {
     borderRadius: "5px",
   };
 
+  //This controls the display of the orders. We map and array and then apply bootstrap react css to style it using Cards
   const orderListItems = orders.map((order, index) => (
     <ul key={`${order}-${index}`}>
       <Card className={OrdersListCSS.cardStyle} style={cardStyle}>
@@ -93,7 +101,7 @@ function OrdersList() {
           value={orderStatusFilter}
           onChange={(event) => setOrderStatusFilter(event.target.value)}
         >
-          <option value="''">Filter by order status...</option>
+          <option value="-1">Filter by order status...</option>
           <option value="0">Drafted</option>
           <option value="1">Open</option>
           <option value="2">Finalized</option>

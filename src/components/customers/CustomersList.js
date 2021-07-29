@@ -3,7 +3,6 @@ import { Pagination } from "@material-ui/lab";
 import CustomerDataService from "../../services/customer.data.service";
 import CustomerListCSS from "./CustomersList.module.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import { auto } from "@popperjs/core";
 
 function CustomersList() {
   const [customers, setCustomer] = useState([]);
@@ -20,7 +19,7 @@ function CustomersList() {
         setTotalCustomerCount(totalCustomerCount);
       })
       .catch(console.error);
-  }, []);
+  }, [currentPage, customerLoad]);
 
   useEffect(() => {
     CustomerDataService.listByCount(customerLoad, currentPage)
@@ -74,6 +73,16 @@ function CustomersList() {
     whiteSpace: "nowrap",
     display: "inline-block",
   };
+
+  const h2 = {
+    color: "black",
+    paddingTop: "20px"
+  };
+
+  const searchBar ={
+    paddingTop: "20px",
+    paddingLeft: "400px"
+  }
 
   // something in here needs to be changed in order to save the data dynamically
   const customerListItems = customers.map((customer, index) => (
@@ -143,7 +152,7 @@ function CustomersList() {
 
   return (
     <section>
-      <div className="col-md-8">
+      <div style={searchBar} className="col-md-8">
         <div className="input-group mb-3">
           <input
             type="text"
@@ -163,7 +172,7 @@ function CustomersList() {
           </div>
         </div>
       </div>
-      <h2>Customers</h2>
+      <h2 style={h2}>Customers</h2>
       
       <form onClick={handleClick}>
         <h3>

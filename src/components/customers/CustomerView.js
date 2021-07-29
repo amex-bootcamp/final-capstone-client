@@ -62,7 +62,7 @@ class CustomerView extends Component {
 
   getAddressInfo = (id) => {
     AddressDataService.view(id).then(({ data }) => {
-      this.setState({ address: data.data[0] });
+      this.setState({ address: data[0] });
     });
   };
 
@@ -191,7 +191,7 @@ class CustomerView extends Component {
             <Button
               type="radio"
               variant="primary"
-              onClick={() => this.handleConfirm(customer.data[0].id)}
+              onClick={() => this.handleConfirm(customer.id)}
             >
               Confirm
             </Button>
