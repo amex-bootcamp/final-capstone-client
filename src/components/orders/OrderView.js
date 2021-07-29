@@ -20,11 +20,11 @@ function OrderView() {
   }
   const handleClose = () => setShow(false);
   const handleShow = () => {
-   setShow(!show);
+    setShow(!show);
   };
 
   const handleConfirm = () => {
-    if(order.order_status == 0) {
+    if (order.order_status == 0) {
       OrderDataService.delete(id)
         .then((res) => {
           console.log("Complete");
@@ -34,8 +34,10 @@ function OrderView() {
     }
     handleClose();
   };
-  if(deleted) {return <Redirect to={{ pathname: "/orders" }} />;}
-  
+  if (deleted) {
+    return <Redirect to={{ pathname: "/orders" }} />;
+  }
+
   return (
     <div>
       <Button href={`/orders`} className={OrderViewCSS.backbtn}>
@@ -68,9 +70,11 @@ function OrderView() {
           <p className={OrderViewCSS.para}>Order Notes: {order.order_notes}</p>
           <div flex className={OrderViewCSS.btndiv}>
             <Button className={OrderViewCSS.editbtn}>Edit</Button>
-          {order.order_status == 0 && <Button onClick={handleShow} className={OrderViewCSS.deletebtn}>
-            Delete
-          </Button>}
+            {order.order_status == 0 && (
+              <Button onClick={handleShow} className={OrderViewCSS.deletebtn}>
+                Delete
+              </Button>
+            )}
           </div>
         </Card>
       </Container>
@@ -79,14 +83,20 @@ function OrderView() {
           <Modal.Title>Are you sure you want to delete this order?</Modal.Title>
         </Modal.Header>
 
-        <Modal.Footer>
-          <Button type="radio" variant="danger" onClick={handleClose}>
+        <Modal.Footer flex>
+          <Button
+            type="radio"
+            variant="danger"
+            onClick={handleClose}
+            className={OrderViewCSS.cnclbtn}
+          >
             Cancel
           </Button>
           <Button
             type="radio"
             variant="primary"
             onClick={() => handleConfirm(id)}
+            className={OrderViewCSS.confdlbtn}
           >
             Confirm
           </Button>
