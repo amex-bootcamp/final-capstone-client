@@ -14,7 +14,6 @@ function OrderView() {
   useEffect(() => {
     getOrderData();
   }, [deleted]);
-
   function getOrderData() {
     OrderDataService.view(id)
       .then(({ data: order }) => setOrder(order))
@@ -59,7 +58,7 @@ function OrderView() {
           <p className={OrderViewCSS.para}>Email: {order.Customer.email}</p>
           <p className={OrderViewCSS.para}>Phone: {order.Customer.phone}</p>
           <p className={OrderViewCSS.para}>
-            Order Status: {Status[order.order_status]}
+            Order Status: {order.order_status}
           </p>
           <p className={OrderViewCSS.para}>
             Order Date/Time: {order.datetime_order_placed}

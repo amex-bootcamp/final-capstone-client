@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import NavigationCSS from "./Navigation.module.css";
 
 class Navigation extends Component {
   render() {
@@ -10,12 +11,12 @@ class Navigation extends Component {
     };
     return (
       <Navbar style={navStyle} expand="lg">
-        <Container fluid style={{ color: "#e63946" }}>
-          <Container fluid>
+        <Container style={{ color: "#e63946" }}>
+          <Container>
             <Navbar.Brand href="/">
               <img
                 src={process.env.PUBLIC_URL + "/images/logo.png"}
-                height="80"
+                height="70"
                 className="d-inline-block align-top"
                 alt="React Bootstrap logo"
               />
@@ -23,7 +24,7 @@ class Navigation extends Component {
           </Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+            <Nav className="justify-content-end">
               <NavDropdown title="Addresses" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/addresses">
                   View All Addresses
