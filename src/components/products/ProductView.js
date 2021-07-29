@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ProductDataService from "../../services/product.data.service";
-import { Card, Container, Button, Row, Form} from "react-bootstrap";
+import { Card, Container, Button, Row, Form } from "react-bootstrap";
 import ProductViewCSS from "./ProductView.module.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -8,29 +8,40 @@ import axios from "axios";
 class ProductView extends Component {
   state = {
     product: [],
-    orderQuantity: 0, 
+    orderQuantity: 0,
+    error: false,
   };
 
-  /*
-  temporary while I can get query string to work
-  URL: `http://localhost:8080/api/products/${id}?quantity=-10`
-  */
-  updateQuantity = () =>{
-    console.log(this.state.product.id)
-    axios.put(`http://localhost:8080/api/products/${this.state.product.id}?quantity=${this.state.orderQuantity}`)
-  } 
+  updateQuantity = () => {
+    console.log(this.state.product.id);
 
-  handleQuantityChange = (event) =>{
-    this.setState({orderQuantity: event.target.value})
-  }
+    if (this.state.orderQuantity > 0) {
+      axios.put(
+        `http://localhost:8080/api/products/${this.state.product.id}?quantity=${this.state.orderQuantity}`
+      );
+      this.setState({orderQuantity: 0, error: false})
 
-  incrementQuantity = () => {this.setState({orderQuantity: this.state.orderQuantity + 1})}
-  decrementQuantity = () => {this.setState({orderQuantity: this.state.orderQuantity - 1})}
+    } else {
 
+      this.setState({orderQuantity: 0, error: true})
+      
+    }
+  };
 
+  handleQuantityChange = (event) => {
+    this.setState({ orderQuantity: event.target.value });
+  };
 
-
-
+  incrementQuantity = () => {
+    this.setState({ orderQuantity: Number(this.state.orderQuantity) + 1 });
+  };
+  decrementQuantity = () => {
+    if (this.state.orderQuantity > 0) {
+      this.setState({ orderQuantity: Number(this.state.orderQuantity) - 1 });
+    } else {
+      this.setState({ error: true });
+    }
+  };
 
   componentDidMount() {
     const {
@@ -96,8 +107,8 @@ class ProductView extends Component {
             </Link>
           </Container>
         </div>
-        
-        <Container className={ProductViewCSS.mainContainer} >
+
+        <Container className={ProductViewCSS.mainContainer}>
           <Row>
             <Card style={card} className={ProductViewCSS.cardStyle}>
               <Card.Body>
@@ -128,18 +139,34 @@ class ProductView extends Component {
                   {product.quantity}
                   <br />
                   <Form onSubmit={this.updateQuantity}>
-                  <Form.Control 
-                  value={this.state.orderQuantity}
-                  name={this.state.orderQuantity}
-                  onChange={this.handleQuantityChange}
-                  type="number"
-                  required
-                  />
-
-                <Button onClick={this.updateQuantity}>Update Quantity</Button>
+                    <Form.Control
+                      value={this.state.orderQuantity}
+                      name={this.state.orderQuantity}
+                      onChange={this.handleQuantityChange}
+                      type="number"
+                      required
+                    />
+                    {this.state.error ? (
+                      <Form.Text
+                        style={{ color: "#E63946", fontWeight: "900px" }}
+                      >
+                        <strong> Please Enter a Valid Quantity.</strong>
+                      </Form.Text>
+                    ) : (
+                      <i></i>
+                    )}
+                    <br></br>
+                    <Button onClick={this.updateQuantity}>
+                      Update Quantity
+                    </Button>
                   </Form>
-                  <Button style={decrementBtn} onClick={this.decrementQuantity}>-</Button>
-                  <Button style={incrementBtn} onClick={this.incrementQuantity}>+</Button> &nbsp;
+                  <Button style={decrementBtn} onClick={this.decrementQuantity}>
+                    -
+                  </Button>
+                  <Button style={incrementBtn} onClick={this.incrementQuantity}>
+                    +
+                  </Button>{" "}
+                  &nbsp;
                   <br />
                 </Card.Text>
               </Card.Body>
