@@ -4,6 +4,10 @@ class OrderDataService {
   list() {
     return http.get("/orders");
   }
+  // view a specific customer by id
+  view(id) {
+    return http.get(`/orders/${id}`);
+  }
   // update an customer by id
   put(id, params) {
     return http.put(`/orders/${id}`, params);
