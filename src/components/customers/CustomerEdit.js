@@ -119,11 +119,14 @@ class CustomerEdit extends Component {
     return (
       <section>
         <div>
-          <Container className={CustomerEditCSS.container}>
-            <Card>
+          <Button href={`/customer`} className={CustomerEditCSS.backbtn}>
+            Back to Customers Page
+          </Button>
+          <Container className={CustomerEditCSS.containerstyle}>
+            <Card className={CustomerEditCSS.cardstyle}>
               <Card.Body>
                 <Card.Text>
-                  <h2 className={CustomerEditCSS.h2}>Edit Customer</h2>
+                  <h2 className={CustomerEditCSS.heading}>Edit Customer</h2>
                   <form
                     className={CustomerEditCSS.formcenter}
                     onSubmit={this.handleSubmit}
@@ -183,7 +186,7 @@ class CustomerEdit extends Component {
                         onChange={this.handleInputChange}
                       ></input>
                     </p>
-                    <p className={CustomerEditCSS.savebtncenter}>
+                    <p className={CustomerEditCSS.btndiv}>
                       <Button
                         className={CustomerEditCSS.savebtn}
                         type="submit"
