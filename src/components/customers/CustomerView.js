@@ -191,7 +191,7 @@ class CustomerView extends Component {
             <Button
               type="radio"
               variant="primary"
-              onClick={() => this.handleConfirm(customer.data[0].id)}
+              onClick={() => this.handleConfirm(customer.id)}
             >
               Confirm
             </Button>
