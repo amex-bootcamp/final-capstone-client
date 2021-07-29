@@ -9,7 +9,7 @@ body {
 
 .h2 {
   text-align: center;
-  padding-bottom: 5px;
+  padding-bottom: 20px;
 }
 
 .container {
@@ -17,4 +17,7 @@ body {
   padding-bottom: 30px;
   border-radius: 40px 40px 40px;
   display: block;
+}
+.cardTextOverflow {
+  
 }

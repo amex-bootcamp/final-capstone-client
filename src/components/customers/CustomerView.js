@@ -12,6 +12,7 @@ import CustomerDataService from "../../services/customer.data.service";
 import AddressDataService from "../../services/address.data.service";
 import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
+import MediaQuery from 'react-responsive';
 
 class CustomerView extends Component {
   state = {
@@ -70,14 +71,14 @@ class CustomerView extends Component {
     const editButton = {
       backgroundColor: "#a8dadc",
       color: "#1d3557",
-      margin: "2px",
+      margin: "5px",
       padding: "10px 20px",
       border: "none",
     };
     const deleteButton = {
       backgroundColor: "#e63946",
       color: "#f1faee",
-      margin: "2px",
+      margin: "5px",
       padding: "10px 20px",
       border: "none",
     };
@@ -90,10 +91,13 @@ class CustomerView extends Component {
       color: "#f1faee",
       margin: "50px",
       borderRadius: "7px",
-      height: "500px",
       padding: "45px 45px 45px 45px",
       alignItems: "center",
-      width: "500px",
+      width: "95%",
+      height: "85%",
+      "@media (max-width:991px)": {
+        textAlign: "center",
+      },
     };
     const text = {
       font: "bold",
@@ -103,19 +107,28 @@ class CustomerView extends Component {
     const cardGroup = {
       justifyContent: "center",
     };
+    // const mQueries = {
+    //   "@media (max-width:991px)":{
+    //     textAlign: "center"
+    //   }
+    // }
     const { customer, address } = this.state;
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/customers" }} />;
     }
     return (
       <div>
+        
+
         <Container>
+        
           <Link to={`/customers`}>
             {" "}
             <Button style={backBtn}>Back to Customer List</Button>
           </Link>
         </Container>
         <Container className={CustomerViewCSS.container}>
+       
           <CardGroup style={cardGroup}>
             <Row>
               <Col>
@@ -138,11 +151,18 @@ class CustomerView extends Component {
                     <div>State: {address.state}</div>
                     <div>Zip: {address.zip}</div>
                   </Card.Text>
-
+                  <br />
                   <div flex className={CustomerViewCSS.btndiv}>
-                  <Link to={`/customers/${customer.id}/edit`}>
-                    <Button style={editButton} variant={editButton} className={CustomerViewCSS.btn}> Edit Customer </Button>
-                       </Link>
+                    <Link to={`/customers/${customer.id}/edit`}>
+                      <Button
+                        style={editButton}
+                        variant={editButton}
+                        className={CustomerViewCSS.btn}
+                      >
+                        {" "}
+                        Edit Customer{" "}
+                      </Button>
+                    </Link>
                     <Button
                       style={deleteButton}
                       variant={deleteButton}
@@ -186,7 +206,9 @@ class CustomerView extends Component {
             </Button>
           </Modal.Footer>
         </Modal>
+        
       </div>
+      
     );
   }
 }
