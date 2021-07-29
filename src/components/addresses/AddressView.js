@@ -8,7 +8,6 @@ import {
   Col,
   Modal,
 } from "react-bootstrap";
-import AddressViewCSS from "./AddressView.module.css";
 import AddressDataService from "../../services/address.data.service";
 import { Redirect, Link } from "react-router-dom";
 
@@ -42,7 +41,7 @@ class AddressView extends Component {
   handleConfirm = () => {
     const { selectedAddress } = this.state;
     this.handleClose();
-    AddressDataService.delete(this.state.selectedAddress)
+    AddressDataService.delete(selectedAddress)
       .then(() => {
         this.setState({ deleted: true });
       })
@@ -112,14 +111,14 @@ class AddressView extends Component {
               <Col>
                 <Card style={cardStyle}>
                   <Card.Text>
-                    <h2>Address # {address.id}</h2>
-                    <span>Address Line 1:</span>
+                    <div>Address # {address.id}</div>
+                    <span>Address Line 1: </span>
                     {address.address_line_1} <br />
-                    <span>Address Line 2:</span>
+                    <span>Address Line 2: </span>
                     {address.address_line_2} <br />
                     <span>City:</span> {address.city}
                     <br />
-                    <span>State:</span>
+                    <span>State: </span>
                     {address.state} <br />
                     <span>Zip: </span>
                     {address.zip} <br />
@@ -133,7 +132,8 @@ class AddressView extends Component {
                     <Button
                       style={deleteButton}
                       variant={deleteButton}
-                      onClick={() => this.handleShow(address.id)}>
+                      onClick={() => this.handleShow(address.id)}
+                    >
                       Delete Address
                     </Button>
                   </div>

@@ -28,11 +28,11 @@ class CustomerView extends Component {
     });
   };
   handleClose = () => this.setShow();
-  handleShow = () => this.setShow();
 
   handleShow = (id) => {
     this.setShow();
   };
+
   handleConfirm = (id) => {
     this.deleteCustomer(id);
     this.handleClose();
@@ -62,7 +62,7 @@ class CustomerView extends Component {
 
   getAddressInfo = (id) => {
     AddressDataService.view(id).then(({ data }) => {
-      this.setState({ address: data.data[0] });
+      this.setState({ address: data[0] });
     });
   };
 
@@ -92,18 +92,21 @@ class CustomerView extends Component {
       borderRadius: "7px",
       padding: "45px 45px 45px 45px",
       alignItems: "center",
-      width: "85%",
-      height: "85%"
+      width: "95%",
+      height: "85%",
+      "@media (max-width:991px)": {
+        textAlign: "center",
+      },
     };
     const text = {
       font: "bold",
       color: "#f1faee",
-
     };
 
     const cardGroup = {
       justifyContent: "center",
     };
+
     const { customer, address } = this.state;
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/customers" }} />;
@@ -188,7 +191,7 @@ class CustomerView extends Component {
             <Button
               type="radio"
               variant="primary"
-              onClick={() => this.handleConfirm(customer.data[0].id)}
+              onClick={() => this.handleConfirm(customer.id)}
             >
               Confirm
             </Button>
