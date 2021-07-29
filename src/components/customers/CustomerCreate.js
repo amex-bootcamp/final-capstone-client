@@ -3,6 +3,7 @@ import CustomerDataService from "../../services/customer.data.service";
 import AddressDataService from "../../services/address.data.service";
 import { Redirect } from "react-router-dom";
 import { Container, Row, Col, Form, Button, InputGroup } from "react-bootstrap";
+import CustomerCreateCSS from "../customers/CustomerCreate.module.css";
 
 class CustomerCreate extends Component {
   state = {
@@ -59,6 +60,36 @@ class CustomerCreate extends Component {
       fontFamily: "Lato, sans-serif",
     };
 
+    const container = {
+      maxWidth: "800px",
+      border: "#457b9d solid 5px",
+      margin: "50px auto 50px",
+      height: "90%",
+      padding: "25px",
+      background: "#1d3557",
+      fontSize: "1.2rem",
+      borderRadius: "5%",
+    };
+
+    const groupHeaderStyle = {
+      fontWeight: "bold",
+      margin: "5px 0 10px 0",
+      color: "#f1faee",
+    };
+
+    const groupTextStyle = {
+      color: "#1d3557",
+      border: "#1d3557 1px solid",
+    };
+
+    const submitButton = {
+      background: "#457b9d",
+      color: "#f1faee",
+      border: "#457b9d 3px solid",
+      fontWeight: "bold",
+      marginTop: "50px",
+    };
+
     let addressOptions = this.state.addresses.map((address, id) => (
       <option value={address.id}>{address.address_line_1}</option>
     ));
@@ -68,17 +99,20 @@ class CustomerCreate extends Component {
       return <Redirect to="/customers" />;
     }
     return (
-      <div style={formFont}>
+      <section style={formFont}>
         <Container>
           <Row>
             <Col className={"pl-5 pr-5 p"}>
-              <div className={"text-center"}>
+              <Form style={container} onSubmit={this.handleSubmit}>
                 <h2>Create New Customer</h2>
-              </div>
-              <Form onSubmit={this.handleSubmit}>
-                <Form.Group className="mb-3" controlId="formFirstName">
+                <Form.Group
+                  style={groupHeaderStyle}
+                  className="mb-3"
+                  controlId="formFirstName"
+                >
                   <Form.Label>First Name</Form.Label>
                   <Form.Control
+                    style={groupTextStyle}
                     placeholder="Enter first name"
                     type="text"
                     id="first_name"
@@ -88,9 +122,14 @@ class CustomerCreate extends Component {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formMiddleName">
+                <Form.Group
+                  style={groupHeaderStyle}
+                  className="mb-3"
+                  controlId="formMiddleName"
+                >
                   <Form.Label>Middle Name</Form.Label>
                   <Form.Control
+                    style={groupTextStyle}
                     placeholder="Enter middle name"
                     type="text"
                     id="middle_name"
@@ -100,9 +139,14 @@ class CustomerCreate extends Component {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formlastName">
+                <Form.Group
+                  style={groupHeaderStyle}
+                  className="mb-3"
+                  controlId="formlastName"
+                >
                   <Form.Label>Last Name</Form.Label>
                   <Form.Control
+                    style={groupTextStyle}
                     placeholder="Enter last name"
                     type="text"
                     id="last_name"
@@ -112,9 +156,14 @@ class CustomerCreate extends Component {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formPhone">
+                <Form.Group
+                  style={groupHeaderStyle}
+                  className="mb-3"
+                  controlId="formPhone"
+                >
                   <Form.Label>Phone</Form.Label>
                   <Form.Control
+                    style={groupTextStyle}
                     placeholder="Please provide a phone number"
                     type="text"
                     id="phone"
@@ -124,9 +173,14 @@ class CustomerCreate extends Component {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formEmail">
+                <Form.Group
+                  style={groupHeaderStyle}
+                  className="mb-3"
+                  controlId="formEmail"
+                >
                   <Form.Label>Email</Form.Label>
                   <Form.Control
+                    style={groupTextStyle}
                     placeholder="Please enter email"
                     type="text"
                     id="email"
@@ -136,9 +190,14 @@ class CustomerCreate extends Component {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formNotes">
+                <Form.Group
+                  style={groupHeaderStyle}
+                  className="mb-3"
+                  controlId="formNotes"
+                >
                   <Form.Label>Notes</Form.Label>
                   <Form.Control
+                    style={groupTextStyle}
                     placeholder="Type in a note"
                     type="text"
                     id="notes"
@@ -148,7 +207,11 @@ class CustomerCreate extends Component {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formAddress">
+                <Form.Group
+                  style={groupHeaderStyle}
+                  className="mb-3"
+                  controlId="formAddress"
+                >
                   <Form.Label>Address</Form.Label>
                   <InputGroup className="mb-2">
                     <select
@@ -181,6 +244,8 @@ class CustomerCreate extends Component {
 
                 <div className={"text-center"}>
                   <Button
+                    style={submitButton}
+                    className={CustomerCreateCSS.submitButton}
                     variant="primary"
                     size="lg"
                     type="submit"
@@ -193,7 +258,7 @@ class CustomerCreate extends Component {
             </Col>
           </Row>
         </Container>
-      </div>
+      </section>
     );
   }
 }
