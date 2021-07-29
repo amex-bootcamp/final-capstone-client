@@ -85,7 +85,7 @@ class AddressesList extends Component {
           <div>City: {address.city}</div>
           <div>State: {address.state}</div>
           <div>Zip: {address.zip}</div>
-          <Button href={`addresses/${address.id}`} style={linkStyle}>
+          <Button href={`/addresses/${address.id}`} style={linkStyle}>
             View Details
           </Button>
         </Card>
