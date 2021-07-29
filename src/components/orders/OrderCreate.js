@@ -211,14 +211,16 @@ function OrderCreate() {
         <Form.Group style={groupHeaderStyle} controlId="totalPrice">
           <Form.Label>Total Price: ${totalPrice}</Form.Label>
         </Form.Group>
-        <Button
-          style={submitButton}
-          className={OrderCreateCSS.submitButton}
-          size="lg"
-          type="submit"
-        >
-          Place Order
-        </Button>
+        <div className={"text-center"}>
+          <Button
+            style={submitButton}
+            className={OrderCreateCSS.submitButton}
+            size="lg"
+            type="submit"
+          >
+            Place Order
+          </Button>
+        </div>
       </Form>
     </section>
   );
