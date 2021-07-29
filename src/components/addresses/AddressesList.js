@@ -3,6 +3,7 @@ import AddressDataService from "../../services/address.data.service";
 import { Card, Button, Container, Row, Col, CardGroup } from "react-bootstrap";
 import AddressesListCSS from "./AddressesList.module.css";
 import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 
 class AddressesList extends Component {
   state = {
@@ -40,6 +41,48 @@ class AddressesList extends Component {
       .then(({ data: addresses }) => this.setState({ addresses }))
       .catch(console.error);
   }
+
+  // //C&P
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const {
+  //     match: {
+  //       params: { id },
+  //     },
+  //   } = this.props;
+
+  //   //C&P
+  //   AddressDataService.view(id)
+  //     .then(({ data: address }) =>
+  //       this.setState({
+  //         id: id,
+  //         address_line_1: address.data[0].address_line_1,
+  //         address_line_2: address.data[0].address_line_2,
+  //         city: address.data[0].city,
+  //         state: address.data[0].state,
+  //         zip: address.data[0].zip,
+  //       })
+  //     )
+  //     .catch(console.error);
+  //   //C&P
+
+  //   const params = {
+  //     address_line_1: this.state.address_line_1,
+  //     address_line_2: this.state.address_line_2,
+  //     city: this.state.city,
+  //     state: this.state.state,
+  //     zip: this.state.zip,
+  //   };
+  //   AddressDataService.put(id, params)
+  //     .then((res) => {
+  //       console.log(res.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+  //
+
   render() {
     const cardStyle = {
       color: "#f1faee",

@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import { Card, Button } from "react-bootstrap";
+import React, { Component, Modal } from "react";
+import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import AddressDataService from "../../services/address.data.service";
+import Form from "react-bootstrap/Form";
+import http from "../../utils/http-common";
 
 class AddressEdit extends Component {
   state = {
@@ -30,6 +32,15 @@ class AddressEdit extends Component {
       )
       .catch(console.error);
   }
+  // to access different address IDs
+  // view(id) {
+  //   return http.get(`/addresses/${id}`);
+  // }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("test", this.state, this.props);
+    http.put(`/addresses/${this.props.match.params.id}`, this.state);
+  };
 
   handleAddressLine1 = (event) => {
     this.setState({
@@ -62,9 +73,158 @@ class AddressEdit extends Component {
   render() {
     return (
       <section>
-        <h2>Address Details</h2>
+        {/* <>
+          <Button variant="primary" onClick={handleShow}>
+            Launch demo modal
+          </Button>
+
+          <Modal show={false} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Woohoo, you're reading this text in a modal!
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleClose}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </> */}
         <div>
-          <form>
+          <Container>
+            {/* Bootstrap test */}
+            <Form>
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="formGridEmail">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="email" placeholder="Enter email" />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+              </Row>
+
+              <Form.Group className="mb-3" controlId="formGridAddress1">
+                <Form.Label>Address</Form.Label>
+                <Form.Control placeholder="1234 Main St" />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formGridAddress2">
+                <Form.Label>Address 2</Form.Label>
+                <Form.Control placeholder="Apartment, studio, or floor" />
+              </Form.Group>
+
+              <Row className="mb-3">
+                <Form.Group as={Col} controlId="formGridCity">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridState">
+                  <Form.Label>State</Form.Label>
+                  <Form.Select defaultValue="Choose...">
+                    <option>Choose...</option>
+                    <option>...</option>
+                  </Form.Select>
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="formGridZip">
+                  <Form.Label>Zip</Form.Label>
+                  <Form.Control />
+                </Form.Group>
+              </Row>
+
+              <Form.Group className="mb-3" id="formGridCheckbox">
+                <Form.Check type="checkbox" label="Check me out" />
+              </Form.Group>
+
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+            {/* End Test */}
+            <Card>
+              <Card.Body>
+                <Card.Title className="text-center font-weight-bold">
+                  Address Details
+                </Card.Title>
+                <Form
+                  // onLoad={this.handleAddressLine1}
+                  onSubmit={this.handleSubmit}
+                >
+                  {/* Address 1 */}
+                  <Form.Group className="mb-3" controlId="formAddress_1">
+                    <Form.Label>Address 1</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={this.state.address_line_1}
+                      onChange={this.handleAddressLine1}
+                      placeholder="Street Address or P.O. Box"
+                    />
+                    <Form.Text className="text-muted">
+                      Include full address
+                    </Form.Text>
+                  </Form.Group>
+                  {/* Address 2 */}
+                  <Form.Group className="mb-3" controlId="formAddress_2">
+                    <Form.Label>Address 2</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={this.state.address_line_2}
+                      onChange={this.handleAddressLine2}
+                      placeholder="Apt, Suite, Unit, Building Floor, Etc."
+                    />
+                    {/* City */}
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formAddress_2">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={this.state.city}
+                      onChange={this.handleCity}
+                      placeholder="Deluth"
+                    />
+                  </Form.Group>
+                  {/* State */}
+                  <Form.Group className="mb-3" controlId="formAddress_2">
+                    <Form.Label>State</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={this.state.state}
+                      onChange={this.handleState}
+                      placeholder="Minnesota"
+                    />
+                  </Form.Group>
+                  {/* Zip */}
+                  <Form.Group className="mb-3" controlId="formAddress_2">
+                    <Form.Label>Zip</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={this.state.zip}
+                      onChange={this.handleZip}
+                      placeholder="111111"
+                    />
+                  </Form.Group>
+                  {/* Confirm Check Box */}
+                  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Confirm Edit" />
+                  </Form.Group>
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                </Form>
+              </Card.Body>
+            </Card>
+          </Container>
+          {/* accepted */}
+          {/* <form>
             <Card>
               <Card.Body>
                 <Card.Text>
@@ -107,7 +267,12 @@ class AddressEdit extends Component {
             </Card>
             <Button>Submit</Button>
             <Button>Clear</Button>
-          </form>
+            {/* <Card>
+              <Card.Text>
+                <h2>Order History</h2>
+              </Card.Text> */}
+          {/* </Card> */}
+          {/* </form> */}
         </div>
       </section>
     );
