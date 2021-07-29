@@ -6,12 +6,13 @@ import OrderDataService from "../../services/order.data.service";
 import Status from "../../utils/orderstatus";
 
 function OrderView() {
-  const [order, setOrder] = useState({ Customer: {}, deleted: false });
+  const [order, setOrder] = useState({ Customer: {} });
+  const [deleted, setDeleted] = useState(false);
   const [show, setShow] = useState(false);
   const { id } = useParams();
   useEffect(() => {
     getOrderData();
-  }, []);
+  }, [deleted]);
   function getOrderData() {
     OrderDataService.view(id)
       .then(({ data: order }) => setOrder(order))
@@ -19,24 +20,22 @@ function OrderView() {
   }
   const handleClose = () => setShow(false);
   const handleShow = () => {
-    setShow((currentState) => {
-      return {
-        show: !currentState.show,
-      };
-    });
+   setShow(!show);
   };
 
   const handleConfirm = () => {
-    OrderDataService.delete(id)
-      .then((res) => {
-        console.log("Complete");
-        setOrder({ deleted: true });
-      })
-      .catch(console.error);
+    if(order.order_status == 0) {
+      OrderDataService.delete(id)
+        .then((res) => {
+          console.log("Complete");
+          setDeleted(true);
+        })
+        .catch(console.error);
+    }
     handleClose();
-    return <Redirect to={{ pathname: "/orders" }} />;
   };
-
+  if(deleted) {return <Redirect to={{ pathname: "/orders" }} />;}
+  
   return (
     <div>
       <Button href={`/orders`} className={OrderViewCSS.backbtn}>
@@ -69,9 +68,9 @@ function OrderView() {
           <p className={OrderViewCSS.para}>Order Notes: {order.order_notes}</p>
           <div flex className={OrderViewCSS.btndiv}>
             <Button className={OrderViewCSS.editbtn}>Edit</Button>
-            <Button onClick={handleShow} className={OrderViewCSS.deletebtn}>
-              Delete
-            </Button>
+          {order.order_status == 0 && <Button onClick={handleShow} className={OrderViewCSS.deletebtn}>
+            Delete
+          </Button>}
           </div>
         </Card>
       </Container>
