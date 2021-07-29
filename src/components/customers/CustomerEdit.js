@@ -26,46 +26,64 @@ class CustomerEdit extends Component {
       .then(({ data: customer }) => {
         this.setState({
           id: id,
-          first_name: customer.data[0].first_name,
-          middle_name: customer.data[0].middle_name,
-          last_name: customer.data[0].last_name,
-          phone: customer.data[0].phone,
-          email: customer.data[0].email,
-          notes: customer.data[0].notes,
+          first_name: customer[0].first_name,
+          middle_name: customer[0].middle_name,
+          last_name: customer[0].last_name,
+          phone: customer[0].phone,
+          email: customer[0].email,
+          notes: customer[0].notes,
         });
       })
       .catch(console.error);
   }
-  handleFirstNameChange = (event) => {
+
+  handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
     this.setState({
-      first_name: event.target.value,
+      [name]: value,
     });
   };
-  handleMiddleNameChange = (event) => {
-    this.setState({
-      middle_name: event.target.value,
-    });
-  };
-  handleLastNameChange = (event) => {
-    this.setState({
-      last_name: event.target.value,
-    });
-  };
-  handlePhoneChange = (event) => {
-    this.setState({
-      phone: event.target.value,
-    });
-  };
-  handleEmailChange = (event) => {
-    this.setState({
-      email: event.target.value,
-    });
-  };
-  handleNotesChange = (event) => {
-    this.setState({
-      notes: event.target.value,
-    });
-  };
+
+  // REFACTORED INTO ONE FUNCTION (on top: handleInputChange)
+
+  // handleFirstNameChange = (event) => {
+  //   this.setState({
+  //     first_name: event.target.value,
+  //   });
+  // };
+
+  // handleMiddleNameChange = (event) => {
+  //   this.setState({
+  //     middle_name: event.target.value,
+  //   });
+  // };
+
+  // handleLastNameChange = (event) => {
+  //   this.setState({
+  //     last_name: event.target.value,
+  //   });
+  // };
+
+  // handlePhoneChange = (event) => {
+  //   this.setState({
+  //     phone: event.target.value,
+  //   });
+  // };
+
+  // handleEmailChange = (event) => {
+  //   this.setState({
+  //     email: event.target.value,
+  //   });
+  // };
+
+  // handleNotesChange = (event) => {
+  //   this.setState({
+  //     notes: event.target.value,
+  //   });
+  // };
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -120,58 +138,63 @@ class CustomerEdit extends Component {
                         value={this.state.first_name}
                         name="first_name"
                         id="first_name"
-                        onChange={this.handleFirstNameChange}
+                        onChange={this.handleInputChange}
                       ></input>
                     </p>
                     <p>
                       <label>Middle Name:</label>
                       <input
                         type="text"
+                        name="middle_name"
                         value={this.state.middle_name}
-                        onChange={this.handleMiddleNameChange}
+                        onChange={this.handleInputChange}
                       ></input>
                     </p>
                     <p>
                       <label>Last Name:</label>
                       <input
                         type="text"
+                        name="last_name"
                         value={this.state.last_name}
-                        onChange={this.handleLastNameChange}
+                        onChange={this.handleInputChange}
                       ></input>
                     </p>
                     <p>
                       <label>Phone:</label>
                       <input
                         type="text"
+                        name="phone"
                         value={this.state.phone}
-                        onChange={this.handlePhoneChange}
+                        onChange={this.handleInputChange}
                       ></input>
                     </p>
                     <p>
                       <label>Email:</label>
                       <input
                         type="text"
+                        name="email"
                         value={this.state.email}
-                        onChange={this.handleEmailChange}
+                        onChange={this.handleInputChange}
                       ></input>
                     </p>
                     <p>
                       <label>Notes:</label>
                       <input
                         type="text"
+                        name="notes"
                         value={this.state.notes}
-                        onChange={this.handleNotesChange}
+                        onChange={this.handleInputChange}
                       ></input>
                     </p>
-                    <div flex className={CustomerEditCSS.btndiv}>
-                    <Button
-                      className={CustomerEditCSS.savebtn}
-                      type="submit"
-                      value="submit"
-                    >
-                      Save Changes
-                    </Button>
-                    </div>
+                    <p className={CustomerEditCSS.btndiv}>
+                      <Button
+                        className={CustomerEditCSS.savebtn}
+                        type="submit"
+                        value="submit"
+                      >
+                        Save Changes
+                      </Button>
+                    </p>
                   </form>
                 </Card.Text>
               </Card.Body>
