@@ -14,25 +14,25 @@ class AddressEdit extends Component {
     id: "",
   };
 
-  // componentDidMount() {
-  //   const {
-  //     match: {
-  //       params: { id },
-  //     },
-  //   } = this.props;
+  componentDidMount() {
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
 
-  //   AddressDataService.view(id)
-  //     .then(({ data: address }) =>
-  //       this.setState({
-  //         address_line_1: address.address_line_1,
-  //         address_line_2: address.address_line_2,
-  //         city: address.city,
-  //         state: address.state,
-  //         zip: address.zip,
-  //       })
-  //     )
-  //     .catch(console.error);
-  // }
+    AddressDataService.view(id)
+      .then(({ data: address }) =>
+        this.setState({
+          address_line_1: address[0].address_line_1,
+          address_line_2: address[0].address_line_2,
+          city: address[0].city,
+          state: address[0].state,
+          zip: address[0].zip,
+        })
+      )
+      .catch(console.error);
+  }
 
   handleAddressLine1 = (event) => {
     this.setState({
