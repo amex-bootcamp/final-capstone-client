@@ -7,23 +7,24 @@ import {
   Container,
   CardColumns,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
   render() {
     const backgroundImage = {
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
+      backgroundImage:
+        "url(https://images.unsplash.com/photo-1486611367184-17759508999c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=966&q=80)",
+      position: " absolute",
+      minWidth: "100%",
+      minHeight: "100%",
       backgroundSize: "cover",
-      backgroundImage: "url(/images/droneSetOutPic.jpg)",
-      width: "100vw",
-      height: "100vh",
+      backgroundPosition: "center",
     };
     const button = {
       backgroundColor: "#457B9D",
       borderColor: "#e63946",
       color: "#f1faee",
       fontWeight: "bold",
+      borderWidth: "medium",
     };
     const containerStyle = {
       fontFamily: "Lato, sans-serif",
@@ -41,7 +42,7 @@ class Dashboard extends Component {
     };
 
     return (
-      <section style={backgroundImage}>
+      <div style={backgroundImage}>
         <Container
           className="d-flex flex-wrap justify-content-between"
           style={containerStyle}
@@ -49,7 +50,7 @@ class Dashboard extends Component {
           <CardColumns className="d-flex flex-wrap justify-content-between">
             <Row>
               <Col>
-                <Card style={cardStyle} md={4}>
+                <Card style={cardStyle} md={6}>
                   <Card.Body>
                     <h1 className="d-flex justify-content-center">
                       <svg
@@ -389,7 +390,7 @@ class Dashboard extends Component {
             </Row>
           </CardColumns>
         </Container>
-      </section>
+      </div>
     );
   }
 }
