@@ -7,6 +7,9 @@ class OrderDataService {
   listByStatus(status) {
     return http.get(`/orders?status=${status}`);
   }
+  view(id) {
+    return http.get(`/orders/${id}`);
+  }
 }
 
 export default new OrderDataService();

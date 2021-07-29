@@ -5,11 +5,13 @@ import OrderViewCSS from "../orders/OrderView.module.css";
 import OrderDataService from "../../services/order.data.service";
 
 function OrderView() {
-  const [order, setOrder] = useState({Customer: {}});
+  const [order, setOrder] = useState({ Customer: {} });
   const { id } = useParams();
+
   useEffect(() => {
     getOrderData();
   }, []);
+
   function getOrderData() {
     OrderDataService.view(id)
       .then(({ data: order }) => setOrder(order))
@@ -18,7 +20,7 @@ function OrderView() {
   return (
     <div>
       <Button href={`/orders`} className={OrderViewCSS.backbtn}>
-          Back to Orders Page
+        Back to Orders Page
       </Button>
       <Container className={OrderViewCSS.containerstyle}>
         <Card className={OrderViewCSS.cardstyle}>
@@ -33,9 +35,7 @@ function OrderView() {
           </p>
           <p className={OrderViewCSS.para}>Email: {order.Customer.email}</p>
           <p className={OrderViewCSS.para}>Phone: {order.Customer.phone}</p>
-          <p className={OrderViewCSS.para}>
-            Order Status: {order.order_status}
-          </p>
+          <p className={OrderViewCSS.para}>Order Status: {order.status_text}</p>
           <p className={OrderViewCSS.para}>
             Order Date/Time: {order.datetime_order_placed}
           </p>

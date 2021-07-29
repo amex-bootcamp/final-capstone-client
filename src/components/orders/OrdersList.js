@@ -22,6 +22,20 @@ function OrdersList() {
       .catch(console.error);
   }, [orderStatusFilter]);
 
+  useEffect(() => {
+    if (orderStatusFilter !== undefined) {
+      OrderDataService.listByStatus(orderStatusFilter)
+        .then(({ data: orders }) => {
+          setOrders(orders);
+        })
+        .catch(console.error);
+    } else {
+      OrderDataService.list()
+        .then(({ data: orders }) => setOrders(orders))
+        .catch(console.error);
+    }
+  }, [orderStatusFilter]);
+
   const cardStyle = {
     fontFamily: "Lato, sans-serif",
     backgroundColor: "#1d3557",
