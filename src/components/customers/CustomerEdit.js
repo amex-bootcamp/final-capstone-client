@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CustomerEditCSS from "../customers/CustomerEdit.module.css";
-import { Card, Container, CardGroup, Button } from "react-bootstrap";
+import { Card, Container, Button } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import CustomerDataService from "../../services/customer.data.service";
 
@@ -101,78 +101,81 @@ class CustomerEdit extends Component {
     return (
       <section>
         <div>
-          <Container className={CustomerEditCSS.container}>
-              <Card>
-                <Card.Body>
-                  <Card.Text>
-                    <h2 className={CustomerEditCSS.h2}>Edit Customer</h2>
-                    <form
-                      className={CustomerEditCSS.formcenter}
-                      onSubmit={this.handleSubmit}
+          <Button href={`/customer`} className={CustomerEditCSS.backbtn}>
+            Back to Customers Page
+          </Button>
+          <Container className={CustomerEditCSS.containerstyle}>
+            <Card className={CustomerEditCSS.cardstyle}>
+              <Card.Body>
+                <Card.Text>
+                  <h2 className={CustomerEditCSS.heading}>Edit Customer</h2>
+                  <form
+                    className={CustomerEditCSS.formcenter}
+                    onSubmit={this.handleSubmit}
+                  >
+                    <p>
+                      <label>First Name:</label>
+                      <input
+                        type="text"
+                        value={this.state.first_name}
+                        name="first_name"
+                        id="first_name"
+                        onChange={this.handleFirstNameChange}
+                      ></input>
+                    </p>
+                    <p>
+                      <label>Middle Name:</label>
+                      <input
+                        type="text"
+                        value={this.state.middle_name}
+                        onChange={this.handleMiddleNameChange}
+                      ></input>
+                    </p>
+                    <p>
+                      <label>Last Name:</label>
+                      <input
+                        type="text"
+                        value={this.state.last_name}
+                        onChange={this.handleLastNameChange}
+                      ></input>
+                    </p>
+                    <p>
+                      <label>Phone:</label>
+                      <input
+                        type="text"
+                        value={this.state.phone}
+                        onChange={this.handlePhoneChange}
+                      ></input>
+                    </p>
+                    <p>
+                      <label>Email:</label>
+                      <input
+                        type="text"
+                        value={this.state.email}
+                        onChange={this.handleEmailChange}
+                      ></input>
+                    </p>
+                    <p>
+                      <label>Notes:</label>
+                      <input
+                        type="text"
+                        value={this.state.notes}
+                        onChange={this.handleNotesChange}
+                      ></input>
+                    </p>
+                    <div flex className={CustomerEditCSS.btndiv}>
+                    <Button
+                      className={CustomerEditCSS.savebtn}
+                      type="submit"
+                      value="submit"
                     >
-                      <p>
-                        <label>First Name:</label>
-                        <input
-                          type="text"
-                          value={this.state.first_name}
-                          name="first_name"
-                          id="first_name"
-                          onChange={this.handleFirstNameChange}
-                        ></input>
-                      </p>
-                      <p>
-                        <label>Middle Name:</label>
-                        <input
-                          type="text"
-                          value={this.state.middle_name}
-                          onChange={this.handleMiddleNameChange}
-                        ></input>
-                      </p>
-                      <p>
-                        <label>Last Name:</label>
-                        <input
-                          type="text"
-                          value={this.state.last_name}
-                          onChange={this.handleLastNameChange}
-                        ></input>
-                      </p>
-                      <p>
-                        <label>Phone:</label>
-                        <input
-                          type="text"
-                          value={this.state.phone}
-                          onChange={this.handlePhoneChange}
-                        ></input>
-                      </p>
-                      <p>
-                        <label>Email:</label>
-                        <input
-                          type="text"
-                          value={this.state.email}
-                          onChange={this.handleEmailChange}
-                        ></input>
-                      </p>
-                      <p>
-                        <label>Notes:</label>
-                        <input
-                          type="text"
-                          value={this.state.notes}
-                          onChange={this.handleNotesChange}
-                        ></input>
-                      </p>
-                      <p className={CustomerEditCSS.savebtncenter}>
-                        <Button
-                          className={CustomerEditCSS.savebtn}
-                          type="submit"
-                          value="submit"
-                        >
-                          Save Changes
-                        </Button>
-                      </p>
-                    </form>
-                  </Card.Text>
-                </Card.Body>
-              </Card>
+                      Save Changes
+                    </Button>
+                    </div>
+                  </form>
+                </Card.Text>
+              </Card.Body>
+            </Card>
           </Container>
         </div>
       </section>
