@@ -7,7 +7,10 @@ function OrdersList() {
   const [orders, setOrders] = useState([]);
   const [orderStatusFilter, setOrderStatusFilter] = useState();
 
+  // This useEffect controls pulls in the daya for the orders. We built some conditinal logic to help control the funcitonality 
+  //of the select filter dropdown
   useEffect(() => {
+    //check if default value selected 
     if (orderStatusFilter === "-1") {
       OrderDataService.list()
         .then(({ data: orders }) => setOrders(orders))
@@ -25,6 +28,7 @@ function OrdersList() {
     }
   }, [orderStatusFilter]);
 
+//Css
   const cardStyle = {
     fontFamily: "Lato, sans-serif",
     backgroundColor: "#1d3557",
@@ -56,6 +60,7 @@ function OrdersList() {
     borderRadius: "5px",
   };
 
+  //This controls the display of the orders. We map and array and then apply bootstrap react css to style it using Cards
   const orderListItems = orders.map((order, index) => (
     <ul key={`${order}-${index}`}>
       <Card className={OrdersListCSS.cardStyle} style={cardStyle}>
