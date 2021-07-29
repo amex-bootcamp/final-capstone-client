@@ -12,10 +12,11 @@ import CustomerDataService from "../../services/customer.data.service";
 import AddressDataService from "../../services/address.data.service";
 import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
+import Status from "../../utils/orderstatus";
 
 class CustomerView extends Component {
   state = {
-    customer: { data: [{}], deleted: false },
+    customer: { data: [{}], deleted: false, Orders: [] },
     show: false,
     address: {},
   };
@@ -111,6 +112,17 @@ class CustomerView extends Component {
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/customers" }} />;
     }
+    console.log(customer);
+
+    let orderHistory = customer.Orders.map((orders, index) => (
+      <li key={`${orders.index}-${index}`}>
+        <hr />
+        <div>ID: {orders.id}</div>
+        <div>Date Order Placed: {orders.datetime_order_placed}</div>
+        <div>Order Status: {Status[orders.order_status]}</div>
+      </li>
+    ));
+
     return (
       <div>
         <Container>
@@ -171,6 +183,7 @@ class CustomerView extends Component {
                     <h2 style={text} className={CustomerViewCSS.h2}>
                       Order History
                     </h2>
+                    <ul>{orderHistory}</ul>
                   </Card.Text>
                 </Card>
               </Col>
