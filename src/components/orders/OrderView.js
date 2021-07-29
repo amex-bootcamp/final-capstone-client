@@ -5,8 +5,9 @@ import OrderViewCSS from "../orders/OrderView.module.css";
 import OrderDataService from "../../services/order.data.service";
 
 function OrderView() {
-  const [order, setOrder] = useState( { Customer: {} } );
+  const [order, setOrder] = useState( { Order: { data: {}, deleted: false }, show: false, } );
   const { id } = useParams();
+
   useEffect( () => {
     getOrderData();
   }, [] );
@@ -19,15 +20,26 @@ function OrderView() {
   const setShow = () => {
     setOrder( [...order, { show: !order.show }] )
   };
-  const handleConfirm = () => {
-    setOrder( [...order, { show: !order.show }] )
+
+  const deleteCustomer = ( id ) => {
+    OrderDataService.delete( id )
+    .then( ( data ) => {
+      setOrder( { deleted: true } );
+    })
   };
 
   const handleClose = () => setShow();
   const handleShow = () => setShow();
+
+  const handleConfirm = () => {
+    handleShow();
+
+  };
+
+
   // handleShow = (id) => {
   //   setShow();
-  //   setOrder({ selectedOrder: id });
+  //   setOrder({...order, selectedOrder: id });
   // };
   // handleConfirm = () => {
   //   const { selectedOrder } = useState([]);
@@ -38,9 +50,6 @@ function OrderView() {
   //     })
   //     .catch(console.error);
   // };
-  // deleteCustomer(id) {
-  //   OrderDataService.delete(id).then((data) => {
-  //     setOrder({ deleted: true });
   //   });
   // }
 
@@ -55,7 +64,7 @@ function OrderView() {
           <p className={OrderViewCSS.para}>Order ID: {order.id}</p>
           <p className={OrderViewCSS.para}>Customer ID: {order.customer_id}</p>
           <p className={OrderViewCSS.para}>
-            Customer First Name: {order.Customer.first_name}
+            Customer First Name: {order.Customer.first_name}i
           </p>
           <p className={OrderViewCSS.para}>
             Customer Last Name: {order.Customer.last_name}
