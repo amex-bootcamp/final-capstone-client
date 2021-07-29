@@ -19,16 +19,19 @@ function OrderView() {
   const setShow = () => {
     setOrder( [...order, { show: !order.show }] )
   };
+  const handleConfirm = () => {
+    setOrder( [...order, { show: !order.show }] )
+  };
 
   const handleClose = () => setShow();
   const handleShow = () => setShow();
   // handleShow = (id) => {
-  //   this.setShow();
-  //   this.setState({ selectedOrder: id });
+  //   setShow();
+  //   setOrder({ selectedOrder: id });
   // };
   // handleConfirm = () => {
   //   const { selectedOrder } = useState([]);
-  //   this.handleClose();
+  //   handleClose();
   //   OrderDataService.delete(selectedOrder)
   //     .then(() => {
   //       setOrder({ deleted: true });
@@ -36,7 +39,7 @@ function OrderView() {
   //     .catch(console.error);
   // };
   // deleteCustomer(id) {
-  //   CustomerDataService.delete(id).then((data) => {
+  //   OrderDataService.delete(id).then((data) => {
   //     setOrder({ deleted: true });
   //   });
   // }
@@ -77,21 +80,21 @@ function OrderView() {
           </div>
         </Card>
       </Container>
-      {/* <Modal show={this.state.show} onHide={this.handleClose}>
+      {/* <Modal show={handleShow} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>
-              Are you sure you want to delete your customer?
+              Are you sure you want to delete this order?
             </Modal.Title>
           </Modal.Header>
 
           <Modal.Footer>
-            <Button type="radio" variant="danger" onClick={this.handleClose}>
+            <Button type="radio" variant="danger" onClick={handleClose}>
               Cancel
             </Button>
             <Button
               type="radio"
               variant="primary"
-              onClick={() => this.handleConfirm(customer.data[0].id)}
+              onClick={() => handleConfirm(order.id)}
             >
               Confirm
             </Button>
