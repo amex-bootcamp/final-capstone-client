@@ -9,7 +9,10 @@ import CustomerView from "./components/customers/CustomerView";
 import CustomerEdit from "./components/customers/CustomerEdit";
 import AddressEdit from "./components/addresses/AddressEdit";
 import AddressCreate from "./components/addresses/AddressCreate";
+import OrdersList from "./components/orders/OrdersList";
 import Dashboard from "./components/Dashboard/Dashboard";
+import OrderCreate from "./components/orders/OrderCreate";
+import OrderView from "./components/orders/OrderView";
 import ProductView from "./components/products/ProductView";
 
 function App() {
@@ -23,7 +26,6 @@ function App() {
           <Route exact path="/">
             <Dashboard />
           </Route>
-
           <Route exact path="/addresses">
             <AddressesList />
           </Route>
@@ -36,18 +38,23 @@ function App() {
           <Route exact path="/customers">
             <CustomersList />
           </Route>
-          <Route path="/customers/new" component={CustomerCreate} />
+          <Route exact path="/customers/new" component={CustomerCreate} />
+          <Route exact path="/orders">
+            <OrdersList />
+          </Route>
           <Route exact path="/customers/:id" component={CustomerView} />
           <Route path="/customers/:id/edit" component={CustomerEdit} />
-
           <Route exact path="/products">
             <ProductsList />
           </Route>
-          <Route path="/products/:id" component={ProductView} />
+          <Route exact path="/products/:id" component={ProductView} />
+          <Route exact path="/orders/new">
+            <OrderCreate />
+          </Route>
+          <Route exact path="/orders/:id" component={OrderView} />
         </Switch>
       </main>
     </>
   );
 }
-
 export default App;

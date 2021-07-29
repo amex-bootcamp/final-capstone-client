@@ -9,6 +9,7 @@ function CustomersList() {
   const [customerLoad, setCustomerLoad] = useState(10);
   const [totalCustomerCount, setTotalCustomerCount] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchEmail, setSearchEmail] = useState("");
   // let countPerPage = customerLoad;
 
   useEffect(() => {
@@ -121,9 +122,48 @@ function CustomersList() {
     setCurrentPage(value);
   };
 
+  //Search Customer Section
+
+  const onChangeSearchEmail = (event) =>{
+    const searchEmail = event.target.value;
+    setSearchEmail(searchEmail);
+  };
+
+  const findByEmail = () => {
+    CustomerDataService.viewByEmail(searchEmail)
+    .then(response => {
+      setCustomer(response.data);
+    })
+    .catch(console.error);
+  };
+
+
+
+
   return (
     <section>
+      <div className="col-md-8">
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search by email"
+            value={searchEmail}
+            onChange={onChangeSearchEmail}
+          />
+          <div className="input-group-append">
+            <button
+              className="btn btn-outline-secondary"
+              type="button"
+              onClick={findByEmail}
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
       <h2>Customers</h2>
+      
       <form onClick={handleClick}>
         <h3>
           Display:{" "}
