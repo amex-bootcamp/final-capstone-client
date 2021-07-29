@@ -5,20 +5,46 @@ import OrderViewCSS from "../orders/OrderView.module.css";
 import OrderDataService from "../../services/order.data.service";
 
 function OrderView() {
-  const [order, setOrder] = useState({Customer: {}});
+  const [order, setOrder] = useState( { Customer: {} } );
   const { id } = useParams();
-  useEffect(() => {
+  useEffect( () => {
     getOrderData();
-  }, []);
+  }, [] );
   function getOrderData() {
-    OrderDataService.view(id)
-      .then(({ data: order }) => setOrder(order))
-      .catch(console.error);
+    OrderDataService.view( id )
+      .then( ( { data: order } ) => setOrder( order ) )
+      .catch( console.error );
   }
+
+  const setShow = () => {
+    setOrder( [...order, { show: !order.show }] )
+  };
+
+  const handleClose = () => setShow();
+  const handleShow = () => setShow();
+  // handleShow = (id) => {
+  //   this.setShow();
+  //   this.setState({ selectedOrder: id });
+  // };
+  // handleConfirm = () => {
+  //   const { selectedOrder } = useState([]);
+  //   this.handleClose();
+  //   OrderDataService.delete(selectedOrder)
+  //     .then(() => {
+  //       setOrder({ deleted: true });
+  //     })
+  //     .catch(console.error);
+  // };
+  // deleteCustomer(id) {
+  //   CustomerDataService.delete(id).then((data) => {
+  //     setOrder({ deleted: true });
+  //   });
+  // }
+
   return (
     <div>
       <Button href={`/orders`} className={OrderViewCSS.backbtn}>
-          Back to Orders Page
+        Back to Orders Page
       </Button>
       <Container className={OrderViewCSS.containerstyle}>
         <Card className={OrderViewCSS.cardstyle}>
@@ -51,6 +77,26 @@ function OrderView() {
           </div>
         </Card>
       </Container>
+      {/* <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Are you sure you want to delete your customer?
+            </Modal.Title>
+          </Modal.Header>
+
+          <Modal.Footer>
+            <Button type="radio" variant="danger" onClick={this.handleClose}>
+              Cancel
+            </Button>
+            <Button
+              type="radio"
+              variant="primary"
+              onClick={() => this.handleConfirm(customer.data[0].id)}
+            >
+              Confirm
+            </Button>
+          </Modal.Footer>
+        </Modal> */}
     </div>
   );
 }
