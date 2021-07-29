@@ -27,12 +27,12 @@ class CustomerEdit extends Component {
       .then(({ data: customer }) => {
         this.setState({
           id: id,
-          first_name: customer.data[0].first_name,
-          middle_name: customer.data[0].middle_name,
-          last_name: customer.data[0].last_name,
-          phone: customer.data[0].phone,
-          email: customer.data[0].email,
-          notes: customer.data[0].notes,
+          first_name: customer[0].first_name,
+          middle_name: customer[0].middle_name,
+          last_name: customer[0].last_name,
+          phone: customer[0].phone,
+          email: customer[0].email,
+          notes: customer[0].notes,
         });
       })
       .catch(console.error);
