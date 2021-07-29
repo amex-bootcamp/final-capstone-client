@@ -54,7 +54,6 @@ function CustomersList() {
     fontStyle: "italic",
   };
   const linkStyle = {
-    textDecoration: "none",
     border: "#457b9d 2px solid",
     width: "10rem",
     padding: "5px",
@@ -76,13 +75,13 @@ function CustomersList() {
 
   const h2 = {
     color: "black",
-    paddingTop: "20px"
+    paddingTop: "20px",
   };
 
-  const searchBar ={
+  const searchBar = {
     paddingTop: "20px",
-    paddingLeft: "400px"
-  }
+    paddingLeft: "400px",
+  };
 
   // something in here needs to be changed in order to save the data dynamically
   const customerListItems = customers.map((customer, index) => (
@@ -134,21 +133,18 @@ function CustomersList() {
 
   //Search Customer Section
 
-  const onChangeSearchEmail = (event) =>{
+  const onChangeSearchEmail = (event) => {
     const searchEmail = event.target.value;
     setSearchEmail(searchEmail);
   };
 
   const findByEmail = () => {
     CustomerDataService.viewByEmail(searchEmail)
-    .then(response => {
-      setCustomer(response.data);
-    })
-    .catch(console.error);
+      .then((response) => {
+        setCustomer(response.data);
+      })
+      .catch(console.error);
   };
-
-
-
 
   return (
     <section>
@@ -173,7 +169,7 @@ function CustomersList() {
         </div>
       </div>
       <h2 style={h2}>Customers</h2>
-      
+
       <form onClick={handleClick}>
         <h3>
           Display:{" "}

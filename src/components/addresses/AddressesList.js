@@ -42,29 +42,30 @@ class AddressesList extends Component {
   }
   render() {
     const cardStyle = {
-      color: "#f1faee",
       fontFamily: "Lato, sans-serif",
-      border: "4px solid #457b9d",
       backgroundColor: "#1d3557",
-      textAlign: "center",
-      fontWeight: "bold",
-      width: "20rem",
-      height: "22rem",
+      color: "#f1faee",
+      width: "22rem",
+      border: "5px solid #457b9d",
+      margin: "25px",
+      padding: "10px",
+      borderRadius: "15px",
+      transition: "box-shadow .3s",
     };
 
-    const titleStyles = {
+    const titleStyle = {
+      textAlign: "center",
       fontSize: "20pt",
       fontWeight: "bold",
       paddingTop: "15px",
     };
-    const linkStyle = {
-      textDecoration: "none",
+
+    const btnStyle = {
       border: "#457b9d 2px solid",
       width: "10rem",
       padding: "5px",
       backgroundColor: "#a8dadc",
       color: "#1d3557",
-      textAlign: "center",
       margin: "auto",
       fontWeight: "bold",
       borderRadius: "5px",
@@ -76,18 +77,38 @@ class AddressesList extends Component {
     }
     const addressListItems = addresses.map((address, index) => (
       <ul key={`${address.zip}-${index}`}>
-        <Card style={cardStyle}>
-          <Card.Title style={titleStyles}>
-            <div>Address ID: {address.id}</div>
-          </Card.Title>
-          <div>Address Line 1: {address.address_line_1}</div>
-          <div>Address Line 2: {address.address_line_2}</div>
-          <div>City: {address.city}</div>
-          <div>State: {address.state}</div>
-          <div>Zip: {address.zip}</div>
-          <Button href={`/addresses/${address.id}`} style={linkStyle}>
-            View Details
-          </Button>
+        <Card className={AddressesListCSS.cardStyle} style={cardStyle}>
+          <Card.Body>
+            <Card.Title style={titleStyle}>Address ID: {address.id}</Card.Title>
+            <Card.Text>
+              <b>Address Line 1: </b> 
+              <br/>
+              {address.address_line_1}
+            </Card.Text>
+            <Card.Text>
+              <b>Address Line 2: </b> 
+              <br/>
+              {address.address_line_2}
+            </Card.Text>
+            <Card.Text>
+              <b>City: </b>
+              <br/>
+              {address.city}
+            </Card.Text>
+            <Card.Text>
+              <b>State:</b>
+              <br/>
+              {address.state}
+            </Card.Text>
+            <Card.Text>
+              <b>Zip:</b>
+              <br/>
+              {address.zip}
+            </Card.Text>
+          </Card.Body>
+            <Button href={`/addresses/${address.id}`} style={btnStyle}>
+              View Details
+            </Button>
         </Card>
       </ul>
     ));
