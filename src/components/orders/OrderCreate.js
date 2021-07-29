@@ -61,10 +61,10 @@ function OrderCreate() {
       id: orderId,
       customer_id: customerId,
       order_status: orderStatus,
-      datetime_order_place: datetime,
+      datetime_order_placed: datetime,
       total_order_price: totalPrice,
       order_notes: orderNotes,
-      products: productId,
+      ProductId: productId,
     };
     OrderDataService.post(params)
       .then((res) => {
@@ -147,14 +147,14 @@ function OrderCreate() {
             required
           >
             <option value="">--- SELECT AN ORDER STATUS ---</option>
-            <option value="draft">Draft</option>
-            <option value="open">Open</option>
-            <option value="finalized">Finalized</option>
-            <option value="prep">Preparing to Ship</option>
-            <option value="ready">Ready for Shipping</option>
-            <option value="shipped">Shipped</option>
-            <option value="delivered">Delivered</option>
-            <option value="closed">Closed</option>
+            <option value="0">Draft</option>
+            <option value="1">Open</option>
+            <option value="2">Finalized</option>
+            <option value="3">Preparing to Ship</option>
+            <option value="4">Ready for Shipping</option>
+            <option value="5">Shipped</option>
+            <option value="6">Delivered</option>
+            <option value="7">Closed</option>
           </Form.Select>
         </Form.Group>
         <Form.Group style={groupHeaderStyle} controlId="datetime">
