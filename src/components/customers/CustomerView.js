@@ -12,10 +12,11 @@ import CustomerDataService from "../../services/customer.data.service";
 import AddressDataService from "../../services/address.data.service";
 import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
+import Status from "../../utils/orderstatus";
 
 class CustomerView extends Component {
   state = {
-    customer: { data: [{}], deleted: false },
+    customer: { data: [{}], deleted: false, Orders: [] },
     show: false,
     address: {},
   };
@@ -27,6 +28,7 @@ class CustomerView extends Component {
       };
     });
   };
+
   handleClose = () => this.setShow();
 
   handleShow = (id) => {
@@ -54,6 +56,7 @@ class CustomerView extends Component {
       })
       .catch(console.error);
   }
+
   deleteCustomer(id) {
     CustomerDataService.delete(id).then((res) => {
       this.setState({ deleted: true });
@@ -74,6 +77,7 @@ class CustomerView extends Component {
       padding: "10px 20px",
       border: "none",
     };
+
     const deleteButton = {
       backgroundColor: "#e63946",
       color: "#f1faee",
@@ -81,10 +85,12 @@ class CustomerView extends Component {
       padding: "10px 20px",
       border: "none",
     };
+
     const backBtn = {
       backgroundColor: "#1d3557",
       margin: "20px",
     };
+
     const custCard = {
       backgroundColor: "#1d3557",
       color: "#f1faee",
@@ -98,6 +104,7 @@ class CustomerView extends Component {
         textAlign: "center",
       },
     };
+
     const text = {
       font: "bold",
       color: "#f1faee",
@@ -111,11 +118,20 @@ class CustomerView extends Component {
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/customers" }} />;
     }
+
+    let orderHistory = customer.Orders.map((orders, index) => (
+      <li key={`${orders.index}-${index}`}>
+        <hr />
+        <div>ID: {orders.id}</div>
+        <div>Date Order Placed: {orders.datetime_order_placed}</div>
+        <div>Order Status: {Status[orders.order_status]}</div>
+      </li>
+    ));
+
     return (
-      <div>
+      <>
         <Container>
           <Link to={`/customers`}>
-            {" "}
             <Button style={backBtn}>Back to Customer List</Button>
           </Link>
         </Container>
@@ -150,8 +166,7 @@ class CustomerView extends Component {
                         variant={editButton}
                         className={CustomerViewCSS.btn}
                       >
-                        {" "}
-                        Edit Customer{" "}
+                        Edit Customer
                       </Button>
                     </Link>
                     <Button
@@ -171,6 +186,7 @@ class CustomerView extends Component {
                     <h2 style={text} className={CustomerViewCSS.h2}>
                       Order History
                     </h2>
+                    <ul>{orderHistory}</ul>
                   </Card.Text>
                 </Card>
               </Col>
@@ -183,7 +199,6 @@ class CustomerView extends Component {
               Are you sure you want to delete your customer?
             </Modal.Title>
           </Modal.Header>
-
           <Modal.Footer>
             <Button type="radio" variant="danger" onClick={this.handleClose}>
               Cancel
@@ -191,13 +206,13 @@ class CustomerView extends Component {
             <Button
               type="radio"
               variant="primary"
-              onClick={() => this.handleConfirm(customer.data[0].id)}
+              onClick={() => this.handleConfirm(customer.id)}
             >
               Confirm
             </Button>
           </Modal.Footer>
         </Modal>
-      </div>
+      </>
     );
   }
 }

@@ -1,38 +1,49 @@
-body {
-    font-family: "Lato", sans-serif;
-  }
-  .btndiv {
-    display: flex;
-    justify-content: space-around;
-  }
-  /* .btn{
-      background-color:#a8dadc;
-      padding: 10px 20px;
-      border: none;
-  } */
-  .savebtn {
-    background-color: #e63946 !important;
-    border: none !important;
-  }
-  .card {
-    padding: 45px 45px 45px 45px;
-  }
-  .h2 {
-    text-align: center;
-    padding-bottom: 35px;
-  }
-  .h2order {
-    text-align: center;
-    margin-top: -25px;
-  }
-  /* .formcenter {
-    text-align: center;
-  } */
-  .savebtncenter {
-    text-align: center;
-  }
-  .container {
-    padding-top: 80px;
-    border-radius: 30px 30px 30px;
-  }
-  
+.containerstyle {
+  margin-top: 10px;
+}
+.heading {
+  text-align: center;
+  font-size: 25pt !important;
+  font-weight: bold !important;
+  padding-top: 15px;
+  margin-bottom: 25px;
+}
+.cardstyle {
+  color: #f1faee;
+  font-family: Lato, sans-serif;
+  border: 4px solid #457b9d;
+  background-color: #1d3557;
+  padding-left: 30px;
+  font-weight: 300;
+  margin: auto;
+  width: 40rem;
+}
+.backbtn:hover {
+  color: white;
+  text-decoration: none;
+  background-color: #457b9d;
+  box-shadow: 0 0 6px #1d3557;
+}
+.backbtn {
+  text-align: left;
+  margin-left: 50px;
+  margin-top: 10px;
+  background-color: #1d3557;
+  border: none;
+}
+.btndiv {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.savebtn:hover {
+  background-color: #e63946;
+  box-shadow: 0 0 6px #457b9d;
+  transform: scale(1.01);
+}
+.savebtn {
+  color: #f1faee;
+  background-color: #e63946;
+  border: none;
+}

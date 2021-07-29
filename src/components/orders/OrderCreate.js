@@ -17,7 +17,7 @@ function OrderCreate() {
   const [productId, setProductId] = useState([]);
   const [orderNotes, setOrderNotes] = useState("");
   const [sumbitted, setSubmitted] = useState(false);
-  let orderId = Math.max(...order.map((order) => order.id)) + 1;
+  // let orderId = Math.max(...order.map((order) => order.id)) + 1;
 
   useEffect(() => {
     OrderDataService.list()
@@ -35,7 +35,7 @@ function OrderCreate() {
         setProducts(data.data);
       })
       .catch(console.error);
-  }, []);
+  }, [order]);
 
   const customerIdOption = customer.map((customer, id) => (
     <option value={customer.id} key={`${customer.id}-${id}`}>
@@ -188,7 +188,6 @@ function OrderCreate() {
             style={groupTextStyle}
             as="select"
             multiple
-            as="select"
             id="productList"
             type="text"
             name="productList"
@@ -210,14 +209,16 @@ function OrderCreate() {
         <Form.Group style={groupHeaderStyle} controlId="totalPrice">
           <Form.Label>Total Price: ${totalPrice}</Form.Label>
         </Form.Group>
-        <Button
-          style={submitButton}
-          className={OrderCreateCSS.submitButton}
-          size="lg"
-          type="submit"
-        >
-          Place Order
-        </Button>
+        <div className={"text-center"}>
+          <Button
+            style={submitButton}
+            className={OrderCreateCSS.submitButton}
+            size="lg"
+            type="submit"
+          >
+            Place Order
+          </Button>
+        </div>
       </Form>
     </section>
   );
