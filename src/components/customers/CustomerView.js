@@ -28,6 +28,7 @@ class CustomerView extends Component {
       };
     });
   };
+
   handleClose = () => this.setShow();
 
   handleShow = (id) => {
@@ -55,6 +56,7 @@ class CustomerView extends Component {
       })
       .catch(console.error);
   }
+
   deleteCustomer(id) {
     CustomerDataService.delete(id).then((res) => {
       this.setState({ deleted: true });
@@ -75,6 +77,7 @@ class CustomerView extends Component {
       padding: "10px 20px",
       border: "none",
     };
+
     const deleteButton = {
       backgroundColor: "#e63946",
       color: "#f1faee",
@@ -82,10 +85,12 @@ class CustomerView extends Component {
       padding: "10px 20px",
       border: "none",
     };
+
     const backBtn = {
       backgroundColor: "#1d3557",
       margin: "20px",
     };
+
     const custCard = {
       backgroundColor: "#1d3557",
       color: "#f1faee",
@@ -99,6 +104,7 @@ class CustomerView extends Component {
         textAlign: "center",
       },
     };
+
     const text = {
       font: "bold",
       color: "#f1faee",
@@ -112,7 +118,6 @@ class CustomerView extends Component {
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/customers" }} />;
     }
-    console.log(customer);
 
     let orderHistory = customer.Orders.map((orders, index) => (
       <li key={`${orders.index}-${index}`}>
@@ -124,10 +129,9 @@ class CustomerView extends Component {
     ));
 
     return (
-      <div>
+      <>
         <Container>
           <Link to={`/customers`}>
-            {" "}
             <Button style={backBtn}>Back to Customer List</Button>
           </Link>
         </Container>
@@ -162,8 +166,7 @@ class CustomerView extends Component {
                         variant={editButton}
                         className={CustomerViewCSS.btn}
                       >
-                        {" "}
-                        Edit Customer{" "}
+                        Edit Customer
                       </Button>
                     </Link>
                     <Button
@@ -196,7 +199,6 @@ class CustomerView extends Component {
               Are you sure you want to delete your customer?
             </Modal.Title>
           </Modal.Header>
-
           <Modal.Footer>
             <Button type="radio" variant="danger" onClick={this.handleClose}>
               Cancel
@@ -210,7 +212,7 @@ class CustomerView extends Component {
             </Button>
           </Modal.Footer>
         </Modal>
-      </div>
+      </>
     );
   }
 }
