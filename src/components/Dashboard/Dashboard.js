@@ -34,23 +34,24 @@ class Dashboard extends Component {
       gridRowGap: "25px",
       gridColumnGap: "25px",
       gridTemplateColumns: "repeat(auto-fill,minmax(350px,4fr))",
+      paddingLeft: "50px",
+      paddingRight: "50px", 
+      paddingTop: "25px",
     };
     const cardStyle = {
       width: "18rem",
       paddingTop: "5%",
       marginTop: "40%",
+      display: "flex",
     };
 
     return (
       <div style={backgroundImage}>
-        <Container
-          className="d-flex flex-wrap justify-content-between"
-          style={containerStyle}
-        >
+        <Container className="d-flex flex-wrap " style={containerStyle}>
           <CardColumns className="d-flex flex-wrap justify-content-between">
             <Row>
               <Col>
-                <Card style={cardStyle} md={6}>
+                <Card style={cardStyle} md={4}>
                   <Card.Body>
                     <h1 className="d-flex justify-content-center">
                       <svg
