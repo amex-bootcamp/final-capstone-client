@@ -34,33 +34,45 @@ class AddressEdit extends Component {
       .catch(console.error);
   }
 
-  handleAddressLine1 = (event) => {
+  handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
     this.setState({
-      address_line_1: event.target.value,
+      [name]: value,
     });
   };
 
-  handleAddressLine2 = (event) => {
-    this.setState({
-      address_line_2: event.target.value,
-    });
-  };
+  // REFACTORED INTO ONE FUNCTION (on top: handleInputChange)
 
-  handleCity = (event) => {
-    this.setState({
-      city: event.target.value,
-    });
-  };
-  handleState = (event) => {
-    this.setState({
-      state: event.target.value,
-    });
-  };
-  handleZip = (event) => {
-    this.setState({
-      zip: event.target.value,
-    });
-  };
+  // handleAddressLine1 = (event) => {
+  //   this.setState({
+  //     address_line_1: event.target.value,
+  //   });
+  // };
+
+  // handleAddressLine2 = (event) => {
+  //   this.setState({
+  //     address_line_2: event.target.value,
+  //   });
+  // };
+
+  // handleCity = (event) => {
+  //   this.setState({
+  //     city: event.target.value,
+  //   });
+  // };
+  // handleState = (event) => {
+  //   this.setState({
+  //     state: event.target.value,
+  //   });
+  // };
+  // handleZip = (event) => {
+  //   this.setState({
+  //     zip: event.target.value,
+  //   });
+  // };
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -104,36 +116,41 @@ class AddressEdit extends Component {
                   <div>Address Line 1:</div>
                   <input
                     type="text"
+                    name="address_line_1"
                     value={this.state.address_line_1}
-                    onChange={this.handleAddressLine1}
+                    onChange={this.handleInputChange}
                   ></input>
 
                   <div>Address Line 2:</div>
                   <input
                     type="text"
+                    name="address_line_2"
                     value={this.state.address_line_2}
-                    onChange={this.handleAddressLine2}
+                    onChange={this.handleInputChange}
                   ></input>
 
                   <div>City:</div>
                   <input
                     type="text"
+                    name="city"
                     value={this.state.city}
-                    onChange={this.handleCity}
+                    onChange={this.handleInputChange}
                   ></input>
 
                   <div>State:</div>
                   <input
                     type="text"
+                    name="state"
                     value={this.state.state}
-                    onChange={this.handleState}
+                    onChange={this.handleInputChange}
                   ></input>
 
                   <div>Zip:</div>
                   <input
                     type="text"
+                    name="zip"
                     value={this.state.zip}
-                    onChange={this.handleZip}
+                    onChange={this.handleInputChange}
                   ></input>
                 </Card.Text>
               </Card.Body>
