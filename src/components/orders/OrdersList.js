@@ -1,25 +1,28 @@
 import React, { useEffect, useState } from "react";
 import OrderDataService from "../../services/order.data.service";
-import { Link } from "react-router-dom";
 import OrdersListCSS from "./OrdersList.module.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
-  const [orderStatusFilter, setOrderStatusFilter] = useState("''");
+  const [orderStatusFilter, setOrderStatusFilter] = useState();
 
   useEffect(() => {
-    OrderDataService.list()
-      .then(({ data: orders }) => setOrders(orders))
-      .catch(console.error);
-  }, []);
-
-  useEffect(() => {
-    OrderDataService.listByStatus(orderStatusFilter)
-      .then(({ data: orders }) => {
-        setOrders(orders);
-      })
-      .catch(console.error);
+    if (orderStatusFilter === "-1") {
+      OrderDataService.list()
+        .then(({ data: orders }) => setOrders(orders))
+        .catch(console.error);
+    } else if (orderStatusFilter !== undefined) {
+      OrderDataService.listByStatus(orderStatusFilter).then(
+        ({ data: orders }) => {
+          setOrders(orders);
+        }
+      );
+    } else {
+      OrderDataService.list()
+        .then(({ data: orders }) => setOrders(orders))
+        .catch(console.error);
+    }
   }, [orderStatusFilter]);
 
   const cardStyle = {
@@ -93,7 +96,7 @@ function OrdersList() {
           value={orderStatusFilter}
           onChange={(event) => setOrderStatusFilter(event.target.value)}
         >
-          <option value="''">Filter by order status...</option>
+          <option value="-1">Filter by order status...</option>
           <option value="0">Drafted</option>
           <option value="1">Open</option>
           <option value="2">Finalized</option>
