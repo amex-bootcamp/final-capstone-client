@@ -20,6 +20,10 @@ class OrderDataService {
     return http.delete( `/orders/${ id }` );
   }
 
-}
+  post(params) {
+    return http.post("/orders", params);
+  }
+
+ }
 
 export default new OrderDataService();

@@ -12,7 +12,6 @@ import CustomerDataService from "../../services/customer.data.service";
 import AddressDataService from "../../services/address.data.service";
 import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
-import MediaQuery from "react-responsive";
 
 class CustomerView extends Component {
   state = {

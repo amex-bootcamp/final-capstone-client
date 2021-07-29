@@ -44,7 +44,6 @@ function App() {
           </Route>
           <Route exact path="/customers/:id" component={CustomerView} />
           <Route path="/customers/:id/edit" component={CustomerEdit} />
-
           <Route exact path="/products">
             <ProductsList />
           </Route>
@@ -53,7 +52,6 @@ function App() {
             <OrderCreate />
           </Route>
           <Route exact path="/orders/:id" component={OrderView} />
-          <Route path="/products/:id" component={ProductView} />
         </Switch>
       </main>
     </>
