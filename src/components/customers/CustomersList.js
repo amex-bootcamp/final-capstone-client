@@ -19,9 +19,6 @@ function CustomersList() {
         setTotalCustomerCount(totalCustomerCount);
       })
       .catch(console.error);
-  }, [currentPage, customerLoad]);
-
-  useEffect(() => {
     CustomerDataService.listByCount(customerLoad, currentPage)
       .then(({ data: { rows: customers } }) => {
         setCustomer(customers);
@@ -169,7 +166,6 @@ function CustomersList() {
         </div>
       </div>
       <h2 style={h2}>Customers</h2>
-
       <form onClick={handleClick}>
         <h3>
           Display:{" "}

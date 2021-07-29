@@ -34,7 +34,7 @@ function OrdersList() {
         .then(({ data: orders }) => setOrders(orders))
         .catch(console.error);
     }
-  }, [orderStatusFilter]);
+  }, [orders, orderStatusFilter]);
 
   //Css
   const cardStyle = {
