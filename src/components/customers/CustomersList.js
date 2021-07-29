@@ -3,13 +3,13 @@ import { Pagination } from "@material-ui/lab";
 import CustomerDataService from "../../services/customer.data.service";
 import CustomerListCSS from "./CustomersList.module.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import { auto } from "@popperjs/core";
 
 function CustomersList() {
   const [customers, setCustomer] = useState([]);
   const [customerLoad, setCustomerLoad] = useState(10);
   const [totalCustomerCount, setTotalCustomerCount] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchEmail, setSearchEmail] = useState("");
   // let countPerPage = customerLoad;
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function CustomersList() {
         setTotalCustomerCount(totalCustomerCount);
       })
       .catch(console.error);
-  }, []);
+  }, [currentPage, customerLoad]);
 
   useEffect(() => {
     CustomerDataService.listByCount(customerLoad, currentPage)
@@ -74,6 +74,16 @@ function CustomersList() {
     display: "inline-block",
   };
 
+  const h2 = {
+    color: "black",
+    paddingTop: "20px"
+  };
+
+  const searchBar ={
+    paddingTop: "20px",
+    paddingLeft: "400px"
+  }
+
   // something in here needs to be changed in order to save the data dynamically
   const customerListItems = customers.map((customer, index) => (
     <ul key={`${customer.phone}-${index}`}>
@@ -122,9 +132,48 @@ function CustomersList() {
     setCurrentPage(value);
   };
 
+  //Search Customer Section
+
+  const onChangeSearchEmail = (event) =>{
+    const searchEmail = event.target.value;
+    setSearchEmail(searchEmail);
+  };
+
+  const findByEmail = () => {
+    CustomerDataService.viewByEmail(searchEmail)
+    .then(response => {
+      setCustomer(response.data);
+    })
+    .catch(console.error);
+  };
+
+
+
+
   return (
     <section>
-      <h2>Customers</h2>
+      <div style={searchBar} className="col-md-8">
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search by email"
+            value={searchEmail}
+            onChange={onChangeSearchEmail}
+          />
+          <div className="input-group-append">
+            <button
+              className="btn btn-outline-secondary"
+              type="button"
+              onClick={findByEmail}
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+      <h2 style={h2}>Customers</h2>
+      
       <form onClick={handleClick}>
         <h3>
           Display:{" "}
