@@ -75,6 +75,16 @@ function CustomersList() {
     display: "inline-block",
   };
 
+  const h2 = {
+    color: "black",
+    paddingTop: "20px"
+  };
+
+  const searchBar ={
+    paddingTop: "20px",
+    paddingLeft: "400px"
+  }
+
   // something in here needs to be changed in order to save the data dynamically
   const customerListItems = customers.map((customer, index) => (
     <ul key={`${customer.phone}-${index}`}>
@@ -143,7 +153,7 @@ function CustomersList() {
 
   return (
     <section>
-      <div className="col-md-8">
+      <div style={searchBar} className="col-md-8">
         <div className="input-group mb-3">
           <input
             type="text"
@@ -163,7 +173,7 @@ function CustomersList() {
           </div>
         </div>
       </div>
-      <h2>Customers</h2>
+      <h2 style={h2}>Customers</h2>
       
       <form onClick={handleClick}>
         <h3>
