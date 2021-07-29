@@ -12,6 +12,15 @@ class OrderDataService {
   put(id, params) {
     return http.put(`/orders/${id}`, params);
   }
+  post(params) {
+    return http.post("/orders", params);
+  }
+  listByStatus(status) {
+    return http.get(`/orders?status=${status}`);
+  }
+  view(id) {
+    return http.get(`/orders/${id}`);
+  }
 }
 
 

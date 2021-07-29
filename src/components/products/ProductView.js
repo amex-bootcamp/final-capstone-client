@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ProductDataService from "../../services/product.data.service";
-import { Card, Container, Button, Row, Col } from "react-bootstrap";
+import { Card, Container, Button, Row} from "react-bootstrap";
 import ProductViewCSS from "./ProductView.module.css";
 import { Redirect, Link } from "react-router-dom";
 
@@ -26,11 +26,14 @@ class ProductView extends Component {
       color: "#f1faee",
       margin: "50px",
       borderRadius: "7px",
-      height: "300px",
+      height: "85%",
       padding: "65px 65px 65px 65px",
       alignItems: "center",
       justifyContent: "center",
-      width: "50rem",
+      width: "85%",
+      "@media (max-width:991px)": {
+        textAlign: "center",
+      },
     };
     const { product } = this.state;
 
@@ -60,11 +63,6 @@ class ProductView extends Component {
       textAlign: "center",
       padding: "15px",
     };
-     const cardContainer = {
-      justifyContent: "center",
-      alignItems: "center",
-      display: "flex"
-    };
 
     return (
       <div>
@@ -75,7 +73,8 @@ class ProductView extends Component {
             </Link>
           </Container>
         </div>
-        <Container className={ProductViewCSS.mainContainer} style={cardContainer}>
+        
+        <Container className={ProductViewCSS.mainContainer} >
           <Row>
             <Card style={card} className={ProductViewCSS.cardStyle}>
               <Card.Body>
