@@ -7,17 +7,28 @@ import OrderDataService from "../../services/order.data.service";
 class OrderEdit extends Component {
   state = {
     edited: false,
-    id: "",
-    first_name: "",
-    middle_name: "",
-    last_name: "",
-    phone: "",
-    email: "",
-    notes: "",
     order_status: "",
     total_order_price: "",
     order_notes: "",
   };
+
+  componentDidMount() {
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
+
+    OrderDataService.view(id)
+      .then(({ data: order }) =>
+        this.setState({
+          order_status: order.order_status,
+          total_order_price: order.total_order_price,
+          order_notes: order.order_notes
+        })
+      )
+      .catch(console.error);
+  }
 
   render() {
     if (this.state.edited) {
