@@ -3,6 +3,7 @@ import { Card, Container, Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import OrderViewCSS from "../orders/OrderView.module.css";
 import OrderDataService from "../../services/order.data.service";
+import Status from "../../utils/orderstatus";
 
 function OrderView() {
   const [order, setOrder] = useState({ Customer: {} });
@@ -34,7 +35,7 @@ function OrderView() {
           <p className={OrderViewCSS.para}>Email: {order.Customer.email}</p>
           <p className={OrderViewCSS.para}>Phone: {order.Customer.phone}</p>
           <p className={OrderViewCSS.para}>
-            Order Status: {order.order_status}
+            Order Status: {Status[order.order_status]}
           </p>
           <p className={OrderViewCSS.para}>
             Order Date/Time: {order.datetime_order_placed}

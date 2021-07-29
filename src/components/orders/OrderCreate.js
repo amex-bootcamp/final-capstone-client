@@ -61,7 +61,7 @@ function OrderCreate() {
       id: orderId,
       customer_id: customerId,
       order_status: orderStatus,
-      datetime_order_place: datetime,
+      datetime_order_placed: datetime,
       total_order_price: totalPrice,
       order_notes: orderNotes,
       ProductId: productId,
