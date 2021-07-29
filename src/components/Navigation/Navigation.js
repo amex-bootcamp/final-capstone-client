@@ -1,36 +1,26 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Navbar, Container, Nav, NavDropdown, Image } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 class Navigation extends Component {
   render() {
     const navStyle = {
       backgroundColor: "#a8dadc",
       fontWeight: "bolder",
-      fontSize: 18    
-  }
+      fontSize: 18,
+    };
     return (
- 
-      <Navbar style = {navStyle}  expand="lg">
-        <Container fluid style={{color: "#e63946"}} > 
-          {/* <Navbar.Brand href="/">
-            {" "}
-            <Image
-              src={process.env.PUBLIC_URL + "/images/logo.png"}
-              alt="logo"
-            />
-          </Navbar.Brand> */}
+      <Navbar style={navStyle} expand="lg">
+        <Container fluid style={{ color: "#e63946" }}>
           <Container fluid>
             <Navbar.Brand href="/">
               <img
                 src={process.env.PUBLIC_URL + "/images/logo.png"}
-                // width="400"
                 height="80"
                 className="d-inline-block align-top"
                 alt="React Bootstrap logo"
               />
             </Navbar.Brand>
-          </Container >
+          </Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
