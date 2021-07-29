@@ -10,6 +10,7 @@ function OrderView() {
   const [deleted, setDeleted] = useState(false);
   const [show, setShow] = useState(false);
   const { id } = useParams();
+
   useEffect(() => {
     getOrderData();
   }, [deleted]);
@@ -24,7 +25,7 @@ function OrderView() {
   };
 
   const handleConfirm = () => {
-    if (order.order_status == 0) {
+    if (order.order_status === 0) {
       OrderDataService.delete(id)
         .then((res) => {
           console.log("Complete");
@@ -70,7 +71,7 @@ function OrderView() {
           <p className={OrderViewCSS.para}>Order Notes: {order.order_notes}</p>
           <div flex className={OrderViewCSS.btndiv}>
             <Button className={OrderViewCSS.editbtn}>Edit</Button>
-            {order.order_status == 0 && (
+            {order.order_status === 0 && (
               <Button onClick={handleShow} className={OrderViewCSS.deletebtn}>
                 Delete
               </Button>
