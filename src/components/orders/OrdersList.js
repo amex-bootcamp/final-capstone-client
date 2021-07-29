@@ -7,10 +7,10 @@ function OrdersList() {
   const [orders, setOrders] = useState([]);
   const [orderStatusFilter, setOrderStatusFilter] = useState();
 
-  // This useEffect controls pulls in the daya for the orders. We built some conditinal logic to help control the funcitonality 
+  // This useEffect controls pulls in the daya for the orders. We built some conditinal logic to help control the funcitonality
   //of the select filter dropdown
   useEffect(() => {
-    //check if default value selected 
+    //check if default value selected
     if (orderStatusFilter === "-1") {
       OrderDataService.list()
         .then(({ data: orders }) => setOrders(orders))
@@ -26,9 +26,9 @@ function OrdersList() {
         .then(({ data: orders }) => setOrders(orders))
         .catch(console.error);
     }
-  }, [orderStatusFilter]);
+  }, [orders, orderStatusFilter]);
 
-//Css
+  //Css
   const cardStyle = {
     fontFamily: "Lato, sans-serif",
     backgroundColor: "#1d3557",
