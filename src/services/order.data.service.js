@@ -10,6 +10,11 @@ class OrderDataService {
     return http.get( `/orders/${ id }` );
   }
 
+  
+  listByStatus(status) {
+    return http.get(`/orders?status=${status}`);
+  }
+
   // delete an order by id
   delete( id ) {
     return http.delete( `/orders/${ id }` );

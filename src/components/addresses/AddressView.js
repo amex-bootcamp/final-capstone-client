@@ -57,7 +57,7 @@ class AddressView extends Component {
     } = this.props;
 
     AddressDataService.view(id)
-      .then(({ data: address }) => this.setState({ address: address.data[0] }))
+      .then(({ data: address }) => this.setState({ address: address[0] }))
       .catch(console.error);
   }
 

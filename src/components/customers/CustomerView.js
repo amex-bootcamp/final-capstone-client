@@ -12,6 +12,7 @@ import CustomerDataService from "../../services/customer.data.service";
 import AddressDataService from "../../services/address.data.service";
 import CustomerViewCSS from "./CustomerView.module.css";
 import { Redirect, Link } from "react-router-dom";
+import MediaQuery from "react-responsive";
 
 class CustomerView extends Component {
   state = {
@@ -28,11 +29,11 @@ class CustomerView extends Component {
     });
   };
   handleClose = () => this.setShow();
-  handleShow = () => this.setShow();
 
   handleShow = (id) => {
     this.setShow();
   };
+
   handleConfirm = (id) => {
     this.deleteCustomer(id);
     this.handleClose();
@@ -92,18 +93,21 @@ class CustomerView extends Component {
       borderRadius: "7px",
       padding: "45px 45px 45px 45px",
       alignItems: "center",
-      width: "85%",
-      height: "85%"
+      width: "95%",
+      height: "85%",
+      "@media (max-width:991px)": {
+        textAlign: "center",
+      },
     };
     const text = {
       font: "bold",
       color: "#f1faee",
-
     };
 
     const cardGroup = {
       justifyContent: "center",
     };
+
     const { customer, address } = this.state;
     if (this.state.deleted) {
       return <Redirect to={{ pathname: "/customers" }} />;
