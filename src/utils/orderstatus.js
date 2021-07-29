@@ -1,5 +1,3 @@
-"use strict";
-
 const Status = {
   0: "Draft",
   1: "Open",
