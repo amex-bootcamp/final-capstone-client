@@ -3,7 +3,6 @@ import { Pagination } from "@material-ui/lab";
 import CustomerDataService from "../../services/customer.data.service";
 import CustomerListCSS from "./CustomersList.module.css";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
-import { auto } from "@popperjs/core";
 
 function CustomersList() {
   const [customers, setCustomer] = useState([]);
@@ -20,7 +19,7 @@ function CustomersList() {
         setTotalCustomerCount(totalCustomerCount);
       })
       .catch(console.error);
-  }, []);
+  }, [currentPage, customerLoad]);
 
   useEffect(() => {
     CustomerDataService.listByCount(customerLoad, currentPage)

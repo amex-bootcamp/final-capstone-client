@@ -33,7 +33,7 @@ function App() {
             <AddressCreate />
           </Route>
           <Route exact path="/addresses/:id" component={AddressView} />
-          <Route path="/addresses/:id/edit" component={AddressEdit} />
+          <Route exact path="/addresses/:id/edit" component={AddressEdit} />
 
           <Route exact path="/customers">
             <CustomersList />

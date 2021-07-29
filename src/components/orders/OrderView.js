@@ -10,7 +10,7 @@ function OrderView() {
   const { id } = useParams();
   useEffect(() => {
     getOrderData();
-  }, []);
+  });
   function getOrderData() {
     OrderDataService.view(id)
       .then(({ data: order }) => setOrder(order))

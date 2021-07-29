@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AddressDataService from "../../services/address.data.service";
-import { Card, Button, Container, Row, Col, CardGroup } from "react-bootstrap";
+import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import AddressesListCSS from "./AddressesList.module.css";
 import Modal from "react-bootstrap/Modal";
 
@@ -51,28 +51,7 @@ class AddressesList extends Component {
       width: "20rem",
       height: "22rem",
     };
-    const editBtn = {
-      marginBottom: "auto",
-      color: "#1d3557",
-      backgroundColor: "#a8dadc",
-      width: "120px",
-      position: "relative",
-      right: "10px",
-      textAlign: "center",
-      margin: "auto",
-      fontWeight: "bold",
-      borderRadius: "5px",
-    };
-    const deleteBtn = {
-      marginBottom: "auto",
-      backgroundColor: "#e63946",
-      width: "120px",
-      position: "relative",
-      left: "10px",
-    };
-    const divBtn = {
-      paddingBottom: "20px",
-    };
+
     const titleStyles = {
       fontSize: "20pt",
       fontWeight: "bold",
@@ -99,14 +78,14 @@ class AddressesList extends Component {
       <ul key={`${address.zip}-${index}`}>
         <Card style={cardStyle}>
           <Card.Title style={titleStyles}>
-            <p>Address ID: {address.id}</p>
+            <div>Address ID: {address.id}</div>
           </Card.Title>
-          <p>Address Line 1: {address.address_line_1}</p>
-          <p>Address Line 2: {address.address_line_2}</p>
-          <p>City: {address.city}</p>
-          <p>State: {address.state}</p>
-          <p>Zip: {address.zip}</p>
-          <Button href={`addresses/${address.id}`} style={linkStyle}>
+          <div>Address Line 1: {address.address_line_1}</div>
+          <div>Address Line 2: {address.address_line_2}</div>
+          <div>City: {address.city}</div>
+          <div>State: {address.state}</div>
+          <div>Zip: {address.zip}</div>
+          <Button href={`/addresses/${address.id}`} style={linkStyle}>
             View Details
           </Button>
         </Card>
