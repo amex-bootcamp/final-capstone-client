@@ -57,8 +57,30 @@
   background-color: #e63946;
   width: 120px;
   position: relative;
-  left: -25px;
+  left: -50px;
   border: none;
+}
+.confdlbtn {
+  color:#f1faee;
+  background-color: #e63946;
+  width: 100px;
+  border: none;
+}
+.cnclbtn {
+  color: #1d3557;
+  background-color: #a8dadc;
+  width: 100px;
+  border: none;
+}
+.confdlbtn:hover {
+  color:#e63946;
+  background-color: #1d3557;
+  font-weight: bold;
+  transform: scale(1.03);
+}
+.cnclbtn:hover {
+  color: #f1faee;
+  background-color: #1d3557;
 }
 .deletebtn:hover {
   background-color: #e63946;
