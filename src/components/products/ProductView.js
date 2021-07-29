@@ -1,13 +1,37 @@
 import React, { Component } from "react";
 import ProductDataService from "../../services/product.data.service";
-import { Card, Container, Button, Row} from "react-bootstrap";
+import { Card, Container, Button, Row, Form} from "react-bootstrap";
 import ProductViewCSS from "./ProductView.module.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class ProductView extends Component {
   state = {
     product: [],
+    orderQuantity: 0, 
   };
+
+  /*
+  temporary while I can get query string to work
+  URL: `http://localhost:8080/api/products/${id}?quantity=-10`
+  */
+  updateQuantity = () =>{
+    console.log(this.state.product.id)
+    axios.put(`http://localhost:8080/api/products/${this.state.product.id}?quantity=${this.state.orderQuantity}`)
+  } 
+
+  handleQuantityChange = (event) =>{
+    this.setState({orderQuantity: event.target.value})
+  }
+
+  incrementQuantity = () => {this.setState({orderQuantity: this.state.orderQuantity + 1})}
+  decrementQuantity = () => {this.setState({orderQuantity: this.state.orderQuantity - 1})}
+
+
+
+
+
+
   componentDidMount() {
     const {
       match: {
@@ -31,7 +55,7 @@ class ProductView extends Component {
       alignItems: "center",
       justifyContent: "center",
       width: "85%",
-      "@media (max-width:991px)": {
+      "@media (maxWidth:991px)": {
         textAlign: "center",
       },
     };
@@ -103,8 +127,19 @@ class ProductView extends Component {
                   </span>{" "}
                   {product.quantity}
                   <br />
-                  <Button style={decrementBtn}>-</Button>
-                  <Button style={incrementBtn}>+</Button> &nbsp;
+                  <Form onSubmit={this.updateQuantity}>
+                  <Form.Control 
+                  value={this.state.orderQuantity}
+                  name={this.state.orderQuantity}
+                  onChange={this.handleQuantityChange}
+                  type="number"
+                  required
+                  />
+
+                <Button onClick={this.updateQuantity}>Update Quantity</Button>
+                  </Form>
+                  <Button style={decrementBtn} onClick={this.decrementQuantity}>-</Button>
+                  <Button style={incrementBtn} onClick={this.incrementQuantity}>+</Button> &nbsp;
                   <br />
                 </Card.Text>
               </Card.Body>
