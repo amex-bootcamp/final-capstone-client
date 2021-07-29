@@ -19,9 +19,6 @@ function CustomersList() {
         setTotalCustomerCount(totalCustomerCount);
       })
       .catch(console.error);
-  }, [currentPage, customerLoad]);
-
-  useEffect(() => {
     CustomerDataService.listByCount(customerLoad, currentPage)
       .then(({ data: { rows: customers } }) => {
         setCustomer(customers);
@@ -124,21 +121,18 @@ function CustomersList() {
 
   //Search Customer Section
 
-  const onChangeSearchEmail = (event) =>{
+  const onChangeSearchEmail = (event) => {
     const searchEmail = event.target.value;
     setSearchEmail(searchEmail);
   };
 
   const findByEmail = () => {
     CustomerDataService.viewByEmail(searchEmail)
-    .then(response => {
-      setCustomer(response.data);
-    })
-    .catch(console.error);
+      .then((response) => {
+        setCustomer(response.data);
+      })
+      .catch(console.error);
   };
-
-
-
 
   return (
     <section>
@@ -163,7 +157,7 @@ function CustomersList() {
         </div>
       </div>
       <h2>Customers</h2>
-      
+
       <form onClick={handleClick}>
         <h3>
           Display:{" "}

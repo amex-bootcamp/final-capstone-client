@@ -58,13 +58,12 @@ function OrderCreate() {
 
   const handleSubmit = (event) => {
     const params = {
-      id: orderId,
       customer_id: customerId,
       order_status: orderStatus,
       datetime_order_placed: datetime,
       total_order_price: totalPrice,
       order_notes: orderNotes,
-      ProductId: productId,
+      products: productId,
     };
     OrderDataService.post(params)
       .then((res) => {
@@ -112,7 +111,7 @@ function OrderCreate() {
     <section>
       <Form style={container} onSubmit={handleSubmit}>
         <h2>Create a New Order</h2>
-        <Form.Group style={groupHeaderStyle} controlId="orderId">
+        {/* <Form.Group style={groupHeaderStyle} controlId="orderId">
           <Form.Label>Order ID:</Form.Label>
           <Form.Control
             id="orderId"
@@ -121,7 +120,7 @@ function OrderCreate() {
             value={orderId}
             readOnly
           />
-        </Form.Group>
+        </Form.Group> */}
         <Form.Group style={groupHeaderStyle} controlId="customerId">
           <Form.Label>Customer ID:</Form.Label>
           <Form.Select
