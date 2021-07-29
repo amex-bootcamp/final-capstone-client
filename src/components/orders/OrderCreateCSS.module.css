@@ -1,0 +1,13 @@
+section {
+  font-family: "Lato", sans-serif;
+}
+
+.submitButton:hover {
+  filter: drop-shadow(0 0 0.5rem #f1faee);
+  transform: scale(1.02);
+}
+
+h2 {
+  color: #f1faee;
+  text-align: center;
+}
