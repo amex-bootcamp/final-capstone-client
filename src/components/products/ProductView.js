@@ -47,16 +47,20 @@ class ProductView extends Component {
     const incrementBtn = {
       backgroundColor: "#a8dadc",
       color: "#1d3557",
+      fontWeight: "bold",
       border: "none",
-      margin: "15px",
-      marginBottom: "30px",
+      width: "60px",
+      margin: "15px 15px 30px 15px",
+      // marginBottom: "30px",
     };
     const decrementBtn = {
       backgroundColor: "#e63946",
       color: "#f1faee",
       border: "none",
-      margin: "15px",
-      marginBottom: "30px",
+      fontWeight: "bold",
+      width: "60px",
+      margin: "15px 15px 30px 0px",
+      // marginBottom: "30px",
     };
     const h2 = {
       textAlign: "center",
@@ -103,9 +107,10 @@ class ProductView extends Component {
                   </span>{" "}
                   {product.quantity}
                   <br />
+                  <div>
                   <Button style={decrementBtn}>-</Button>
                   <Button style={incrementBtn}>+</Button> &nbsp;
-                  <br />
+                  </div>
                 </Card.Text>
               </Card.Body>
             </Card>

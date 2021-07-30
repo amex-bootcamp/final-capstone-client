@@ -71,7 +71,7 @@ function CustomersList() {
   };
 
   const h2 = {
-    color: "black",
+    color: "#1d3557",
     paddingTop: "20px",
   };
 
