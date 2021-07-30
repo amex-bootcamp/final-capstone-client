@@ -51,7 +51,6 @@ function CustomersList() {
     fontStyle: "italic",
   };
   const linkStyle = {
-    textDecoration: "none",
     border: "#457b9d 2px solid",
     width: "10rem",
     padding: "5px",
@@ -72,7 +71,7 @@ function CustomersList() {
   };
 
   const h2 = {
-    color: "black",
+    color: "#1d3557",
     paddingTop: "20px",
   };
 

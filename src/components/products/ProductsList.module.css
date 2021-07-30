@@ -1,0 +1,11 @@
+.body {
+    font-family: "Lato", sans-serif;
+}
+
+.cardStyle {
+    text-align: center;
+}
+
+.cardStyle:hover {
+    box-shadow: 0 0 11px #1d3557;
+}
