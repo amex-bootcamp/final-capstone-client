@@ -35,7 +35,7 @@ class ProductView extends Component {
       "@media (maxWidth:991px)": {
         textAlign: "center",
       },
-      fontFamily: "Lato, sans-serif"
+      fontFamily: "Lato, sans-serif",
     };
     const { product } = this.state;
 
@@ -51,16 +51,16 @@ class ProductView extends Component {
       textAlign: "center",
       padding: "15px",
       fontWeight: "900",
-      fontSize: "40px"
+      fontSize: "40px",
     };
 
     const miniHeadings = {
       fontSize: "30px",
-      fontWeight: "500"
-    }
+      fontWeight: "500",
+    };
     const para = {
-      fontSize: "20px"
-    }
+      fontSize: "20px",
+    };
 
     return (
       <div>
@@ -81,9 +81,11 @@ class ProductView extends Component {
                   <h1 style={h2}>Product Details</h1>
                 </Card.Title>
                 <Card.Text className="p-2">
-                  <h4 style={miniHeadings}><strong>Product Name</strong> </h4>
+                  <h4 style={miniHeadings}>
+                    <strong>Product Name</strong>{" "}
+                  </h4>
 
-              <p style={para}> {product.name} </p>  
+                  <p style={para}> {product.name} </p>
                 </Card.Text>
 
                 <Card.Text className="p-2">
@@ -102,8 +104,9 @@ class ProductView extends Component {
                 <Card.Text className="p-2">
                   <h4 style={miniHeadings}>SKU</h4>
 
-                  <p style={para}><em>{product.sku}</em></p>
-
+                  <p style={para}>
+                    <em>{product.sku}</em>
+                  </p>
                 </Card.Text>
 
                 <Card.Text className="p-2">
