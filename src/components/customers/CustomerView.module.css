@@ -1,5 +1,6 @@
-body {
+section {
   font-family: "Lato", sans-serif;
+  color: #1d3557;
 }
 
 .h2 {
@@ -49,6 +50,9 @@ body {
   font-weight: 300;
   margin: auto;
   width: 40rem;
+}
+.cardstyle:hover {
+  box-shadow: 0 0 11px #1d3557;
 }
 .btndiv {
   display: flex;

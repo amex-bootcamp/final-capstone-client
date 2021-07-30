@@ -44,29 +44,53 @@ function OrderView() {
       </Button>
       <Container className={OrderViewCSS.containerstyle}>
         <Card className={OrderViewCSS.cardstyle}>
-          <h2 className={OrderViewCSS.heading}>Order Details Page</h2>
-          <p className={OrderViewCSS.para}>Order ID: {order.id}</p>
-          <p className={OrderViewCSS.para}>Customer ID: {order.customer_id}</p>
-          <p className={OrderViewCSS.para}>
-            Customer First Name: {order.Customer.first_name}
-          </p>
-          <p className={OrderViewCSS.para}>
-            Customer Last Name: {order.Customer.last_name}
-          </p>
-          <p className={OrderViewCSS.para}>Email: {order.Customer.email}</p>
-          <p className={OrderViewCSS.para}>Phone: {order.Customer.phone}</p>
-          <p className={OrderViewCSS.para}>
-            Order Status: {Status[order.order_status]}
-          </p>
-          <p className={OrderViewCSS.para}>
-            Order Date/Time: {order.datetime_order_placed}
-          </p>
-          <p className={OrderViewCSS.para}>
-            Order Total: ${order.total_order_price}
-          </p>
-          <p className={OrderViewCSS.para}>Order Created: {order.createdAt}</p>
-          <p className={OrderViewCSS.para}>Order Updated: {order.updatedAt}</p>
-          <p className={OrderViewCSS.para}>Order Notes: {order.order_notes}</p>
+          <Card.Body>
+            <h2 className={OrderViewCSS.heading}>Order Details Page</h2>
+            <div className={OrderViewCSS.para}>
+              <b> Order ID:</b> {order.id}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Customer ID: </b>
+              {order.customer_id}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Customer First Name:</b> {order.Customer.first_name}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Customer Last Name:</b> {order.Customer.last_name}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Email: </b>
+              {order.Customer.email}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Phone: </b>
+              {order.Customer.phone}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Order Status: </b>
+              {Status[order.order_status]}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Order Date/Time: </b>
+              {order.datetime_order_placed}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Order Total: </b>${order.total_order_price}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Order Created: </b>
+              {order.createdAt}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Order Updated: </b>
+              {order.updatedAt}
+            </div>
+            <div className={OrderViewCSS.para}>
+              <b>Order Notes: </b>
+              {order.order_notes}
+            </div>
+          </Card.Body>
           <div flex className={OrderViewCSS.btndiv}>
             <Button className={OrderViewCSS.editbtn}>Edit</Button>
             {order.order_status === 0 && (

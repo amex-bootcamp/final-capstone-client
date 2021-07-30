@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ProductDataService from "../../services/product.data.service";
-import { Card, Container, Button, Row, Form } from "react-bootstrap";
+import { Card, Container, Button, Row } from "react-bootstrap";
 import ProductViewCSS from "./ProductView.module.css";
 import { Link } from "react-router-dom";
 
@@ -27,10 +27,8 @@ class ProductView extends Component {
       color: "#f1faee",
       margin: "50px",
       borderRadius: "7px",
-      height: "85%",
-      padding: "65px 65px 65px 65px",
-      alignItems: "center",
-      justifyContent: "center",
+      height: "75%",
+      padding: "50px",
       width: "85%",
       "@media (maxWidth:991px)": {
         textAlign: "center",
@@ -46,7 +44,6 @@ class ProductView extends Component {
       padding: "10px 20px",
       border: "none",
     };
-
     const h2 = {
       textAlign: "center",
       padding: "15px",
