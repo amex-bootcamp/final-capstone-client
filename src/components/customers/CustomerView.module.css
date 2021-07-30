@@ -54,28 +54,21 @@ body {
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
-}
-.editbtn {
+} 
+ .editbtn {
   color: #1d3557;
   background-color: #a8dadc;
   width: 120px;
   position: relative;
   right: -25px;
   border: none;
-}
-.editbtn:hover {
+} 
+ .editbtn:hover {
   background-color: #457b9d;
   box-shadow: 0 0 6px #f1faee;
   transform: scale(1.01);
 }
-.deletebtn {
-  color: #f1faee;
-  background-color: #e63946;
-  width: 120px;
-  position: relative;
-  left: -50px;
-  border: none;
-}
+
 .confdlbtn {
   color: #f1faee;
   background-color: #e63946;
