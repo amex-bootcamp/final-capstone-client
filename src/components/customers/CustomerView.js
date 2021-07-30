@@ -173,7 +173,6 @@ class CustomerView extends Component {
                       style={deleteButton}
                       variant={deleteButton}
                       onClick={() => this.handleShow(customer.id)}
-                      className={CustomerViewCSS.deletebtn}
                     >
                       Delete Customer
                     </Button>
