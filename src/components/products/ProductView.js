@@ -27,10 +27,8 @@ class ProductView extends Component {
       color: "#f1faee",
       margin: "50px",
       borderRadius: "7px",
-      height: "85%",
-      padding: "65px 65px 65px 65px",
-      alignItems: "center",
-      justifyContent: "center",
+      height: "75%",
+      padding: "50px",
       width: "85%",
       "@media (maxWidth:991px)": {
         textAlign: "center",

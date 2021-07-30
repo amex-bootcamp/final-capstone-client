@@ -43,8 +43,8 @@ function OrdersList() {
     color: "#f1faee",
     width: "25rem",
     border: "5px solid #457b9d",
-    margin: "25px",
-    padding: "10px",
+    margin: "20px",
+    padding: "20px",
     borderRadius: "15px",
     transition: "box-shadow .3s",
   };
@@ -83,19 +83,19 @@ function OrdersList() {
             <p>ID: {order.id}</p>
           </Card.Title>
           <Card.Text>
-            <p>Order Status: {order.status_text}</p>
+            <b>Order Status: </b>{order.status_text}
           </Card.Text>
           <Card.Text>
-            <p>Date Order Placed: {order.datetime_order_placed}</p>
+            <b>Date Order Placed: </b>{order.datetime_order_placed}
           </Card.Text>
           <Card.Text>
-            <p>First Name: {order.Customer.first_name}</p>
+            <b>First Name: </b>{order.Customer.first_name}
           </Card.Text>
           <Card.Text>
-            <p>Last Name: {order.Customer.last_name}</p>
+            <b>Last Name: </b>{order.Customer.last_name}
           </Card.Text>
           <Card.Text>
-            <p>Email: {order.Customer.email}</p>
+            <b>Email: </b>{order.Customer.email}
           </Card.Text>
         </Card.Body>
           <Button href={`orders/${order.id}`} style={linkStyle}>
