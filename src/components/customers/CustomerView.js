@@ -73,6 +73,7 @@ class CustomerView extends Component {
     const editButton = {
       backgroundColor: "#a8dadc",
       color: "#1d3557",
+      fontWeight: "bold",
       margin: "5px",
       padding: "10px 20px",
       border: "none",
@@ -81,6 +82,7 @@ class CustomerView extends Component {
     const deleteButton = {
       backgroundColor: "#e63946",
       color: "#f1faee",
+      fontWeight: "bold",
       margin: "5px",
       padding: "10px 20px",
       border: "none",
@@ -95,8 +97,8 @@ class CustomerView extends Component {
       backgroundColor: "#1d3557",
       color: "#f1faee",
       margin: "50px",
-      borderRadius: "7px",
-      padding: "45px 45px 45px 45px",
+      borderRadius: "15px",
+      padding: "40px",
       alignItems: "center",
       width: "95%",
       height: "85%",
@@ -106,8 +108,9 @@ class CustomerView extends Component {
     };
 
     const text = {
-      font: "bold",
+      fontWeight: "bold",
       color: "#f1faee",
+      fontSize: "2em",
     };
 
     const cardGroup = {
@@ -122,7 +125,7 @@ class CustomerView extends Component {
     let orderHistory = customer.Orders.map((orders, index) => (
       <li key={`${orders.index}-${index}`}>
         <hr />
-        <div>ID: {orders.id}</div>
+        <div><b>ID: {orders.id}</b></div>
         <div>Date Order Placed: {orders.datetime_order_placed}</div>
         <div>Order Status: {Status[orders.order_status]}</div>
       </li>
@@ -140,23 +143,23 @@ class CustomerView extends Component {
             <Row>
               <Col>
                 <Card style={custCard} variant={custCard}>
-                  <Card.Text>
-                    <h2 style={text} className={CustomerViewCSS.h2}>
+                    <Card.Title style={text} className={CustomerViewCSS.h2}>
                       Customer Details
-                    </h2>
-                    <div style={text}>First Name: {customer.first_name}</div>
-                    <div>Middle Name: {customer.middle_name}.</div>
-                    <div>Last Name: {customer.last_name}</div>
-                    <div>Phone: {customer.phone}</div>
-                    <div>Email: {customer.email}</div>
-                    <div>Notes: {customer.notes}</div>
+                    </Card.Title>
+                  <Card.Text>
+                    <div><b>First Name: </b>{customer.first_name}</div>
+                    <div><b>Middle Name: </b>{customer.middle_name}.</div>
+                    <div><b>Last Name:</b> {customer.last_name}</div>
+                    <div><b>Phone: </b>{customer.phone}</div>
+                    <div><b>Email:</b> {customer.email}</div>
+                    <div><b>Notes: </b>{customer.notes}</div>
                     <hr></hr>
-                    <div>Address: {customer.address_id}</div>
-                    <div>Address Line 1: {address.address_line_1}</div>
-                    <div>Address Line 2: {address.address_line_2}</div>
-                    <div>City: {address.city}</div>
-                    <div>State: {address.state}</div>
-                    <div>Zip: {address.zip}</div>
+                    <div><b>Address: </b>{customer.address_id}</div>
+                    <div><b>Address Line 1: </b>{address.address_line_1}</div>
+                    <div><b>Address Line 2: </b>{address.address_line_2}</div>
+                    <div><b>City: </b>{address.city}</div>
+                    <div><b>State: </b>{address.state}</div>
+                    <div><b>Zip: </b>{address.zip}</div>
                   </Card.Text>
                   <br />
                   <div flex className={CustomerViewCSS.btndiv}>
@@ -173,7 +176,6 @@ class CustomerView extends Component {
                       style={deleteButton}
                       variant={deleteButton}
                       onClick={() => this.handleShow(customer.id)}
-                      className={CustomerViewCSS.deletebtn}
                     >
                       Delete Customer
                     </Button>
@@ -183,9 +185,9 @@ class CustomerView extends Component {
               <Col>
                 <Card style={custCard} variant={custCard}>
                   <Card.Text>
-                    <h2 style={text} className={CustomerViewCSS.h2}>
+                    <Card.Title style={text} className={CustomerViewCSS.h2}>
                       Order History
-                    </h2>
+                    </Card.Title>
                     <ul>{orderHistory}</ul>
                   </Card.Text>
                 </Card>
@@ -200,10 +202,10 @@ class CustomerView extends Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Footer>
-            <Button type="radio" variant="danger" onClick={this.handleClose}>
+            <Button className={CustomerViewCSS.cnclbtn} type="radio" variant="danger" onClick={this.handleClose}>
               Cancel
             </Button>
-            <Button
+            <Button className={CustomerViewCSS.confdlbtn}
               type="radio"
               variant="primary"
               onClick={() => this.handleConfirm(customer.id)}

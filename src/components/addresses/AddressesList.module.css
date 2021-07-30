@@ -1,10 +1,9 @@
-
 .cardStyle:hover {
     box-shadow: 0 0 11px #1d3557;
 }
 
 .mainContainer {
-    padding-right: 30px;
+    padding-right: 5%;
     display: grid;
     grid-row-gap: 50px;
     grid-column-gap: 50px ;

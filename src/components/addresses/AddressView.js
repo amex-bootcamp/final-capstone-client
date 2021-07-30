@@ -90,6 +90,7 @@ class AddressView extends Component {
     const deleteButton = {
       backgroundColor: "#e63946",
       color: "#f1faee",
+      fontWeight: "bold",
       margin: "2px",
       padding: "10px 20px",
       border: "none",
@@ -97,9 +98,13 @@ class AddressView extends Component {
     const editButton = {
       backgroundColor: "#a8dadc",
       color: "#1d3557",
+      fontWeight: "bold",
       margin: "2px",
       padding: "10px 20px",
       border: "none",
+    };
+    const btnGroup = {
+      margin: "auto",
     };
 
     return (
@@ -144,17 +149,15 @@ class AddressView extends Component {
                     <br />
                     {address.zip}
                   </Card.Text>
-                  <div>
+                  <div style={btnGroup}>
                     <Button
                       href={`/addresses/${address.id}/edit`}
-                      style={editButton}
-                      variant={editButton}
-                    >
+                      style={editButton} 
+                      >
                       Edit Address
                     </Button>
                     <Button
                       style={deleteButton}
-                      variant={deleteButton}
                       onClick={() => this.handleShow(address.id)}
                     >
                       Delete Address

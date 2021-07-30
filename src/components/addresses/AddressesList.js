@@ -45,10 +45,10 @@ class AddressesList extends Component {
       fontFamily: "Lato, sans-serif",
       backgroundColor: "#1d3557",
       color: "#f1faee",
-      width: "22rem",
+      minWidth: "100%",
       border: "5px solid #457b9d",
       margin: "25px",
-      padding: "10px",
+      padding: "15px",
       borderRadius: "15px",
       transition: "box-shadow .3s",
     };
@@ -57,7 +57,6 @@ class AddressesList extends Component {
       textAlign: "center",
       fontSize: "20pt",
       fontWeight: "bold",
-      paddingTop: "15px",
     };
 
     const btnStyle = {
@@ -81,42 +80,42 @@ class AddressesList extends Component {
           <Card.Body>
             <Card.Title style={titleStyle}>Address ID: {address.id}</Card.Title>
             <Card.Text>
-              <b>Address Line 1: </b> 
-              <br/>
+              <b>Address Line 1: </b>
+              <br />
               {address.address_line_1}
             </Card.Text>
             <Card.Text>
-              <b>Address Line 2: </b> 
-              <br/>
+              <b>Address Line 2: </b>
+              <br />
               {address.address_line_2}
             </Card.Text>
             <Card.Text>
               <b>City: </b>
-              <br/>
+              <br />
               {address.city}
             </Card.Text>
             <Card.Text>
               <b>State:</b>
-              <br/>
+              <br />
               {address.state}
             </Card.Text>
             <Card.Text>
               <b>Zip:</b>
-              <br/>
+              <br />
               {address.zip}
             </Card.Text>
           </Card.Body>
-            <Button href={`/addresses/${address.id}`} style={btnStyle}>
-              View Details
-            </Button>
+          <Button href={`/addresses/${address.id}`} style={btnStyle}>
+            View Details
+          </Button>
         </Card>
       </ul>
     ));
 
     return (
       <section>
-        <h1 className={AddressesListCSS.header}>All Addresses</h1>
         <Container fluid>
+          <h1 className={AddressesListCSS.header}>All Addresses</h1>
           <Row>
             <Col>
               <div className={AddressesListCSS.mainContainer}>
