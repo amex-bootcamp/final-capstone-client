@@ -83,24 +83,29 @@ function OrdersList() {
             <p>ID: {order.id}</p>
           </Card.Title>
           <Card.Text>
-            <b>Order Status: </b>{order.status_text}
+            <b>Order Status: </b>
+            {order.status_text}
           </Card.Text>
           <Card.Text>
-            <b>Date Order Placed: </b>{order.datetime_order_placed}
+            <b>Date Order Placed: </b>
+            {order.datetime_order_placed}
           </Card.Text>
           <Card.Text>
-            <b>First Name: </b>{order.Customer.first_name}
+            <b>First Name: </b>
+            {order.Customer.first_name}
           </Card.Text>
           <Card.Text>
-            <b>Last Name: </b>{order.Customer.last_name}
+            <b>Last Name: </b>
+            {order.Customer.last_name}
           </Card.Text>
           <Card.Text>
-            <b>Email: </b>{order.Customer.email}
+            <b>Email: </b>
+            {order.Customer.email}
           </Card.Text>
         </Card.Body>
-          <Button href={`orders/${order.id}`} style={linkStyle}>
-            View Details
-          </Button>
+        <Button href={`orders/${order.id}`} style={linkStyle}>
+          View Details
+        </Button>
       </Card>
     </ul>
   ));

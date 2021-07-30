@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ProductDataService from "../../services/product.data.service";
-import { Card, Container, Button, Row, Form } from "react-bootstrap";
+import { Card, Container, Button, Row } from "react-bootstrap";
 import ProductViewCSS from "./ProductView.module.css";
 import { Link } from "react-router-dom";
 

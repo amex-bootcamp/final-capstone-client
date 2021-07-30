@@ -35,7 +35,7 @@ class Dashboard extends Component {
       gridColumnGap: "25px",
       gridTemplateColumns: "repeat(auto-fill,minmax(350px,4fr))",
       paddingLeft: "50px",
-      paddingRight: "50px", 
+      paddingRight: "50px",
       paddingTop: "25px",
     };
     const cardStyle = {
