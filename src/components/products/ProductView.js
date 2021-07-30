@@ -13,18 +13,14 @@ class ProductView extends Component {
   };
 
   updateQuantity = () => {
-    console.log(this.state.product.id);
 
     if (this.state.orderQuantity > 0) {
       axios.put(
         `http://localhost:8080/api/products/${this.state.product.id}?quantity=${this.state.orderQuantity}`
       );
-      this.setState({orderQuantity: 0, error: false})
-
+      this.setState({ orderQuantity: 0, error: false });
     } else {
-
-      this.setState({orderQuantity: 0, error: true})
-      
+      this.setState({ orderQuantity: 0, error: true });
     }
   };
 
