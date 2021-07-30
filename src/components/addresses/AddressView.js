@@ -72,9 +72,13 @@ class AddressView extends Component {
       width: "25rem",
       border: "5px solid #457b9d",
       margin: "25px",
-      padding: "10px",
+      padding: "20px",
       borderRadius: "15px",
       transition: "box-shadow .3s",
+    };
+    const cardTitle = {
+      textAlign: "center",
+      fontWeight: "bold",
     };
     const cardGroup = {
       justifyContent: "center",
@@ -86,6 +90,7 @@ class AddressView extends Component {
     const deleteButton = {
       backgroundColor: "#e63946",
       color: "#f1faee",
+      fontWeight: "bold",
       margin: "2px",
       padding: "10px 20px",
       border: "none",
@@ -93,45 +98,66 @@ class AddressView extends Component {
     const editButton = {
       backgroundColor: "#a8dadc",
       color: "#1d3557",
+      fontWeight: "bold",
       margin: "2px",
       padding: "10px 20px",
       border: "none",
+    };
+    const btnGroup = {
+      margin: "auto",
     };
 
     return (
       <>
         <Container>
-          <Link to={`/addresses`}>
-            <Button style={backBtn}>Back to Address List</Button>
-          </Link>
+          <Button href={`/addresses`} style={backBtn}>
+            Back to Address List
+          </Button>
         </Container>
         <Container>
           <CardGroup style={cardGroup}>
             <Row>
               <Col>
                 <Card style={cardStyle}>
+                  <Card.Title style={cardTitle}>
+                    Address # {address.id}
+                  </Card.Title>
                   <Card.Text>
-                    <div>Address # {address.id}</div>
-                    <span>Address Line 1: </span>
-                    {address.address_line_1} <br />
-                    <span>Address Line 2: </span>
-                    {address.address_line_2} <br />
-                    <span>City:</span> {address.city}
+                    <b>Address Line 1: </b>
                     <br />
-                    <span>State: </span>
-                    {address.state} <br />
-                    <span>Zip: </span>
-                    {address.zip} <br />
+                    {address.address_line_1}
+                    <br />
                   </Card.Text>
-                  <div>
-                    <Button style={editButton} variant={editButton}>
-                      <Link to={`/addresses/${address.id}/edit`}>
-                        Edit Address
-                      </Link>
+                  <Card.Text>
+                    <b>Address Line 2: </b>
+                    <br />
+                    {address.address_line_2}
+                    <br />
+                  </Card.Text>
+                  <Card.Text>
+                    <b>City:</b>
+                    <br />
+                    {address.city}
+                  </Card.Text>
+                  <Card.Text>
+                    <b>State: </b>
+                    <br />
+                    {address.state}
+                  </Card.Text>
+                  <Card.Text>
+                    <b>Zip: </b>
+                    <br />
+                    {address.zip}
+                  </Card.Text>
+                  <div style={btnGroup}>
+                    <Button
+                      href={`/addresses/${address.id}/edit`}
+                      style={editButton} 
+                      >
+                      Edit Address
                     </Button>
                     <Button
                       style={deleteButton}
-                      variant={deleteButton}
                       onClick={() => this.handleShow(address.id)}
                     >
                       Delete Address
