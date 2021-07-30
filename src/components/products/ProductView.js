@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ProductDataService from "../../services/product.data.service";
-import { Card, Container, Button, Row} from "react-bootstrap";
+import { Card, Container, Button, Row, Form } from "react-bootstrap";
 import ProductViewCSS from "./ProductView.module.css";
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,7 @@ class ProductView extends Component {
   state = {
     product: [],
   };
+
   componentDidMount() {
     const {
       match: {
@@ -31,9 +32,10 @@ class ProductView extends Component {
       alignItems: "center",
       justifyContent: "center",
       width: "85%",
-      "@media (max-width:991px)": {
+      "@media (maxWidth:991px)": {
         textAlign: "center",
       },
+      fontFamily: "Lato, sans-serif",
     };
     const { product } = this.state;
 
@@ -44,27 +46,19 @@ class ProductView extends Component {
       padding: "10px 20px",
       border: "none",
     };
-    const incrementBtn = {
-      backgroundColor: "#a8dadc",
-      color: "#1d3557",
-      fontWeight: "bold",
-      border: "none",
-      width: "60px",
-      margin: "15px 15px 30px 15px",
-      // marginBottom: "30px",
-    };
-    const decrementBtn = {
-      backgroundColor: "#e63946",
-      color: "#f1faee",
-      border: "none",
-      fontWeight: "bold",
-      width: "60px",
-      margin: "15px 15px 30px 0px",
-      // marginBottom: "30px",
-    };
     const h2 = {
       textAlign: "center",
       padding: "15px",
+      fontWeight: "900",
+      fontSize: "40px",
+    };
+
+    const miniHeadings = {
+      fontSize: "30px",
+      fontWeight: "500",
+    };
+    const para = {
+      fontSize: "20px",
     };
 
     return (
@@ -76,41 +70,47 @@ class ProductView extends Component {
             </Link>
           </Container>
         </div>
-        
-        <Container className={ProductViewCSS.mainContainer} >
+
+        <Container className={ProductViewCSS.mainContainer}>
           <Row>
-            <Card style={card} className={ProductViewCSS.cardStyle}>
+            <Card style={card} className="text-center">
               <Card.Body>
                 <Card.Title>
                   {" "}
-                  <h2 style={h2}>Product Details</h2>
+                  <h1 style={h2}>Product Details</h1>
                 </Card.Title>
-                <Card.Text>
-                  <span className={ProductViewCSS.span}>
-                    <b>Product Name: </b>
-                  </span>{" "}
-                  {product.name} <br />
-                  <span>
-                    <b>Description:</b>
-                  </span>{" "}
-                  {product.description} <br />
-                  <span>
-                    <b>Price:</b>
-                  </span>{" "}
-                  {product.price} <br />
-                  <span>
-                    <b>SKU:</b>
-                  </span>{" "}
-                  {product.sku} <br />
-                  <span>
-                    <b>Quanity: </b>{" "}
-                  </span>{" "}
-                  {product.quantity}
-                  <br />
-                  <div>
-                  <Button style={decrementBtn}>-</Button>
-                  <Button style={incrementBtn}>+</Button> &nbsp;
-                  </div>
+                <Card.Text className="p-2">
+                  <h4 style={miniHeadings}>
+                    <strong>Product Name</strong>{" "}
+                  </h4>
+
+                  <p style={para}> {product.name} </p>
+                </Card.Text>
+
+                <Card.Text className="p-2">
+                  <h4 style={miniHeadings}>Description</h4>
+
+                  <p style={para}>{product.description}</p>
+                </Card.Text>
+
+                <Card.Text className="p-2">
+                  <h4 style={miniHeadings}>Price</h4>
+                  <p style={para}>
+                    <em>$</em> <strong>{product.price}</strong>
+                  </p>
+                </Card.Text>
+
+                <Card.Text className="p-2">
+                  <h4 style={miniHeadings}>SKU</h4>
+
+                  <p style={para}>
+                    <em>{product.sku}</em>
+                  </p>
+                </Card.Text>
+
+                <Card.Text className="p-2">
+                  <h4 style={miniHeadings}>Quanity </h4>
+                  <p style={para}>{product.quantity}</p>
                 </Card.Text>
               </Card.Body>
             </Card>
