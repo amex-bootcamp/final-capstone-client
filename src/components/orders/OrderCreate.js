@@ -3,7 +3,7 @@ import OrderDataService from "../../services/order.data.service";
 import CustomerDataService from "../../services/customer.data.service";
 import ProductDataService from "../../services/product.data.service";
 import { Form, Button } from "react-bootstrap";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import OrderCreateCSS from "../orders/OrderCreateCSS.module.css";
 
 function OrderCreate() {
@@ -16,7 +16,6 @@ function OrderCreate() {
   const [datetime] = useState(new Date());
   const [productId, setProductId] = useState([]);
   const [orderNotes, setOrderNotes] = useState("");
-  const [sumbitted, setSubmitted] = useState(false);
   // let orderId = Math.max(...order.map((order) => order.id)) + 1;
 
   useEffect(() => {
@@ -56,6 +55,8 @@ function OrderCreate() {
 
   const totalPrice = productPrices.reduce((x, y) => Number(x) + Number(y));
 
+  const history = useHistory();
+
   const handleSubmit = (event) => {
     const params = {
       customer_id: customerId,
@@ -67,16 +68,27 @@ function OrderCreate() {
     };
     OrderDataService.post(params)
       .then((res) => {
-        console.log(res.data);
+        if (params.order_status >= 2) {
+          for (let i = 0; i < params.products.length; i++) {
+            OrderDataService.changeQuantity(params.products[i]).then((res) => {
+              console.log(res);
+            });
+          }
+        }
       })
       .catch((error) => console.log(error));
 
-    setSubmitted(true);
-  };
+    history.push("/orders");
 
-  if (sumbitted === true) {
-    return <Redirect to="/orders" />;
-  }
+    // if (orderQuantity > 0) {
+    //   OrderDataService.put(productId, orderQuantity);
+    //   setOrderQuantity(0);
+    //   setError(false);
+    // } else {
+    //   setOrderQuantity(0);
+    //   setError(true);
+    // }
+  };
 
   const container = {
     maxWidth: "800px",
