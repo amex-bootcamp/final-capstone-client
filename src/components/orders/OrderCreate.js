@@ -34,7 +34,7 @@ function OrderCreate() {
         setProducts(data.data);
       })
       .catch(console.error);
-  }, [order]);
+  }, []);
 
   const customerIdOption = customer.map((customer, id) => (
     <option value={customer.id} key={`${customer.id}-${id}`}>
