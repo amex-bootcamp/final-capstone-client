@@ -10,6 +10,10 @@ class OrderDataService {
     return http.get(`/orders/${id}`);
   }
 
+  changeQuantity(id) {
+    return http.put(`/products/${id}?quantity=1`);
+  }
+
   listByStatus(status) {
     return http.get(`/orders?status=${status}`);
   }

@@ -15,7 +15,7 @@ function OrderView() {
     OrderDataService.view(id)
       .then(({ data: order }) => setOrder(order))
       .catch(console.error);
-  }, [order, id]);
+  }, [id]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => {

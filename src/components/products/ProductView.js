@@ -3,12 +3,14 @@ import ProductDataService from "../../services/product.data.service";
 import { Card, Container, Button, Row } from "react-bootstrap";
 import ProductViewCSS from "./ProductView.module.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class ProductView extends Component {
   state = {
     product: [],
+    orderQuantity: 0,
+    error: false,
   };
-
   componentDidMount() {
     const {
       match: {
