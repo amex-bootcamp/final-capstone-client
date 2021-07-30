@@ -7,6 +7,7 @@ import {
   Container,
   CardColumns,
 } from "react-bootstrap";
+import DashboardCSS from "./Dashboard.module.css";
 
 class Dashboard extends Component {
   render() {
@@ -51,7 +52,7 @@ class Dashboard extends Component {
           <CardColumns className="d-flex flex-wrap justify-content-between">
             <Row>
               <Col>
-                <Card style={cardStyle} md={4}>
+                <Card className={DashboardCSS.cardStyle} style={cardStyle} md={4}>
                   <Card.Body>
                     <h1 className="d-flex justify-content-center">
                       <svg
@@ -93,7 +94,7 @@ class Dashboard extends Component {
             </Row>
             <Row>
               <Col>
-                <Card style={cardStyle} md={4}>
+                <Card className={DashboardCSS.cardStyle} style={cardStyle} md={4}>
                   <Card.Body>
                     <h1 className="d-flex justify-content-center">
                       <svg
@@ -135,7 +136,7 @@ class Dashboard extends Component {
             </Row>
             <Row>
               <Col>
-                <Card style={cardStyle} md={4}>
+                <Card className={DashboardCSS.cardStyle} style={cardStyle} md={4}>
                   <Card.Body>
                     <h1 className="d-flex justify-content-center">
                       <svg
@@ -177,7 +178,7 @@ class Dashboard extends Component {
             </Row>
             <Row>
               <Col>
-                <Card style={cardStyle} md={4}>
+                <Card className={DashboardCSS.cardStyle} style={cardStyle} md={4}>
                   <Card.Body>
                     <h1 className="d-flex justify-content-center">
                       <svg
@@ -219,7 +220,7 @@ class Dashboard extends Component {
             </Row>
             <Row>
               <Col>
-                <Card style={cardStyle} md={4}>
+                <Card className={DashboardCSS.cardStyle} style={cardStyle} md={4}>
                   <Card.Body>
                     <h1 className="d-flex justify-content-center">
                       <svg
@@ -261,7 +262,7 @@ class Dashboard extends Component {
             </Row>
             <Row>
               <Col>
-                <Card style={cardStyle} md={4}>
+                <Card className={DashboardCSS.cardStyle} style={cardStyle} md={4}>
                   <Card.Body>
                     <h1 className="d-flex justify-content-center">
                       <svg
@@ -303,7 +304,7 @@ class Dashboard extends Component {
             </Row>
             <Row>
               <Col>
-                <Card style={cardStyle} md={4}>
+                <Card className={DashboardCSS.cardStyle} style={cardStyle} md={4}>
                   <Card.Body>
                     <h1 className="d-flex justify-content-center">
                       <svg
@@ -347,7 +348,7 @@ class Dashboard extends Component {
             </Row>
             <Row>
               <Col>
-                <Card style={cardStyle} md={4}>
+                <Card className={DashboardCSS.cardStyle} style={cardStyle} md={4}>
                   <Card.Body>
                     <h1 className="d-flex justify-content-center">
                       <svg
