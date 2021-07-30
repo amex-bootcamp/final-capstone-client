@@ -97,11 +97,10 @@ function OrdersList() {
           <Card.Text>
             <p>Email: {order.Customer.email}</p>
           </Card.Text>
-
+        </Card.Body>
           <Button href={`orders/${order.id}`} style={linkStyle}>
             View Details
           </Button>
-        </Card.Body>
       </Card>
     </ul>
   ));
