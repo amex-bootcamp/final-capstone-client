@@ -128,7 +128,7 @@ class CustomerEdit extends Component {
                 <Card.Text>
                   <h2 className={CustomerEditCSS.heading}>Edit Customer</h2>
                   <form
-                    className={CustomerEditCSS.formcenter}
+                    className={CustomerEditCSS.formstyle}
                     onSubmit={this.handleSubmit}
                   >
                     <p>
