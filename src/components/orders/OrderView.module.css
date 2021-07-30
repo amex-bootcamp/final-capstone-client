@@ -53,7 +53,7 @@
   transform: scale(1.01);
 }
 .deletebtn {
-  color:#f1faee;
+  color: #f1faee;
   background-color: #e63946;
   width: 120px;
   position: relative;
@@ -61,7 +61,7 @@
   border: none;
 }
 .confdlbtn {
-  color:#f1faee;
+  color: #f1faee;
   background-color: #e63946;
   width: 100px;
   border: none;
@@ -73,7 +73,7 @@
   border: none;
 }
 .confdlbtn:hover {
-  color:#e63946;
+  color: #e63946;
   background-color: #1d3557;
   font-weight: bold;
   transform: scale(1.03);

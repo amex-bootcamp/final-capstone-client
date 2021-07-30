@@ -17,7 +17,7 @@ function OrderCreate() {
   const [productId, setProductId] = useState([]);
   const [orderNotes, setOrderNotes] = useState("");
   const [sumbitted, setSubmitted] = useState(false);
-  let orderId = Math.max(...order.map((order) => order.id)) + 1;
+  // let orderId = Math.max(...order.map((order) => order.id)) + 1;
 
   useEffect(() => {
     OrderDataService.list()
@@ -35,7 +35,7 @@ function OrderCreate() {
         setProducts(data.data);
       })
       .catch(console.error);
-  }, []);
+  }, [order]);
 
   const customerIdOption = customer.map((customer, id) => (
     <option value={customer.id} key={`${customer.id}-${id}`}>
@@ -58,13 +58,12 @@ function OrderCreate() {
 
   const handleSubmit = (event) => {
     const params = {
-      id: orderId,
       customer_id: customerId,
       order_status: orderStatus,
       datetime_order_placed: datetime,
       total_order_price: totalPrice,
       order_notes: orderNotes,
-      ProductId: productId,
+      products: productId,
     };
     OrderDataService.post(params)
       .then((res) => {
@@ -112,7 +111,7 @@ function OrderCreate() {
     <section>
       <Form style={container} onSubmit={handleSubmit}>
         <h2>Create a New Order</h2>
-        <Form.Group style={groupHeaderStyle} controlId="orderId">
+        {/* <Form.Group style={groupHeaderStyle} controlId="orderId">
           <Form.Label>Order ID:</Form.Label>
           <Form.Control
             id="orderId"
@@ -121,7 +120,7 @@ function OrderCreate() {
             value={orderId}
             readOnly
           />
-        </Form.Group>
+        </Form.Group> */}
         <Form.Group style={groupHeaderStyle} controlId="customerId">
           <Form.Label>Customer ID:</Form.Label>
           <Form.Select
@@ -189,7 +188,6 @@ function OrderCreate() {
             style={groupTextStyle}
             as="select"
             multiple
-            as="select"
             id="productList"
             type="text"
             name="productList"
@@ -211,14 +209,16 @@ function OrderCreate() {
         <Form.Group style={groupHeaderStyle} controlId="totalPrice">
           <Form.Label>Total Price: ${totalPrice}</Form.Label>
         </Form.Group>
-        <Button
-          style={submitButton}
-          className={OrderCreateCSS.submitButton}
-          size="lg"
-          type="submit"
-        >
-          Place Order
-        </Button>
+        <div className={"text-center"}>
+          <Button
+            style={submitButton}
+            className={OrderCreateCSS.submitButton}
+            size="lg"
+            type="submit"
+          >
+            Place Order
+          </Button>
+        </div>
       </Form>
     </section>
   );

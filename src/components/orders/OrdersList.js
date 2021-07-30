@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
 import OrderDataService from "../../services/order.data.service";
 import OrdersListCSS from "./OrdersList.module.css";
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import {
+  Card,
+  Button,
+  Container,
+  Row,
+  Col,
+  Form,
+  InputGroup,
+} from "react-bootstrap";
 
 function OrdersList() {
   const [orders, setOrders] = useState([]);
   const [orderStatusFilter, setOrderStatusFilter] = useState();
 
-  // This useEffect controls pulls in the daya for the orders. We built some conditinal logic to help control the funcitonality 
+  // This useEffect controls pulls in the daya for the orders. We built some conditinal logic to help control the funcitonality
   //of the select filter dropdown
   useEffect(() => {
-    //check if default value selected 
+    //check if default value selected
     if (orderStatusFilter === "-1") {
       OrderDataService.list()
         .then(({ data: orders }) => setOrders(orders))
@@ -26,9 +34,9 @@ function OrdersList() {
         .then(({ data: orders }) => setOrders(orders))
         .catch(console.error);
     }
-  }, [orderStatusFilter]);
+  }, [orders, orderStatusFilter]);
 
-//Css
+  //Css
   const cardStyle = {
     fontFamily: "Lato, sans-serif",
     backgroundColor: "#1d3557",
@@ -58,6 +66,12 @@ function OrdersList() {
     margin: "auto",
     fontWeight: "bold",
     borderRadius: "5px",
+  };
+
+  const groupHeaderStyle = {
+    fontWeight: "bold",
+    margin: "5px 0 10px 0",
+    color: "#f1faee",
   };
 
   //This controls the display of the orders. We map and array and then apply bootstrap react css to style it using Cards
@@ -94,24 +108,31 @@ function OrdersList() {
 
   return (
     <div>
-      <form>
-        <select
-          type="text"
-          name="orderStatusFilter"
-          value={orderStatusFilter}
-          onChange={(event) => setOrderStatusFilter(event.target.value)}
-        >
-          <option value="-1">Filter by order status...</option>
-          <option value="0">Drafted</option>
-          <option value="1">Open</option>
-          <option value="2">Finalized</option>
-          <option value="3">Preparing to ship</option>
-          <option value="4">Ready for shipping</option>
-          <option value="5">Shipped</option>
-          <option value="6">Delivered</option>
-          <option value="7">Closed</option>
-        </select>
-      </form>
+      <Form.Group
+        style={groupHeaderStyle}
+        className="mb-3"
+        controlId="formAddress"
+      >
+        <InputGroup className="mb-2">
+          <select
+            className="form-control-sm"
+            type="text"
+            name="orderStatusFilter"
+            value={orderStatusFilter}
+            onChange={(event) => setOrderStatusFilter(event.target.value)}
+          >
+            <option value="-1">Filter by order status...</option>
+            <option value="0">Drafted</option>
+            <option value="1">Open</option>
+            <option value="2">Finalized</option>
+            <option value="3">Preparing to ship</option>
+            <option value="4">Ready for shipping</option>
+            <option value="5">Shipped</option>
+            <option value="6">Delivered</option>
+            <option value="7">Closed</option>
+          </select>
+        </InputGroup>
+      </Form.Group>
       <Container fluid="lg">
         <Row>
           <Col>
