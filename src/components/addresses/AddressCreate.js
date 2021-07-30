@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import axios from "axios";
+
 import { withRouter } from "react-router";
+import AddressDataService from "../../services/address.data.service";
 
 class AddressCreate extends Component {
   constructor(props) {
@@ -47,25 +48,25 @@ class AddressCreate extends Component {
 
   createAddress = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:8080/api/addresses", {
-        address_line_1: this.state.address,
-        address_line_2: this.state.address2,
-        city: this.state.city,
-        state: this.state.state,
-        zip: this.state.zip,
-      })
-      .then((data) => {
-        this.setState({
-          address: "",
-          address2: "",
-          city: "",
-          state: "",
-          zip: "",
-        });
+    const params = {
+      address_line_1: this.state.address,
+      address_line_2: this.state.address2,
+      city: this.state.city,
+      state: this.state.state,
+      zip: this.state.zip,
+    };
 
-        this.props.history.push("/addresses");
+    AddressDataService.post(params).then((data) => {
+      this.setState({
+        address: "",
+        address2: "",
+        city: "",
+        state: "",
+        zip: "",
       });
+
+      this.props.history.push("/addresses");
+    });
   };
 
   render() {
