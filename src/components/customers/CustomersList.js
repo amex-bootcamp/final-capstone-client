@@ -74,15 +74,20 @@ function CustomersList() {
     display: "inline-block",
   };
 
-  const h2 = {
-    color: "black",
-    paddingTop: "20px"
+  const h1 = {
+    color: "#1d3557",
+    paddingTop: "20px",
+    paddingBottom: "20px",
   };
 
-  const searchBar ={
+  const h3 = {
+    color: "#1d3557",
+  };
+
+  const searchBar = {
     paddingTop: "20px",
-    paddingLeft: "400px"
-  }
+    paddingLeft: "400px",
+  };
 
   // something in here needs to be changed in order to save the data dynamically
   const customerListItems = customers.map((customer, index) => (
@@ -134,21 +139,18 @@ function CustomersList() {
 
   //Search Customer Section
 
-  const onChangeSearchEmail = (event) =>{
+  const onChangeSearchEmail = (event) => {
     const searchEmail = event.target.value;
     setSearchEmail(searchEmail);
   };
 
   const findByEmail = () => {
     CustomerDataService.viewByEmail(searchEmail)
-    .then(response => {
-      setCustomer(response.data);
-    })
-    .catch(console.error);
+      .then((response) => {
+        setCustomer(response.data);
+      })
+      .catch(console.error);
   };
-
-
-
 
   return (
     <section>
@@ -172,16 +174,19 @@ function CustomersList() {
           </div>
         </div>
       </div>
-      <h2 style={h2}>Customers</h2>
-      
+      <h1 style={h1} className="text-center">
+        Customers
+      </h1>
+
       <form onClick={handleClick}>
-        <h3>
+        <h3 style={h3}>
           Display:{" "}
           <select
             type="number"
             name="totalCustomer"
             value={customerLoad}
             onChange={(event) => setCustomerLoad(event.target.value)}
+            style={h3}
           >
             <option value="1">1</option>
             <option value="2">2</option>
@@ -194,7 +199,7 @@ function CustomersList() {
             <option value="9">9</option>
             <option value="10">10</option>
           </select>{" "}
-          Customers on the Page
+          Customers
         </h3>
       </form>
       <Container fluid="lg">
