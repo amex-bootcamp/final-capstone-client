@@ -3,40 +3,10 @@ import ProductDataService from "../../services/product.data.service";
 import { Card, Container, Button, Row, Form } from "react-bootstrap";
 import ProductViewCSS from "./ProductView.module.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 class ProductView extends Component {
   state = {
     product: [],
-    orderQuantity: 0,
-    error: false,
-  };
-
-  updateQuantity = () => {
-
-    if (this.state.orderQuantity > 0) {
-      axios.put(
-        `http://localhost:8080/api/products/${this.state.product.id}?quantity=${this.state.orderQuantity}`
-      );
-      this.setState({ orderQuantity: 0, error: false });
-    } else {
-      this.setState({ orderQuantity: 0, error: true });
-    }
-  };
-
-  handleQuantityChange = (event) => {
-    this.setState({ orderQuantity: event.target.value });
-  };
-
-  incrementQuantity = () => {
-    this.setState({ orderQuantity: Number(this.state.orderQuantity) + 1 });
-  };
-  decrementQuantity = () => {
-    if (this.state.orderQuantity > 0) {
-      this.setState({ orderQuantity: Number(this.state.orderQuantity) - 1 });
-    } else {
-      this.setState({ error: true });
-    }
   };
 
   componentDidMount() {
@@ -65,6 +35,7 @@ class ProductView extends Component {
       "@media (maxWidth:991px)": {
         textAlign: "center",
       },
+      fontFamily: "Lato, sans-serif"
     };
     const { product } = this.state;
 
@@ -75,24 +46,21 @@ class ProductView extends Component {
       padding: "10px 20px",
       border: "none",
     };
-    const incrementBtn = {
-      backgroundColor: "#a8dadc",
-      color: "#1d3557",
-      border: "none",
-      margin: "15px",
-      marginBottom: "30px",
-    };
-    const decrementBtn = {
-      backgroundColor: "#e63946",
-      color: "#f1faee",
-      border: "none",
-      margin: "15px",
-      marginBottom: "30px",
-    };
+
     const h2 = {
       textAlign: "center",
       padding: "15px",
+      fontWeight: "900",
+      fontSize: "40px"
     };
+
+    const miniHeadings = {
+      fontSize: "30px",
+      fontWeight: "500"
+    }
+    const para = {
+      fontSize: "20px"
+    }
 
     return (
       <div>
@@ -106,64 +74,41 @@ class ProductView extends Component {
 
         <Container className={ProductViewCSS.mainContainer}>
           <Row>
-            <Card style={card} className={ProductViewCSS.cardStyle}>
+            <Card style={card} className="text-center">
               <Card.Body>
                 <Card.Title>
                   {" "}
-                  <h2 style={h2}>Product Details</h2>
+                  <h1 style={h2}>Product Details</h1>
                 </Card.Title>
-                <Card.Text>
-                  <span className={ProductViewCSS.span}>
-                    <b>Product Name: </b>
-                  </span>{" "}
-                  {product.name} <br />
-                  <span>
-                    <b>Description:</b>
-                  </span>{" "}
-                  {product.description} <br />
-                  <span>
-                    <b>Price:</b>
-                  </span>{" "}
-                  {product.price} <br />
-                  <span>
-                    <b>SKU:</b>
-                  </span>{" "}
-                  {product.sku} <br />
-                  <span>
-                    <b>Quanity: </b>{" "}
-                  </span>{" "}
-                  {product.quantity}
-                  <br />
-                  <Form onSubmit={this.updateQuantity}>
-                    <Form.Control
-                      value={this.state.orderQuantity}
-                      name={this.state.orderQuantity}
-                      onChange={this.handleQuantityChange}
-                      type="number"
-                      required
-                    />
-                    {this.state.error ? (
-                      <Form.Text
-                        style={{ color: "#E63946", fontWeight: "900px" }}
-                      >
-                        <strong> Please Enter a Valid Quantity.</strong>
-                      </Form.Text>
-                    ) : (
-                      <i></i>
-                    )}
-                    <br></br>
-                    <Button onClick={this.updateQuantity}>
-                      Update Quantity
-                    </Button>
-                  </Form>
-                  <Button style={decrementBtn} onClick={this.decrementQuantity}>
-                    -
-                  </Button>
-                  <Button style={incrementBtn} onClick={this.incrementQuantity}>
-                    +
-                  </Button>{" "}
-                  &nbsp;
-                  <br />
+                <Card.Text className="p-2">
+                  <h4 style={miniHeadings}><strong>Product Name</strong> </h4>
+
+              <p style={para}> {product.name} </p>  
+                </Card.Text>
+
+                <Card.Text className="p-2">
+                  <h4 style={miniHeadings}>Description</h4>
+
+                  <p style={para}>{product.description}</p>
+                </Card.Text>
+
+                <Card.Text className="p-2">
+                  <h4 style={miniHeadings}>Price</h4>
+                  <p style={para}>
+                    <em>$</em> <strong>{product.price}</strong>
+                  </p>
+                </Card.Text>
+
+                <Card.Text className="p-2">
+                  <h4 style={miniHeadings}>SKU</h4>
+
+                  <p style={para}><em>{product.sku}</em></p>
+
+                </Card.Text>
+
+                <Card.Text className="p-2">
+                  <h4 style={miniHeadings}>Quanity </h4>
+                  <p style={para}>{product.quantity}</p>
                 </Card.Text>
               </Card.Body>
             </Card>
