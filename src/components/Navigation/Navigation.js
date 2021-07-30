@@ -56,9 +56,6 @@ class Navigation extends Component {
                 <NavDropdown.Item href="/products">
                   View All Products
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/products/new">
-                  Create New Product
-                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
